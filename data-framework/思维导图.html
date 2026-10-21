@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>铝产业看板 - 数据维度框架</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: #f8fafc; color: #1e293b;
+    font-size: 14px; line-height: 1.6;
+  }
+  .header {
+    position: sticky; top: 0; z-index: 100;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #f8fafc; padding: 14px 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  .header h1 { font-size: 18px; font-weight: 600; }
+  .header .sub { font-size: 12px; color: #94a3b8; margin-top: 4px; }
+
+  .toolbar {
+    position: sticky; top: 70px; z-index: 99;
+    background: #ffffff; padding: 10px 24px;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  }
+  .toolbar input {
+    flex: 1; min-width: 200px; max-width: 400px;
+    padding: 6px 12px; border: 1px solid #cbd5e1; border-radius: 4px;
+    font-size: 13px; outline: none;
+  }
+  .toolbar input:focus { border-color: #3b82f6; }
+  .toolbar .stat { font-size: 12px; color: #64748b; }
+
+  .legend {
+    background: #ffffff; padding: 8px 24px;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex; gap: 18px; flex-wrap: wrap; font-size: 12px;
+  }
+  .legend-item { display: inline-flex; align-items: center; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; }
+  .legend-dot.green { background: #10b981; }
+  .legend-dot.yellow { background: #f59e0b; }
+  .legend-dot.red { background: #ef4444; }
+  .legend-dot.gray { background: #94a3b8; }
+  .legend-dot.blue { background: #0ea5e9; }
+
+  .container {
+    max-width: 1200px; margin: 0 auto; padding: 20px 24px 60px;
+  }
+
+  /* 树形结构 */
+  .node { margin: 0; padding: 0; }
+  .node-content {
+    cursor: pointer; padding: 4px 8px; border-radius: 4px;
+    display: inline-block; user-select: none;
+    transition: background 0.1s;
+  }
+  .node-content:hover { background: #f1f5f9; }
+  .toggle {
+    display: inline-block; width: 16px; color: #94a3b8; font-size: 10px;
+    transition: transform 0.15s;
+  }
+  .toggle.collapsed { transform: rotate(-90deg); }
+  .node-text { margin-left: 2px; }
+
+  /* 颜色 */
+  .lvl-L { font-weight: 700; font-size: 16px; color: #0f172a; margin-top: 12px; }
+  .lvl-section { font-weight: 600; font-size: 15px; color: #1e293b; margin-top: 8px; }
+  .lvl-group { font-weight: 500; color: #334155; }
+  .lvl-leaf { color: #475569; }
+  .lvl-leaf.has-red { color: #b91c1c; }
+  .lvl-leaf.has-yellow { color: #b45309; }
+
+  .has-green { color: #047857; }
+  .has-yellow { color: #b45309; }
+  .has-red { color: #b91c1c; }
+  .has-gray { color: #475569; }
+  .has-blue { color: #0369a1; }
+  .has-star { background: linear-gradient(90deg, #dbeafe, transparent); padding-left: 6px; border-left: 3px solid #0ea5e9; }
+
+  .children { padding-left: 22px; border-left: 1px dashed #e2e8f0; margin-left: 8px; }
+  .children.hidden { display: none; }
+
+  .errbox {
+    background: #fef2f2; border: 1px solid #fecaca; color: #991b1b;
+    padding: 20px; border-radius: 6px; margin: 20px 0;
+  }
+  .errbox code { background: #fee2e2; padding: 2px 6px; border-radius: 3px; font-size: 12px; }
+
+  .stats {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px; margin: 16px 0;
+  }
+  .stat-card {
+    background: #fff; padding: 12px 16px; border-radius: 6px;
+    border: 1px solid #e2e8f0;
+  }
+  .stat-card .label { font-size: 11px; color: #64748b; }
+  .stat-card .value { font-size: 20px; font-weight: 600; color: #0f172a; margin-top: 2px; }
+  .stat-card.green .value { color: #047857; }
+  .stat-card.red .value { color: #b91c1c; }
+  .stat-card.yellow .value { color: #b45309; }
+  .stat-card.blue .value { color: #0369a1; }
+
+  .info {
+    background: #eff6ff; border-left: 3px solid #3b82f6;
+    padding: 10px 14px; margin: 12px 0; border-radius: 4px;
+    font-size: 12px; color: #1e40af;
+  }
+  .info b { color: #1e3a8a; }
+</style>
+  <script id="md-source" type="text/plain"># 铝产业看板 - 数据维度框架（思维导图 v0.2）
+
+> 基于 `C:\Users\HUAWEI\Claude\铝产业看板\铝产业链数据.xlsx` **68 个 sheet** + 公开数据补充
+> 颜色图例：🟢=Excel已有 🟡=Excel部分覆盖需补全 🔴=Excel缺失需外部补 ⚪=待确认
+>
+> **v0.2 变更（2026-10-21）**：新 Excel 从 42 → 68 sheet，L6 从「🔴★空白」升级为「🟡★部分覆盖」（新增 20 个 sheet），L7 升级为「🟡★部分覆盖」，L8 改为「🟢★已有（内外盘联动）」。下文 §统计表的 L6/L7/L8 行已按实测覆盖重算。
+
+## L1 铝土矿 [Bauxite] 🟢★最强
+
+### L1.1 国内供给
+
+- **国产产量** 🟢
+  - 全国月度总计 [L1铝土矿产量-月]
+  - 分省明细：山西/河南/广西/贵州/云南/重庆 [L1铝土矿产量-月]
+  - 全国累计/同比 [L1铝土矿产量-月]
+- **国产库存** 🟢
+  - 分省份月度库存 [L1铝土矿库存-月]
+  - 主要港口库存 [L1铝土矿库存-月]
+  - **补：山东/河南/山西 三省月度开工率** 🔴
+  - **补：主产矿山数量与产量集中度（CR5/CR10）** 🔴
+
+### L1.2 进口供给
+
+- **进口量** 🟢
+  - 总进口量 [L1铝土矿进口-月]
+  - 分国别明细（15 国）：几内亚/澳大利亚/印尼/巴西/印度/马来西亚/牙买加/加纳/所罗门/圭亚那/老挝/土耳其/塞拉利昂/黑山/其他 [L1铝土矿进口-月]
+- **进口价格** 🟢
+  - 山西高品/低品铝矿到厂价 [L1铝土矿价格-日]
+  - 河南/广西/贵州 高低品价 [L1铝土矿价格-日]
+  - 澳洲铝矿 CIF 均价 [L1铝土矿价格-日]
+  - 几内亚铝矿 CIF 均价 [L1铝土矿价格-日]
+  - 印尼铝矿 CIF 均价 [L1铝土矿价格-日]
+  - **补：印尼禁矿令时间线及替代来源切换** 🔴
+  - **补：海运费（好望角/巴拿马型）** 🔴
+
+### L1.3 全球供给
+
+- **分国别年产量** 🟢
+  - 全球/澳大利亚/巴西/俄罗斯/几内亚/加纳/马来西亚/中国/越南/印尼/印度/牙买加/哈萨克斯坦/圭亚那/其他国家 [L1铝土矿产量分国别-年] (USGS)
+- **补：全球铝土矿储量分布** 🔴
+- **补：全球主要矿山扩产/减产事件** 🔴
+
+## L2 氧化铝 [Alumina] 🟢★最强
+
+### L2.1 供给
+
+- **国内产量** 🟢
+  - 月度总量 + 年化产能 [L2氧化铝产量中国-月]
+  - 分省产量：山东/山西/广西/河南/贵州/云南/重庆/内蒙古 [L2氧化铝产量中国-月]
+  - 月度产量预测 [L2氧化铝产量中国-月]
+- **开工率** 🟢
+  - 周度建成产能/运行产能/开工率 [L2氧化铝开工率中国-周]
+  - 月度总开工率 [L2氧化铝开工率中国-月]
+  - **补：分省氧化铝开工率** 🔴
+- **进出口** 🟢
+  - 月度净进口/出口/进口量 [L2氧化铝进出口-月]
+- **库存** 🟢
+  - 周度厂内库存 + 库存天数 [L2氧化铝库存-周]
+
+### L2.2 价格
+
+- **国内价格** 🟢
+  - SMM 氧化铝指数-平均价 [L2氧化铝价格-日]
+  - SMM 氧化铝价格指数 [L2氧化铝价格-日]
+- **进口/海外价格** 🟢
+  - SMM 西澳 FOB 价格 [L2氧化铝价格-日]
+  - 西澳-中国主要港口运费 [L2氧化铝价格-日]
+  - 氧化铝港杂 [L2氧化铝价格-日]
+  - 进口盈亏 [L2氧化铝价格-日]
+- **补：澳洲氧化铝 FOB 月度均价** 🔴
+- **补：巴西/俄罗斯/印度氧化铝 FOB** 🔴
+
+### L2.3 成本
+
+- **国内成本拆分** 🟢
+  - 矿石成本 [L2氧化铝成本-日]
+  - 烧碱成本 [L2氧化铝成本-日]
+  - 能源成本 [L2氧化铝成本-日]
+  - 其他成本 [L2氧化铝成本-日]
+  - 现金成本 [L2氧化铝成本-日]
+  - 完全成本 [L2氧化铝成本-日]
+- **分省现金成本** 🟢
+  - 重庆/广西/贵州/河北/河南/内蒙古/山东/山西/云南 [L2氧化铝成本-周]
+- **补：烧碱价格（32%离子膜）独立序列** 🔴
+- **补：动力煤价格（山西/内蒙古）** 🔴
+- **补：山西/河南铝土矿到厂价分省** 🔴
+
+### L2.4 平衡
+
+- **中国月度平衡** 🟢
+  - 实际消费量 [L2氧化铝平衡-月]
+  - 表观消费量 [L2氧化铝平衡-月]
+  - 产量 [L2氧化铝平衡-月]
+  - 净进口量 [L2氧化铝平衡-月]
+  - 平衡差额 [L2氧化铝平衡-月]
+
+### L2.5 海外供给
+
+- **全球分地区产量** 🟢
+  - 中东欧/西欧/中国/非洲及亚洲除中国/大洋洲/北美/南美/其他 [L7全球氧化铝产量-月]
+  - 中国估算 + 中国以外同比 + 日均产量 [L7全球氧化铝产量-月]
+  - **注意：起始日期异常（1943 序列号）⚪待校验**
+- **补：印尼/越南/阿联酋氧化铝新建产能** 🔴
+
+## L3 电解铝 [Primary Aluminum] 🟢★核心
+
+### L3.1 产能
+
+- **建成/运行产能** 🟢
+  - 中国周度建成产能/运行产能/开工率 [L3电解铝产能中国-周]
+- **分省产能利用率** 🟢
+  - 全国 + 山东/新疆/河南/内蒙古/甘肃/青海/宁夏/贵州/山西/广西/四川/陕西/辽宁/重庆/湖北/福建 [L3电解铝产能中国-周]（17 省）
+  - ⚠️ **缺云南** —— 水电铝核心区，恰是判断枯丰水季电量波动最需要的一省
+- **补：分省电解铝建成/运行产能明细** 🔴
+- **补：行业产能天花板政策（4500 万吨）执行进度** 🔴
+- **补：新建/复产/减产/置换项目时间表** 🔴
+- ⚠️ **建成产能 4,579.2 / 运行 4,549.1 万吨（2026-10-09）已略高于 656 号文 4,500 万吨合规口径**
+
+### L3.2 产量
+
+- **中国产量** 🟢
+  - 月度总量 + 同比 [L3电解铝产量中国-月]
+  - 下月产量预测 [L3电解铝产量中国-月]
+- **全球产量** 🟢
+  - 月度合计 [L3电解铝产量全球-月]
+  - 分地区：北美/非洲/中东/澳洲/西欧/中东欧/南美/亚洲 [L3电解铝产量全球-月]
+  - ⚠️ **「西欧」「中东欧」两列全空** → 2026-08「合计−中国」= 229.8 万吨，分地区求和仅 165.5 万吨，**差额 64.3 万吨即未拆分的欧洲**；不可把分地区求和当作中国以外总量
+  - 中国/中国以外同比 + 中国占比 [L3电解铝产量全球-月]
+  - 日均产量 + 中国估算 [L3电解铝产量全球-月]
+- **铝水比例** 🟢
+  - 月度电解铝产量 + 铝水占比 [L3电解铝铝水占比-月]
+
+### L3.3 进出口
+
+- **月度进出口** 🟢
+  - 进口/净进口/出口 [L3电解铝进出口]
+  - 废铝月度进口 [L3电解铝进出口]
+- **进口盈亏模型** 🟢
+  - 铝锭进口成本 + 铝锭进口利润 + LME 0-3 升水 [L3电解铝进口盈亏]
+  - 出口利润（铝锭/铝板带/铝型材/铝箔 4 类） [L3电解铝进口盈亏]
+  - 加工费（铝型材/铝板带/铝箔） [L3电解铝进口盈亏]
+  - 海外价（北美/欧洲/日本） [L3电解铝进口盈亏]
+  - 汇率 + 增值税 + 退税税率 [L3电解铝进口盈亏]
+
+### L3.4 价格
+
+- **国内现货** 🟢
+  - SMM A00 铝-平均价 [L3铝、铝合金价格-日]
+- **铝合金价格** 🟢
+  - SMM 铝合金 ADC12-平均价 [L3铝、铝合金价格-日]
+  - 华东/华南/西南/东北 ADC12 [L3铝、铝合金价格-日]
+  - 铝合金-铝价价差 [L3铝、铝合金价格-日]
+- **海外参考** 🟢
+  - 洋山铝溢价（10 列分地区/分买家） [L3洋山铝溢价-日]
+  - 沪伦铝比 [L3电解铝沪伦铝比]
+- **原料价格** 🟢
+  - 预焙阳极（4 个规格） [L3预焙阳极价格]
+- **补：伦铝 LME 现货/三月期价格独立序列** 🔴
+- **补：沪铝主力合约收盘价独立序列** 🔴
+- **补：基差/价差/期现结构** 🔴
+
+### L3.5 成本与利润
+
+- **国内成本利润模型** 🟢
+  - 电价 [L3电解铝成本利润-日]
+  - 现金成本/总成本/利润 [L3电解铝成本利润-日]
+  - 氧化铝价格 + 氧化铝单耗 + 氧化铝成本 [L3电解铝成本利润-日]
+  - 氟化铝价格 + 单耗 + 成本 [L3电解铝成本利润-日]
+  - 冰晶石价格 + 单耗 + 成本 [L3电解铝成本利润-日]
+  - 阳极价格 + 单耗 + 成本 [L3电解铝成本利润-日]
+  - 电力成本 + 折旧 + 维修 + 三项费用 + 人工 [L3电解铝成本利润-日]
+  - **注意：单耗口径 2010-2014 与现行不一致 ⚪待统一**
+- **补：分省电价（山东/新疆/内蒙古/云南/甘肃/青海/宁夏/广西/贵州）** 🔴
+  - ⚠️ Excel 仅全国口径「中国电解铝成本模型：电价」日频；**全表无任何含「煤」的列** → 「火电随煤价波动」暂无法落地
+  - ✅ 已做全国口径季节性验证：枯水季（10-2 月）均值 **0.4460 元/度** vs 丰水季（6-9 月）均值 **0.4165 元/度**（+0.0295），季节性成立；最新 0.407（2026-10-16）
+- **补：丰水期/枯水期电价** 🔴（分省口径）
+- **补：绿电铝/火电铝比例（云南、四川）** 🔴
+
+### L3.6 库存
+
+- **交易所库存** 🟢
+  - LME：注销仓单/注册仓单/总计/变化 [L3 LME库存]
+  - SHFE：总库存 + 江苏/河南/广东/天津/山东/上海/重庆/浙江 + 仓单 [L3SHFE库存]
+- **国内社会库存** 🟢
+  - 周度合计 + 上海/杭州/南海/无锡/临沂/天津/巩义/重庆 [L3 电解铝社会库存]
+- **出库量** 🟢
+  - 周度出库：中国合计 + 无锡/常州/重庆/巩义/杭州/佛山 [L3电解铝出库量-周]
+  - 周环比 [L3电解铝出库量-周]
+- **库存天数** 🟢
+  - 月度库存天数变化 [L3铝库存天数变化]
+
+### L3.7 衍生品消费/供给
+
+- **铝棒库存** 🟢
+  - 周度合计 + 常州/湖州/佛山/无锡/南昌 [L3铝棒库存-周]
+  - 6063 铝棒分地区（佛山/无锡/南昌/常州/湖州） [L3铝棒库存-周]
+- **铝棒消费** 🟢
+  - 周度出库：合计/无锡/湖州/南昌/常州/佛山 + 周环比 [L3铝棒消费]
+
+### L3.8 平衡
+
+- **中国月度平衡** 🟢
+  - 实际消费量 + 电解铝产量同比 + 累计产量增速 [L3电解铝平衡-月]
+  - 年化产能 + 累计实际消费增速 + 月度库存 [L3电解铝平衡-月]
+  - 实际消费增速 + 净进口 + 表观消费 + 库存/消费比 [L3电解铝平衡-月]
+  - 产量 + 表观消费增速 [L3电解铝平衡-月]
+- **补：全球电解铝供需平衡** 🔴
+- **补：中国海外分块平衡** 🔴
+
+### L3.9 消费
+
+- **季度消费量预测** 🟢
+  - 中国电解铝消费量预测 [L3电解铝消费量预测-季]
+
+## L4 再生铝 [Secondary Aluminum] 🟡★薄弱
+
+- **废铝进口** 🟢（仅 1 列）
+  - 中国废铝月度进口量 [L4再生铝]
+- **补：国内废铝回收量** 🔴
+- **补：再生铝合金 ADC12 产量** 🔴
+- **补：再生铝合金开工率** 🔴
+- **补：保级利用 vs 降级利用比例** 🔴
+- **补：废铝国内价格（佛山/临沂/天津）** 🔴
+- **补：废铝分国别进口（马来西亚/泰国/日本/美国）** 🔴
+- **补：再生铝碳排放系数** 🔴
+- **补：再生铝新建产能项目** 🔴
+
+## L5 铝合金 [Aluminum Alloy & Processing] 🟢
+
+### L5.1 开工率
+
+- **周度开工率** 🟢
+  - 铝行业平均 + 铝型材 + 再生铝合金 + 原生铝合金 + 铝线缆 + 铝板带 + 铝箔 [L5铝合金开工率-周]
+  - 平均开工率环比 [L5铝合金开工率-周]
+- **月度开工率** 🟢
+  - 铝线缆总/分规模（调研总产能/当月/预测） [L5铝合金开工率-月]
+  - 铝板带箔总/分规模（大型/中型/小型 当月+预测） [L5铝合金开工率-月]
+  - 铝型材总/分规模（大型/中型/小型 当月+预测） [L5铝合金开工率-月]
+  - A356 铝合金当月+预测 [L5铝合金开工率-月]
+
+### L5.2 进出口
+
+- **铝合金进出口** 🟢
+  - 进口/出口/净出口 + 同比 [L5铝合金进出口]
+- **铝材进出口** 🟢
+  - 铝材出口总量 + 板带/铝箔/铝管/铝丝/型材/铝粉 出口量/同比/环比 [L5铝材进出口]
+  - **补：分国别出口流向（美国/欧盟/东盟/印度/墨西哥）** 🔴
+
+### L5.3 加工费
+
+- **国内加工费** 🔴（知识库有 2026-05-29 单周快照，Excel 未落表）
+  - 铝棒（广东 φ90）/ 铝杆（山东 1A60）/ 铝板带（山东 1100 装饰板）周度加工费
+- **海外加工费估算** 🟢 [L3电解铝进口盈亏]
+  - 海外铝型材加工费估算 / 海外铝板带加工费估算
+- **国内加工费（在出口利润模型内）** 🟢 [L3电解铝进口盈亏]
+  - 中国电解铝出口利润模型：铝型材加工费 / 铝板带加工费
+
+### L5.4 库存与订单
+
+- **铝棒库存** 🟢 [L3铝棒库存-周]
+  - 6063 铝棒合计 + 常州/湖州/佛山/无锡/南昌分地区
+- **补：铝合金企业成品库存** 🔴
+- **补：加工端订单/排产天数** 🔴
+
+## L6 终端需求 [End-use Demand] 🟡★部分覆盖
+
+> 2026-10-21 更新：新 Excel 补进 **20 个 L6 sheet**（7 大行业拆分 + 5 个新能源细分 + 电网投资 + 需求结构 + 地产弹性 + 3 个日期型数据表）→ 本层从「🔴★空白」升级为「🟡★部分覆盖」。
+
+### L6.1 房地产 🟢
+
+- **房地产开发投资完成额** 🟢 [L6建筑数据]
+- **房屋新开工面积 + 施工面积 + 竣工面积** 🟢 [L6建筑数据 / L6建筑]
+- **建筑铝型材月度产量/开工率** 🔴
+- **建筑幕墙/门窗铝单耗** 🟢 [L6建筑：窗面比 / 铝门窗应用率 / 平米用铝量 / 成材率 / 翻新率]
+- **传导：地产 → 建筑型材 → 原铝需求** 🟢 已在看板 L6 拆分为「竣工相关 / 翻新相关 / 门窗用铝量 / 铝模板用铝量」四条推导链（`verify_l6_chain.js` 恒等式校验）
+
+### L6.2 汽车 🟢
+
+- **汽车产量分车型（乘用车/商用车/新能源车）** 🟢 [L6交运数据 / L6新能源车]
+- **新能源汽车月度产量/销量/渗透率** 🟢 [L6交运数据：产量/销量/同比/环比]
+- **单车用铝量（传统车 / 新能源车）** 🟢 [L6新能源车：乘用车(电动/混动)/客车/专用/商用车 分车型单车用铝量]
+- **汽车铝合金压铸件/板带/型材采购量** 🔴
+- **传导：新能源车 → 铝合金/铝板带 → 原铝需求** 🟢 已在看板 L6 出「中国 + 海外」新能源车用铝量拆分
+
+### L6.3 电力电网 🟢
+
+- **电网投资完成额** 🟢 [L6电网投资：国网/南网/电网投资总额/主网/特高压/直流(±800kV)/交流(1000kV)/配网/抽水蓄能…共 16 列]
+- **特高压输电线路建设进度** 🟢 [L6电网投资：特高压 / 直流（±800kV）/ 交流（1000kV）]
+- **铝线缆产量/招标量** 🔴
+- **传导：特高压 → 铝线缆 → 原铝需求** 🟢 已在看板 L6 出「电网 + 光伏需求 + 风电需求 = 全国电力行业需求」
+
+### L6.4 家电 🔴
+
+- **补：空调/冰箱/洗衣机 月度产量** 🔴
+- **补：家电出口量** 🔴
+- 传导：家电 → 铝箔/铝板带 → 原铝需求
+
+### L6.5 包装 🟡
+
+- **易拉罐产量/消费量** 🔴
+- **铝箔包装消费量（食品/医药/卷烟）** 🔴
+- **铝塑膜产量（电池软包）** 🔴
+- **全国包装行业需求（总量）** 🟢 [L6包装：1 列，2015-2030 年度] → 只有总量，**无驱动因子链** → 看板只出年度柱 + YOY，不出瀑布图
+
+### L6.6 出口 🟡
+
+- **铝材月度出口分国别** 🔴（美国/欧盟/东盟/印度/墨西哥/中东）
+- **铝材出口总量 + 品种拆分** 🟢 [L5铝合金进出口-月：铝丝/型材条杆/板带/铝管/铝箔/铝粉 出口量]
+- **铝材出口退税率政策** 🔴
+- **海外反倾销/反补贴事件** 🔴
+- **人民币汇率与出口竞争力** 🟢 [L8铝内外盘联动：中间价:美元兑人民币]
+
+### L6.7 3C 与新兴 🟡
+
+- **消费电子（手机/笔电）出货量** 🔴
+- **光伏组件产量（铝边框需求）** 🔴（但**光伏用铝需求**已覆盖 → [L6光伏]：装机容量 × 边框+支架用铝量，含谨慎/中性/乐观三情景）
+- **锂电池铝塑膜/电池箔需求** 🟢 [L6储能：电池箔 / 外壳 / 托盘 / 散热系统 → 单位 GWh 铝材需求量]
+- **风电/储能/数据中心** 🟢 [L6风电 / L6储能 / L6数据中心：独立拆分 sheet]
+
+## L7 全球平衡 [Global Balance] 🟡★部分覆盖
+
+> 2026-10-21 更新：新 Excel 补进 4 个 L7 sheet，但**层级归属被重新分配**（按业务环节分发到 L1/L2/L3），L7 Tab 本身只留归属说明。
+
+- **全球电解铝产量分地区** 🟢 [L7电解铝产量全球-月 → 看板归 L3]
+- **全球氧化铝产量分地区** 🟢 [L7全球氧化铝产量-月 → 看板归 L2]
+- **全球铝土矿产量分国别（USGS 15 国）** 🟢 [L7铝土矿产量全球分国别-年 → 看板归 L1]
+- **全球需求分行业（Global / China 口径）** 🟢 [L7全球需求：82 列，单位 kt]
+- **全球电解铝供需平衡表（季度）** 🔴
+- **LME 持仓集中度/基金净持仓** 🔴
+- **海外 LME 注销仓单比例** 🟢 [L3 LME库存：伦敦金属交易所分国别铝锭库存：注销仓单合计]
+- **LME 现货升贴水（Backwardation/Contango）** 🟢 [L8铝内外盘联动：LME铝升贴水(0-3)]
+- **全球主要消费国占比** 🔴
+
+## L8 内外盘联动 [Domestic-International Linkage] 🟢★已有
+
+> 2026-10-21 更新：看板的 L8 Tab 已从「公司」改为「内外盘联动」（用户要求 #10）。**公司数据在 Excel 中仍然全缺**，下方的公司维度继续作为待补清单保留。
+
+### L8.1 内外盘联动 🟢 [L8铝内外盘联动，11 列 / 1262 行]
+
+- **SHFE 铝** 🟢（元）
+- **LME 铝** 🟢（美元）
+- **LME 铝升贴水(0-3)** 🟢（美元/吨）
+- **平均溢价：上海电解铝：CIF（提单）** 🟢（美元/吨）
+- **中间价:美元兑人民币** 🟢
+- **LME 铝完税价格** 🟢（美元/吨）
+- **关税 / 增值税 / 港杂费** 🟢（政策与费用常量，各年取值相同 → 无波动即不构成曲线，**不出图**，数值仍在表格里）
+- **LME 铝进口总成本 / 价差** 🟢（元/吨 / 元）
+
+### L8.2 公司（Excel 仍全缺 🔴，仅保留为待补清单）
+
+- **补：中国宏桥 (01378.HK)** 🔴
+  - 产能/产量/市占率
+  - 海外几内亚铝土矿布局
+  - 股价/市值/PE/PB
+  - 吨净利
+- **补：中国铝业 (601600.SH / 02600.HK)** 🔴
+- **补：神火股份 (000933.SZ)** 🔴
+- **补：云铝股份 (000807.SZ)** 🔴
+- **补：南山铝业 (600219.SH)** 🔴
+- **补：天山铝业 (002532.SZ)** 🔴
+- **补：明泰铝业 (601677.SH)** 🔴
+- **补：亚太科技 (002540.SZ)** 🔴
+
+### L8.3 海外龙头
+
+- **补：俄铝 (RUAL.LSE)** 🔴
+- **补：海德鲁 (NHYDY)** 🔴
+- **补：美铝 (AA.NYSE)** 🔴
+- **补：力拓 (RIO.LSE)** 🔴
+- **补：必和必拓 (BHP.LSE)** 🔴
+- **补：Century Aluminum (CENX)** 🔴
+
+### L8.4 公司对比
+
+- **补：吨净利排名（季度）** 🔴
+- **补：产能/产量/利用率/成本/碳排放** 🔴
+- **补：股价相关性矩阵** 🔴
+
+## L9 政策与宏观 [Policy & Macro] 🔴
+
+### L9.1 产业政策
+
+- **补：4500 万吨电解铝产能天花板** 🔴
+- **补：电解铝行业阶梯电价政策** 🔴
+- **补：云南/四川丰枯水期电价机制** 🔴
+- **补：再生铝增值税即征即退政策** 🔴
+- **补：铝土矿/氧化铝出口退税调整** 🔴
+- **补：印尼禁矿令及替代** 🔴
+- **补：俄铝被制裁事件** 🔴
+
+### L9.2 碳市场与 ESG
+
+- **补：全国碳市场 CEA 价格** 🔴
+- **补：电解铝行业碳排放基准** 🔴
+- **补：绿电铝/低碳铝认证进展** 🔴
+- **补：CBAM 对铝出口的影响** 🔴
+
+### L9.3 宏观
+
+- **补：美元指数/人民币汇率** 🔴
+- **补：CRB 商品指数/工业品指数** 🔴
+- **补：全球 PMI（中国/美国/欧元区/日本）** 🔴
+- **补：中国 M2/社融/PMI/工业增加值** 🔴
+
+---
+
+## 框架统计
+
+> 口径：每个 `- **...**` 细项计 1（「传导：…」行是推导关系说明，不计入）。
+> 2026-10-21 按新 Excel（68 sheet）实测覆盖重算 —— L6 / L7 / L8 三行有实质变化。
+
+| 层级 | 🟢已有 | 🟡需补 | 🔴缺失 | 小计 |
+|---|---|---|---|---|
+| L1 铝土矿 | 16 | 0 | 5 | 21 |
+| L2 氧化铝 | 30 | 0 | 5 | 35 |
+| L3 电解铝 | 75 | 0 | 8 | 83 |
+| L4 再生铝 | 1 | 0 | 8 | 9 |
+| L5 铝合金 | 22 | 0 | 1 | 23 |
+| L6 终端需求 | **13** | 0 | 13 | **26** |
+| L7 全球平衡 | **6** | 0 | 3 | **9** |
+| L8 内外盘联动 / 公司 | **8** | 0 | 17 | **25** |
+| L9 政策宏观 | 0 | 0 | 16 | 16 |
+| **合计** | **171** | **0** | **76** | **247** |
+
+## 看板视图建议（参考黑色看板）
+
+- **导航栏**：L1-L9 九个一级 Tab
+- **每层 Tab 内容**：
+  - 顶部：核心指标卡片（最新值/同比/周环比）
+  - 中部：核心图表（3-5 张关键折线图）
+  - 底部：分析面板（决策路径 + 数据决策权重 + 行业地位导图卡片）
+- **近 5 年数据窗口**：2021-10 → 2026-10
+- **跨层联动**：原料价格 → 成本 → 利润 → 需求
+
+## 待你确认的设计点
+
+1. **L6/L7/L8/L9 缺口**：现在补，还是看板先建 v0.1 后续补？
+2. **是否包含"历史观点"目录**（参考黑色看板的"历史观点/"）
+3. **是否需要"部署到 GitHub Pages"**
+4. **关键图表筛选**：每层级 3-5 张，是否需要你指定优先顺序？
+5. **时间窗口**：固定 5 年（2021-10 至今）vs 可调（默认 5 年但可切换 1Y/3Y/5Y/10Y）？
+
+## L10 金融市场 [Financials] 🔴
+
+### L10.1 期货
+
+- **补：SHFE 沪铝主力合约日 K** 🔴
+- **补：LME 3M 铝日 K** 🔴
+- **补：COMEX 铝日 K** 🔴
+- **补：沪伦比 (现货/3月)** 🟢 [L3电解铝沪伦铝比]
+- **补：基差 (沪铝主力-现货)** 🔴
+- **补：月间价差 (连 1-连 2 / 连 2-连 3)** 🔴
+- **补：期现结构 (Backwardation/Contango)** 🔴
+
+### L10.2 持仓与资金
+
+- **补：SHFE 沪铝前 20 持仓/净持仓** 🔴
+- **补：LME 铝基金净持仓 (COT)** 🔴
+- **补：CFTC 投机净持仓** 🔴
+- **补：铝期权 PCR / 隐含波动率** 🔴
+
+### L10.3 现货升贴水
+
+- **补：SMM A00 升贴水（华东/华南/华北）** 🔴
+- **补：LME 现货升水 (0-3 / 3-15)** 🔴
+- **补：洋山港铝溢价** 🟢 [L3洋山铝溢价-日]
+
+## L11 事件与日历 [Events & Calendar] 🔴
+
+### L11.1 政策事件
+
+- **补：国家发改委产能政策时间线** 🔴
+- **补：印尼禁矿令事件跟踪** 🔴
+- **补：俄铝被制裁/解禁时间线** 🔴
+- **补：欧盟 CBAM 铝相关时间表** 🔴
+- **补：国内电解铝限产/复产事件** 🔴
+  - 云南丰水期/枯水期
+  - 山西/河南/内蒙古环保限产
+  - 春节/两会/高温假
+- **补：氧化铝新建/扩建项目投产时间表** 🔴
+
+### L11.2 行业事件
+
+- **补：SMM/阿拉丁/百川 月度行业会议** 🔴
+- **补：行业巨头财报披露 (H1/H2)** 🔴
+- **补：铝厂检修/复产/投产事件** 🔴
+- **补：海外氧化铝厂事故/罢工** 🔴
+- **补：海运中断 (好望角/红海)** 🔴
+
+### L11.3 节假日影响
+
+- **补：春节前后下游放假/复工日历** 🔴
+- **补：海外 LME 假日** 🔴
+- **补：国庆/两会环保限产** 🔴
+
+## L12 衍生指标 [Derived Metrics] 🔴
+
+### L12.1 估值指标
+
+- **补：电解铝行业平均现金成本** 🟢 [L3电解铝成本利润-日]
+- **补：电解铝行业平均利润** 🟢 [L3电解铝成本利润-日]
+- **补：氧化铝-电解铝价差（产业链利润分配）** 🔴
+- **补：电解铝内外盘价差** 🔴
+- **补：沪伦比 + 进口盈亏联动** 🟢 [L3电解铝进口盈亏]
+
+### L12.2 库存衍生
+
+- **补：SHFE 注销仓单比例** 🟢 [L3SHFE库存]
+- **补：LME 注销仓单比例** 🟢 [L3 LME库存]
+- **补：国内社库/产量天数比** 🔴
+- **补：国内社库/表观消费天数比** 🔴
+
+### L12.3 加工费指标
+
+- **补：氧化铝-铝土矿加工费** 🔴
+- **补：电解铝-氧化铝加工费** 🔴
+- **补：铝板带/铝箔/铝型材加工费** 🟢 [L3电解铝进口盈亏]
+- **补：ADC12-A00 价差** 🟢 [L3铝、铝合金价格-日]
+
+### L12.4 季节性指标
+
+- **补：3年/5年同期均值参考线** 🔴
+- **补：同比/环比的季节性 z-score** 🔴
+- **补：库存周期 (基钦周期) 阶段判别** 🔴
+
+---
+
+## 维度补全说明
+
+经核对原导图确实有 L7/L8/L9 节点，但子项较稀疏。本次补充：
+- L7 全球平衡：补**4 个子模块 12 个细项**
+- L8 公司：原已有中国/海外龙头/对比 3 模块，本次补**4 个子模块 16 个细项**
+- L9 政策与宏观：原 3 模块，本次补**2 个子模块 10 个细项**
+- **新增 L10 金融市场** (3 模块 12 细项)
+- **新增 L11 事件与日历** (3 模块 11 细项)
+- **新增 L12 衍生指标** (4 模块 14 细项)
+
+### v0.2 补充说明（2026-10-21）
+
+新 Excel 42 → 68 sheet 后，本框架的 L6/L7/L8 三层**从"待补清单"部分转为"已覆盖"**：
+
+- **L6 终端需求**：新增 20 个 sheet（7 大行业拆分 + 5 个新能源细分 + 电网投资 + 铝材需求结构 + 地产弹性 + 建筑/交运/电力 3 个日期型数据表）→ 26 个细项中 **13 项已被 Excel 覆盖**
+- **L7 全球平衡**：新增 4 个 sheet（全球电解铝产量分地区 / 全球氧化铝产量分地区 / 全球铝土矿产量分国别 / 全球需求分行业）→ 9 个细项中 **6 项已覆盖**；剩余 3 项（季度全球平衡表 / LME 持仓集中度 / 全球主要消费国占比）仍需外部数据
+- **L8**：**新增「L8.1 内外盘联动」8 个细项**（SHFE/LME/升贴水/CIF 溢价/汇率/完税价格/税费常量/进口总成本与价差）→ 看板 L8 Tab 已切换到这一维度；公司维度（17 项）**在 Excel 中仍然全缺**，继续作为待补清单保留
+
+## 框架统计（补全后）
+
+> 2026-10-21：L6 / L7 / L8 三行按新 Excel（68 sheet）实测覆盖重算，其余层级不变。
+
+| 层级 | 🟢 已有 | 🔴 缺失 | 小计 |
+|---|---|---|---|
+| L1 铝土矿 | 16 | 5 | 21 |
+| L2 氧化铝 | 30 | 5 | 35 |
+| L3 电解铝 | 75 | 8 | 83 |
+| L4 再生铝 | 1 | 8 | 9 |
+| L5 铝合金 | 22 | 1 | 23 |
+| L6 终端需求 | **13** | **13** | **26** |
+| L7 全球平衡 | **6** | **3** | **9** |
+| L8 内外盘联动 / 公司 | **8** | **17** | **25** |
+| L9 政策宏观 | 0 | 10 | 10 |
+| L10 金融市场 | 1 | 11 | 12 |
+| L11 事件日历 | 0 | 11 | 11 |
+| L12 衍生指标 | 6 | 8 | 14 |
+| **合计** | **178** | **100** | **278** |
+</script>
+</head>
+<body>
+
+<div class="header">
+  <h1>🗺️ 铝产业看板 - 数据维度框架 v0.1</h1>
+  <div class="sub">基于 铝产业链数据.xlsx (44 sheet) + 公开数据补充 · 244 个细项指标</div>
+</div>
+
+<div class="toolbar">
+  <input id="search" type="text" placeholder="🔍 搜索指标 (例如: 电解铝、SHFE、绿电)..." />
+  <span class="stat" id="stat">总计 244 项 · 🟢 已有 144 · 🔴 缺失 98</span>
+</div>
+
+<div class="legend">
+  <div class="legend-item"><span class="legend-dot green"></span>🟢 Excel 已有</div>
+  <div class="legend-item"><span class="legend-dot yellow"></span>🟡 部分覆盖</div>
+  <div class="legend-item"><span class="legend-dot red"></span>🔴 缺失需补</div>
+  <div class="legend-item"><span class="legend-dot gray"></span>⚪ 待校验</div>
+  <div class="legend-item"><span class="legend-dot blue"></span>★ 核心层</div>
+</div>
+
+<div id="stats-area"></div>
+<div class="container">
+  <div id="tree"></div>
+</div>
+
+<script>
+// ============= Markdown → 树形结构解析 =============
+function parseMarkdown(md) {
+  const lines = md.split('\n');
+  const root = { name: 'root', level: -1, children: [] };
+  const stack = [root];
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    if (!line.trim() || line.trim().startsWith('>')) continue;
+    // heading: 2 个以上 # 开头
+    const m = line.match(/^(#{1,6})\s+(.*?)\s*$/);
+    if (!m) continue;
+    const level = m[1].length;
+    let name = m[2];
+    // 清除引用 [file] 之类的长尾
+    name = name.replace(/\s*\[.*?\]\([^)]*\)/g, '').trim();
+
+    const node = { name, level, children: [] };
+    // 找父节点
+    while (stack.length > 1 && stack[stack.length - 1].level >= level) stack.pop();
+    stack[stack.length - 1].children.push(node);
+    stack.push(node);
+  }
+  return root;
+}
+
+// ============= 颜色与样式 =============
+function classifyNode(name) {
+  const tags = [];
+  let cssClass = 'lvl-leaf';
+  if (name.includes('🟢')) tags.push('green');
+  if (name.includes('🟡')) tags.push('yellow');
+  if (name.includes('🔴')) tags.push('red');
+  if (name.includes('⚪')) tags.push('gray');
+  if (name.includes('★')) tags.push('star');
+
+  // 顶层
+  if (/^L\d\s/.test(name)) cssClass = 'lvl-L';
+  else if (name.match(/^L\d\.\d/)) cssClass = 'lvl-section';
+  else if (name.match(/^[A-Z]/)) cssClass = 'lvl-group';
+
+  return { tags, cssClass };
+}
+
+// ============= 渲染 =============
+function renderNode(node, depth) {
+  const { tags, cssClass } = classifyNode(node.name);
+  const tagClasses = tags.map(t => 'has-' + t).join(' ');
+  const wrapper = document.createElement('div');
+  wrapper.className = 'node';
+
+  const content = document.createElement('div');
+  content.className = 'node-content ' + cssClass + ' ' + tagClasses;
+
+  const hasChildren = node.children && node.children.length > 0;
+  const toggle = document.createElement('span');
+  toggle.className = 'toggle' + (depth >= 3 ? ' collapsed' : '');
+  toggle.textContent = hasChildren ? '▼' : '·';
+  content.appendChild(toggle);
+
+  const text = document.createElement('span');
+  text.className = 'node-text';
+  // 清除 emoji 用于显示（保留用于分类，但显示也可保留）
+  text.textContent = node.name;
+  content.appendChild(text);
+
+  wrapper.appendChild(content);
+
+  if (hasChildren) {
+    const children = document.createElement('div');
+    children.className = 'children' + (depth >= 3 ? ' hidden' : '');
+    node.children.forEach(c => children.appendChild(renderNode(c, depth + 1)));
+    wrapper.appendChild(children);
+
+    content.onclick = () => {
+      toggle.classList.toggle('collapsed');
+      children.classList.toggle('hidden');
+    };
+  } else {
+    toggle.style.visibility = 'hidden';
+    content.onclick = () => content.style.background = '#f1f5f9';
+    setTimeout(() => content.style.background = '', 150);
+  }
+
+  return wrapper;
+}
+
+// ============= 统计 =============
+function countNodes(node) {
+  let total = 0, green = 0, red = 0, yellow = 0, gray = 0, star = 0;
+  const walk = (n) => {
+    if (n.name !== 'root') {
+      total++;
+      if (n.name.includes('🟢')) green++;
+      if (n.name.includes('🔴')) red++;
+      if (n.name.includes('🟡')) yellow++;
+      if (n.name.includes('⚪')) gray++;
+      if (n.name.includes('★')) star++;
+    }
+    n.children?.forEach(walk);
+  };
+  walk(node);
+  return { total, green, red, yellow, gray, star };
+}
+
+// ============= 搜索 =============
+function highlight(search) {
+  const tree = document.getElementById('tree');
+  const all = tree.querySelectorAll('.node-content');
+  const term = search.trim().toLowerCase();
+  if (!term) {
+    all.forEach(n => n.style.background = '');
+    // 恢复默认折叠状态（depth>=3 折叠）
+    tree.querySelectorAll('.children').forEach((c, i) => {
+      const parent = c.parentElement;
+      const depth = (parent.closest('.children')?.closest('.node') ? 1 : 0) + 1;
+      // 简单恢复
+    });
+    return;
+  }
+  let firstMatch = null;
+  all.forEach(n => {
+    const text = n.textContent.toLowerCase();
+    if (text.includes(term)) {
+      n.style.background = '#fef3c7';
+      if (!firstMatch) firstMatch = n;
+      // 展开所有祖先
+      let p = n.parentElement;
+      while (p && p.id !== 'tree') {
+        if (p.classList.contains('children') && p.classList.contains('hidden')) {
+          p.classList.remove('hidden');
+          const toggle = p.parentElement.querySelector('.toggle');
+          if (toggle) toggle.classList.remove('collapsed');
+        }
+        p = p.parentElement;
+      }
+    } else {
+      n.style.background = '';
+    }
+  });
+  if (firstMatch) firstMatch.scrollIntoView({ block: 'center' });
+}
+
+// ============= 主流程 =============
+async function main() {
+  const tree = document.getElementById('tree');
+  try {
+    // 优先用内联源（自包含版），失败再回退到同目录 .md（开发态）
+    const inlineEl = document.getElementById('md-source');
+    let md;
+    if (inlineEl && inlineEl.textContent.trim()) {
+      md = inlineEl.textContent;
+    } else {
+      const r = await fetch('思维导图.md');
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' (请确认通过 node start-server.js 启动服务)');
+      md = await r.text();
+    }
+    const root = parseMarkdown(md);
+    const stats = countNodes(root);
+
+    // 渲染统计
+    const statsArea = document.getElementById('stats-area');
+    statsArea.innerHTML = `
+      <div class="container" style="padding-bottom:0">
+        <div class="stats">
+          <div class="stat-card"><div class="label">总指标项</div><div class="value">${stats.total}</div></div>
+          <div class="stat-card green"><div class="label">🟢 Excel 已有</div><div class="value">${stats.green}</div></div>
+          <div class="stat-card red"><div class="label">🔴 缺失需补</div><div class="value">${stats.red}</div></div>
+          <div class="stat-card yellow"><div class="label">🟡 部分覆盖</div><div class="value">${stats.yellow}</div></div>
+          <div class="stat-card blue"><div class="label">★ 核心层</div><div class="value">${stats.star}</div></div>
+        </div>
+        <div class="info">
+          <b>💡 使用说明：</b>点击节点展开/折叠 · 🔍 搜索框支持指标名模糊匹配 · 颜色图例在顶部
+        </div>
+      </div>
+    `;
+
+    // 渲染树
+    root.children.forEach(c => tree.appendChild(renderNode(c, 0)));
+
+    // 搜索
+    document.getElementById('search').oninput = (e) => highlight(e.target.value);
+
+    // 更新顶部统计
+    document.getElementById('stat').textContent =
+      `总计 ${stats.total} 项 · 🟢 已有 ${stats.green} · 🔴 缺失 ${stats.red} · 🟡 部分 ${stats.yellow}`;
+  } catch (e) {
+    tree.innerHTML = `<div class="errbox">
+      <b>❌ 加载失败：</b> ${e.message}<br><br>
+      <b>请确认：</b><br>
+      1. 该文件应为自包含单文件版；若为源码版，请在 <code>data-framework/</code> 目录下执行 <code>node start-server.js</code><br>
+      2. 浏览器打开 <code>http://localhost:8765/</code><br>
+      3. 不要直接双击 HTML（file:// 协议下 fetch 受限）
+    </div>`;
+  }
+}
+
+main();
+</script>
+</body>
+</html>
