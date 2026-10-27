@@ -8,65 +8,102 @@
   * { box-sizing: border-box; }
   body { margin: 0; font-family: -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif;
          background: #f8fafc; color: #1e293b; font-size: 13px; }
-  .header { background: #0c4a6e; color: #fff; padding: 16px 22px; }
+  .header { background: #0c4a6e; color: #fff; padding: 15px 22px; }
   .header h1 { margin: 0 0 5px; font-size: 19px; font-weight: 600; }
   .header .sub { font-size: 12px; opacity: .9; line-height: 1.7; }
   .header a { color: #7dd3fc; }
-  .stats { display: flex; gap: 10px; flex-wrap: wrap; padding: 14px 22px 4px; }
-  .sc { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 14px; min-width: 96px; }
+  .stats { display: flex; gap: 10px; flex-wrap: wrap; padding: 12px 22px 4px; }
+  .sc { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 7px 13px; min-width: 92px; }
   .sc .l { font-size: 11px; color: #64748b; }
-  .sc .v { font-size: 21px; font-weight: 600; color: #0f172a; margin-top: 1px; }
+  .sc .v { font-size: 20px; font-weight: 600; color: #0f172a; margin-top: 1px; }
   .sc.hi .v { color: #047857; } .sc.mid .v { color: #b45309; } .sc.lo .v { color: #b91c1c; }
   .sc.tot .v { color: #0369a1; }
-  .legend { display: flex; gap: 16px; flex-wrap: wrap; padding: 6px 22px 10px; font-size: 11.5px; color: #64748b; }
+  .legend { display: flex; gap: 14px; flex-wrap: wrap; padding: 4px 22px 10px; font-size: 11.5px; color: #64748b; }
   .lg { display: flex; align-items: center; gap: 5px; }
   .dot { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
   .dot.hi { background: #047857; } .dot.mid { background: #b45309; } .dot.lo { background: #b91c1c; }
-  .map { padding: 6px 22px 26px; }
-  .chain { display: flex; align-items: stretch; overflow-x: auto; padding-bottom: 6px; }
-  .chain::-webkit-scrollbar { height: 6px; }
-  .chain::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
-  .arrow { display: flex; flex-direction: column; align-items: center; justify-content: center;
-           padding: 0 6px; color: #94a3b8; font-size: 10px; text-align: center; min-width: 70px; }
-  .arrow .a-line { font-size: 18px; line-height: 1; color: #cbd5e1; }
-  .arrow .a-txt { margin-top: 3px; font-size: 9.5px; color: #94a3b8; white-space: nowrap; }
-  .node { background: #fff; border: 1px solid #e2e8f0; border-left: 4px solid #94a3b8;
-          border-radius: 6px; padding: 11px 12px; width: 262px; flex: 0 0 262px; }
-  .node.hi { border-left-color: #047857; } .node.mid { border-left-color: #b45309; } .node.lo { border-left-color: #b91c1c; }
-  .n-head { display: flex; align-items: center; gap: 7px; }
-  .n-icon { font-size: 17px; }
-  .n-title b { font-size: 14px; color: #0f172a; }
-  .n-en { font-size: 10px; color: #94a3b8; margin-left: 5px; }
-  .n-badge { margin-left: auto; font-size: 10px; background: #f1f5f9; color: #475569;
-             border: 1px solid #e2e8f0; border-radius: 3px; padding: 1px 6px; white-space: nowrap; }
-  .n-role { font-size: 11px; color: #64748b; margin: 6px 0 7px; line-height: 1.5; min-height: 32px; }
-  .n-cred { display: flex; align-items: center; gap: 7px; }
-  .n-cred-bar { flex: 1; height: 5px; background: #e2e8f0; border-radius: 3px; overflow: hidden; }
-  .n-cred-bar i { display: block; height: 100%; background: #0c4a6e; }
-  .node.hi .n-cred-bar i { background: #047857; } .node.mid .n-cred-bar i { background: #b45309; } .node.lo .n-cred-bar i { background: #b91c1c; }
-  .n-cred-txt { font-size: 10.5px; color: #64748b; white-space: nowrap; }
-  .n-cred-txt b { color: #0f172a; }
-  .n-stats { display: flex; gap: 12px; margin: 8px 0 5px; font-size: 10.5px; color: #64748b; }
-  .n-stats b { color: #0f172a; font-size: 12px; }
-  .n-watch { font-size: 10.5px; color: #475569; background: #f8fafc; border-radius: 3px; padding: 4px 6px; line-height: 1.5; }
-  .n-miss { margin-top: 6px; font-size: 10.5px; line-height: 1.5; }
-  .n-miss-tag { display: inline-block; font-size: 9.5px; font-weight: 600; color: #b91c1c;
-                background: #fef2f2; border: 1px solid #fecaca; border-radius: 3px; padding: 0 5px; margin-right: 4px; }
-  .n-miss-item { display: inline-block; color: #b91c1c; background: #fef2f2; border: 1px solid #fecaca;
-                 border-radius: 3px; padding: 0 4px; margin: 1px 2px 1px 0; font-size: 10px; }
-  .n-ew { margin-top: 7px; border-top: 1px dashed #e2e8f0; padding-top: 6px; }
-  .n-ew-tag { display: inline-block; font-size: 9.5px; font-weight: 600; color: #7c3aed;
-              background: #f5f3ff; border: 1px solid #ddd6fe; border-radius: 3px; padding: 0 5px; margin-bottom: 3px; }
-  .n-ew-item { font-size: 10.5px; color: #475569; line-height: 1.5; }
-  .n-ew-v { font-weight: 600; color: #0f172a; font-variant-numeric: tabular-nums; }
-  .n-ew-d { color: #94a3b8; font-size: 9.5px; }
-  .n-ew-none .n-ew-item { color: #94a3b8; }
+  .toolbar { padding: 0 22px 8px; }
+  .btn { background: #fff; border: 1px solid #cbd5e1; border-radius: 4px; font-size: 11.5px;
+         color: #475569; padding: 3px 10px; cursor: pointer; margin-right: 6px; }
+  .btn:hover { background: #f1f5f9; border-color: #94a3b8; }
+  .map { padding: 0 22px 26px; }
+
+  /* ===== L1 环节条 (长方形横条) ===== */
+  .lv { background: #fff; border: 1px solid #e2e8f0; border-left: 4px solid #94a3b8;
+        border-radius: 5px; margin-bottom: 6px; overflow: hidden; }
+  .lv.hi { border-left-color: #047857; } .lv.mid { border-left-color: #b45309; } .lv.lo { border-left-color: #b91c1c; }
+  .lv-bar { display: flex; align-items: center; gap: 10px; padding: 9px 12px; cursor: pointer; list-style: none; }
+  .lv-bar::-webkit-details-marker { display: none; }
+  .lv-bar:hover { background: #f8fafc; }
+  .lv-caret { color: #94a3b8; font-size: 11px; width: 10px; transition: transform .15s; }
+  .lv[open] > .lv-bar .lv-caret { transform: rotate(90deg); }
+  .lv-icon { font-size: 15px; }
+  .lv-name { font-size: 14px; font-weight: 600; color: #0f172a; white-space: nowrap; }
+  .lv-en { font-size: 10.5px; color: #94a3b8; white-space: nowrap; }
+  .lv-pos { font-size: 10px; background: #f1f5f9; color: #475569; border: 1px solid #e2e8f0;
+            border-radius: 3px; padding: 0 5px; white-space: nowrap; }
+  .lv-role { font-size: 11px; color: #64748b; flex: 1 1 200px; min-width: 0;
+             overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .lv-cred { display: flex; align-items: center; gap: 6px; white-space: nowrap; }
+  .lv-cred-bar { width: 64px; height: 5px; background: #e2e8f0; border-radius: 3px; overflow: hidden; }
+  .lv-cred-bar i { display: block; height: 100%; background: #0c4a6e; }
+  .lv.hi .lv-cred-bar i { background: #047857; } .lv.mid .lv-cred-bar i { background: #b45309; } .lv.lo .lv-cred-bar i { background: #b91c1c; }
+  .lv-cred-txt { font-size: 10.5px; color: #64748b; }
+  .lv-cred-txt b { color: #0f172a; }
+  .lv-stats { font-size: 10.5px; color: #94a3b8; white-space: nowrap; }
+  .lv-stats b { color: #0f172a; font-size: 11.5px; }
+  .lv-groups { font-size: 10px; color: #0369a1; background: #eff6ff; border: 1px solid #bfdbfe;
+               border-radius: 3px; padding: 0 5px; white-space: nowrap; }
+
+  /* ===== L1 展开体 ===== */
+  .lv-body { border-top: 1px solid #e2e8f0; padding: 10px 12px 12px; background: #fcfdfe; }
+  .lv-cols { display: flex; gap: 14px; align-items: flex-start; }
+  .lv-col { flex: 1 1 0; min-width: 0; }
+  .lv-col-side { flex: 0 0 250px; }
+  .lv-col-hd { font-size: 11.5px; font-weight: 600; color: #0c4a6e; margin-bottom: 6px; }
+
+  /* ===== L2 语义组 ===== */
+  .grp { border: 1px solid #e2e8f0; border-radius: 4px; background: #fff; margin-bottom: 5px; }
+  .grp > summary { display: flex; align-items: center; gap: 8px; padding: 6px 9px; cursor: pointer; list-style: none; }
+  .grp > summary::-webkit-details-marker { display: none; }
+  .grp > summary:hover { background: #f8fafc; }
+  .grp-name { font-size: 12.5px; font-weight: 600; color: #0f172a; }
+  .grp-meta { font-size: 10.5px; color: #94a3b8; flex: 1; }
+  .grp-caret { color: #cbd5e1; font-size: 10px; transition: transform .15s; }
+  .grp[open] > summary .grp-caret { transform: rotate(90deg); }
+  .grp-body { padding: 4px 9px 8px 14px; border-top: 1px dashed #e2e8f0; }
+  .grp-src { font-size: 10.5px; color: #64748b; margin: 4px 0 6px; }
+
+  /* ===== L3 sheet + 指标 ===== */
+  .s-sheet { margin-bottom: 7px; }
+  .s-sheet-hd { display: flex; align-items: baseline; gap: 8px; margin-bottom: 3px; }
+  .s-sheet-name { font-size: 11.5px; color: #334155; font-weight: 500; }
+  .m-note { font-size: 9.5px; color: #94a3b8; }
+  .s-metrics { border-left: 2px solid #e2e8f0; padding-left: 9px; }
+  .m-row { display: flex; align-items: baseline; gap: 8px; padding: 1.5px 0; line-height: 1.5; }
+  .m-name { font-size: 11.5px; color: #475569; flex: 1 1 auto; min-width: 0; }
+  .m-val { font-size: 11.5px; font-weight: 600; color: #0f172a; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .s-empty { font-size: 11px; color: #94a3b8; padding: 2px 0; }
+
+  /* ===== 侧栏 ===== */
+  .lv-ew { background: #f5f3ff; border: 1px solid #ddd6fe; border-radius: 4px; padding: 6px 8px; }
+  .ew-item { font-size: 11px; color: #475569; line-height: 1.55; }
+  .ew-dot { display: inline-block; width: 4px; height: 4px; border-radius: 50%; background: #7c3aed; margin-right: 5px; vertical-align: middle; }
+  .ew-name { color: #0f172a; }
+  .ew-v { font-weight: 600; color: #0f172a; font-variant-numeric: tabular-nums; }
+  .lv-watch { font-size: 11px; color: #475569; background: #f8fafc; border-radius: 3px; padding: 5px 7px; line-height: 1.55; }
+  .lv-miss { margin-top: 7px; font-size: 10.5px; line-height: 1.5; }
+  .lv-miss-tag { display: inline-block; font-size: 9.5px; font-weight: 600; color: #b91c1c;
+                 background: #fef2f2; border: 1px solid #fecaca; border-radius: 3px; padding: 0 5px; margin-right: 4px; }
+  .lv-miss-item { display: inline-block; color: #b91c1c; background: #fef2f2; border: 1px solid #fecaca;
+                  border-radius: 3px; padding: 0 4px; margin: 1px 2px 1px 0; font-size: 10px; }
+
   .note { margin: 4px 22px 0; font-size: 11px; color: #64748b; background: #fff;
           border: 1px solid #e2e8f0; border-left: 3px solid #0c4a6e; border-radius: 4px; padding: 9px 12px; line-height: 1.75; }
   .note b { color: #0c4a6e; }
   .note code { background: #f1f5f9; padding: 0 3px; border-radius: 2px; }
   .note a { color: #0369a1; }
-  @media (max-width: 1200px) { .map { overflow-x: auto; } }
+  @media (max-width: 900px) { .lv-cols { flex-direction: column; } .lv-col-side { flex: 1 1 auto; } }
 </style>
 </head>
 <body>
@@ -91,161 +128,3970 @@
   <div class="lg"><span class="dot hi"></span>可信度高 — 指标充分、覆盖完整、来源权威、更新及时</div>
   <div class="lg"><span class="dot mid"></span>可信度中 — 主体可用，部分维度偏弱</div>
   <div class="lg"><span class="dot lo"></span>可信度低 — 数据不足，结论需谨慎</div>
-  <div class="lg"><span class="dot" style="background:#7c3aed"></span>「可做预警」— 该层数据虽不充分，但其中的高频序列仍能提示边际变化</div>
+  <div class="lg">点击环节条 → 展开数据维度；再点维度 → 展开到具体指标（全国/分省…）</div>
 </div>
 
-<div class="map">
-  <div class="chain"><div class="node hi" data-lv="L1">
-      <div class="n-head">
-        <span class="n-icon">⛏</span>
-        <div class="n-title"><b>铝土矿</b><span class="n-en">Bauxite</span></div>
-        <span class="n-badge">原料端</span>
-      </div>
-      <div class="n-role">电解铝的第一原料, 决定国内矿端松紧</div>
-      <div class="n-cred">
-        <div class="n-cred-bar"><i style="width:92%"></i></div>
-        <span class="n-cred-txt">可信度 <b>高</b> · 92%</span>
-      </div>
-      <div class="n-stats">
-        <span><b>4</b> 表</span><span><b>44</b> 指标</span>
-        <span><b>100%</b> 有值</span>
-      </div>
-      <div class="n-watch">看：进口依存度 / 港口与分省库存 / 进口价格</div>
-      
-      <div class="n-ew"><span class="n-ew-tag">可做预警</span><div class="n-ew-item">中国铝土矿月度进口量 <span class="n-ew-v">1,833.2万吨</span> <span class="n-ew-d">2026-09-30 · 月</span></div><div class="n-ew-item">中国铝土矿月度进口数据：几内亚进口量 <span class="n-ew-v">1,383万吨</span> <span class="n-ew-d">2026-09-30 · 月</span></div><div class="n-ew-item">中国铝土矿月度进口数据：澳大利亚进口量 <span class="n-ew-v">416.32万吨</span> <span class="n-ew-d">2026-09-30 · 月</span></div><div class="n-ew-item">高品铝矿(山西)-平均价 <span class="n-ew-v">595.00元/吨</span> <span class="n-ew-d">2026-10-22 · 日</span></div></div>
-    </div><div class="arrow"><div class="a-line">──▶</div><div class="a-txt">铝土矿 → 氧化铝</div></div><div class="node hi" data-lv="L2">
-      <div class="n-head">
-        <span class="n-icon">🧪</span>
-        <div class="n-title"><b>氧化铝</b><span class="n-en">Alumina</span></div>
-        <span class="n-badge">中间品</span>
-      </div>
-      <div class="n-role">电解铝的核心原料, 成本占比最高的单一环节</div>
-      <div class="n-cred">
-        <div class="n-cred-bar"><i style="width:88%"></i></div>
-        <span class="n-cred-txt">可信度 <b>高</b> · 88%</span>
-      </div>
-      <div class="n-stats">
-        <span><b>10</b> 表</span><span><b>49</b> 指标</span>
-        <span><b>100%</b> 有值</span>
-      </div>
-      <div class="n-watch">看：产量与运行产能 / 现金成本带 / 过剩量 / 净进口</div>
-      
-      <div class="n-ew"><span class="n-ew-tag">可做预警</span><div class="n-ew-item">SMM中国氧化铝月度产量：总量 <span class="n-ew-v">759.88万吨</span> <span class="n-ew-d">2026-09-30 · 月</span></div><div class="n-ew-item">SMM中国氧化铝月度产量：年化产能 <span class="n-ew-v">9,245.2万吨/年</span> <span class="n-ew-d">2026-09-30 · 月</span></div><div class="n-ew-item">SMM中国氧化铝月度产量：山东 <span class="n-ew-v">229.64万吨</span> <span class="n-ew-d">2026-09-30 · 月</span></div><div class="n-ew-item">氧化铝：现金成本：中国（月） <span class="n-ew-v">2,692元/吨</span> <span class="n-ew-d">2026-09-30 · 月</span></div></div>
-    </div><div class="arrow"><div class="a-line">──▶</div><div class="a-txt">氧化铝 → 电解铝</div></div><div class="node hi" data-lv="L3">
-      <div class="n-head">
-        <span class="n-icon">⚡</span>
-        <div class="n-title"><b>电解铝</b><span class="n-en">Primary Al</span></div>
-        <span class="n-badge">主产品</span>
-      </div>
-      <div class="n-role">定价核心 —— 有期货合约, 策略与仓位都落在这里</div>
-      <div class="n-cred">
-        <div class="n-cred-bar"><i style="width:98%"></i></div>
-        <span class="n-cred-txt">可信度 <b>高</b> · 98%</span>
-      </div>
-      <div class="n-stats">
-        <span><b>18</b> 表</span><span><b>164</b> 指标</span>
-        <span><b>100%</b> 有值</span>
-      </div>
-      <div class="n-watch">看：产能与开工率 / 成本利润 / 社库与 SHFE 库存 / 净进口</div>
-      
-      <div class="n-ew"><span class="n-ew-tag">可做预警</span><div class="n-ew-item">中国电解铝进出口利润模型：铝锭出口利润 <span class="n-ew-v">-1,408.7美元/吨</span> <span class="n-ew-d">2026-10-22 · 日</span></div><div class="n-ew-item">中国电解铝出口利润模型：铝板带出口成本 <span class="n-ew-v">4,027.3美元/吨</span> <span class="n-ew-d">2026-10-22 · 日</span></div><div class="n-ew-item">中国电解铝出口利润模型：铝型材出口成本 <span class="n-ew-v">4,777.8美元/吨</span> <span class="n-ew-d">2026-10-22 · 日</span></div><div class="n-ew-item">中国电解铝成本模型：电价 <span class="n-ew-v">0.41元/吨</span> <span class="n-ew-d">2026-10-23 · 日</span></div></div>
-    </div><div class="arrow"><div class="a-line">──▶</div><div class="a-txt">原铝 → 加工</div></div><div class="node mid" data-lv="L4">
-      <div class="n-head">
-        <span class="n-icon">♻</span>
-        <div class="n-title"><b>再生铝</b><span class="n-en">Secondary Al</span></div>
-        <span class="n-badge">替代供给</span>
-      </div>
-      <div class="n-role">原铝的替代供给, 分流一部分需求</div>
-      <div class="n-cred">
-        <div class="n-cred-bar"><i style="width:71%"></i></div>
-        <span class="n-cred-txt">可信度 <b>中</b> · 71%</span>
-      </div>
-      <div class="n-stats">
-        <span><b>1</b> 表</span><span><b>2</b> 指标</span>
-        <span><b>100%</b> 有值</span>
-      </div>
-      <div class="n-watch">看：废铝进口量与价格 / 再生铝合金开工率</div>
-      
-      <div class="n-ew"><span class="n-ew-tag">可做预警</span><div class="n-ew-item">中国:进口数量:废铝 <span class="n-ew-v">15.88万吨</span> <span class="n-ew-d">2026-09-30 · 月</span></div><div class="n-ew-item">中国:进口平均单价:废铝:当月值 <span class="n-ew-v">0.00美元/吨</span> <span class="n-ew-d">2026-09-30 · 月</span></div></div>
-    </div><div class="arrow"><div class="a-line">──▶</div><div class="a-txt">原铝 → 需求</div></div><div class="node hi" data-lv="L6">
-      <div class="n-head">
-        <span class="n-icon">🏢</span>
-        <div class="n-title"><b>终端需求</b><span class="n-en">End-use</span></div>
-        <span class="n-badge">需求底座</span>
-      </div>
-      <div class="n-role">年度分行业需求, 校验总量假设是否站得住</div>
-      <div class="n-cred">
-        <div class="n-cred-bar"><i style="width:80%"></i></div>
-        <span class="n-cred-txt">可信度 <b>高</b> · 80%</span>
-      </div>
-      <div class="n-stats">
-        <span><b>20</b> 表</span><span><b>410</b> 指标</span>
-        <span><b>98%</b> 有值</span>
-      </div>
-      <div class="n-watch">看：7 大行业年度需求 / 新能源细分 / 地产与基建实物量</div>
-      
-      <div class="n-ew"><span class="n-ew-tag">可做预警</span><div class="n-ew-item">汽车:产量:当月值 <span class="n-ew-v">269.70万辆</span> <span class="n-ew-d">2026-08-31 · 月</span></div><div class="n-ew-item">新能源汽车:产量:当月值 <span class="n-ew-v">164.70万辆</span> <span class="n-ew-d">2026-08-31 · 月</span></div><div class="n-ew-item">汽车产量:当月值 <span class="n-ew-v">268.40万辆</span> <span class="n-ew-d">2026-08-31 · 月</span></div><div class="n-ew-item">中国:房地产开发投资完成额:累计同比 <span class="n-ew-v">-20.60%</span> <span class="n-ew-d">2026-09-30 · 月</span></div></div>
-    </div></div>
-  <div class="chain" style="margin-top:12px"><div class="node hi" data-lv="L5">
-      <div class="n-head">
-        <span class="n-icon">🏭</span>
-        <div class="n-title"><b>铝合金</b><span class="n-en">Alloy &amp; Proc.</span></div>
-        <span class="n-badge">加工端</span>
-      </div>
-      <div class="n-role">原铝的直接消耗端, 加工费反映下游利润</div>
-      <div class="n-cred">
-        <div class="n-cred-bar"><i style="width:87%"></i></div>
-        <span class="n-cred-txt">可信度 <b>高</b> · 87%</span>
-      </div>
-      <div class="n-stats">
-        <span><b>4</b> 表</span><span><b>40</b> 指标</span>
-        <span><b>100%</b> 有值</span>
-      </div>
-      <div class="n-watch">看：开工率 / 铝材进出口 / 加工费 / 库存订单</div>
-      
-      <div class="n-ew"><span class="n-ew-tag">可做预警</span><div class="n-ew-item">中国铝线缆分规模月度开工率：总开工率 <span class="n-ew-v">54.90</span> <span class="n-ew-d">2026-09-30 · 月</span></div><div class="n-ew-item">中国铝线缆分规模月度开工率：总开工率|预测 <span class="n-ew-v">58.12</span> <span class="n-ew-d">2026-10-31 · 月</span></div><div class="n-ew-item">中国铝线缆分规模月度开工率：调研总产能 <span class="n-ew-v">177.00</span> <span class="n-ew-d">2026-10-31 · 月</span></div><div class="n-ew-item">中国未锻轧铝合金进出口数据：进口量 <span class="n-ew-v">121.82万吨</span> <span class="n-ew-d">2026-09-30 · 月</span></div></div>
-    </div><div class="arrow"><div class="a-line">──▶</div><div class="a-txt">加工 → 消费</div></div><div class="node hi" data-lv="L8">
-      <div class="n-head">
-        <span class="n-icon">🔗</span>
-        <div class="n-title"><b>内外盘联动</b><span class="n-en">Linkage</span></div>
-        <span class="n-badge">定价窗口</span>
-      </div>
-      <div class="n-role">进口窗口与成本锚 —— 决定内外价差方向</div>
-      <div class="n-cred">
-        <div class="n-cred-bar"><i style="width:92%"></i></div>
-        <span class="n-cred-txt">可信度 <b>高</b> · 92%</span>
-      </div>
-      <div class="n-stats">
-        <span><b>5</b> 表</span><span><b>24</b> 指标</span>
-        <span><b>100%</b> 有值</span>
-      </div>
-      <div class="n-watch">看：SHFE/LME 价差 / 沪伦铝比 / 洋山溢价 / 进口盈亏</div>
-      
-      <div class="n-ew"><span class="n-ew-tag">可做预警</span><div class="n-ew-item">SHFE铝 <span class="n-ew-v">23,350元</span> <span class="n-ew-d">2026-10-23 · 日</span></div><div class="n-ew-item">LME铝 <span class="n-ew-v">3,040.5美元</span> <span class="n-ew-d">2026-10-23 · 日</span></div><div class="n-ew-item">LME铝升贴水(0-3) <span class="n-ew-v">27.51美元/吨</span> <span class="n-ew-d">2026-10-23 · 日</span></div><div class="n-ew-item">升贴水:LME铝(0-3) <span class="n-ew-v">27.51美元/吨</span> <span class="n-ew-d">2026-10-23 · 日</span></div></div>
-    </div><div class="arrow"><div class="a-line">──▶</div><div class="a-txt">外盘定价</div></div><div class="node mid" data-lv="L9">
-      <div class="n-head">
-        <span class="n-icon">🌐</span>
-        <div class="n-title"><b>政策与宏观</b><span class="n-en">Macro &amp; Policy</span></div>
-        <span class="n-badge">外部锚</span>
-      </div>
-      <div class="n-role">产业链的外部锚 —— 判断内部结论被证实还是被打脸</div>
-      <div class="n-cred">
-        <div class="n-cred-bar"><i style="width:68%"></i></div>
-        <span class="n-cred-txt">可信度 <b>中</b> · 68%</span>
-      </div>
-      <div class="n-stats">
-        <span><b>2</b> 表</span><span><b>31</b> 指标</span>
-        <span><b>100%</b> 有值</span>
-      </div>
-      <div class="n-watch">看：需求锚(23项) / 成本锚(煤-烧碱-TTF) / 区域层</div>
-      <div class="n-miss"><span class="n-miss-tag">关键维度缺失</span><span class="n-miss-item">汇率与利率</span><span class="n-miss-item">碳价与碳成本</span><span class="n-miss-item">海运费</span></div>
-      <div class="n-ew"><span class="n-ew-tag">可做预警</span><div class="n-ew-item">中国:GDP:不变价:同比 <span class="n-ew-v">4.50%</span> <span class="n-ew-d">2026-09-30 · 月</span></div><div class="n-ew-item">中国:GDP:不变价:第二产业:同比 <span class="n-ew-v">3.40%</span> <span class="n-ew-d">2026-09-30 · 月</span></div><div class="n-ew-item">中国:工业增加值:规模以上工业企业:当月同比(1-2月拆分) <span class="n-ew-v">5.50%</span> <span class="n-ew-d">2026-09-30 · 月</span></div><div class="n-ew-item">中国:秦皇岛港:平仓价:动力末煤(Q5500,山西产) <span class="n-ew-v">1,040元/吨</span> <span class="n-ew-d">2026-10-23 · 日</span></div></div>
-    </div></div>
+<div class="toolbar">
+  <button class="btn" onclick="document.querySelectorAll('.lv').forEach(d=>d.open=true)">展开全部环节</button>
+  <button class="btn" onclick="document.querySelectorAll('.lv').forEach(d=>d.open=false)">收起全部</button>
 </div>
+
+<div class="map"><details class="lv hi" data-lv="L1" id="lv-L1">
+    <summary class="lv-bar">
+      <span class="lv-caret">▸</span>
+      <span class="lv-icon">⛏</span>
+      <span class="lv-name">铝土矿</span>
+      <span class="lv-en">Bauxite</span>
+      <span class="lv-pos">原料端</span>
+      <span class="lv-role">电解铝的第一原料, 决定国内矿端松紧</span>
+      <span class="lv-cred">
+        <span class="lv-cred-bar"><i style="width:92%"></i></span>
+        <span class="lv-cred-txt">可信度 <b>高</b> 92%</span>
+      </span>
+      <span class="lv-stats"><b>4</b> 表 <b>44</b> 指标 <b>100%</b> 有值</span>
+      <span class="lv-groups">4 组</span>
+    </summary>
+    <div class="lv-body">
+      <div class="lv-cols">
+        <div class="lv-col">
+          <div class="lv-col-hd">📂 数据维度（4 组，点击展开看指标）</div>
+          <details class="grp" id="g-L1-进出口">
+    <summary>
+      <span class="grp-name">进出口</span>
+      <span class="grp-meta">1 表 · 15 指标 · 月</span>
+      <span class="grp-caret">▾</span>
+    </summary>
+    <div class="grp-body">
+      <div class="grp-src">来源：SMM</div>
+      <div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L1铝土矿进口-月</span>
+        <span class="m-note">月 · 15 列 · SMM</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">中国铝土矿月度进口量</span>
+    <span class="m-val">1,833.2</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国铝土矿月度进口数据：几内亚进口量</span>
+    <span class="m-val">1,383</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国铝土矿月度进口数据：澳大利亚进口量</span>
+    <span class="m-val">416.32</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国铝土矿月度进口数据：印度尼西亚进口量</span>
+    <span class="m-val">0.00</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国铝土矿月度进口数据：巴西进口量</span>
+    <span class="m-val">0.00</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国铝土矿月度进口数据：印度进口量</span>
+    <span class="m-val">0.00</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国铝土矿月度进口数据：马来西亚进口量</span>
+    <span class="m-val">3.77</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国铝土矿月度进口数据：牙买加进口量</span>
+    <span class="m-val">0.00</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国铝土矿月度进口数据：加纳进口量</span>
+    <span class="m-val">0.00</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国铝土矿月度进口数据：所罗门群岛进口量</span>
+    <span class="m-val">0.00</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国铝土矿月度进口数据：圭亚那进口量</span>
+    <span class="m-val">4.76</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国铝土矿月度进口数据：老挝进口量</span>
+    <span class="m-val">10.51</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国铝土矿月度进口数据：土耳其进口量</span>
+    <span class="m-val">4.91</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国铝土矿月度进口数据：塞拉利昂进口量</span>
+    <span class="m-val">0.00</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国铝土矿月度进口数据：黑山共和国进口量</span>
+    <span class="m-val">0.00</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div></div>
+    </div>
+    </div>
+  </details><details class="grp" id="g-L1-价格">
+    <summary>
+      <span class="grp-name">价格</span>
+      <span class="grp-meta">1 表 · 12 指标 · 日</span>
+      <span class="grp-caret">▾</span>
+    </summary>
+    <div class="grp-body">
+      <div class="grp-src">来源：SMM</div>
+      <div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L1铝土矿价格-日</span>
+        <span class="m-note">日 · 12 列 · SMM</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">高品铝矿(山西)-平均价</span>
+    <span class="m-val">595.00</span>
+    <span class="m-note">元/吨 · 2026-10-22 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">澳洲铝矿CIF-平均价</span>
+    <span class="m-val">67.50</span>
+    <span class="m-note">美元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">几内亚铝矿CIF(美元/吨)</span>
+    <span class="m-val">71.25</span>
+    <span class="m-note">美元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">印尼铝矿CIF(美元/吨)</span>
+    <span class="m-val">69.00</span>
+    <span class="m-note">美元/吨 · 2026-10-09 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">高品铝矿(山西)-平均价_1</span>
+    <span class="m-val">595.00</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">低品铝矿(山西)-平均价</span>
+    <span class="m-val">550.00</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">高品铝矿(河南)-平均价</span>
+    <span class="m-val">590.00</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">低品铝矿(河南)-平均价</span>
+    <span class="m-val">520.00</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">高品铝矿(广西)-平均价</span>
+    <span class="m-val">365.00</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">低品铝矿(广西)-平均价</span>
+    <span class="m-val">327.50</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">高品铝矿(贵州)-平均价</span>
+    <span class="m-val">515.00</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">低品铝矿(贵州)-平均价</span>
+    <span class="m-val">420.00</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div></div>
+    </div>
+    </div>
+  </details><details class="grp" id="g-L1-库存">
+    <summary>
+      <span class="grp-name">库存</span>
+      <span class="grp-meta">1 表 · 10 指标 · 月</span>
+      <span class="grp-caret">▾</span>
+    </summary>
+    <div class="grp-body">
+      <div class="grp-src">来源：SMM</div>
+      <div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L1铝土矿库存-月</span>
+        <span class="m-note">月 · 10 列 · SMM</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">中国铝土矿分省份月度库存：总计</span>
+    <span class="m-val">6,193.3</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国铝土矿分省份月度库存：贵州</span>
+    <span class="m-val">157.60</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国铝土矿分省份月度库存：河南</span>
+    <span class="m-val">185.50</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国铝土矿分省份月度库存：云南</span>
+    <span class="m-val">67.20</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国铝土矿分省份月度库存：重庆</span>
+    <span class="m-val">174.20</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国铝土矿分省份月度库存：内蒙古</span>
+    <span class="m-val">45.20</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国铝土矿分省份月度库存：山东</span>
+    <span class="m-val">3,712.5</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国铝土矿分省份月度库存：山西</span>
+    <span class="m-val">513.20</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国铝土矿分省份月度库存：广西</span>
+    <span class="m-val">840.50</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">铝土矿主要港口库存</span>
+    <span class="m-val">3,438</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div></div>
+    </div>
+    </div>
+  </details><details class="grp" id="g-L1-产量">
+    <summary>
+      <span class="grp-name">产量</span>
+      <span class="grp-meta">1 表 · 7 指标 · 月</span>
+      <span class="grp-caret">▾</span>
+    </summary>
+    <div class="grp-body">
+      <div class="grp-src">来源：SMM</div>
+      <div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L1铝土矿产量-月</span>
+        <span class="m-note">月 · 7 列 · SMM</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">SMM中国铝土矿分省份月度产量：全国总计</span>
+    <span class="m-val">472.44</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">SMM中国铝土矿分省份月度产量：云南</span>
+    <span class="m-val">21.68</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">SMM中国铝土矿分省份月度产量：山西</span>
+    <span class="m-val">94.70</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">SMM中国铝土矿分省份月度产量：河南</span>
+    <span class="m-val">40.49</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">SMM中国铝土矿分省份月度产量：贵州</span>
+    <span class="m-val">108.89</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">SMM中国铝土矿分省份月度产量：重庆</span>
+    <span class="m-val">0.00</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">SMM中国铝土矿分省份月度产量：广西</span>
+    <span class="m-val">206.69</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div></div>
+    </div>
+    </div>
+  </details>
+        </div>
+        <div class="lv-col lv-col-side">
+          <div class="lv-col-hd">🔔 可做预警（4）</div>
+          <div class="lv-ew" id="ew-L1"><div class="ew-item"><span class="ew-dot"></span><span class="ew-name">中国铝土矿月度进口量</span> <span class="ew-v">1,833.2万吨</span> <span class="m-note">2026-09-30 · 月</span></div><div class="ew-item"><span class="ew-dot"></span><span class="ew-name">中国铝土矿月度进口数据：几内亚进口量</span> <span class="ew-v">1,383万吨</span> <span class="m-note">2026-09-30 · 月</span></div><div class="ew-item"><span class="ew-dot"></span><span class="ew-name">中国铝土矿月度进口数据：澳大利亚进口量</span> <span class="ew-v">416.32万吨</span> <span class="m-note">2026-09-30 · 月</span></div><div class="ew-item"><span class="ew-dot"></span><span class="ew-name">高品铝矿(山西)-平均价</span> <span class="ew-v">595.00元/吨</span> <span class="m-note">2026-10-22 · 日</span></div></div>
+          <div class="lv-col-hd" style="margin-top:10px">👀 重点看</div>
+          <div class="lv-watch">进口依存度 / 港口与分省库存 / 进口价格</div>
+          
+        </div>
+      </div>
+    </div>
+  </details><details class="lv hi" data-lv="L2" id="lv-L2">
+    <summary class="lv-bar">
+      <span class="lv-caret">▸</span>
+      <span class="lv-icon">🧪</span>
+      <span class="lv-name">氧化铝</span>
+      <span class="lv-en">Alumina</span>
+      <span class="lv-pos">中间品</span>
+      <span class="lv-role">电解铝的核心原料, 成本占比最高的单一环节</span>
+      <span class="lv-cred">
+        <span class="lv-cred-bar"><i style="width:88%"></i></span>
+        <span class="lv-cred-txt">可信度 <b>高</b> 88%</span>
+      </span>
+      <span class="lv-stats"><b>10</b> 表 <b>49</b> 指标 <b>100%</b> 有值</span>
+      <span class="lv-groups">7 组</span>
+    </summary>
+    <div class="lv-body">
+      <div class="lv-cols">
+        <div class="lv-col">
+          <div class="lv-col-hd">📂 数据维度（7 组，点击展开看指标）</div>
+          <details class="grp" id="g-L2-成本与利润">
+    <summary>
+      <span class="grp-name">成本与利润</span>
+      <span class="grp-meta">2 表 · 16 指标 · 日/月</span>
+      <span class="grp-caret">▾</span>
+    </summary>
+    <div class="grp-body">
+      <div class="grp-src">来源：SMM、我的钢铁网</div>
+      <div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L2氧化铝成本-日</span>
+        <span class="m-note">日 · 6 列 · SMM</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">氧化铝_矿石成本</span>
+    <span class="m-val">1,382.3</span>
+    <span class="m-note">元/吨 · 2026-10-16 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">氧化铝_烧碱成本</span>
+    <span class="m-val">276.30</span>
+    <span class="m-note">元/吨 · 2026-10-16 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">氧化铝_能源成本</span>
+    <span class="m-val">598.40</span>
+    <span class="m-note">元/吨 · 2026-10-16 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">氧化铝_其他成本</span>
+    <span class="m-val">510.00</span>
+    <span class="m-note">元/吨 · 2026-10-16 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">氧化铝_现金成本</span>
+    <span class="m-val">2,597</span>
+    <span class="m-note">元/吨 · 2026-10-16 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">氧化铝_完全成本</span>
+    <span class="m-val">2,767</span>
+    <span class="m-note">元/吨 · 2026-10-16 · 日</span>
+  </div></div>
+    </div><div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L2氧化铝现金成本-月</span>
+        <span class="m-note">月 · 10 列 · 我的钢铁网</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">氧化铝：现金成本：中国（月）</span>
+    <span class="m-val">2,692</span>
+    <span class="m-note">元/吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">氧化铝：现金成本：重庆（月）</span>
+    <span class="m-val">2,684</span>
+    <span class="m-note">元/吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">氧化铝：现金成本：广西（月）</span>
+    <span class="m-val">2,625</span>
+    <span class="m-note">元/吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">氧化铝：现金成本：贵州（月）</span>
+    <span class="m-val">2,504</span>
+    <span class="m-note">元/吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">氧化铝：现金成本：河北（月）</span>
+    <span class="m-val">2,704.1</span>
+    <span class="m-note">元/吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">氧化铝：现金成本：河南（月）</span>
+    <span class="m-val">2,865</span>
+    <span class="m-note">元/吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">氧化铝：现金成本：内蒙古（月）</span>
+    <span class="m-val">2,796</span>
+    <span class="m-note">元/吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">氧化铝：现金成本：山东（月）</span>
+    <span class="m-val">2,721</span>
+    <span class="m-note">元/吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">氧化铝：现金成本：山西（月）</span>
+    <span class="m-val">2,699</span>
+    <span class="m-note">元/吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">氧化铝：现金成本：云南（月）</span>
+    <span class="m-val">2,538</span>
+    <span class="m-note">元/吨 · 2026-09-30 · 月</span>
+  </div></div>
+    </div>
+    </div>
+  </details><details class="grp" id="g-L2-产量">
+    <summary>
+      <span class="grp-name">产量</span>
+      <span class="grp-meta">1 表 · 11 指标 · 月</span>
+      <span class="grp-caret">▾</span>
+    </summary>
+    <div class="grp-body">
+      <div class="grp-src">来源：SMM</div>
+      <div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L2氧化铝产量中国-月</span>
+        <span class="m-note">月 · 11 列 · SMM</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">SMM中国氧化铝月度产量：总量</span>
+    <span class="m-val">759.88</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">SMM中国氧化铝月度产量：年化产能</span>
+    <span class="m-val">9,245.2</span>
+    <span class="m-note">万吨/年 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">SMM中国氧化铝月度产量：山东</span>
+    <span class="m-val">229.64</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">SMM中国氧化铝月度产量：山西</span>
+    <span class="m-val">152.55</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">SMM中国氧化铝月度产量：广西</span>
+    <span class="m-val">177.62</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">SMM中国氧化铝月度产量：河南</span>
+    <span class="m-val">54.16</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">SMM中国氧化铝月度产量：贵州</span>
+    <span class="m-val">41.67</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">SMM中国氧化铝月度产量：云南</span>
+    <span class="m-val">12.00</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">SMM中国氧化铝月度产量：重庆</span>
+    <span class="m-val">37.97</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">SMM中国氧化铝月度产量：内蒙古</span>
+    <span class="m-val">9.04</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国氧化铝产量预测</span>
+    <span class="m-val">755.75</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div></div>
+    </div>
+    </div>
+  </details><details class="grp" id="g-L2-价格">
+    <summary>
+      <span class="grp-name">价格</span>
+      <span class="grp-meta">1 表 · 7 指标 · 日</span>
+      <span class="grp-caret">▾</span>
+    </summary>
+    <div class="grp-body">
+      <div class="grp-src">来源：SMM</div>
+      <div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L2氧化铝价格-日</span>
+        <span class="m-note">日 · 7 列 · SMM</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">氧化铝进口盈亏</span>
+    <span class="m-val">-658.59</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">增值税</span>
+    <span class="m-val">13.00</span>
+    <span class="m-note">2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">汇率</span>
+    <span class="m-val">6.69</span>
+    <span class="m-note">2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">西澳-中国主要港口运费</span>
+    <span class="m-val">37.00</span>
+    <span class="m-note">美元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">SMM氧化铝价格指数</span>
+    <span class="m-val">2,653</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">氧化铝港杂</span>
+    <span class="m-val">80.00</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">SMM 西澳FOB价格</span>
+    <span class="m-val">391.00</span>
+    <span class="m-note">美元/吨 · 2026-10-23 · 日</span>
+  </div></div>
+    </div>
+    </div>
+  </details><details class="grp" id="g-L2-供需平衡">
+    <summary>
+      <span class="grp-name">供需平衡</span>
+      <span class="grp-meta">1 表 · 5 指标 · 月</span>
+      <span class="grp-caret">▾</span>
+    </summary>
+    <div class="grp-body">
+      <div class="grp-src">来源：SMM</div>
+      <div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L2氧化铝平衡-月</span>
+        <span class="m-note">月 · 5 列 · SMM</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">中国氧化铝月度平衡</span>
+    <span class="m-val">23.20</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国氧化铝月度平衡：实际消费量</span>
+    <span class="m-val">721.70</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国氧化铝月度平衡：表观消费量</span>
+    <span class="m-val">744.90</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国氧化铝月度平衡：产量</span>
+    <span class="m-val">759.90</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国氧化铝月度平衡：净进口量</span>
+    <span class="m-val">-15.00</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div></div>
+    </div>
+    </div>
+  </details><details class="grp" id="g-L2-开工率">
+    <summary>
+      <span class="grp-name">开工率</span>
+      <span class="grp-meta">2 表 · 4 指标 · 周/月</span>
+      <span class="grp-caret">▾</span>
+    </summary>
+    <div class="grp-body">
+      <div class="grp-src">来源：阿拉丁、SMM</div>
+      <div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L2氧化铝开工率中国-周</span>
+        <span class="m-note">周 · 3 列 · 阿拉丁</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">建成产能</span>
+    <span class="m-val">12,432</span>
+    <span class="m-note">2026-10-16 · 周</span>
+  </div><div class="m-row">
+    <span class="m-name">运行产能</span>
+    <span class="m-val">9,875</span>
+    <span class="m-note">2026-10-16 · 周</span>
+  </div><div class="m-row">
+    <span class="m-name">开工率</span>
+    <span class="m-val">79.43</span>
+    <span class="m-note">% · 2026-10-16 · 周</span>
+  </div></div>
+    </div><div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L2氧化铝开工率中国-月</span>
+        <span class="m-note">月 · 1 列 · SMM</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">中国氧化铝月度开工率：总开工率</span>
+    <span class="m-val">77.30</span>
+    <span class="m-note">% · 2026-09-30 · 月</span>
+  </div></div>
+    </div>
+    </div>
+  </details><details class="grp" id="g-L2-库存">
+    <summary>
+      <span class="grp-name">库存</span>
+      <span class="grp-meta">2 表 · 3 指标 · 周/月</span>
+      <span class="grp-caret">▾</span>
+    </summary>
+    <div class="grp-body">
+      <div class="grp-src">来源：钢联数据、SMM</div>
+      <div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L2氧化铝库存-周</span>
+        <span class="m-note">周 · 1 列 · 钢联数据</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">氧化铝：库存：中国（周）</span>
+    <span class="m-val">710.20</span>
+    <span class="m-note">2026-10-23 · 周</span>
+  </div></div>
+    </div><div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L2氧化铝库存-月</span>
+        <span class="m-note">月 · 2 列 · SMM</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">氧化铝企业厂内库存天数：全国</span>
+    <span class="m-val">5.20</span>
+    <span class="m-note">天 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">氧化铝企业厂内库存：全国</span>
+    <span class="m-val">131.60</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div></div>
+    </div>
+    </div>
+  </details><details class="grp" id="g-L2-进出口">
+    <summary>
+      <span class="grp-name">进出口</span>
+      <span class="grp-meta">1 表 · 3 指标 · 月</span>
+      <span class="grp-caret">▾</span>
+    </summary>
+    <div class="grp-body">
+      <div class="grp-src">来源：SMM</div>
+      <div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L2氧化铝进出口-月</span>
+        <span class="m-note">月 · 3 列 · SMM</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">氧化铝月度净进口量</span>
+    <span class="m-val">-16.80</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">氧化铝月度出口量</span>
+    <span class="m-val">23.78</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">氧化铝月度进口量</span>
+    <span class="m-val">6.98</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div></div>
+    </div>
+    </div>
+  </details>
+        </div>
+        <div class="lv-col lv-col-side">
+          <div class="lv-col-hd">🔔 可做预警（4）</div>
+          <div class="lv-ew" id="ew-L2"><div class="ew-item"><span class="ew-dot"></span><span class="ew-name">SMM中国氧化铝月度产量：总量</span> <span class="ew-v">759.88万吨</span> <span class="m-note">2026-09-30 · 月</span></div><div class="ew-item"><span class="ew-dot"></span><span class="ew-name">SMM中国氧化铝月度产量：年化产能</span> <span class="ew-v">9,245.2万吨/年</span> <span class="m-note">2026-09-30 · 月</span></div><div class="ew-item"><span class="ew-dot"></span><span class="ew-name">SMM中国氧化铝月度产量：山东</span> <span class="ew-v">229.64万吨</span> <span class="m-note">2026-09-30 · 月</span></div><div class="ew-item"><span class="ew-dot"></span><span class="ew-name">氧化铝：现金成本：中国（月）</span> <span class="ew-v">2,692元/吨</span> <span class="m-note">2026-09-30 · 月</span></div></div>
+          <div class="lv-col-hd" style="margin-top:10px">👀 重点看</div>
+          <div class="lv-watch">产量与运行产能 / 现金成本带 / 过剩量 / 净进口</div>
+          
+        </div>
+      </div>
+    </div>
+  </details><details class="lv hi" data-lv="L3" id="lv-L3">
+    <summary class="lv-bar">
+      <span class="lv-caret">▸</span>
+      <span class="lv-icon">⚡</span>
+      <span class="lv-name">电解铝</span>
+      <span class="lv-en">Primary Al</span>
+      <span class="lv-pos">主产品</span>
+      <span class="lv-role">定价核心 —— 有期货合约, 策略与仓位都落在这里</span>
+      <span class="lv-cred">
+        <span class="lv-cred-bar"><i style="width:98%"></i></span>
+        <span class="lv-cred-txt">可信度 <b>高</b> 98%</span>
+      </span>
+      <span class="lv-stats"><b>18</b> 表 <b>164</b> 指标 <b>100%</b> 有值</span>
+      <span class="lv-groups">10 组</span>
+    </summary>
+    <div class="lv-body">
+      <div class="lv-cols">
+        <div class="lv-col">
+          <div class="lv-col-hd">📂 数据维度（10 组，点击展开看指标）</div>
+          <details class="grp" id="g-L3-库存">
+    <summary>
+      <span class="grp-name">库存</span>
+      <span class="grp-meta">5 表 · 36 指标 · 日/周</span>
+      <span class="grp-caret">▾</span>
+    </summary>
+    <div class="grp-body">
+      <div class="grp-src">来源：SMM</div>
+      <div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L3 LME库存-日</span>
+        <span class="m-note">日 · 4 列 · SMM</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">伦敦金属交易所分国别铝锭库存：注销仓单合计</span>
+    <span class="m-val">1.45</span>
+    <span class="m-note">万吨 · 2026-10-22 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">伦敦金属交易所分国别铝锭库存：注册仓单合计</span>
+    <span class="m-val">22.14</span>
+    <span class="m-note">万吨 · 2026-10-22 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">伦敦金属交易所分国别铝锭库存：总计</span>
+    <span class="m-val">23.58</span>
+    <span class="m-note">万吨 · 2026-10-22 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">伦敦金属交易所分国别铝锭库存：变化</span>
+    <span class="m-val">-0.02</span>
+    <span class="m-note">万吨 · 2026-10-22 · 日</span>
+  </div></div>
+    </div><div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L3铝库存天数变化-周</span>
+        <span class="m-note">周 · 1 列 · SMM</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">中国电解铝库存天数变化：总库存(万吨)</span>
+    <span class="m-val">58.30</span>
+    <span class="m-note">2026-10-22 · 周</span>
+  </div></div>
+    </div><div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L3SHFE库存-周</span>
+        <span class="m-note">周 · 10 列 · SMM</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">上海期货交易所分省份铝锭库存：总库存</span>
+    <span class="m-val">21.29</span>
+    <span class="m-note">万吨 · 2026-10-23 · 周</span>
+  </div><div class="m-row">
+    <span class="m-name">上海期货交易所分省份铝锭库存：江苏</span>
+    <span class="m-val">5.71</span>
+    <span class="m-note">万吨 · 2026-10-23 · 周</span>
+  </div><div class="m-row">
+    <span class="m-name">上海期货交易所分省份铝锭库存：河南</span>
+    <span class="m-val">7.03</span>
+    <span class="m-note">万吨 · 2026-10-23 · 周</span>
+  </div><div class="m-row">
+    <span class="m-name">上海期货交易所分省份铝锭库存：广东</span>
+    <span class="m-val">3.66</span>
+    <span class="m-note">万吨 · 2026-10-23 · 周</span>
+  </div><div class="m-row">
+    <span class="m-name">上海期货交易所分省份铝锭库存：天津</span>
+    <span class="m-val">0.02</span>
+    <span class="m-note">万吨 · 2026-10-23 · 周</span>
+  </div><div class="m-row">
+    <span class="m-name">上海期货交易所分省份铝锭库存：山东</span>
+    <span class="m-val">1.74</span>
+    <span class="m-note">万吨 · 2026-10-23 · 周</span>
+  </div><div class="m-row">
+    <span class="m-name">上海期货交易所分省份铝锭库存：上海</span>
+    <span class="m-val">0.06</span>
+    <span class="m-note">万吨 · 2026-10-23 · 周</span>
+  </div><div class="m-row">
+    <span class="m-name">上海期货交易所分省份铝锭库存：重庆</span>
+    <span class="m-val">0.05</span>
+    <span class="m-note">万吨 · 2026-10-23 · 周</span>
+  </div><div class="m-row">
+    <span class="m-name">上海期货交易所分省份铝锭库存：浙江</span>
+    <span class="m-val">2.45</span>
+    <span class="m-note">万吨 · 2026-10-23 · 周</span>
+  </div><div class="m-row">
+    <span class="m-name">上海期货交易所分省份铝锭库存：仓单</span>
+    <span class="m-val">6.82</span>
+    <span class="m-note">万吨 · 2026-10-23 · 周</span>
+  </div></div>
+    </div><div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L3 电解铝社会库存-周</span>
+        <span class="m-note">周 · 9 列 · SMM</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">中国电解铝分地区社会库存：合计</span>
+    <span class="m-val">58.30</span>
+    <span class="m-note">万吨 · 2026-10-22 · 周</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝分地区社会库存：上海</span>
+    <span class="m-val">4.80</span>
+    <span class="m-note">万吨 · 2026-10-22 · 周</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝分地区社会库存：杭州</span>
+    <span class="m-val">4.00</span>
+    <span class="m-note">万吨 · 2026-10-22 · 周</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝分地区社会库存：南海</span>
+    <span class="m-val">12.40</span>
+    <span class="m-note">万吨 · 2026-10-22 · 周</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝分地区社会库存：无锡</span>
+    <span class="m-val">18.90</span>
+    <span class="m-note">万吨 · 2026-10-22 · 周</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝分地区社会库存：临沂</span>
+    <span class="m-val">1.70</span>
+    <span class="m-note">万吨 · 2026-10-22 · 周</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝分地区社会库存：天津</span>
+    <span class="m-val">1.60</span>
+    <span class="m-note">万吨 · 2026-10-22 · 周</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝分地区社会库存：巩义</span>
+    <span class="m-val">13.40</span>
+    <span class="m-note">万吨 · 2026-10-22 · 周</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝分地区社会库存：重庆</span>
+    <span class="m-val">0.80</span>
+    <span class="m-note">万吨 · 2026-10-22 · 周</span>
+  </div></div>
+    </div><div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L3铝棒库存-周</span>
+        <span class="m-note">周 · 12 列 · SMM</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">中国铝棒地区库存：合计</span>
+    <span class="m-val">14.85</span>
+    <span class="m-note">万吨 · 2026-10-22 · 周</span>
+  </div><div class="m-row">
+    <span class="m-name">中国铝棒地区库存：常州</span>
+    <span class="m-val">1.70</span>
+    <span class="m-note">万吨 · 2026-10-22 · 周</span>
+  </div><div class="m-row">
+    <span class="m-name">中国铝棒地区库存：湖州</span>
+    <span class="m-val">3.30</span>
+    <span class="m-note">万吨 · 2026-10-22 · 周</span>
+  </div><div class="m-row">
+    <span class="m-name">中国铝棒地区库存：佛山</span>
+    <span class="m-val">5.90</span>
+    <span class="m-note">万吨 · 2026-10-22 · 周</span>
+  </div><div class="m-row">
+    <span class="m-name">中国铝棒地区库存：无锡</span>
+    <span class="m-val">3.40</span>
+    <span class="m-note">万吨 · 2026-10-22 · 周</span>
+  </div><div class="m-row">
+    <span class="m-name">中国铝棒地区库存：南昌</span>
+    <span class="m-val">0.55</span>
+    <span class="m-note">万吨 · 2026-10-22 · 周</span>
+  </div><div class="m-row">
+    <span class="m-name">库存:6063铝棒:合计</span>
+    <span class="m-val">18.64</span>
+    <span class="m-note">万吨 · 2026-10-08 · 周</span>
+  </div><div class="m-row">
+    <span class="m-name">库存:6063铝棒:佛山</span>
+    <span class="m-val">8.70</span>
+    <span class="m-note">万吨 · 2026-10-08 · 周</span>
+  </div><div class="m-row">
+    <span class="m-name">库存:6063铝棒:无锡</span>
+    <span class="m-val">3.25</span>
+    <span class="m-note">万吨 · 2026-10-08 · 周</span>
+  </div><div class="m-row">
+    <span class="m-name">库存:6063铝棒:南昌</span>
+    <span class="m-val">0.60</span>
+    <span class="m-note">万吨 · 2026-10-08 · 周</span>
+  </div><div class="m-row">
+    <span class="m-name">库存:6063铝棒:常州</span>
+    <span class="m-val">1.99</span>
+    <span class="m-note">万吨 · 2026-10-08 · 周</span>
+  </div><div class="m-row">
+    <span class="m-name">库存:6063铝棒:湖州</span>
+    <span class="m-val">4.10</span>
+    <span class="m-note">万吨 · 2026-10-08 · 周</span>
+  </div></div>
+    </div>
+    </div>
+  </details><details class="grp" id="g-L3-进出口">
+    <summary>
+      <span class="grp-name">进出口</span>
+      <span class="grp-meta">2 表 · 32 指标 · 日/月</span>
+      <span class="grp-caret">▾</span>
+    </summary>
+    <div class="grp-body">
+      <div class="grp-src">来源：SMM</div>
+      <div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L3电解铝进口盈亏-日</span>
+        <span class="m-note">日 · 28 列 · SMM</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">中国电解铝进出口利润模型：铝锭出口利润</span>
+    <span class="m-val">-1,408.7</span>
+    <span class="m-note">美元/吨 · 2026-10-22 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝出口利润模型：铝板带出口成本</span>
+    <span class="m-val">4,027.3</span>
+    <span class="m-note">美元/吨 · 2026-10-22 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝出口利润模型：铝型材出口成本</span>
+    <span class="m-val">4,777.8</span>
+    <span class="m-note">美元/吨 · 2026-10-22 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝出口利润模型：铝箔出口成本</span>
+    <span class="m-val">4,477.6</span>
+    <span class="m-note">美元/吨 · 2026-10-22 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝出口利润模型：汇率</span>
+    <span class="m-val">6.66</span>
+    <span class="m-note">2026-10-22 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝出口利润模型：海外铝箔价格</span>
+    <span class="m-val">4,802.1</span>
+    <span class="m-note">美元/吨 · 2026-10-22 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝出口利润模型：铝型材加工费</span>
+    <span class="m-val">8,000</span>
+    <span class="m-note">元/吨 · 2026-10-22 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝出口利润模型：铝锭进口成本</span>
+    <span class="m-val">23,788</span>
+    <span class="m-note">元/吨 · 2026-10-22 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝出口利润模型：LME 0-3 升水</span>
+    <span class="m-val">23.00</span>
+    <span class="m-note">美元/吨 · 2026-10-22 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝出口利润模型：海外铝型材加工费估算</span>
+    <span class="m-val">1,210.8</span>
+    <span class="m-note">美元/吨 · 2026-10-22 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝出口利润模型：北美</span>
+    <span class="m-val">2,314.9</span>
+    <span class="m-note">美元/吨 · 2026-10-22 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝出口利润模型：铝板带出口利润</span>
+    <span class="m-val">284.14</span>
+    <span class="m-note">美元/吨 · 2026-10-15 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝进出口利润模型：铝锭进口利润</span>
+    <span class="m-val">-78.07</span>
+    <span class="m-note">元/吨 · 2026-10-22 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝出口利润模型：日本</span>
+    <span class="m-val">230.00</span>
+    <span class="m-note">美元/吨 · 2026-10-22 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝出口利润模型：海外铝板带加工费估算</span>
+    <span class="m-val">720.32</span>
+    <span class="m-note">美元/吨 · 2026-10-22 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝出口利润模型：铝板带加工费</span>
+    <span class="m-val">3,000</span>
+    <span class="m-note">元/吨 · 2026-10-22 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝出口利润模型：增值税税率</span>
+    <span class="m-val">13.00</span>
+    <span class="m-note">% · 2026-10-22 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝出口利润模型：港杂费</span>
+    <span class="m-val">120.00</span>
+    <span class="m-note">元/吨 · 2026-10-22 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝出口利润模型：上海现货均价</span>
+    <span class="m-val">23,710</span>
+    <span class="m-note">元/吨 · 2026-10-22 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝进出口利润模型：铝锭出口成本</span>
+    <span class="m-val">4,644.7</span>
+    <span class="m-note">美元/吨 · 2026-10-22 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝出口利润模型：铝材退税税率</span>
+    <span class="m-val">0.00</span>
+    <span class="m-note">% · 2026-10-22 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝出口利润模型：LME M3收盘</span>
+    <span class="m-val">3,006</span>
+    <span class="m-note">美元/吨 · 2026-10-22 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝出口利润模型：海外铝箔加工费估算</span>
+    <span class="m-val">1,110.6</span>
+    <span class="m-note">美元/吨 · 2026-10-22 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝出口利润模型：铝箔出口利润</span>
+    <span class="m-val">164.46</span>
+    <span class="m-note">美元/吨 · 2026-10-22 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝出口利润模型：铝箔加工费</span>
+    <span class="m-val">6,000</span>
+    <span class="m-note">元/吨 · 2026-10-22 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝出口利润模型：欧洲</span>
+    <span class="m-val">585.00</span>
+    <span class="m-note">美元/吨 · 2026-10-22 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝出口利润模型：铝型材出口利润</span>
+    <span class="m-val">-35.54</span>
+    <span class="m-note">美元/吨 · 2026-10-22 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝出口利润模型：运费估算</span>
+    <span class="m-val">160.00</span>
+    <span class="m-note">美元/吨 · 2026-10-22 · 日</span>
+  </div></div>
+    </div><div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L3电解铝进出口-月</span>
+        <span class="m-note">月 · 4 列 · SMM</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">中国电解铝月度进出口数据：进口</span>
+    <span class="m-val">17.21</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝月度进出口数据：净进口</span>
+    <span class="m-val">12.75</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝月度进出口数据：出口</span>
+    <span class="m-val">4.46</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国废铝月度进口量</span>
+    <span class="m-val">14.00</span>
+    <span class="m-note">万吨 · 2026-08-31 · 月</span>
+  </div></div>
+    </div>
+    </div>
+  </details><details class="grp" id="g-L3-价格">
+    <summary>
+      <span class="grp-name">价格</span>
+      <span class="grp-meta">3 表 · 32 指标 · 日</span>
+      <span class="grp-caret">▾</span>
+    </summary>
+    <div class="grp-body">
+      <div class="grp-src">来源：SMM</div>
+      <div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L3铝、铝合金价格-日</span>
+        <span class="m-note">日 · 7 列 · SMM</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">SMM A00铝-平均价</span>
+    <span class="m-val">23,670</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">SMM铝合金ADC12-平均价</span>
+    <span class="m-val">24,500</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">华东ADC12-平均价</span>
+    <span class="m-val">24,500</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">华南ADC12-平均价</span>
+    <span class="m-val">24,500</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">西南ADC12-平均价</span>
+    <span class="m-val">24,500</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">东北ADC12 - 平均价</span>
+    <span class="m-val">24,500</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">铝合金-铝价价差</span>
+    <span class="m-val">940.00</span>
+    <span class="m-note">元/吨 · 2026-10-16 · 日</span>
+  </div></div>
+    </div><div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L3预焙阳极价格-日</span>
+        <span class="m-note">日 · 4 列 · SMM</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">预焙阳极(华东)-平均价</span>
+    <span class="m-val">7,866</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">预焙阳极(华中)-平均价</span>
+    <span class="m-val">6,372.5</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">预焙阳极(西南)-平均价</span>
+    <span class="m-val">6,725</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">预焙阳极(西北)-平均价</span>
+    <span class="m-val">6,750</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div></div>
+    </div><div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L3各地区电价</span>
+        <span class="m-note">日 · 21 列 · SMM</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">SMM: 云南电解铝平均电价: 月度</span>
+    <span class="m-val">0.38</span>
+    <span class="m-note">元/kWh · 2026-09-30 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">SMM: 全国电解加权平均电价: 月度</span>
+    <span class="m-val">0.41</span>
+    <span class="m-note">元/kWh · 2026-09-30 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">SMM: 内蒙古电解铝平均电价: 月度</span>
+    <span class="m-val">0.39</span>
+    <span class="m-note">元/kWh · 2026-09-30 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">SMM: 四川电解铝平均电价: 月度</span>
+    <span class="m-val">0.43</span>
+    <span class="m-note">元/kWh · 2026-09-30 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">SMM: 宁夏电解铝平均电价: 月度</span>
+    <span class="m-val">0.46</span>
+    <span class="m-note">元/kWh · 2026-09-30 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">SMM: 山东电解铝平均电价: 月度</span>
+    <span class="m-val">0.41</span>
+    <span class="m-note">元/kWh · 2026-09-30 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">SMM: 山西电解铝平均电价: 月度</span>
+    <span class="m-val">0.50</span>
+    <span class="m-note">元/kWh · 2026-09-30 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">SMM: 广西电解铝平均电价: 月度</span>
+    <span class="m-val">0.52</span>
+    <span class="m-note">元/kWh · 2026-09-30 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">SMM: 新疆电解铝平均电价: 月度</span>
+    <span class="m-val">0.26</span>
+    <span class="m-note">元/kWh · 2026-09-30 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">SMM: 河南电解铝平均电价: 月度</span>
+    <span class="m-val">0.47</span>
+    <span class="m-note">元/kWh · 2026-09-30 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">SMM: 湖北电解铝平均电价: 月度</span>
+    <span class="m-val">0.39</span>
+    <span class="m-note">元/kWh · 2026-09-30 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">SMM: 甘肃电解铝平均电价: 月度</span>
+    <span class="m-val">0.45</span>
+    <span class="m-note">元/kWh · 2026-09-30 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">SMM: 福建电解铝平均电价: 月度</span>
+    <span class="m-val">0.58</span>
+    <span class="m-note">元/kWh · 2026-09-30 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">SMM: 贵州电解铝平均电价: 月度</span>
+    <span class="m-val">0.54</span>
+    <span class="m-note">元/kWh · 2026-09-30 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">SMM: 辽宁电解铝平均电价: 月度</span>
+    <span class="m-val">0.56</span>
+    <span class="m-note">元/kWh · 2026-09-30 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">SMM: 重庆电解铝平均电价: 月度</span>
+    <span class="m-val">0.53</span>
+    <span class="m-note">元/kWh · 2026-09-30 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">SMM: 陕西电解铝平均电价: 月度</span>
+    <span class="m-val">0.47</span>
+    <span class="m-note">元/kWh · 2026-09-30 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">SMM: 青海电解铝平均电价: 月度</span>
+    <span class="m-val">0.43</span>
+    <span class="m-note">元/kWh · 2026-09-30 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国海关: 铝土矿进口量: 几内亚: 月度</span>
+    <span class="m-val">13,829,841</span>
+    <span class="m-note">吨 · 2026-09-30 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">SMM: 几内亚铝土矿FOB - 平均价: 日度</span>
+    <span class="m-val">40.00</span>
+    <span class="m-note">美元/干吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">SMM: 几内亚铝矿CIF-周平均价: 周度</span>
+    <span class="m-val">71.40</span>
+    <span class="m-note">美元/吨 · 2026-10-16 · 日</span>
+  </div></div>
+    </div>
+    </div>
+  </details><details class="grp" id="g-L3-成本与利润">
+    <summary>
+      <span class="grp-name">成本与利润</span>
+      <span class="grp-meta">1 表 · 22 指标 · 日</span>
+      <span class="grp-caret">▾</span>
+    </summary>
+    <div class="grp-body">
+      <div class="grp-src">来源：SMM</div>
+      <div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L3电解铝成本利润-日</span>
+        <span class="m-note">日 · 22 列 · SMM</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">中国电解铝成本模型：电价</span>
+    <span class="m-val">0.41</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝成本模型：现金成本</span>
+    <span class="m-val">14,176</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝成本模型：总成本</span>
+    <span class="m-val">16,376</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝成本模型：维修费用</span>
+    <span class="m-val">400.00</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝成本模型：氟化铝价格</span>
+    <span class="m-val">12,800</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝成本模型：利润</span>
+    <span class="m-val">7,294.2</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝成本模型：氧化铝价格</span>
+    <span class="m-val">2,665.3</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝成本模型：氧化铝单耗</span>
+    <span class="m-val">1.93</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝成本模型：氟化铝单耗</span>
+    <span class="m-val">0.03</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝成本模型：冰晶石单耗</span>
+    <span class="m-val">0.00</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝成本模型：冰晶石价格</span>
+    <span class="m-val">8,000</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝成本模型：单耗</span>
+    <span class="m-val">13,350</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝成本模型：电力成本</span>
+    <span class="m-val">5,433.5</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝成本模型：阳极成本</span>
+    <span class="m-val">3,117.8</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝成本模型：氧化铝成本</span>
+    <span class="m-val">5,130.6</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝成本模型：冰晶石成本</span>
+    <span class="m-val">24.00</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝成本模型：折旧费用</span>
+    <span class="m-val">300.00</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝成本模型：阳极单耗</span>
+    <span class="m-val">0.45</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝成本模型：三项费用</span>
+    <span class="m-val">1,500</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝成本模型：人工成本</span>
+    <span class="m-val">150.00</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝成本模型：氟化铝成本</span>
+    <span class="m-val">320.00</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝成本模型：阳极价格</span>
+    <span class="m-val">6,928.4</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div></div>
+    </div>
+    </div>
+  </details><details class="grp" id="g-L3-产能">
+    <summary>
+      <span class="grp-name">产能</span>
+      <span class="grp-meta">2 表 · 22 指标 · 周/月</span>
+      <span class="grp-caret">▾</span>
+    </summary>
+    <div class="grp-body">
+      <div class="grp-src">来源：阿拉丁、北京阿拉丁中营商务咨询有限公司</div>
+      <div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L3电解铝产能中国-周</span>
+        <span class="m-note">周 · 3 列 · 阿拉丁</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">建成产能</span>
+    <span class="m-val">4,579.2</span>
+    <span class="m-note">万吨 · 2026-10-09 · 周</span>
+  </div><div class="m-row">
+    <span class="m-name">运行产能</span>
+    <span class="m-val">4,549.1</span>
+    <span class="m-note">万吨 · 2026-10-09 · 周</span>
+  </div><div class="m-row">
+    <span class="m-name">开工率</span>
+    <span class="m-val">99.34</span>
+    <span class="m-note">% · 2026-10-09 · 周</span>
+  </div></div>
+    </div><div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L3电解铝产能中国-月</span>
+        <span class="m-note">月 · 19 列 · 北京阿拉丁中营商务咨询有限公司</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">中国:总产能:电解铝</span>
+    <span class="m-val">4,578.2</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:在产产能:电解铝</span>
+    <span class="m-val">4,548.1</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:产能利用率:电解铝</span>
+    <span class="m-val">99.90</span>
+    <span class="m-note">% · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:山东:产能利用率:电解铝</span>
+    <span class="m-val">104.09</span>
+    <span class="m-note">% · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:新疆:产能利用率:电解铝</span>
+    <span class="m-val">100.22</span>
+    <span class="m-note">% · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:河南:产能利用率:电解铝</span>
+    <span class="m-val">93.75</span>
+    <span class="m-note">% · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:内蒙古:产能利用率:电解铝</span>
+    <span class="m-val">99.95</span>
+    <span class="m-note">% · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:甘肃:产能利用率:电解铝</span>
+    <span class="m-val">100.19</span>
+    <span class="m-note">% · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:青海:产能利用率:电解铝</span>
+    <span class="m-val">98.70</span>
+    <span class="m-note">% · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:宁夏:产能利用率:电解铝</span>
+    <span class="m-val">101.55</span>
+    <span class="m-note">% · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:贵州:产能利用率:电解铝</span>
+    <span class="m-val">102.36</span>
+    <span class="m-note">% · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:山西:产能利用率:电解铝</span>
+    <span class="m-val">91.91</span>
+    <span class="m-note">% · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:广西:产能利用率:电解铝</span>
+    <span class="m-val">99.22</span>
+    <span class="m-note">% · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:四川:产能利用率:电解铝</span>
+    <span class="m-val">99.02</span>
+    <span class="m-note">% · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:陕西:产能利用率:电解铝</span>
+    <span class="m-val">97.86</span>
+    <span class="m-note">% · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:辽宁:产能利用率:电解铝</span>
+    <span class="m-val">94.75</span>
+    <span class="m-note">% · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:重庆:产能利用率:电解铝</span>
+    <span class="m-val">94.29</span>
+    <span class="m-note">% · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:湖北:产能利用率:电解铝</span>
+    <span class="m-val">73.58</span>
+    <span class="m-note">% · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:福建:产能利用率:电解铝</span>
+    <span class="m-val">95.71</span>
+    <span class="m-note">% · 2026-09-30 · 月</span>
+  </div></div>
+    </div>
+    </div>
+  </details><details class="grp" id="g-L3-供需平衡">
+    <summary>
+      <span class="grp-name">供需平衡</span>
+      <span class="grp-meta">1 表 · 12 指标 · 月</span>
+      <span class="grp-caret">▾</span>
+    </summary>
+    <div class="grp-body">
+      <div class="grp-src">来源：SMM</div>
+      <div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L3电解铝平衡-月</span>
+        <span class="m-note">月 · 12 列 · SMM</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">中国电解铝月度平衡：实际消费量</span>
+    <span class="m-val">415.84</span>
+    <span class="m-note">万吨 · 2026-08-31 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝月度平衡：电解铝产量同比</span>
+    <span class="m-val">2.18</span>
+    <span class="m-note">% · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝月度平衡：电解铝累计产量增速</span>
+    <span class="m-val">2.26</span>
+    <span class="m-note">% · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝月度平衡：年化产能</span>
+    <span class="m-val">4,581.2</span>
+    <span class="m-note">万吨/年 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝月度平衡：电解铝累计实际消费增速</span>
+    <span class="m-val">1.58</span>
+    <span class="m-note">% · 2026-08-31 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝月度平衡：月度库存</span>
+    <span class="m-val">63.80</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝月度平衡：实际消费增速</span>
+    <span class="m-val">6.22</span>
+    <span class="m-note">% · 2026-08-31 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝月度平衡：净进口量</span>
+    <span class="m-val">16.37</span>
+    <span class="m-note">万吨 · 2026-08-31 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝月度平衡：表观消费量</span>
+    <span class="m-val">403.74</span>
+    <span class="m-note">万吨 · 2026-08-31 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝月度平衡：库存/消费</span>
+    <span class="m-val">6.43</span>
+    <span class="m-note">天 · 2026-08-31 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝月度平衡：产量</span>
+    <span class="m-val">376.53</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">表观消费增速</span>
+    <span class="m-val">-0.08</span>
+    <span class="m-note">2023-11-30 · 月</span>
+  </div></div>
+    </div>
+    </div>
+  </details><details class="grp" id="g-L3-产量">
+    <summary>
+      <span class="grp-name">产量</span>
+      <span class="grp-meta">1 表 · 3 指标 · 月</span>
+      <span class="grp-caret">▾</span>
+    </summary>
+    <div class="grp-body">
+      <div class="grp-src">来源：SMM</div>
+      <div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L3电解铝产量中国-月</span>
+        <span class="m-note">月 · 3 列 · SMM</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">SMM中国电解铝月度产量：总量</span>
+    <span class="m-val">374.90</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">SMM中国电解铝月度产量：同比</span>
+    <span class="m-val">1.74</span>
+    <span class="m-note">% · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝下月产量预测</span>
+    <span class="m-val">374.90</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div></div>
+    </div>
+    </div>
+  </details><details class="grp" id="g-L3-开工率">
+    <summary>
+      <span class="grp-name">开工率</span>
+      <span class="grp-meta">1 表 · 2 指标 · 月</span>
+      <span class="grp-caret">▾</span>
+    </summary>
+    <div class="grp-body">
+      <div class="grp-src">来源：SMM</div>
+      <div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L3电解铝中国开工率-月</span>
+        <span class="m-note">月 · 2 列 · SMM</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">铝电解铝总开工率：下月预测值</span>
+    <span class="m-val">98.11</span>
+    <span class="m-note">% · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝月度开工率：总开工率</span>
+    <span class="m-val">98.54</span>
+    <span class="m-note">% · 2026-09-30 · 月</span>
+  </div></div>
+    </div>
+    </div>
+  </details><details class="grp" id="g-L3-结构占比">
+    <summary>
+      <span class="grp-name">结构占比</span>
+      <span class="grp-meta">1 表 · 2 指标 · 月</span>
+      <span class="grp-caret">▾</span>
+    </summary>
+    <div class="grp-body">
+      <div class="grp-src">来源：SMM</div>
+      <div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L3电解铝铝水占比-月</span>
+        <span class="m-note">月 · 2 列 · SMM</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">中国电解铝月度铝水比例：电解铝产量</span>
+    <span class="m-val">374.89</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国电解铝月度铝水比例：铝水占比</span>
+    <span class="m-val">78.24</span>
+    <span class="m-note">% · 2026-09-30 · 月</span>
+  </div></div>
+    </div>
+    </div>
+  </details><details class="grp" id="g-L3-需求">
+    <summary>
+      <span class="grp-name">需求</span>
+      <span class="grp-meta">1 表 · 1 指标 · 季</span>
+      <span class="grp-caret">▾</span>
+    </summary>
+    <div class="grp-body">
+      <div class="grp-src">来源：SMM</div>
+      <div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L3电解铝消费量预测-季</span>
+        <span class="m-note">季 · 1 列 · SMM</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">中国电解铝消费量预测</span>
+    <span class="m-val">1,239.2</span>
+    <span class="m-note">万吨 · 2026-09-30 · 季</span>
+  </div></div>
+    </div>
+    </div>
+  </details>
+        </div>
+        <div class="lv-col lv-col-side">
+          <div class="lv-col-hd">🔔 可做预警（4）</div>
+          <div class="lv-ew" id="ew-L3"><div class="ew-item"><span class="ew-dot"></span><span class="ew-name">中国电解铝进出口利润模型：铝锭出口利润</span> <span class="ew-v">-1,408.7美元/吨</span> <span class="m-note">2026-10-22 · 日</span></div><div class="ew-item"><span class="ew-dot"></span><span class="ew-name">中国电解铝出口利润模型：铝板带出口成本</span> <span class="ew-v">4,027.3美元/吨</span> <span class="m-note">2026-10-22 · 日</span></div><div class="ew-item"><span class="ew-dot"></span><span class="ew-name">中国电解铝出口利润模型：铝型材出口成本</span> <span class="ew-v">4,777.8美元/吨</span> <span class="m-note">2026-10-22 · 日</span></div><div class="ew-item"><span class="ew-dot"></span><span class="ew-name">中国电解铝成本模型：电价</span> <span class="ew-v">0.41元/吨</span> <span class="m-note">2026-10-23 · 日</span></div></div>
+          <div class="lv-col-hd" style="margin-top:10px">👀 重点看</div>
+          <div class="lv-watch">产能与开工率 / 成本利润 / 社库与 SHFE 库存 / 净进口</div>
+          
+        </div>
+      </div>
+    </div>
+  </details><details class="lv mid" data-lv="L4" id="lv-L4">
+    <summary class="lv-bar">
+      <span class="lv-caret">▸</span>
+      <span class="lv-icon">♻</span>
+      <span class="lv-name">再生铝</span>
+      <span class="lv-en">Secondary Al</span>
+      <span class="lv-pos">替代供给</span>
+      <span class="lv-role">原铝的替代供给, 分流一部分需求</span>
+      <span class="lv-cred">
+        <span class="lv-cred-bar"><i style="width:71%"></i></span>
+        <span class="lv-cred-txt">可信度 <b>中</b> 71%</span>
+      </span>
+      <span class="lv-stats"><b>1</b> 表 <b>2</b> 指标 <b>100%</b> 有值</span>
+      <span class="lv-groups">1 组</span>
+    </summary>
+    <div class="lv-body">
+      <div class="lv-cols">
+        <div class="lv-col">
+          <div class="lv-col-hd">📂 数据维度（1 组，点击展开看指标）</div>
+          <details class="grp" id="g-L4-原料替代">
+    <summary>
+      <span class="grp-name">原料替代</span>
+      <span class="grp-meta">1 表 · 2 指标 · 月</span>
+      <span class="grp-caret">▾</span>
+    </summary>
+    <div class="grp-body">
+      <div class="grp-src">来源：Wind</div>
+      <div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L4再生铝</span>
+        <span class="m-note">月 · 2 列 · Wind</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">中国:进口数量:废铝</span>
+    <span class="m-val">15.88</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:进口平均单价:废铝:当月值</span>
+    <span class="m-val">0.00</span>
+    <span class="m-note">美元/吨 · 2026-09-30 · 月</span>
+  </div></div>
+    </div>
+    </div>
+  </details>
+        </div>
+        <div class="lv-col lv-col-side">
+          <div class="lv-col-hd">🔔 可做预警（2）</div>
+          <div class="lv-ew" id="ew-L4"><div class="ew-item"><span class="ew-dot"></span><span class="ew-name">中国:进口数量:废铝</span> <span class="ew-v">15.88万吨</span> <span class="m-note">2026-09-30 · 月</span></div><div class="ew-item"><span class="ew-dot"></span><span class="ew-name">中国:进口平均单价:废铝:当月值</span> <span class="ew-v">0.00美元/吨</span> <span class="m-note">2026-09-30 · 月</span></div></div>
+          <div class="lv-col-hd" style="margin-top:10px">👀 重点看</div>
+          <div class="lv-watch">废铝进口量与价格 / 再生铝合金开工率</div>
+          
+        </div>
+      </div>
+    </div>
+  </details><details class="lv hi" data-lv="L5" id="lv-L5">
+    <summary class="lv-bar">
+      <span class="lv-caret">▸</span>
+      <span class="lv-icon">🏭</span>
+      <span class="lv-name">铝合金</span>
+      <span class="lv-en">Alloy &amp; Proc.</span>
+      <span class="lv-pos">加工端</span>
+      <span class="lv-role">原铝的直接消耗端, 加工费反映下游利润</span>
+      <span class="lv-cred">
+        <span class="lv-cred-bar"><i style="width:87%"></i></span>
+        <span class="lv-cred-txt">可信度 <b>高</b> 87%</span>
+      </span>
+      <span class="lv-stats"><b>4</b> 表 <b>40</b> 指标 <b>100%</b> 有值</span>
+      <span class="lv-groups">2 组</span>
+    </summary>
+    <div class="lv-body">
+      <div class="lv-cols">
+        <div class="lv-col">
+          <div class="lv-col-hd">📂 数据维度（2 组，点击展开看指标）</div>
+          <details class="grp" id="g-L5-开工率">
+    <summary>
+      <span class="grp-name">开工率</span>
+      <span class="grp-meta">2 表 · 30 指标 · 周/月</span>
+      <span class="grp-caret">▾</span>
+    </summary>
+    <div class="grp-body">
+      <div class="grp-src">来源：SMM</div>
+      <div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L5铝合金开工率-周</span>
+        <span class="m-note">周 · 7 列 · SMM</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">铝行业平均开工率(%)</span>
+    <span class="m-val">60.50</span>
+    <span class="m-note">% · 2026-10-02 · 周</span>
+  </div><div class="m-row">
+    <span class="m-name">铝型材开工率(%)</span>
+    <span class="m-val">52.70</span>
+    <span class="m-note">% · 2026-10-02 · 周</span>
+  </div><div class="m-row">
+    <span class="m-name">再生铝合金开工率(%)</span>
+    <span class="m-val">45.60</span>
+    <span class="m-note">% · 2026-10-02 · 周</span>
+  </div><div class="m-row">
+    <span class="m-name">原生铝合金开工率(%)</span>
+    <span class="m-val">60.20</span>
+    <span class="m-note">% · 2026-10-02 · 周</span>
+  </div><div class="m-row">
+    <span class="m-name">铝线缆开工率(%)</span>
+    <span class="m-val">63.80</span>
+    <span class="m-note">% · 2026-10-02 · 周</span>
+  </div><div class="m-row">
+    <span class="m-name">铝板带开工率(%)</span>
+    <span class="m-val">69.40</span>
+    <span class="m-note">% · 2026-10-02 · 周</span>
+  </div><div class="m-row">
+    <span class="m-name">铝箔开工率(%)</span>
+    <span class="m-val">71.10</span>
+    <span class="m-note">% · 2026-10-02 · 周</span>
+  </div></div>
+    </div><div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L5铝合金开工率-月</span>
+        <span class="m-note">月 · 23 列 · SMM</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">中国铝线缆分规模月度开工率：总开工率</span>
+    <span class="m-val">54.90</span>
+    <span class="m-note">2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国铝线缆分规模月度开工率：总开工率|预测</span>
+    <span class="m-val">57.86</span>
+    <span class="m-note">2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国铝线缆分规模月度开工率：调研总产能</span>
+    <span class="m-val">177.00</span>
+    <span class="m-note">2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国铝板带箔分规模月度开工率：总开工率：当月</span>
+    <span class="m-val">72.84</span>
+    <span class="m-note">2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国铝板带箔分规模月度开工率：总开工率：预测</span>
+    <span class="m-val">71.00</span>
+    <span class="m-note">2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国铝板带箔分规模月度开工率：大型企业：当月</span>
+    <span class="m-val">71.78</span>
+    <span class="m-note">2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国铝板带箔分规模月度开工率：大型企业：预测</span>
+    <span class="m-val">70.00</span>
+    <span class="m-note">2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国铝板带箔分规模月度开工率：中型企业：当月</span>
+    <span class="m-val">74.80</span>
+    <span class="m-note">2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国铝板带箔分规模月度开工率：中型企业：预测</span>
+    <span class="m-val">74.00</span>
+    <span class="m-note">2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国铝板带箔分规模月度开工率：小型企业：当月</span>
+    <span class="m-val">70.92</span>
+    <span class="m-note">2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国铝板带箔分规模月度开工率：小型企业：预测</span>
+    <span class="m-val">69.00</span>
+    <span class="m-note">2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国铝型材分规模月度开工率：总：当月</span>
+    <span class="m-val">47.49</span>
+    <span class="m-note">2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国铝型材分规模月度开工率：大型企业：当月</span>
+    <span class="m-val">48.76</span>
+    <span class="m-note">2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国铝型材分规模月度开工率：大型企业：预测</span>
+    <span class="m-val">48.12</span>
+    <span class="m-note">2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国铝型材分规模月度开工率：小型企业：预测</span>
+    <span class="m-val">41.00</span>
+    <span class="m-note">2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国铝型材分规模月度开工率：小型企业：当月</span>
+    <span class="m-val">41.47</span>
+    <span class="m-note">2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国铝型材分规模月度开工率：中型企业：当月</span>
+    <span class="m-val">48.38</span>
+    <span class="m-note">2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国铝型材分规模月度开工率：中型企业：预测</span>
+    <span class="m-val">48.00</span>
+    <span class="m-note">2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国铝型材分规模月度开工率：总：预测</span>
+    <span class="m-val">47.00</span>
+    <span class="m-note">2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国铝型材分规模月度开工率</span>
+    <span class="m-val">47.49</span>
+    <span class="m-note">2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国A356铝合金月度开工率</span>
+    <span class="m-val">57.23</span>
+    <span class="m-note">2026-08-31 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国A356铝合金月度开工率：预测</span>
+    <span class="m-val">58.22</span>
+    <span class="m-note">2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">A356铝合金月度开工率</span>
+    <span class="m-val">57.23</span>
+    <span class="m-note">2026-08-31 · 月</span>
+  </div></div>
+    </div>
+    </div>
+  </details><details class="grp" id="g-L5-进出口">
+    <summary>
+      <span class="grp-name">进出口</span>
+      <span class="grp-meta">2 表 · 10 指标 · 月 · 含1空表</span>
+      <span class="grp-caret">▾</span>
+    </summary>
+    <div class="grp-body">
+      <div class="grp-src">来源：SMM</div>
+      <div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L5铝合金进出口-月</span>
+        <span class="m-note">月 · 10 列 · SMM</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">中国未锻轧铝合金进出口数据：进口量</span>
+    <span class="m-val">121.82</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国未锻轧铝合金进出口数据：出口量</span>
+    <span class="m-val">1.65</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国未锻轧铝合金进出口数据：净出口</span>
+    <span class="m-val">8.35</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">铝丝出口量</span>
+    <span class="m-val">1.37</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">型材、条杆出口量</span>
+    <span class="m-val">9.27</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">板带出口量</span>
+    <span class="m-val">31.03</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">铝材出口总量</span>
+    <span class="m-val">55.87</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">铝管出口量</span>
+    <span class="m-val">1.28</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">铝箔出口量</span>
+    <span class="m-val">12.82</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">铝粉出口量</span>
+    <span class="m-val">0.10</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div></div>
+    </div><div class="s-empty">📄 L5铝合金进出口-年 <span class="m-note">（Excel 解析为空表）</span></div>
+    </div>
+  </details>
+        </div>
+        <div class="lv-col lv-col-side">
+          <div class="lv-col-hd">🔔 可做预警（4）</div>
+          <div class="lv-ew" id="ew-L5"><div class="ew-item"><span class="ew-dot"></span><span class="ew-name">中国铝线缆分规模月度开工率：总开工率</span> <span class="ew-v">54.90</span> <span class="m-note">2026-09-30 · 月</span></div><div class="ew-item"><span class="ew-dot"></span><span class="ew-name">中国铝线缆分规模月度开工率：总开工率|预测</span> <span class="ew-v">58.12</span> <span class="m-note">2026-10-31 · 月</span></div><div class="ew-item"><span class="ew-dot"></span><span class="ew-name">中国铝线缆分规模月度开工率：调研总产能</span> <span class="ew-v">177.00</span> <span class="m-note">2026-10-31 · 月</span></div><div class="ew-item"><span class="ew-dot"></span><span class="ew-name">中国未锻轧铝合金进出口数据：进口量</span> <span class="ew-v">121.82万吨</span> <span class="m-note">2026-09-30 · 月</span></div></div>
+          <div class="lv-col-hd" style="margin-top:10px">👀 重点看</div>
+          <div class="lv-watch">开工率 / 铝材进出口 / 加工费 / 库存订单</div>
+          
+        </div>
+      </div>
+    </div>
+  </details><details class="lv hi" data-lv="L6" id="lv-L6">
+    <summary class="lv-bar">
+      <span class="lv-caret">▸</span>
+      <span class="lv-icon">🏢</span>
+      <span class="lv-name">终端需求</span>
+      <span class="lv-en">End-use</span>
+      <span class="lv-pos">需求底座</span>
+      <span class="lv-role">年度分行业需求, 校验总量假设是否站得住</span>
+      <span class="lv-cred">
+        <span class="lv-cred-bar"><i style="width:80%"></i></span>
+        <span class="lv-cred-txt">可信度 <b>高</b> 80%</span>
+      </span>
+      <span class="lv-stats"><b>20</b> 表 <b>410</b> 指标 <b>98%</b> 有值</span>
+      <span class="lv-groups">4 组</span>
+    </summary>
+    <div class="lv-body">
+      <div class="lv-cols">
+        <div class="lv-col">
+          <div class="lv-col-hd">📂 数据维度（4 组，点击展开看指标）</div>
+          <details class="grp" id="g-L6-分行业需求">
+    <summary>
+      <span class="grp-name">分行业需求</span>
+      <span class="grp-meta">15 表 · 219 指标 · 年/月 · 含1空表</span>
+      <span class="grp-caret">▾</span>
+    </summary>
+    <div class="grp-body">
+      <div class="grp-src">来源：数据框架 (年度预测矩阵)、Wind、国家统计局</div>
+      <div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L6新能源车</span>
+        <span class="m-note">年 · 27 列 · 数据框架 (年度预测矩阵)</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">中国新能源车产量</span>
+    <span class="m-val">1,647.3</span>
+    <span class="m-note">万辆 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">　乘用车</span>
+    <span class="m-val">1,561.4</span>
+    <span class="m-note">万辆 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">　　电动</span>
+    <span class="m-val">811.95</span>
+    <span class="m-note">万辆 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">　　混动</span>
+    <span class="m-val">749.49</span>
+    <span class="m-note">万辆 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">　客车</span>
+    <span class="m-val">4.33</span>
+    <span class="m-note">万辆 · 2021-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">　专用</span>
+    <span class="m-val">14.09</span>
+    <span class="m-note">万辆 · 2021-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">商用车</span>
+    <span class="m-val">85.81</span>
+    <span class="m-note">万辆 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">海外新能源汽车产量</span>
+    <span class="m-val">632.40</span>
+    <span class="m-note">万辆 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球新能源车产量</span>
+    <span class="m-val">2,279.7</span>
+    <span class="m-note">万辆 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">中国新能源车单车用铝量</span>
+    <span class="m-val">232.32</span>
+    <span class="m-note">公斤/辆 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">　乘用车_1</span>
+    <span class="m-val">232.32</span>
+    <span class="m-note">公斤/辆 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">　　电动_1</span>
+    <span class="m-val">226.80</span>
+    <span class="m-note">公斤/辆 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">　　混动_1</span>
+    <span class="m-val">238.30</span>
+    <span class="m-note">公斤/辆 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">　客车_1</span>
+    <span class="m-val">303.60</span>
+    <span class="m-note">公斤/辆 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">　专用_1</span>
+    <span class="m-val">110.50</span>
+    <span class="m-note">公斤/辆 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">商用车_1</span>
+    <span class="m-val">144.79</span>
+    <span class="m-note">公斤/辆 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">海外新能源汽车单车用铝量</span>
+    <span class="m-val">264.26</span>
+    <span class="m-note">公斤/辆 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">中国新能源车各车型用铝量</span>
+    <span class="m-val">362.75</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">　乘用车_2</span>
+    <span class="m-val">362.75</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">　　电动_2</span>
+    <span class="m-val">184.15</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">　　混动_2</span>
+    <span class="m-val">178.60</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">　客车_2</span>
+    <span class="m-val">1.06</span>
+    <span class="m-note">万吨 · 2021-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">　专用_2</span>
+    <span class="m-val">1.14</span>
+    <span class="m-note">万吨 · 2021-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">商用车_2</span>
+    <span class="m-val">12.42</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">海外新能源汽车用铝量</span>
+    <span class="m-val">167.12</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球新能源车用铝量合计</span>
+    <span class="m-val">529.87</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球新能源车产量_1</span>
+    <span class="m-val">2,279.7</span>
+    <span class="m-note">万辆 · 2025-12-31 · 年</span>
+  </div></div>
+    </div><div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L6光伏</span>
+        <span class="m-note">年 · 20 列 · 数据框架 (年度预测矩阵)</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">国内光伏用铝需求·光伏装机容量·谨慎</span>
+    <span class="m-val">269.45</span>
+    <span class="m-note">GW · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">国内光伏用铝需求·光伏装机容量·中性</span>
+    <span class="m-val">317.00</span>
+    <span class="m-note">GW · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">国内光伏用铝需求·光伏装机容量·乐观</span>
+    <span class="m-val">364.55</span>
+    <span class="m-note">GW · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">国内光伏用铝需求·光伏边框+支架用铝量</span>
+    <span class="m-val">1.41</span>
+    <span class="m-note">万吨/GW · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">国内光伏用铝需求·国内光伏用铝需求合计·谨慎</span>
+    <span class="m-val">380.41</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">国内光伏用铝需求·国内光伏用铝需求合计·中性</span>
+    <span class="m-val">447.54</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">国内光伏用铝需求·国内光伏用铝需求合计·乐观</span>
+    <span class="m-val">514.67</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">海外光伏用铝需求·光伏装机容量·谨慎</span>
+    <span class="m-val">323.85</span>
+    <span class="m-note">GW · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">海外光伏用铝需求·光伏装机容量·中性</span>
+    <span class="m-val">381.00</span>
+    <span class="m-note">GW · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">海外光伏用铝需求·光伏装机容量·乐观</span>
+    <span class="m-val">438.15</span>
+    <span class="m-note">GW · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">海外光伏用铝需求·光伏边框+支架用铝量</span>
+    <span class="m-val">1.41</span>
+    <span class="m-note">万吨/GW · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">海外光伏用铝需求·海外光伏用铝需求合计·谨慎</span>
+    <span class="m-val">457.21</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">海外光伏用铝需求·海外光伏用铝需求合计·中性</span>
+    <span class="m-val">537.89</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">海外光伏用铝需求·海外光伏用铝需求合计·乐观</span>
+    <span class="m-val">618.57</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球光伏用铝需求合计·光伏装机容量·谨慎</span>
+    <span class="m-val">593.30</span>
+    <span class="m-note">GW · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球光伏用铝需求合计·光伏装机容量·中性</span>
+    <span class="m-val">698.00</span>
+    <span class="m-note">GW · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球光伏用铝需求合计·光伏装机容量·乐观</span>
+    <span class="m-val">802.70</span>
+    <span class="m-note">GW · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球光伏用铝需求合计·全球光伏用铝需求合计·谨慎</span>
+    <span class="m-val">837.61</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球光伏用铝需求合计·全球光伏用铝需求合计·中性</span>
+    <span class="m-val">985.43</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球光伏用铝需求合计·全球光伏用铝需求合计·乐观</span>
+    <span class="m-val">1,133.2</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div></div>
+    </div><div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L6风电</span>
+        <span class="m-note">年 · 8 列 · 数据框架 (年度预测矩阵)</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">全球风电铝需求·全球风电累计装机容量</span>
+    <span class="m-val">1,328.6</span>
+    <span class="m-note">GW · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球风电铝需求·全球风电新增装机容量</span>
+    <span class="m-val">165.00</span>
+    <span class="m-note">GW · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球风电铝需求·风电单位用铝量</span>
+    <span class="m-val">0.15</span>
+    <span class="m-note">万吨/GW · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球风电铝需求·全球风电用铝需求量</span>
+    <span class="m-val">24.75</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球风电铝需求·中国风电累计装机容量</span>
+    <span class="m-val">650.44</span>
+    <span class="m-note">GW · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球风电铝需求·中国风电新增装机容量</span>
+    <span class="m-val">120.00</span>
+    <span class="m-note">GW · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球风电铝需求·风电单位用铝量_1</span>
+    <span class="m-val">0.15</span>
+    <span class="m-note">万吨/GW · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球风电铝需求·中国风电用铝需求量</span>
+    <span class="m-val">18.00</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div></div>
+    </div><div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L6储能</span>
+        <span class="m-note">年 · 9 列 · 数据框架 (年度预测矩阵)</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">全球储能出货量</span>
+    <span class="m-val">476.31</span>
+    <span class="m-note">GWh · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">中国储能总出货量</span>
+    <span class="m-val">166.92</span>
+    <span class="m-note">GWh · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">单位GWh铝材需求量/吨</span>
+    <span class="m-val">2,310</span>
+    <span class="m-note">吨/GWh · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">电池箔</span>
+    <span class="m-val">924.00</span>
+    <span class="m-note">吨/GWh · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">外壳</span>
+    <span class="m-val">577.50</span>
+    <span class="m-note">吨/GWh · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">托盘</span>
+    <span class="m-val">346.50</span>
+    <span class="m-note">吨/GWh · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">散热系统</span>
+    <span class="m-val">462.00</span>
+    <span class="m-note">吨/GWh · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">铝材需求量</span>
+    <span class="m-val">110.03</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">中国铝材需求</span>
+    <span class="m-val">38.56</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div></div>
+    </div><div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L6数据中心</span>
+        <span class="m-note">年 · 9 列 · 数据框架 (年度预测矩阵)</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">全球数据中心新增容量</span>
+    <span class="m-val">15.16</span>
+    <span class="m-note">GW · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">中国数据中心新增容量</span>
+    <span class="m-val">2.82</span>
+    <span class="m-note">GW · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">单位GW铝材需求量/万吨</span>
+    <span class="m-val">3.50</span>
+    <span class="m-note">万吨/GW · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">线缆</span>
+    <span class="m-val">0.70</span>
+    <span class="m-note">万吨/GW · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">服务器结构件</span>
+    <span class="m-val">1.22</span>
+    <span class="m-note">万吨/GW · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">液冷散热系统</span>
+    <span class="m-val">1.05</span>
+    <span class="m-note">万吨/GW · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">其他</span>
+    <span class="m-val">0.52</span>
+    <span class="m-note">万吨/GW · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">铝材需求量</span>
+    <span class="m-val">53.06</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">中国数据中心铝需求</span>
+    <span class="m-val">9.87</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div></div>
+    </div><div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L6建筑</span>
+        <span class="m-note">年 · 28 列 · 数据框架 (年度预测矩阵)</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">全国建筑行业需求</span>
+    <span class="m-val">912.06</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">万平方米·施工房屋面积</span>
+    <span class="m-val">659,890</span>
+    <span class="m-note">万平方米 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">万平方米·新开工房屋面积</span>
+    <span class="m-val">58,770</span>
+    <span class="m-note">万平方米 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">万平方米·竣工面积</span>
+    <span class="m-val">301,875</span>
+    <span class="m-note">万平方米 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">万平方米·地产存量</span>
+    <span class="m-val">5,591,469</span>
+    <span class="m-note">万平方米 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">万平方米·施工房屋面积_1</span>
+    <span class="m-val">-10.00</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">万平方米·新开工房屋面积_1</span>
+    <span class="m-val">-20.47</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">万平方米·竣工面积_1</span>
+    <span class="m-val">-10.00</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">万平方米·地产存量_1</span>
+    <span class="m-val">5.71</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">万平方米·门窗·窗面比</span>
+    <span class="m-val">0.20</span>
+    <span class="m-note">2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">万平方米·门窗·铝门窗应用率</span>
+    <span class="m-val">0.80</span>
+    <span class="m-note">2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">万平方米·门窗·平米用铝量</span>
+    <span class="m-val">0.01</span>
+    <span class="m-note">吨/平方米 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">万平方米·门窗·安装损耗</span>
+    <span class="m-val">1.10</span>
+    <span class="m-note">2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">万平方米·门窗·成材率</span>
+    <span class="m-val">0.90</span>
+    <span class="m-note">2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">万平方米·门窗·翻新率</span>
+    <span class="m-val">0.75</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">万平方米·门窗·竣工相关</span>
+    <span class="m-val">649.37</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">万平方米·门窗·翻新相关</span>
+    <span class="m-val">90.21</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">万平方米·门窗·门窗用铝量</span>
+    <span class="m-val">739.58</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">万平方米·门窗·竣工相关_1</span>
+    <span class="m-val">71.20</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">万平方米·门窗·翻新相关_1</span>
+    <span class="m-val">9.89</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">万平方米·门窗·合计</span>
+    <span class="m-val">81.09</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">万平方米·铝模板·模板使用比例</span>
+    <span class="m-val">0.30</span>
+    <span class="m-note">2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">万平方米·铝模板·铝模板使用比例</span>
+    <span class="m-val">0.20</span>
+    <span class="m-note">2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">万平方米·铝模板·平米用铝量</span>
+    <span class="m-val">0.02</span>
+    <span class="m-note">吨/平方米 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">万平方米·铝模板·新增用量比例</span>
+    <span class="m-val">0.20</span>
+    <span class="m-note">2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">万平方米·铝模板·铝模板用铝量</span>
+    <span class="m-val">172.48</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">万平方米·铝模板·比例</span>
+    <span class="m-val">18.91</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">万平方米·铝模板·总计</span>
+    <span class="m-val">912.06</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div></div>
+    </div><div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L6建筑数据</span>
+        <span class="m-note">月 · 21 列 · Wind</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">中国:房地产开发投资完成额:累计同比</span>
+    <span class="m-val">-20.60</span>
+    <span class="m-note">% · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:房屋施工面积:累计同比</span>
+    <span class="m-val">-12.80</span>
+    <span class="m-note">% · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:房屋新开工面积:累计同比</span>
+    <span class="m-val">-24.90</span>
+    <span class="m-note">% · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:房屋竣工面积:累计同比</span>
+    <span class="m-val">-25.10</span>
+    <span class="m-note">% · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:商品房销售面积:累计同比</span>
+    <span class="m-val">-13.20</span>
+    <span class="m-note">% · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:30大中城市:成交面积:商品房</span>
+    <span class="m-val">6,523,295</span>
+    <span class="m-note">平方米 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:市场价:浮法平板玻璃(4.8/5mm)</span>
+    <span class="m-val">1,092.2</span>
+    <span class="m-note">元/吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:水泥价格指数</span>
+    <span class="m-val">94.55</span>
+    <span class="m-note">点 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">建筑业:房屋建筑面积:竣工面积:累计值</span>
+    <span class="m-val">82,441</span>
+    <span class="m-note">万平方米 · 2026-06-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">建筑业:新开工面积:累计值</span>
+    <span class="m-val">92,333</span>
+    <span class="m-note">万平方米 · 2026-06-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">建筑业:房屋建筑面积:施工面积:累计值</span>
+    <span class="m-val">739,381</span>
+    <span class="m-note">万平方米 · 2026-06-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">建筑业:房屋建筑面积:竣工面积:累计值:年度:最后一条</span>
+    <span class="m-val">295,096</span>
+    <span class="m-note">万平方米 · 2025-12-31 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">建筑业:新开工面积:累计值:年度:最后一条</span>
+    <span class="m-val">252,926</span>
+    <span class="m-note">万平方米 · 2025-12-31 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">建筑业:房屋建筑面积:施工面积:累计值:年度:最后一条</span>
+    <span class="m-val">1,135,220</span>
+    <span class="m-note">万平方米 · 2025-12-31 · 月</span>
+  </div></div>
+    </div><div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L6地产弹性</span>
+        <span class="m-note">年 · 28 列 · 数据框架 (年度预测矩阵)</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">乐观·全球电解铝需求</span>
+    <span class="m-val">7,640</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">乐观·全球电解铝产量</span>
+    <span class="m-val">7,446.9</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">乐观·全球供需平衡</span>
+    <span class="m-val">-193.05</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">乐观·占比</span>
+    <span class="m-val">-2.53</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">中性·全球电解铝需求</span>
+    <span class="m-val">7,471.7</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">中性·全球电解铝产量</span>
+    <span class="m-val">7,446.9</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">中性·全球供需平衡</span>
+    <span class="m-val">-38.00</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">中性·占比</span>
+    <span class="m-val">-0.51</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">悲观·全球电解铝需求</span>
+    <span class="m-val">7,412.2</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">悲观·全球电解铝产量</span>
+    <span class="m-val">7,446.9</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">悲观·全球供需平衡</span>
+    <span class="m-val">21.75</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">悲观·占比</span>
+    <span class="m-val">0.29</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">更悲观·全球电解铝需求</span>
+    <span class="m-val">7,323.8</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">更悲观·全球电解铝产量</span>
+    <span class="m-val">7,446.9</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">更悲观·全球供需平衡</span>
+    <span class="m-val">123.09</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">更悲观·占比</span>
+    <span class="m-val">1.68</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">乐观·施工房屋面积</span>
+    <span class="m-val">2.00</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">乐观·新开工房屋面积</span>
+    <span class="m-val">3.00</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">乐观·竣工面积</span>
+    <span class="m-val">5.00</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">中性·施工房屋面积</span>
+    <span class="m-val">0.00</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">中性·新开工房屋面积</span>
+    <span class="m-val">3.00</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">中性·竣工面积</span>
+    <span class="m-val">-5.00</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">悲观·施工房屋面积</span>
+    <span class="m-val">-5.00</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">悲观·新开工房屋面积</span>
+    <span class="m-val">-3.00</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">悲观·竣工面积</span>
+    <span class="m-val">-5.00</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">更悲观·施工房屋面积</span>
+    <span class="m-val">-5.00</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">更悲观·新开工房屋面积</span>
+    <span class="m-val">-3.00</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">更悲观·竣工面积</span>
+    <span class="m-val">-5.00</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div></div>
+    </div><div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L6交通运输</span>
+        <span class="m-note">年 · 39 列 · 数据框架 (年度预测矩阵)</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">交运合计</span>
+    <span class="m-val">1,100.1</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">汽车</span>
+    <span class="m-val">640.85</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">轨道交通</span>
+    <span class="m-val">20.85</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">两轮车</span>
+    <span class="m-val">109.54</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">船舶</span>
+    <span class="m-val">156.88</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">集装箱</span>
+    <span class="m-val">62.01</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">汽车轮毂出口</span>
+    <span class="m-val">99.97</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">其他</span>
+    <span class="m-val">10.00</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">汽车·汽车用铝量</span>
+    <span class="m-val">640.85</span>
+    <span class="m-note">万辆 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">汽车·传统汽车用铝量</span>
+    <span class="m-val">278.10</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">汽车·汽车产量</span>
+    <span class="m-val">1,790</span>
+    <span class="m-note">万辆 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">汽车·单车用铝量</span>
+    <span class="m-val">155.36</span>
+    <span class="m-note">kg · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">汽车·新能源车用铝</span>
+    <span class="m-val">362.75</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">动车组·动车组产量</span>
+    <span class="m-val">1,772</span>
+    <span class="m-note">辆 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">动车组·单车用铝</span>
+    <span class="m-val">10.00</span>
+    <span class="m-note">吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">动车组·铝需求量</span>
+    <span class="m-val">1.77</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">城市轨道·城市轨交产量</span>
+    <span class="m-val">19,078</span>
+    <span class="m-note">辆 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">城市轨道·单车用铝</span>
+    <span class="m-val">10.00</span>
+    <span class="m-note">吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">城市轨道·铝需求量</span>
+    <span class="m-val">19.08</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">城市轨道·轨道合计</span>
+    <span class="m-val">20.85</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">摩托车·摩托车产量</span>
+    <span class="m-val">3,590.3</span>
+    <span class="m-note">万辆 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">摩托车·单车用铝</span>
+    <span class="m-val">20.00</span>
+    <span class="m-note">kg · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">摩托车·铝需求量</span>
+    <span class="m-val">71.81</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">两轮自行车·自行车产量</span>
+    <span class="m-val">3,678.6</span>
+    <span class="m-note">万辆 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">两轮自行车·电动自行车</span>
+    <span class="m-val">5,500</span>
+    <span class="m-note">万辆 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">两轮自行车·脚动单车用铝</span>
+    <span class="m-val">2.00</span>
+    <span class="m-note">kg · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">两轮自行车·自动单车用铝</span>
+    <span class="m-val">5.52</span>
+    <span class="m-note">kg · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">两轮自行车·脚动自行车用铝量</span>
+    <span class="m-val">7.36</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">两轮自行车·电动自行车用铝量</span>
+    <span class="m-val">30.38</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">两轮自行车·铝需求量</span>
+    <span class="m-val">37.73</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">两轮自行车·两轮车合计</span>
+    <span class="m-val">109.54</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">船舶·民用船舶产量</span>
+    <span class="m-val">5,229.5</span>
+    <span class="m-note">万载重吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">船舶·载重吨用铝</span>
+    <span class="m-val">30.00</span>
+    <span class="m-note">kg · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">船舶·铝需求量</span>
+    <span class="m-val">156.88</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">集装箱·金属集装箱产量</span>
+    <span class="m-val">23,565</span>
+    <span class="m-note">万立方米 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">集装箱·立方米用铝</span>
+    <span class="m-val">26.32</span>
+    <span class="m-note">kg · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">集装箱·铝箱率</span>
+    <span class="m-val">10.00</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">集装箱·铝需求量</span>
+    <span class="m-val">62.01</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">铝合金车轮出口·出口量</span>
+    <span class="m-val">99.97</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div></div>
+    </div><div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L6交运数据</span>
+        <span class="m-note">月 · 18 列 · 国家统计局</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">汽车:产量:当月值</span>
+    <span class="m-val">269.70</span>
+    <span class="m-note">万辆 · 2026-08-31 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">新能源汽车:产量:当月值</span>
+    <span class="m-val">164.70</span>
+    <span class="m-note">万辆 · 2026-08-31 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">汽车产量:当月值</span>
+    <span class="m-val">268.40</span>
+    <span class="m-note">万辆 · 2026-08-31 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">新能源汽车:产量(中汽协):当月值:万辆</span>
+    <span class="m-val">165.30</span>
+    <span class="m-note">万辆 · 2026-08-31 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">汽车产量:累计同比</span>
+    <span class="m-val">-3.80</span>
+    <span class="m-note">% · 2026-08-31 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">新能源汽车:产量(中汽协):当月值:万辆:累计值</span>
+    <span class="m-val">1,066.7</span>
+    <span class="m-note">万辆 · 2026-08-31 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">汽车销量:累计同比</span>
+    <span class="m-val">-3.80</span>
+    <span class="m-note">% · 2026-08-31 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">新能源汽车:销量:累计值</span>
+    <span class="m-val">1,065</span>
+    <span class="m-note">万辆 · 2026-08-31 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">汽车销量:当月值</span>
+    <span class="m-val">271.20</span>
+    <span class="m-note">万辆 · 2026-08-31 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">新能源汽车:销量:当月值</span>
+    <span class="m-val">164.30</span>
+    <span class="m-note">万辆 · 2026-08-31 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">汽车销量环比</span>
+    <span class="m-val">0.05</span>
+    <span class="m-note">2026-08-31 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">汽车销量同比</span>
+    <span class="m-val">-0.05</span>
+    <span class="m-note">2026-08-31 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">新能源车销量环比</span>
+    <span class="m-val">0.05</span>
+    <span class="m-note">2026-08-31 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">新能源车销量同比</span>
+    <span class="m-val">0.18</span>
+    <span class="m-note">2026-08-31 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">汽车产销比</span>
+    <span class="m-val">1.01</span>
+    <span class="m-note">2026-08-31 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">企业库存:汽车:当月值</span>
+    <span class="m-val">93.30</span>
+    <span class="m-note">万辆 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">汽车经销商库存系数:综合</span>
+    <span class="m-val">1.58</span>
+    <span class="m-note">2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">汽车库存预警指数:当月值</span>
+    <span class="m-val">62.30</span>
+    <span class="m-note">% · 2026-08-31 · 月</span>
+  </div></div>
+    </div><div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L6包装</span>
+        <span class="m-note">年 · 1 列 · 数据框架 (年度预测矩阵)</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">全国包装行业需求</span>
+    <span class="m-val">435.91</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div></div>
+    </div><div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L6机械</span>
+        <span class="m-note">年 · 1 列 · 数据框架 (年度预测矩阵)</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">全国机械行业需求占比</span>
+    <span class="m-val">289.63</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div></div>
+    </div><div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L6耐用品</span>
+        <span class="m-note">年 · 1 列 · 数据框架 (年度预测矩阵)</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">全国耐用品行业需求占比</span>
+    <span class="m-val">339.78</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div></div>
+    </div><div class="s-empty">📄 L6耐用品数据 <span class="m-note">（Excel 解析为空表）</span></div><div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L6其他</span>
+        <span class="m-note">年 · 9 列 · 数据框架 (年度预测矩阵)</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">其他</span>
+    <span class="m-val">268.43</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球平衡</span>
+    <span class="m-val">-23.00</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">中国需求</span>
+    <span class="m-val">4,634.7</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">中国平衡</span>
+    <span class="m-val">-204.73</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">中国需求_1</span>
+    <span class="m-val">4,325.8</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">中国需求_2</span>
+    <span class="m-val">-308.95</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">其他_1</span>
+    <span class="m-val">220.00</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">储能</span>
+    <span class="m-val">38.56</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">数据中心</span>
+    <span class="m-val">9.87</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div></div>
+    </div>
+    </div>
+  </details><details class="grp" id="g-L6-需求">
+    <summary>
+      <span class="grp-name">需求</span>
+      <span class="grp-meta">2 表 · 147 指标 · 年</span>
+      <span class="grp-caret">▾</span>
+    </summary>
+    <div class="grp-body">
+      <div class="grp-src">来源：数据框架 (年度预测矩阵)</div>
+      <div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L6终端需求</span>
+        <span class="m-note">年 · 110 列 · 数据框架 (年度预测矩阵)</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">全球·全球电解铝需求</span>
+    <span class="m-val">7,470.9</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球·全球电解铝产量</span>
+    <span class="m-val">7,447.9</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球·全球供需平衡</span>
+    <span class="m-val">-23.00</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">中国·中国电解铝需求</span>
+    <span class="m-val">4,634.7</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">中国·中国电解铝需求（不含出口）</span>
+    <span class="m-val">4,480.5</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">中国·中国电解铝产量</span>
+    <span class="m-val">4,430</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">中国·净出口（含铝材）</span>
+    <span class="m-val">154.25</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">中国·中国电解铝供需平衡（右轴）</span>
+    <span class="m-val">-204.73</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">中国·中国实际平衡</span>
+    <span class="m-val">-358.98</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">海外·海外电解铝需求</span>
+    <span class="m-val">2,836.2</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">海外·海外电解铝需求（含进口）</span>
+    <span class="m-val">2,990.5</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">海外·海外电解铝产量</span>
+    <span class="m-val">3,017.9</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">海外·向中国净进口（含铝材）</span>
+    <span class="m-val">154.25</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">海外·海外电解铝供需平衡（右轴）</span>
+    <span class="m-val">181.72</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">海外·海外实际平衡</span>
+    <span class="m-val">335.97</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">海外·海外电解铝供给（含中国出口）</span>
+    <span class="m-val">3,172.2</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">中国·建筑行业需求</span>
+    <span class="m-val">912.06</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">中国·交通行业需求</span>
+    <span class="m-val">1,100.1</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">中国·其中：新能源车需求</span>
+    <span class="m-val">362.75</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">中国·电力行业需求</span>
+    <span class="m-val">1,134.6</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">中国·其中：光伏需求</span>
+    <span class="m-val">447.54</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">中国·其中：风电需求</span>
+    <span class="m-val">18.00</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">中国·包装行业需求</span>
+    <span class="m-val">435.91</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">中国·机械制造行业需求</span>
+    <span class="m-val">289.63</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">中国·耐用品行业需求</span>
+    <span class="m-val">339.78</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">中国·其他业需求</span>
+    <span class="m-val">268.43</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">中国·国内总需求（不含进出口）</span>
+    <span class="m-val">4,480.5</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">中国·原铝净进口+抛储</span>
+    <span class="m-val">224.00</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">中国·铝材净出口</span>
+    <span class="m-val">445.00</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">中国·铝材折原铝出口</span>
+    <span class="m-val">378.25</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">中国·铝净总出口</span>
+    <span class="m-val">154.25</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">中国·国内总需求（含铝材出口）</span>
+    <span class="m-val">4,634.7</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">中国·国内总需求</span>
+    <span class="m-val">4,634.7</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">中国·国内总产量</span>
+    <span class="m-val">4,430</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">中国·国内总供给</span>
+    <span class="m-val">4,654</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">中国·国内原铝供需平衡（含进出口）</span>
+    <span class="m-val">-204.73</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球冶金级氧化铝需求合计·氧化铝供给</span>
+    <span class="m-val">14,409</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球冶金级氧化铝需求合计·氧化铝需求</span>
+    <span class="m-val">14,300</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球冶金级氧化铝需求合计·供需平衡</span>
+    <span class="m-val">108.68</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">国内铝需求结构·建筑</span>
+    <span class="m-val">20.36</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">国内铝需求结构·交通</span>
+    <span class="m-val">24.55</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">国内铝需求结构·电力</span>
+    <span class="m-val">25.32</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">国内铝需求结构·包装</span>
+    <span class="m-val">9.73</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">国内铝需求结构·机械制造</span>
+    <span class="m-val">6.46</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">国内铝需求结构·耐用品</span>
+    <span class="m-val">7.58</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">国内铝需求结构·其他</span>
+    <span class="m-val">5.99</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">国内铝需求结构·合计</span>
+    <span class="m-val">100.00</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">国内铝需求结构·新能源车</span>
+    <span class="m-val">8.10</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">国内铝需求结构·光伏</span>
+    <span class="m-val">9.99</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">国内铝需求结构·风电</span>
+    <span class="m-val">0.40</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">国内铝需求结构·新能源需求合计</span>
+    <span class="m-val">18.49</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">国内铝需求结构·汽车</span>
+    <span class="m-val">14.30</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求结构（铝材）·建筑</span>
+    <span class="m-val">1,977.6</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求结构（铝材）·交运</span>
+    <span class="m-val">2,696.4</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求结构（铝材）·电力电缆</span>
+    <span class="m-val">1,736.3</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求结构（铝材）·包装</span>
+    <span class="m-val">833.69</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求结构（铝材）·耐用品</span>
+    <span class="m-val">651.83</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求结构（铝材）·机械设备</span>
+    <span class="m-val">1,112.3</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求结构（铝材）·其他</span>
+    <span class="m-val">1,534.2</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求结构（铝材）·箔坯</span>
+    <span class="m-val">940.18</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求结构（铝材）·其他_1</span>
+    <span class="m-val">594.05</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求结构（铝材）·合计</span>
+    <span class="m-val">10,542</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求结构（铝材）·其中：新能源车</span>
+    <span class="m-val">529.87</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求结构（铝材）·其中：光伏</span>
+    <span class="m-val">985.43</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求结构（铝材）·其中：风电</span>
+    <span class="m-val">24.75</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求结构（铝材）·小计</span>
+    <span class="m-val">1,540.1</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求结构（铝材）·储能</span>
+    <span class="m-val">110.03</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求结构（铝材）·IDC</span>
+    <span class="m-val">53.06</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求结构（万吨）（原铝）·原铝总需求</span>
+    <span class="m-val">7,470.9</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求结构（万吨）（原铝）·建筑</span>
+    <span class="m-val">1,401.5</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求结构（万吨）（原铝）·交运</span>
+    <span class="m-val">1,910.8</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求结构（万吨）（原铝）·电力</span>
+    <span class="m-val">1,230.4</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求结构（万吨）（原铝）·包装</span>
+    <span class="m-val">590.80</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求结构（万吨）（原铝）·耐用品</span>
+    <span class="m-val">461.92</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求结构（万吨）（原铝）·机械设备</span>
+    <span class="m-val">788.23</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求结构（万吨）（原铝）·其他</span>
+    <span class="m-val">1,087.2</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求结构（万吨）（原铝）·箔坯</span>
+    <span class="m-val">666.26</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求结构（万吨）（原铝）·其他_1</span>
+    <span class="m-val">420.98</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求结构（万吨）（原铝）·新能源需求合计</span>
+    <span class="m-val">1,091.4</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求结构（万吨）（原铝）·其中：新能源车</span>
+    <span class="m-val">375.50</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求结构（万吨）（原铝）·其中：光伏</span>
+    <span class="m-val">698.33</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求结构（万吨）（原铝）·其中：风电</span>
+    <span class="m-val">17.54</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求结构（万吨）（原铝）·储能</span>
+    <span class="m-val">77.97</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求结构（万吨）（原铝）·IDC</span>
+    <span class="m-val">37.60</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求结构%·建筑</span>
+    <span class="m-val">18.76</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求结构%·交运</span>
+    <span class="m-val">25.58</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求结构%·电力电缆</span>
+    <span class="m-val">16.47</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求结构%·包装</span>
+    <span class="m-val">7.91</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求结构%·耐用品</span>
+    <span class="m-val">6.18</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求结构%·机械设备</span>
+    <span class="m-val">10.55</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求结构%·其他</span>
+    <span class="m-val">14.55</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求结构%·箔坯</span>
+    <span class="m-val">8.92</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求结构%·其他_1</span>
+    <span class="m-val">5.63</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求结构%·新能源需求合计</span>
+    <span class="m-val">14.61</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求结构%·新能源车</span>
+    <span class="m-val">5.03</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求结构%·光伏</span>
+    <span class="m-val">9.35</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求结构%·风电</span>
+    <span class="m-val">0.23</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求结构%·储能</span>
+    <span class="m-val">1.04</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求结构%·IDC</span>
+    <span class="m-val">0.50</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求增速%·建筑</span>
+    <span class="m-val">-1.65</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求增速%·交运</span>
+    <span class="m-val">3.69</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求增速%·电力电缆</span>
+    <span class="m-val">3.69</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求增速%·包装</span>
+    <span class="m-val">2.68</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求增速%·耐用品</span>
+    <span class="m-val">6.86</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求增速%·机械设备</span>
+    <span class="m-val">4.05</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求增速%·其他</span>
+    <span class="m-val">2.92</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求增速%·新能源需求合计</span>
+    <span class="m-val">28.81</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求增速%·电解铝历年需求增量</span>
+    <span class="m-val">194.70</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求增速%·新能源需求增量</span>
+    <span class="m-val">200.96</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球铝需求增速%·其他需求增量</span>
+    <span class="m-val">-6.26</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div></div>
+    </div><div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L6铝材需求结构</span>
+        <span class="m-note">年 · 37 列 · 数据框架 (年度预测矩阵)</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">挤压材</span>
+    <span class="m-val">2,175</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">板带材</span>
+    <span class="m-val">1,577</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">铝箔材</span>
+    <span class="m-val">535.00</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">铝线材</span>
+    <span class="m-val">540.00</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">铝粉</span>
+    <span class="m-val">18.00</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">铝锻件及其他</span>
+    <span class="m-val">35.00</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">合计</span>
+    <span class="m-val">4,880</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">实际合计</span>
+    <span class="m-val">4,266</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">板带箔材</span>
+    <span class="m-val">1,504</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">建筑</span>
+    <span class="m-val">1,030</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">光伏</span>
+    <span class="m-val">405.00</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">包装</span>
+    <span class="m-val">480.00</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">新能源车用</span>
+    <span class="m-val">298.00</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">铝材·铝挤压材·铝型材</span>
+    <span class="m-val">1,990</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">铝材·铝挤压材·铝型材·建筑铝型材</span>
+    <span class="m-val">815.00</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">铝材·铝挤压材·铝型材·工业铝型材</span>
+    <span class="m-val">1,175</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">铝材·铝挤压材·铝型材·工业铝型材·建筑模板型材</span>
+    <span class="m-val">25.00</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">铝材·铝挤压材·铝型材·工业铝型材·光伏型材</span>
+    <span class="m-val">405.00</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">铝材·铝挤压材·铝型材·工业铝型材·轨交型材</span>
+    <span class="m-val">12.00</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">铝材·铝挤压材·铝型材·工业铝型材·3C型材</span>
+    <span class="m-val">110.00</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">铝材·铝挤压材·铝型材·工业铝型材·新能源车型材</span>
+    <span class="m-val">180.00</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">铝材·铝挤压材·铝型材·工业铝型材·其他</span>
+    <span class="m-val">442.00</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">铝材·铝挤压材·铝管</span>
+    <span class="m-val">110.00</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">铝材·铝挤压材·铝棒及其他</span>
+    <span class="m-val">75.00</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">铝材·铝板带材·铝箔坯料</span>
+    <span class="m-val">608.00</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">铝材·铝板带材·建筑装饰板</span>
+    <span class="m-val">190.00</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">铝材·铝板带材·易拉罐料</span>
+    <span class="m-val">240.00</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">铝材·铝板带材·印刷版基板</span>
+    <span class="m-val">47.00</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">铝材·铝板带材·汽车车身薄板</span>
+    <span class="m-val">58.00</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">铝材·铝板带材·其他</span>
+    <span class="m-val">434.00</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">铝材·铝箔材·包装及容器箔</span>
+    <span class="m-val">240.00</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">铝材·铝箔材·空调箔</span>
+    <span class="m-val">115.00</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">铝材·铝箔材·电子箔</span>
+    <span class="m-val">11.00</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">铝材·铝箔材·电池箔</span>
+    <span class="m-val">60.00</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">铝材·铝箔材·其他</span>
+    <span class="m-val">109.00</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">铝材·铝板带材·乘用车车身板</span>
+    <span class="m-val">45.00</span>
+    <span class="m-note">万吨 · 2023-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">铝材·铝箔材·包装箔</span>
+    <span class="m-val">215.00</span>
+    <span class="m-note">万吨 · 2020-12-31 · 年</span>
+  </div></div>
+    </div>
+    </div>
+  </details><details class="grp" id="g-L6-电力">
+    <summary>
+      <span class="grp-name">电力</span>
+      <span class="grp-meta">2 表 · 28 指标 · 年/月</span>
+      <span class="grp-caret">▾</span>
+    </summary>
+    <div class="grp-body">
+      <div class="grp-src">来源：数据框架 (年度预测矩阵)、中国电力企业联合会</div>
+      <div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L6电力</span>
+        <span class="m-note">年 · 16 列 · 数据框架 (年度预测矩阵)</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">全国电力行业需求</span>
+    <span class="m-val">1,134.6</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">电网</span>
+    <span class="m-val">669.03</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">光伏需求</span>
+    <span class="m-val">447.54</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">风电需求</span>
+    <span class="m-val">18.00</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球电网需求·全球电力需求</span>
+    <span class="m-val">1,736.3</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球电网需求·中国</span>
+    <span class="m-val">669.03</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球电网需求·海外</span>
+    <span class="m-val">1,067.3</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球电网需求·全球</span>
+    <span class="m-val">1,736.3</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球电网需求·美国</span>
+    <span class="m-val">52.44</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球电网需求·欧洲</span>
+    <span class="m-val">89.94</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球电网需求·中国_1</span>
+    <span class="m-val">761.99</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球电网需求·海外_1</span>
+    <span class="m-val">974.32</span>
+    <span class="m-note">万吨 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球电网需求·美国_1</span>
+    <span class="m-val">3.02</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球电网需求·欧洲_1</span>
+    <span class="m-val">5.18</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球电网需求·中国_2</span>
+    <span class="m-val">43.89</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">全球电网需求·海外_2</span>
+    <span class="m-val">56.11</span>
+    <span class="m-note">% · 2025-12-31 · 年</span>
+  </div></div>
+    </div><div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L6电力数据</span>
+        <span class="m-note">月 · 12 列 · 中国电力企业联合会</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">电网工程:投资完成额:累计同比</span>
+    <span class="m-val">0.75</span>
+    <span class="m-note">% · 2026-07-31 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">电源工程:投资完成额:累计同比</span>
+    <span class="m-val">-4.72</span>
+    <span class="m-note">% · 2026-07-31 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">电网工程:投资完成额:累计同比:年度</span>
+    <span class="m-val">5.11</span>
+    <span class="m-note">% · 2025-12-31 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">电源工程:投资完成额:累计同比:年度</span>
+    <span class="m-val">-9.57</span>
+    <span class="m-note">% · 2025-12-31 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">电网工程:投资完成额:累计值:年度</span>
+    <span class="m-val">6,395</span>
+    <span class="m-note">亿元 · 2025-12-31 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">电源工程:投资完成额:累计值:年度</span>
+    <span class="m-val">10,928</span>
+    <span class="m-note">亿元 · 2025-12-31 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">电网基本建设投资完成额</span>
+    <span class="m-val">3,661</span>
+    <span class="m-note">2026-07-31 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">电网基本建设投资计划</span>
+    <span class="m-val">3,097</span>
+    <span class="m-note">2026-07-31 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">完成率</span>
+    <span class="m-val">1.18</span>
+    <span class="m-note">2026-07-31 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">特高压批复数量</span>
+    <span class="m-val">1.00</span>
+    <span class="m-note">2 · 2026-07-31 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">特高压开建数量</span>
+    <span class="m-val">1.00</span>
+    <span class="m-note">2 · 2026-07-31 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">投运数量</span>
+    <span class="m-val">2.00</span>
+    <span class="m-note">2026-07-31 · 月</span>
+  </div></div>
+    </div>
+    </div>
+  </details><details class="grp" id="g-L6-电网投资">
+    <summary>
+      <span class="grp-name">电网投资</span>
+      <span class="grp-meta">1 表 · 16 指标 · 年</span>
+      <span class="grp-caret">▾</span>
+    </summary>
+    <div class="grp-body">
+      <div class="grp-src">来源：数据框架 (年度预测矩阵)</div>
+      <div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L6电网投资</span>
+        <span class="m-note">年 · 16 列 · 数据框架 (年度预测矩阵)</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">国家电网</span>
+    <span class="m-val">5,275</span>
+    <span class="m-note">亿元 · 2023-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">南网电网</span>
+    <span class="m-val">1,400</span>
+    <span class="m-note">亿元 · 2023-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">电网投资总额</span>
+    <span class="m-val">6,781</span>
+    <span class="m-note">亿元 · 2023-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">主网</span>
+    <span class="m-val">3,056.7</span>
+    <span class="m-note">亿元 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">特高压</span>
+    <span class="m-val">1,221.2</span>
+    <span class="m-note">亿元 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">直流（±800kV）</span>
+    <span class="m-val">1,004.9</span>
+    <span class="m-note">亿元 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">交流（1000kV）</span>
+    <span class="m-val">216.22</span>
+    <span class="m-note">亿元 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">其他主网（500kV、220kV等）</span>
+    <span class="m-val">1,835.5</span>
+    <span class="m-note">亿元 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">配网</span>
+    <span class="m-val">3,199.5</span>
+    <span class="m-note">亿元 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">其他·电网小型基建</span>
+    <span class="m-val">175.96</span>
+    <span class="m-note">亿元 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">电网工程投资小计（对应中电联口径）</span>
+    <span class="m-val">6,432.1</span>
+    <span class="m-note">亿元 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">抽水蓄能</span>
+    <span class="m-val">454.50</span>
+    <span class="m-note">亿元 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">电网营销</span>
+    <span class="m-val">324.69</span>
+    <span class="m-note">亿元 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">电网数字化</span>
+    <span class="m-val">399.30</span>
+    <span class="m-note">亿元 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">其他</span>
+    <span class="m-val">300.00</span>
+    <span class="m-note">亿元 · 2025-12-31 · 年</span>
+  </div><div class="m-row">
+    <span class="m-name">电网投资总额_1</span>
+    <span class="m-val">7,910.6</span>
+    <span class="m-note">亿元 · 2025-12-31 · 年</span>
+  </div></div>
+    </div>
+    </div>
+  </details>
+        </div>
+        <div class="lv-col lv-col-side">
+          <div class="lv-col-hd">🔔 可做预警（4）</div>
+          <div class="lv-ew" id="ew-L6"><div class="ew-item"><span class="ew-dot"></span><span class="ew-name">汽车:产量:当月值</span> <span class="ew-v">269.70万辆</span> <span class="m-note">2026-08-31 · 月</span></div><div class="ew-item"><span class="ew-dot"></span><span class="ew-name">新能源汽车:产量:当月值</span> <span class="ew-v">164.70万辆</span> <span class="m-note">2026-08-31 · 月</span></div><div class="ew-item"><span class="ew-dot"></span><span class="ew-name">汽车产量:当月值</span> <span class="ew-v">268.40万辆</span> <span class="m-note">2026-08-31 · 月</span></div><div class="ew-item"><span class="ew-dot"></span><span class="ew-name">中国:房地产开发投资完成额:累计同比</span> <span class="ew-v">-20.60%</span> <span class="m-note">2026-09-30 · 月</span></div></div>
+          <div class="lv-col-hd" style="margin-top:10px">👀 重点看</div>
+          <div class="lv-watch">7 大行业年度需求 / 新能源细分 / 地产与基建实物量</div>
+          
+        </div>
+      </div>
+    </div>
+  </details><details class="lv hi" data-lv="L8" id="lv-L8">
+    <summary class="lv-bar">
+      <span class="lv-caret">▸</span>
+      <span class="lv-icon">🔗</span>
+      <span class="lv-name">内外盘联动</span>
+      <span class="lv-en">Linkage</span>
+      <span class="lv-pos">定价窗口</span>
+      <span class="lv-role">进口窗口与成本锚 —— 决定内外价差方向</span>
+      <span class="lv-cred">
+        <span class="lv-cred-bar"><i style="width:92%"></i></span>
+        <span class="lv-cred-txt">可信度 <b>高</b> 92%</span>
+      </span>
+      <span class="lv-stats"><b>5</b> 表 <b>24</b> 指标 <b>100%</b> 有值</span>
+      <span class="lv-groups">2 组</span>
+    </summary>
+    <div class="lv-body">
+      <div class="lv-cols">
+        <div class="lv-col">
+          <div class="lv-col-hd">📂 数据维度（2 组，点击展开看指标）</div>
+          <details class="grp" id="g-L8-内外盘价差">
+    <summary>
+      <span class="grp-name">内外盘价差</span>
+      <span class="grp-meta">3 表 · 19 指标 · 日</span>
+      <span class="grp-caret">▾</span>
+    </summary>
+    <div class="grp-body">
+      <div class="grp-src">来源：未标注、Wind、SMM</div>
+      <div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L8铝内外盘联动</span>
+        <span class="m-note">日 · 11 列 · 未标注</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">SHFE铝</span>
+    <span class="m-val">23,350</span>
+    <span class="m-note">元 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">LME铝</span>
+    <span class="m-val">3,040.5</span>
+    <span class="m-note">美元 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">LME铝升贴水(0-3)</span>
+    <span class="m-val">27.51</span>
+    <span class="m-note">美元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">平均溢价：上海电解铝：CIF（提单）</span>
+    <span class="m-val">262.50</span>
+    <span class="m-note">美元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中间价:美元兑人民币</span>
+    <span class="m-val">6.72</span>
+    <span class="m-note">人民币/美元 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">LME铝完税价格</span>
+    <span class="m-val">3,330.5</span>
+    <span class="m-note">美元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">关税</span>
+    <span class="m-val">0.00</span>
+    <span class="m-note">% · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">增值税</span>
+    <span class="m-val">13.00</span>
+    <span class="m-note">% · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">港杂费</span>
+    <span class="m-val">250.00</span>
+    <span class="m-note">元 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">LME铝进口总成本</span>
+    <span class="m-val">25,533</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">价差</span>
+    <span class="m-val">-2,183</span>
+    <span class="m-note">元 · 2026-10-23 · 日</span>
+  </div></div>
+    </div><div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L8铝内外盘联动底稿</span>
+        <span class="m-note">日 · 7 列 · Wind</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">升贴水:LME铝(0-3)</span>
+    <span class="m-val">27.51</span>
+    <span class="m-note">美元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:上海:最高溢价(到岸价):电解铝(提单)</span>
+    <span class="m-val">275.00</span>
+    <span class="m-note">美元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:上海:最低溢价(到岸价):电解铝(提单)</span>
+    <span class="m-val">250.00</span>
+    <span class="m-note">美元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">平均溢价：上海电解铝：CIF（提单）</span>
+    <span class="m-val">262.50</span>
+    <span class="m-note">美元/吨 · 2026-07-10 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">期货收盘价(活跃合约):铝</span>
+    <span class="m-val">3,499.3</span>
+    <span class="m-note">美元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">期货收盘价(电子盘):LME3个月铝</span>
+    <span class="m-val">3,040.5</span>
+    <span class="m-note">美元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中间价:美元兑人民币</span>
+    <span class="m-val">6.72</span>
+    <span class="m-note">2026-10-23 · 日</span>
+  </div></div>
+    </div><div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L8沪伦铝比</span>
+        <span class="m-note">日 · 1 列 · SMM</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">电解铝：沪伦铝比值</span>
+    <span class="m-val">7.60</span>
+    <span class="m-note">倍 · 2026-10-22 · 日</span>
+  </div></div>
+    </div>
+    </div>
+  </details><details class="grp" id="g-L8-价格">
+    <summary>
+      <span class="grp-name">价格</span>
+      <span class="grp-meta">2 表 · 5 指标 · 日</span>
+      <span class="grp-caret">▾</span>
+    </summary>
+    <div class="grp-body">
+      <div class="grp-src">来源：SMM、Wind</div>
+      <div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L8洋山铝溢价-日</span>
+        <span class="m-note">日 · 2 列 · SMM</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">洋山铝溢价（仓单）平均价</span>
+    <span class="m-val">266.00</span>
+    <span class="m-note">美元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">洋山铝溢价（提单）平均价</span>
+    <span class="m-val">267.00</span>
+    <span class="m-note">美元/吨 · 2026-10-23 · 日</span>
+  </div></div>
+    </div><div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L8期货收盘价-日</span>
+        <span class="m-note">日 · 3 列 · Wind</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">SHFE氧化铝收盘价</span>
+    <span class="m-val">2,576</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">SHFE铝收盘价</span>
+    <span class="m-val">23,350</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">LME铝收盘价</span>
+    <span class="m-val">3,040.5</span>
+    <span class="m-note">美元/吨 · 2026-10-23 · 日</span>
+  </div></div>
+    </div>
+    </div>
+  </details>
+        </div>
+        <div class="lv-col lv-col-side">
+          <div class="lv-col-hd">🔔 可做预警（4）</div>
+          <div class="lv-ew" id="ew-L8"><div class="ew-item"><span class="ew-dot"></span><span class="ew-name">SHFE铝</span> <span class="ew-v">23,350元</span> <span class="m-note">2026-10-23 · 日</span></div><div class="ew-item"><span class="ew-dot"></span><span class="ew-name">LME铝</span> <span class="ew-v">3,040.5美元</span> <span class="m-note">2026-10-23 · 日</span></div><div class="ew-item"><span class="ew-dot"></span><span class="ew-name">LME铝升贴水(0-3)</span> <span class="ew-v">27.51美元/吨</span> <span class="m-note">2026-10-23 · 日</span></div><div class="ew-item"><span class="ew-dot"></span><span class="ew-name">升贴水:LME铝(0-3)</span> <span class="ew-v">27.51美元/吨</span> <span class="m-note">2026-10-23 · 日</span></div></div>
+          <div class="lv-col-hd" style="margin-top:10px">👀 重点看</div>
+          <div class="lv-watch">SHFE/LME 价差 / 沪伦铝比 / 洋山溢价 / 进口盈亏</div>
+          
+        </div>
+      </div>
+    </div>
+  </details><details class="lv mid" data-lv="L9" id="lv-L9">
+    <summary class="lv-bar">
+      <span class="lv-caret">▸</span>
+      <span class="lv-icon">🌐</span>
+      <span class="lv-name">政策与宏观</span>
+      <span class="lv-en">Macro &amp; Policy</span>
+      <span class="lv-pos">外部锚</span>
+      <span class="lv-role">产业链的外部锚 —— 判断内部结论被证实还是被打脸</span>
+      <span class="lv-cred">
+        <span class="lv-cred-bar"><i style="width:68%"></i></span>
+        <span class="lv-cred-txt">可信度 <b>中</b> 68%</span>
+      </span>
+      <span class="lv-stats"><b>2</b> 表 <b>31</b> 指标 <b>100%</b> 有值</span>
+      <span class="lv-groups">1 组</span>
+    </summary>
+    <div class="lv-body">
+      <div class="lv-cols">
+        <div class="lv-col">
+          <div class="lv-col-hd">📂 数据维度（1 组，点击展开看指标）</div>
+          <details class="grp" id="g-L9-宏观指标">
+    <summary>
+      <span class="grp-name">宏观指标</span>
+      <span class="grp-meta">2 表 · 31 指标 · 月/日</span>
+      <span class="grp-caret">▾</span>
+    </summary>
+    <div class="grp-body">
+      <div class="grp-src">来源：Wind</div>
+      <div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L9宏观数据-月</span>
+        <span class="m-note">月 · 28 列 · Wind</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">中国:GDP:不变价:同比</span>
+    <span class="m-val">4.50</span>
+    <span class="m-note">% · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:GDP:不变价:第二产业:同比</span>
+    <span class="m-val">3.40</span>
+    <span class="m-note">% · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:工业增加值:规模以上工业企业:当月同比(1-2月拆分)</span>
+    <span class="m-val">5.50</span>
+    <span class="m-note">% · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:制造业PMI</span>
+    <span class="m-val">50.10</span>
+    <span class="m-note">% · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:制造业PMI:新订单</span>
+    <span class="m-val">50.50</span>
+    <span class="m-note">% · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:社会消费品零售总额:当月值</span>
+    <span class="m-val">42,433</span>
+    <span class="m-note">亿元 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:产成品存货:规模以上工业企业:同比</span>
+    <span class="m-val">11.00</span>
+    <span class="m-note">% · 2026-08-31 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:商品房销售面积:累计值</span>
+    <span class="m-val">56,483</span>
+    <span class="m-note">万平方米 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:房地产开发投资完成额:累计值</span>
+    <span class="m-val">53,364</span>
+    <span class="m-note">亿元 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:房地产开发投资完成额:累计同比</span>
+    <span class="m-val">-20.60</span>
+    <span class="m-note">% · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:产量:汽车</span>
+    <span class="m-val">2,989,575</span>
+    <span class="m-note">辆 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:产量:新能源汽车:当月值</span>
+    <span class="m-val">187.00</span>
+    <span class="m-note">万辆 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:产量:空调:当月值</span>
+    <span class="m-val">1,657.4</span>
+    <span class="m-note">万台 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:产量:家用电冰箱:当月值</span>
+    <span class="m-val">1,103.1</span>
+    <span class="m-note">万台 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:产量:家用洗衣机:当月值</span>
+    <span class="m-val">1,197.3</span>
+    <span class="m-note">万台 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:出口数量:氧化铝</span>
+    <span class="m-val">24.00</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:出口数量:氧化铝:累计值</span>
+    <span class="m-val">258.00</span>
+    <span class="m-note">万吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:出口数量:铝合金</span>
+    <span class="m-val">52,341</span>
+    <span class="m-note">吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:出口数量:铝合金:累计值</span>
+    <span class="m-val">401,303</span>
+    <span class="m-note">吨 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:出口金额:机电产品:人民币:累计值</span>
+    <span class="m-val">149,274</span>
+    <span class="m-note">亿元 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">美国:ISM:制造业PMI</span>
+    <span class="m-val">54.50</span>
+    <span class="m-note">2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:发电量:当月值</span>
+    <span class="m-val">8,293.6</span>
+    <span class="m-note">亿千瓦时 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:发电量:风力:当月值</span>
+    <span class="m-val">776.10</span>
+    <span class="m-note">亿千瓦时 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:发电量:火力:当月值</span>
+    <span class="m-val">5,129.4</span>
+    <span class="m-note">亿千瓦时 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:发电量:水力:当月值</span>
+    <span class="m-val">1,304.6</span>
+    <span class="m-note">亿千瓦时 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:发电量:核能:当月值</span>
+    <span class="m-val">439.50</span>
+    <span class="m-note">亿千瓦时 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:全社会用电量:当月值</span>
+    <span class="m-val">89,970,000</span>
+    <span class="m-note">万千瓦时 · 2026-09-30 · 月</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:用电量:工业</span>
+    <span class="m-val">57,510,000</span>
+    <span class="m-note">万千瓦时 · 2026-09-30 · 月</span>
+  </div></div>
+    </div><div class="s-sheet">
+      <div class="s-sheet-hd">
+        <span class="s-sheet-name">📄 L9宏观数据-日</span>
+        <span class="m-note">日 · 3 列 · Wind</span>
+      </div>
+      <div class="s-metrics"><div class="m-row">
+    <span class="m-name">中国:秦皇岛港:平仓价:动力末煤(Q5500,山西产)</span>
+    <span class="m-val">1,040</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">中国:现货领先价格:烧碱</span>
+    <span class="m-val">1,959</span>
+    <span class="m-note">元/吨 · 2026-10-23 · 日</span>
+  </div><div class="m-row">
+    <span class="m-name">荷兰TTF:日前远期价格:天然气</span>
+    <span class="m-val">25.49</span>
+    <span class="m-note">美元/百万英热单位 · 2026-09-30 · 日</span>
+  </div></div>
+    </div>
+    </div>
+  </details>
+        </div>
+        <div class="lv-col lv-col-side">
+          <div class="lv-col-hd">🔔 可做预警（4）</div>
+          <div class="lv-ew" id="ew-L9"><div class="ew-item"><span class="ew-dot"></span><span class="ew-name">中国:GDP:不变价:同比</span> <span class="ew-v">4.50%</span> <span class="m-note">2026-09-30 · 月</span></div><div class="ew-item"><span class="ew-dot"></span><span class="ew-name">中国:GDP:不变价:第二产业:同比</span> <span class="ew-v">3.40%</span> <span class="m-note">2026-09-30 · 月</span></div><div class="ew-item"><span class="ew-dot"></span><span class="ew-name">中国:工业增加值:规模以上工业企业:当月同比(1-2月拆分)</span> <span class="ew-v">5.50%</span> <span class="m-note">2026-09-30 · 月</span></div><div class="ew-item"><span class="ew-dot"></span><span class="ew-name">中国:秦皇岛港:平仓价:动力末煤(Q5500,山西产)</span> <span class="ew-v">1,040元/吨</span> <span class="m-note">2026-10-23 · 日</span></div></div>
+          <div class="lv-col-hd" style="margin-top:10px">👀 重点看</div>
+          <div class="lv-watch">需求锚(23项) / 成本锚(煤-烧碱-TTF) / 区域层</div>
+          <div class="lv-miss"><span class="lv-miss-tag">关键维度缺失</span><span class="lv-miss-item">汇率与利率</span><span class="lv-miss-item">碳价与碳成本</span><span class="lv-miss-item">海运费</span></div>
+        </div>
+      </div>
+    </div>
+  </details></div>
 
 <div class="note">
-  <b>可信度怎么算的</b>（全部现算，Excel 一更新自动跟着变）：指标丰度 35% + 数据覆盖 25% + 来源权威 20% + 时效新鲜 20%。<br>
-  <b>「可做预警」怎么选</b>：取该层<b>日/周频</b>的表里取值最完整的列 —— 即使该层整体数据不充分，高频序列仍能提示边际变化（如 L4 再生铝只有 2 个指标，但周频开工率仍可作替代供给的早期信号）。<br>
+  <b>可信度怎么算的</b>（全部现算，Excel 一更新自动跟着变）：指标丰度 25% + 数据覆盖 18% + 来源权威 12% + 时效新鲜 17% + 实测占比 13% + 关键维度 15%。<br>
+  <b>分组从哪来</b>：按 Excel 自身的 sheet 结构归组（如 <code>L1铝土矿产量-月</code> → 「产量」组），<b>不套预设模板</b>；组内再列到具体指标列，指标旁小字标注单位/日期/频率。<br>
+  <b>「可做预警」怎么选</b>：取该层<b>日/周/月频</b>的表里取值最完整的列 —— 即使该层整体数据不充分，高频序列仍能提示边际变化。<br>
   <b>边界</b>：本图只统计 <code>铝产业链数据.xlsx</code> 内的数据。政策事件与研究结论<b>不入本图</b>，请见
   <a href="aluminum-knowledge-index.md">知识库索引</a>（外部数据不进看板数值层）。
 </div>
