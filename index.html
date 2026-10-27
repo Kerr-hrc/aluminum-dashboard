@@ -12542,29 +12542,111 @@ document.querySelectorAll('[data-tabjump]').forEach(a => {
   // 只绘制「当前可见且未初始化」的图
   // 不再按 Tab 判断: 图表已分发到 L1-L8 各 Tab, 由 draw() 里的尺寸守卫
   // (隐藏 Tab 里容器宽高恒为 0) 决定跳过谁。
-  function drawVisible(){
+  //
+  // ★ 2026-10-27 加载性能改造:
+  //   旧实现每次都遍历**全部 420 张图**, 每次都做 getElementById + closest('details')
+  //   (closest 是 DOM 树遍历, 在 17003 个元素的树里跑 420 次)。
+  //   → 改为: 按 Tab 建索引 (chartsByTab), 切 Tab 时只扫该 Tab 的图;
+  //     展开明细时只扫该 details 内的图; 首屏只画概览页。
+  //   → 并用 requestAnimationFrame 分批, 避免一次性 init 上百个 ECharts 阻塞主线程。
+  var chartsByTab = (function(){
+    var m = {};
+    for (var i = 0; i < CFG.charts.length; i++) {
+      var c = CFG.charts[i];
+      var k = c.lv || 'other';
+      (m[k] = m[k] || []).push(c);
+    }
+    return m;
+  })();
+  var piesByTab = (function(){
+    var m = {};
+    var ps = CFG.pies || [];
+    for (var i = 0; i < ps.length; i++) {
+      var p = ps[i];
+      var k = p.lv || 'other';
+      (m[k] = m[k] || []).push(p);
+    }
+    return m;
+  })();
+
+  // 当前激活的 Tab → 映射到图表的 lv 键
+  // ⚠ Tab 按钮的 data-tab 值是 "tab-0" / "tab-1" ... (不是裸数字)
+  //   2026-10-27 实测踩坑: 写成 'L' + idx → "Ltab-3" → 索引查不到 → 切 Tab 后一张图都不画
+  function activeTabKey(){
+    var btn = document.querySelector('.tab.active');
+    if (!btn) return null;
+    var raw = btn.getAttribute('data-tab') || '';
+    // NOTE: this code lives inside a template string, so a backslash-d regex
+    //   gets eaten by escaping (becomes /(d+)/ -> never matches tab-3).
+    //   Use a backslash-free pattern instead.
+    var m = raw.match(/[0-9]+$/);
+    var idx = m[0];
+    if (idx === '0') return '__overview__';   // 概览页无历年对比图
+    return 'L' + idx;
+  }
+
+  // 分批调度: 每批最多 N 张, 批间让出主线程 → 页面不卡死
+  // fn: 单张图的绘制函数 (draw 或 drawPie)
+  var BATCH = 12;
+  //
+  // ⚠ 调度器必须能在**页面不可见**时也能工作:
+  //   requestAnimationFrame 在 document.hidden = true 时**完全不触发**
+  //   (浏览器后台标签页 / 无头环境) → 图表会永远画不出来。
+  //   故: rAF 优先, 但检测到页面隐藏时回退 setTimeout。
+  var _rafOK = (typeof requestAnimationFrame === "function");
+  function schedule(fn){
+    if (_rafOK && !document.hidden) {
+      requestAnimationFrame(fn);
+    } else {
+      setTimeout(fn, 16);
+    }
+  }
+  function drawList(list, fn, done){
+    if (!list || !list.length) { if (done) done(); return; }
+    var i = 0;
+    function step(){
+      var end = Math.min(i + BATCH, list.length);
+      for (; i < end; i++) {
+        try { fn(list[i]); } catch(e){ /* 单张失败不阻断其余 */ }
+      }
+      if (i < list.length) schedule(step);
+      else if (done) done();
+    }
+    schedule(step);
+  }
+
+  // 只画某个 Tab 的图 (不传则画当前激活 Tab)
+  function drawVisible(tabKey){
+    var key = tabKey || activeTabKey();
+    if (!key) return;
+    drawList(chartsByTab[key] || [], draw);
+    // 分地区构成饼图 (始终在核心层, 无折叠容器)
+    drawList(piesByTab[key] || [], drawPie);
+  }
+  // 画某个 details 容器内的图 (展开明细时用, 不必扫全量)
+  function drawInScope(scope){
+    if (!scope) return;
+    var list = [];
     for (var i = 0; i < CFG.charts.length; i++) {
       var c = CFG.charts[i];
       var box = document.getElementById('an-' + c.id);
       if (!box) continue;
-      var det = box.closest('details');
-      if (det && !det.open) continue;      // 明细层未展开 → 跳过
-      draw(c);
+      if (!scope.contains(box)) continue;
+      list.push(c);
     }
-    // 分地区构成饼图 (始终在核心层, 无折叠容器)
-    if (CFG.pies) {
-      for (var k = 0; k < CFG.pies.length; k++) drawPie(CFG.pies[k]);
-    }
+    drawList(list, draw);
   }
-  // 切到任一 Tab 时绘制该 Tab 内的图 (图表已分散到多个 Tab, 故全量绑定)
+  // 切到任一 Tab 时绘制该 Tab 内的图
   var tabBtns = document.querySelectorAll('.tab');
   for (var i = 0; i < tabBtns.length; i++) {
     tabBtns[i].addEventListener('click', function(){ setTimeout(drawVisible, 80); });
   }
-  // 明细层展开时绘制
+  // 明细层展开时绘制 (只画该 details 内的图, 不再全量扫)
   var dets = document.querySelectorAll('.an-detail');
   for (var i = 0; i < dets.length; i++) {
-    dets[i].addEventListener('toggle', function(){ if (this.open) setTimeout(drawVisible, 80); });
+    (function(det){
+      det.addEventListener('toggle', function(){ if (this.open) setTimeout(function(){ drawInScope(det); }, 80); });
+    })(dets[i]);
   }
   window.addEventListener('resize', function(){
     for (var k in inst) { try { inst[k].resize(); } catch(e){} }
@@ -12687,7 +12769,26 @@ document.querySelectorAll('[data-tabjump]').forEach(a => {
     var isPie = rawId.indexOf('anr-') === 0;
     var id = rawId.replace(/^anr?-/, '');
     var chart = inst[id];
-    if (!chart) { drawVisible(); chart = inst[id]; }
+    // ★ 2026-10-27: drawVisible 改为 rAF 分批 (异步), 这里拿不到实例。
+    //   放大时改为**同步单张绘制** —— 只画这一张, 不走分批队列。
+    if (!chart) {
+      var box2 = document.getElementById(isPie ? 'anr-' + id : 'an-' + id);
+      if (box2) {
+        var found = null;
+        var pools = [chartsByTab, piesByTab];
+        for (var pi = 0; pi < pools.length && !found; pi++) {
+          for (var pk in pools[pi]) {
+            var arr = pools[pi][pk];
+            for (var ai = 0; ai < arr.length; ai++) {
+              if (arr[ai].id === id) { found = arr[ai]; break; }
+            }
+            if (found) break;
+          }
+        }
+        if (found) { if (isPie) drawPie(found); else draw(found); }
+      }
+      chart = inst[id];
+    }
     if (!chart) return;
     modalSrc = card;
     modalId = id;
@@ -12896,6 +12997,11 @@ document.querySelectorAll('[data-tabjump]').forEach(a => {
     };
   }
   function drawAll(){
+    // ★ 2026-10-27 加载性能: L6 的图**全在 tab-6**, 切到别的 Tab 时不必再扫。
+    //   旧写法每次切 Tab / 每次 resize 都遍历 23 张做无谓的 getElementById。
+    //   ⚠ data-tab 的实际值是 "tab-6" (不是裸 "6")
+    var btn = document.querySelector('.tab.active');
+    if (!btn || btn.getAttribute('data-tab') !== 'tab-6') return;
     for (var i = 0; i < CFG.charts.length; i++) draw(CFG.charts[i]);
   }
   var tabBtns = document.querySelectorAll('.tab');
@@ -12903,9 +13009,10 @@ document.querySelectorAll('[data-tabjump]').forEach(a => {
     tabBtns[i].addEventListener('click', function(){ setTimeout(drawAll, 90); });
   }
   window.addEventListener('resize', function(){
+    // 只 resize 已实例化的实例 (不再重画) —— resize 不需要重新 setOption
     for (var k in inst) { try { inst[k].resize(); } catch(e){} }
-    drawAll();
   });
+  // 首屏: 只有停在 tab-6 时才画 (概览页默认激活 → 不画)
   setTimeout(drawAll, 400);
 })();
 </script>
