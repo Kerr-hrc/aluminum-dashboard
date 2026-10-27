@@ -267,6 +267,25 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
   .ind-dim { color: #94a3b8; font-weight: 400; }
   .ind-empty { color: #94a3b8; text-align: center; font-style: italic; }
 
+  /* ===== 下游景气度读数 (需求③ · 2026-10-27) ===== */
+  .pg-wrap { margin: 10px 0 4px; }
+  .pg-summary { display: flex; gap: 16px; flex-wrap: wrap; align-items: center;
+                margin: 6px 0 4px; font-size: 11.5px; color: #64748b; }
+  .pg-sum-item b { font-size: 13px; }
+  .pg-sum-tip { color: #94a3b8; font-size: 10.5px; flex: 1 1 320px; min-width: 0; }
+  .pg-tbl th { white-space: nowrap; }
+  .pg-grp { color: #0369a1; font-weight: 600; font-size: 11px; white-space: nowrap; }
+  .pg-name { color: #0f172a; }
+  .pg-note { display: block; color: #94a3b8; font-size: 9.5px; font-weight: 400; margin-top: 1px; }
+  .pg-val { font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; font-weight: 600; }
+  .pg-chg { font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; font-size: 11px; }
+  .pg-chg.bull { color: #dc2626; }
+  .pg-chg.bear { color: #16a34a; }
+  .pg-chg.neutral { color: #94a3b8; }
+  .pg-pct { font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+  .pg-dir { text-align: center; white-space: nowrap; }
+  .pg-wrap .pg-note { margin-top: 4px; font-size: 10.5px; color: #64748b; line-height: 1.6; }
+
   /* ===== 形态匹配 9 维矩阵 (2026-10-22 用户要求 #5 已删除) =====
      .pat-unit 是通用「数值单位」样式, 仍被输入信号/平衡表/表格复用 → 保留;
      .pat-chip / .pat-bull / .pat-bear / .pat-neutral 仍被决策卡的形态标签复用 → 保留。 */
@@ -1270,8 +1289,8 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
         <span class="dc-freqnote">本档信号全部为月频 · 短/中两档口径同源</span>
       </div>
       <div class="cc-lines">
-        <div class="cc-lines-k">结论</div><div class="cc-lines-v">供给端收紧 几内亚进口 1382.98万吨, 较上月 ↑ +227.88万吨 (+19.7%) <b class="cl-concl">支撑</b>; 供给端宽松 澳洲进口 416.32万吨, 较上月 ↑ +79.06万吨 (+23.4%) <b class="cl-concl">压制</b></div>
-        <div class="cc-lines-k">信号</div><div class="cc-lines-v"><span class="ks-item">库存·港口库存<span style="color:#16a34a;font-weight:600"> · 偏空</span><span style="color:#94a3b8"></span></span><span class="ks-item">库存·全国库存<span style="color:#16a34a;font-weight:600"> · 偏空</span><span style="color:#94a3b8"></span></span></div>
+        <div class="cc-lines-k">结论</div><div class="cc-lines-v">供需两端信号不足, 各指标变化幅度有限</div>
+        <div class="cc-lines-k">信号</div><div class="cc-lines-v"><span class="ks-item">库存·全国库存<span style="color:#16a34a;font-weight:600"> · 偏空</span><span style="color:#94a3b8"></span></span></div>
         <div class="cc-lines-k">展望</div><div class="cc-lines-v cc-lines-outlook">震荡: 主因 库存·港口库存 (压制)。各维度变化幅度有限, 方向不明确。</div>
       </div>
     </div><div class="cc-sub">
@@ -1280,8 +1299,8 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
         <span class="dc-freqnote">本档信号全部为月频 · 短/中两档口径同源</span>
       </div>
       <div class="cc-lines">
-        <div class="cc-lines-k">结论</div><div class="cc-lines-v">供给端收紧 几内亚进口 1382.98万吨, 较上月 ↑ +227.88万吨 (+19.7%) <b class="cl-concl">支撑</b>; 供给端宽松 澳洲进口 416.32万吨, 较上月 ↑ +79.06万吨 (+23.4%) <b class="cl-concl">压制</b></div>
-        <div class="cc-lines-k">信号</div><div class="cc-lines-v"><span class="ks-item">库存·港口库存<span style="color:#16a34a;font-weight:600"> · 偏空</span><span style="color:#94a3b8"></span></span><span class="ks-item">库存·全国库存<span style="color:#16a34a;font-weight:600"> · 偏空</span><span style="color:#94a3b8"></span></span></div>
+        <div class="cc-lines-k">结论</div><div class="cc-lines-v">供需两端信号不足, 各指标变化幅度有限</div>
+        <div class="cc-lines-k">信号</div><div class="cc-lines-v"><span class="ks-item">库存·全国库存<span style="color:#16a34a;font-weight:600"> · 偏空</span><span style="color:#94a3b8"></span></span></div>
         <div class="cc-lines-k">展望</div><div class="cc-lines-v cc-lines-outlook">震荡: 主因 库存·港口库存 (压制)。各维度变化幅度有限, 方向不明确。</div>
       </div>
     </div><div class="cc-sub">
@@ -1290,8 +1309,8 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
         
       </div>
       <div class="cc-lines">
-        <div class="cc-lines-k">结论</div><div class="cc-lines-v">需求端 氧化铝月产量 759.88万吨, 近1年 ↓ -0.49万吨 (-0.1%) (5年趋势拟合位 95%) <b class="cl-concl">支撑</b>; 供给端宽松 几内亚进口 1382.98万吨, 近1年 ↑ +339.93万吨 (+32.6%) (5年趋势拟合位 90%) <b class="cl-concl">压制</b></div>
-        <div class="cc-lines-k">信号</div><div class="cc-lines-v"><span class="ks-item">供给·几内亚进口<span style="color:#16a34a;font-weight:600"> · 偏空</span><span style="color:#94a3b8"> · 近5年分位 90%</span></span><span class="ks-item">供给·澳洲进口<span style="color:#16a34a;font-weight:600"> · 偏空</span><span style="color:#94a3b8"> · 近5年分位 98%</span></span></div>
+        <div class="cc-lines-k">结论</div><div class="cc-lines-v">需求端 氧化铝月产量 759.88万吨, 近1年 ↓ -0.49万吨 (-0.1%) (5年趋势拟合位 95%) <b class="cl-concl">支撑</b>; 供给端宽松 铝土矿进口 1833.23万吨, 近1年 ↑ +253.14万吨 (+16.0%) (5年趋势拟合位 90%) <b class="cl-concl">压制</b></div>
+        <div class="cc-lines-k">信号</div><div class="cc-lines-v"><span class="ks-item">供给·铝土矿进口<span style="color:#16a34a;font-weight:600"> · 偏空</span><span style="color:#94a3b8"> · 近5年分位 90%</span></span><span class="ks-item">库存·全国库存<span style="color:#16a34a;font-weight:600"> · 偏空</span><span style="color:#94a3b8"> · 近5年分位 83%</span></span></div>
         <div class="cc-lines-k">展望</div><div class="cc-lines-v cc-lines-outlook">震荡: 主因 需求·氧化铝月产量 (支撑); 次要 供给·几内亚进口 (压制)。双向证据（存量 vs 价格）: 库存 -0.55 与价格 +0.32 方向相反, 差 0.87 → 库存主导; 两类证据并存, 不是算错。</div>
       </div>
     </div>
@@ -1313,8 +1332,8 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
         
       </div>
       <div class="cc-lines">
-        <div class="cc-lines-k">结论</div><div class="cc-lines-v">供给端宽松 氧化铝月产量 759.88万吨, 较上月 ↑ +5.50万吨 (+0.7%) · 日均 +4.09% <b class="cl-concl">压制</b>; 平衡表 过剩量 23.20 万吨</div>
-        <div class="cc-lines-k">信号</div><div class="cc-lines-v"><span class="ks-item">库存·厂内库存<span style="color:#16a34a;font-weight:600"> · 偏空</span><span style="color:#94a3b8"></span></span><span class="ks-item">供给·氧化铝月产量<span style="color:#16a34a;font-weight:600"> · 偏空</span><span style="color:#94a3b8"></span></span></div>
+        <div class="cc-lines-k">结论</div><div class="cc-lines-v">供给端宽松 氧化铝月产量 759.88万吨, 较 2 个月前 ↑ +13.84万吨 (+5.3%) · 日均口径 <b class="cl-concl">压制</b>; 平衡表 过剩量 23.20 万吨</div>
+        <div class="cc-lines-k">信号</div><div class="cc-lines-v"><span class="ks-item">供给·氧化铝月产量<span style="color:#16a34a;font-weight:600"> · 偏空</span><span style="color:#94a3b8"></span></span><span class="ks-item">供给·氧化铝建成产能<span style="color:#16a34a;font-weight:600"> · 偏空</span><span style="color:#94a3b8"></span></span></div>
         <div class="cc-lines-k">展望</div><div class="cc-lines-v cc-lines-outlook">下行: 主因 供给·氧化铝月产量 (压制); 次要 库存·厂内库存 (压制)。缺口与库存/价格同向印证。</div>
       </div>
     </div><div class="cc-sub">
@@ -1323,8 +1342,8 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
         <span class="dc-freqnote">短/中两档<b>部分同源</b>：3 项两档取自同一对比点（氧化铝月产量·月、电解铝月产量·月、厂内库存·月），9 项已按 7 天 / 60 天窗口分开（氧化铝运行产能·周、氧化铝建成产能·周、氧化铝开工率·周、全国库存·周、氧化铝主连·日、氧化铝指数·日、西澳 FOB·日、完全成本·日、矿石成本·日）；水平位（结构分位）与比较窗口无关 → 带水平位的 5/5 项在两档 levelPart 完全相同。两档综合分 中 -0.27 / 短 -0.27 接近是加权结果，不是同一份输入</span>
       </div>
       <div class="cc-lines">
-        <div class="cc-lines-k">结论</div><div class="cc-lines-v">供给端宽松 氧化铝月产量 759.88万吨, 较上月 ↑ +5.50万吨 (+0.7%) · 日均 +4.09% <b class="cl-concl">压制</b>; 平衡表 过剩量 23.20 万吨</div>
-        <div class="cc-lines-k">信号</div><div class="cc-lines-v"><span class="ks-item">库存·厂内库存<span style="color:#16a34a;font-weight:600"> · 偏空</span><span style="color:#94a3b8"></span></span><span class="ks-item">供给·氧化铝月产量<span style="color:#16a34a;font-weight:600"> · 偏空</span><span style="color:#94a3b8"></span></span></div>
+        <div class="cc-lines-k">结论</div><div class="cc-lines-v">供给端宽松 氧化铝月产量 759.88万吨, 较 2 个月前 ↑ +13.84万吨 (+5.3%) · 日均口径 <b class="cl-concl">压制</b>; 平衡表 过剩量 23.20 万吨</div>
+        <div class="cc-lines-k">信号</div><div class="cc-lines-v"><span class="ks-item">供给·氧化铝月产量<span style="color:#16a34a;font-weight:600"> · 偏空</span><span style="color:#94a3b8"></span></span><span class="ks-item">供给·氧化铝建成产能<span style="color:#16a34a;font-weight:600"> · 偏空</span><span style="color:#94a3b8"></span></span></div>
         <div class="cc-lines-k">展望</div><div class="cc-lines-v cc-lines-outlook">下行: 主因 供给·氧化铝月产量 (压制); 次要 平衡表 (压制)。缺口与库存/价格同向印证。</div>
       </div>
     </div><div class="cc-sub">
@@ -1334,7 +1353,7 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
       </div>
       <div class="cc-lines">
         <div class="cc-lines-k">结论</div><div class="cc-lines-v">需求端 电解铝月产量 374.90万吨, 近1年 ↑ +6.40万吨 (+1.7%) (5年趋势拟合位 100%) <b class="cl-concl">支撑</b>; 供给端宽松 氧化铝建成产能 12432.00万吨, 近1年 ↑ +970.00万吨 (+8.5%) (5年趋势拟合位 96%) <b class="cl-concl">压制</b>; 平衡表 过剩量 23.20 万吨</div>
-        <div class="cc-lines-k">信号</div><div class="cc-lines-v"><span class="ks-item">库存·全国库存<span style="color:#16a34a;font-weight:600"> · 偏空</span><span style="color:#94a3b8"> · 近5年分位 81%</span></span><span class="ks-item">库存·厂内库存<span style="color:#16a34a;font-weight:600"> · 偏空</span><span style="color:#94a3b8"> · 近5年分位 100%</span></span></div>
+        <div class="cc-lines-k">信号</div><div class="cc-lines-v"><span class="ks-item">库存·全国库存<span style="color:#16a34a;font-weight:600"> · 偏空</span><span style="color:#94a3b8"> · 近5年分位 81%</span></span><span class="ks-item">价格·氧化铝主连<span style="color:#16a34a;font-weight:600"> · 偏空</span><span style="color:#94a3b8"> · 近5年分位 2%</span></span></div>
         <div class="cc-lines-k">展望</div><div class="cc-lines-v cc-lines-outlook">下行: 最大拖累 需求·电解铝月产量 (支撑); 次要 库存·全国库存 (压制)。缺口与库存/价格同向印证。</div>
       </div>
     </div>
@@ -1362,8 +1381,8 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
         
       </div>
       <div class="cc-lines">
-        <div class="cc-lines-k">结论</div><div class="cc-lines-v">供给端收紧 净进口 3期均值 14.88万吨 (当月 16.37万吨), 较上月 ↑ +1.00万吨 <b class="cl-concl">支撑</b>; 需求端走弱 下游开工率 60.50%, 较上周 ↓ -1.60% (-2.6%) <b class="cl-concl">压制</b>; 平衡表 去库量 12.10 万吨</div>
-        <div class="cc-lines-k">信号</div><div class="cc-lines-v"><span class="ks-item">供给·净进口<span style="color:#dc2626;font-weight:600"> · 偏多</span><span style="color:#94a3b8"></span></span><span class="ks-item">库存·SHFE 仓单<span style="color:#dc2626;font-weight:600"> · 偏多</span><span style="color:#94a3b8"></span></span></div>
+        <div class="cc-lines-k">结论</div><div class="cc-lines-v">供给端收紧 净进口 3期均值 14.88万吨 (当月 16.37万吨), 较 2 个月前 ↓ -3.95万吨 <b class="cl-concl">支撑</b>; 需求端走弱 下游开工率 60.50%, 较上周 ↓ -1.60% (-2.6%) <b class="cl-concl">压制</b>; 平衡表 去库量 12.10 万吨</div>
+        <div class="cc-lines-k">信号</div><div class="cc-lines-v"><span class="ks-item">供给·净进口<span style="color:#dc2626;font-weight:600"> · 偏多</span><span style="color:#94a3b8"></span></span><span class="ks-item">利润·吨铝利润<span style="color:#16a34a;font-weight:600"> · 偏空</span><span style="color:#94a3b8"></span></span></div>
         <div class="cc-lines-k">展望</div><div class="cc-lines-v cc-lines-outlook">震荡: 最大拖累 供给·净进口 (支撑); 次要 平衡表 (压制)。各维度变化幅度有限, 方向不明确。</div>
       </div>
     </div><div class="cc-sub">
@@ -1372,8 +1391,8 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
         <span class="dc-freqnote">短/中两档<b>部分同源</b>：4 项两档取自同一对比点（电解铝月产量·月、净进口·月、铝棒出库、铝材出口·月），11 项已按 7 天 / 60 天窗口分开（运行产能·周、开工率·周、下游开工率·周、社会库存·周、SHFE 库存·周、总库存(非社库)·周、SHFE 仓单·周、A00 铝价(现货)·日、沪伦铝比·日、吨铝利润·日、完全成本·日）；水平位（结构分位）与比较窗口无关 → 带水平位的 4/4 项在两档 levelPart 完全相同。两档综合分 中 -0.12 / 短 -0.02 接近是加权结果，不是同一份输入</span>
       </div>
       <div class="cc-lines">
-        <div class="cc-lines-k">结论</div><div class="cc-lines-v">供给端收紧 净进口 3期均值 14.88万吨 (当月 16.37万吨), 较上月 ↑ +1.00万吨 <b class="cl-concl">支撑</b>; 平衡表 去库量 12.10 万吨</div>
-        <div class="cc-lines-k">信号</div><div class="cc-lines-v"><span class="ks-item">供给·净进口<span style="color:#dc2626;font-weight:600"> · 偏多</span><span style="color:#94a3b8"></span></span><span class="ks-item">库存·SHFE 仓单<span style="color:#dc2626;font-weight:600"> · 偏多</span><span style="color:#94a3b8"></span></span></div>
+        <div class="cc-lines-k">结论</div><div class="cc-lines-v">供给端收紧 净进口 3期均值 14.88万吨 (当月 16.37万吨), 较 2 个月前 ↓ -3.95万吨 <b class="cl-concl">支撑</b>; 平衡表 去库量 12.10 万吨</div>
+        <div class="cc-lines-k">信号</div><div class="cc-lines-v"><span class="ks-item">供给·净进口<span style="color:#dc2626;font-weight:600"> · 偏多</span><span style="color:#94a3b8"></span></span><span class="ks-item">库存·社会库存<span style="color:#dc2626;font-weight:600"> · 偏多</span><span style="color:#94a3b8"></span></span></div>
         <div class="cc-lines-k">展望</div><div class="cc-lines-v cc-lines-outlook">震荡: 主因 平衡表 (压制); 次要 库存·SHFE 仓单 (支撑)。双向证据（流量 vs 存量）: 缺口 -0.35 与库存 +0.56 方向相反, 差 0.91 → 库存主导; 两类证据并存, 不是算错。</div>
       </div>
     </div><div class="cc-sub">
@@ -9560,6 +9579,113 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
       </div></section>
 
     
+    <section class="pg-wrap">
+    <h3 class="section-title">🏭 下游景气度读数 <span class="src">每个信号一行 · 全部取自 Excel「L6交运数据 / L6建筑数据 / L6电力数据」· 分位一律近 5 年 · 方向由分位与信号极性现算</span></h3>
+    <div class="pg-summary">
+      <span class="pg-sum-item"><b style="color:#dc2626">偏多 3</b> 项</span>
+      <span class="pg-sum-item"><b style="color:#16a34a">偏空 7</b> 项</span>
+      <span class="pg-sum-item"><b style="color:#94a3b8">中性 3</b> 项</span>
+      <span class="pg-sum-item pg-sum-tip">极性：库存类「高分位 = 偏空」，需求/投资类「高分位 = 偏多」—— 读数是**该信号自身的景气位**，不是铝价方向</span>
+    </div>
+    <div class="ind-table-wrap">
+      <table class="ind-table pg-tbl">
+        <thead><tr><th>环节</th><th>信号</th><th>最新值</th><th>变化</th><th>分位</th><th>方向</th></tr></thead>
+        <tbody><tr>
+      <td class="pg-grp">汽车 · 库存</td>
+      <td class="pg-name">汽车库存预警指数:当月值<span class="pg-note">库存预警指数 > 60 提示需求透支、库存压力大</span></td>
+      <td class="pg-val">62.3%</td>
+      <td class="pg-chg bull">环比 +2.0%</td>
+      <td class="pg-pct">89%<span class="pg-note">近5年</span></td>
+      <td class="pg-dir" style="color:#16a34a;font-weight:600">偏空</td>
+    </tr><tr>
+      <td class="pg-grp">汽车 · 库存</td>
+      <td class="pg-name">汽车经销商库存系数:综合<span class="pg-note">经销商库存系数 > 1.5 提示渠道库存偏高</span></td>
+      <td class="pg-val">1.58</td>
+      <td class="pg-chg neutral">环比 +0.0%</td>
+      <td class="pg-pct">66%<span class="pg-note">近5年</span></td>
+      <td class="pg-dir" style="color:#94a3b8;font-weight:600">中性</td>
+    </tr><tr>
+      <td class="pg-grp">汽车 · 库存</td>
+      <td class="pg-name">企业库存:汽车:当月值<span class="pg-note">车企端库存绝对量</span></td>
+      <td class="pg-val">93.30</td>
+      <td class="pg-chg neutral">环比 +0.0%</td>
+      <td class="pg-pct">56%<span class="pg-note">近5年</span></td>
+      <td class="pg-dir" style="color:#94a3b8;font-weight:600">中性</td>
+    </tr><tr>
+      <td class="pg-grp">汽车 · 需求</td>
+      <td class="pg-name">汽车销量:当月值<span class="pg-note">汽车当月销量</span></td>
+      <td class="pg-val">271.2</td>
+      <td class="pg-chg bull">环比 +5.0%</td>
+      <td class="pg-pct">69%<span class="pg-note">近5年</span></td>
+      <td class="pg-dir" style="color:#94a3b8;font-weight:600">中性</td>
+    </tr><tr>
+      <td class="pg-grp">汽车 · 需求</td>
+      <td class="pg-name">新能源汽车:销量:当月值<span class="pg-note">新能源车当月销量</span></td>
+      <td class="pg-val">164.3</td>
+      <td class="pg-chg bull">环比 +5.3%</td>
+      <td class="pg-pct">93%<span class="pg-note">近5年</span></td>
+      <td class="pg-dir" style="color:#dc2626;font-weight:600">偏多</td>
+    </tr><tr>
+      <td class="pg-grp">地产 · 需求</td>
+      <td class="pg-name">30大中城市:成交面积:商品房<span class="pg-note">30 城商品房成交面积（周度口径，高频）</span></td>
+      <td class="pg-val">3,994,053</td>
+      <td class="pg-chg bear">环比 -38.8%</td>
+      <td class="pg-pct">2%<span class="pg-note">近5年</span></td>
+      <td class="pg-dir" style="color:#16a34a;font-weight:600">偏空</td>
+    </tr><tr>
+      <td class="pg-grp">地产 · 需求</td>
+      <td class="pg-name">房屋竣工面积:累计同比<span class="pg-note">竣工累计同比 —— 铝门窗需求的先行量</span></td>
+      <td class="pg-val">-25.10</td>
+      <td class="pg-chg bear">累计同比 -25.1%</td>
+      <td class="pg-pct">6%<span class="pg-note">近5年</span></td>
+      <td class="pg-dir" style="color:#16a34a;font-weight:600">偏空</td>
+    </tr><tr>
+      <td class="pg-grp">地产 · 需求</td>
+      <td class="pg-name">房屋新开工面积:累计同比<span class="pg-note">新开工累计同比 —— 中长期用铝的领先量</span></td>
+      <td class="pg-val">-24.90</td>
+      <td class="pg-chg bear">累计同比 -24.9%</td>
+      <td class="pg-pct">23%<span class="pg-note">近5年</span></td>
+      <td class="pg-dir" style="color:#16a34a;font-weight:600">偏空</td>
+    </tr><tr>
+      <td class="pg-grp">地产 · 需求</td>
+      <td class="pg-name">房地产开发投资完成额:累计同比<span class="pg-note">地产开发投资累计同比</span></td>
+      <td class="pg-val">-20.60</td>
+      <td class="pg-chg bear">累计同比 -20.6%</td>
+      <td class="pg-pct">1%<span class="pg-note">近5年</span></td>
+      <td class="pg-dir" style="color:#16a34a;font-weight:600">偏空</td>
+    </tr><tr>
+      <td class="pg-grp">地产 · 价格</td>
+      <td class="pg-name">市场价:浮法平板玻璃(4.8/5mm)<span class="pg-note">玻璃价格 —— 地产/建材景气的价格侧读数</span></td>
+      <td class="pg-val">1078.1</td>
+      <td class="pg-chg bear">环比 -1.3%</td>
+      <td class="pg-pct">1%<span class="pg-note">近5年</span></td>
+      <td class="pg-dir" style="color:#dc2626;font-weight:600">偏多</td>
+    </tr><tr>
+      <td class="pg-grp">地产 · 价格</td>
+      <td class="pg-name">水泥价格指数<span class="pg-note">水泥价格指数 —— 基建实物量景气的价格侧读数</span></td>
+      <td class="pg-val">99.86</td>
+      <td class="pg-chg bull">环比 +5.6%</td>
+      <td class="pg-pct">14%<span class="pg-note">近5年</span></td>
+      <td class="pg-dir" style="color:#dc2626;font-weight:600">偏多</td>
+    </tr><tr>
+      <td class="pg-grp">电力基建</td>
+      <td class="pg-name">电网工程:投资完成额:累计同比<span class="pg-note">电网投资完成额累计同比 —— 电网用铝（导线）需求</span></td>
+      <td class="pg-val">0.75</td>
+      <td class="pg-chg bull">累计同比 +0.7%</td>
+      <td class="pg-pct">1%<span class="pg-note">近5年</span></td>
+      <td class="pg-dir" style="color:#16a34a;font-weight:600">偏空</td>
+    </tr><tr>
+      <td class="pg-grp">电力基建</td>
+      <td class="pg-name">电源工程:投资完成额:累计同比<span class="pg-note">电源工程投资累计同比 —— 含风光储配套用铝</span></td>
+      <td class="pg-val">-4.72</td>
+      <td class="pg-chg bear">累计同比 -4.7%</td>
+      <td class="pg-pct">3%<span class="pg-note">近5年</span></td>
+      <td class="pg-dir" style="color:#16a34a;font-weight:600">偏空</td>
+    </tr></tbody>
+      </table>
+    </div>
+    <div class="pg-note">⚠️ 本表只回答「下游各链条自身景气到什么位置」，**不构成铝价方向结论** —— 铝价方向见本品种决策卡片（供需缺口 → 库存 → 利润三条链）。</div>
+  </section>
     <section>
       <h3 class="section-title">📐 年度供需平衡表 <span class="src">数据源：数据框架 (年度预测矩阵)</span></h3>
       <div class="l6-wrap">
