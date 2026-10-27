@@ -186,6 +186,65 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
   /* ===== 2026-10-27 决策推理链 (思考流程图 + 权重图 + 权重理由) =====
      渐进式披露三层: .rc-l1 结论层 (首屏) / .rc-l2 依据层 (可折叠) / .rc-detail 详情层 */
   .rc-wrap { margin: 8px 0 10px; }
+  /* ===== 2026-10-27 三段利润归属 (产业链三段框架落地) ===== */
+  .pm-wrap { margin: 10px 0 14px; }
+  .pm-l1 { display: flex; align-items: flex-start; gap: 8px; flex-wrap: wrap;
+    padding: 9px 12px; background: #f0fdf4; border: 1px solid #bbf7d0; border-left: 3px solid #047857;
+    border-radius: 4px; font-size: 12px; line-height: 1.65; color: #334155; }
+  .pm-l1-tag { font-weight: 700; color: #047857; white-space: nowrap; }
+  .pm-l1-txt { flex: 1 1 420px; min-width: 0; }
+  .pm-l1-txt b { color: #065f46; }
+  .pm-toggle { background: #fff; border: 1px solid #86efac; border-radius: 3px; font-size: 11px;
+    color: #047857; padding: 3px 8px; cursor: pointer; white-space: nowrap; }
+  .pm-toggle:hover { background: #f0fdf4; }
+  .pm-l2 { display: none; margin-top: 8px; padding: 10px 12px; background: #fff;
+    border: 1px dashed #86efac; border-radius: 4px; }
+  .pm-wrap.pm-open .pm-l2 { display: block; }
+  .pm-l2-hd { font-size: 11.5px; font-weight: 600; color: #065f46; margin-bottom: 6px; }
+  .pm-tbl { width: 100%; border-collapse: collapse; font-size: 11.5px; }
+  .pm-tbl th { font-size: 10px; color: #94a3b8; font-weight: 600; text-align: left;
+    padding: 0 6px 4px; border-bottom: 1px solid #e2e8f0; white-space: nowrap; }
+  .pm-tbl td { padding: 6px; border-bottom: 1px dashed #eef2f7; vertical-align: top; }
+  .pm-tbl tbody tr:hover { background: #f8fafc; }
+  .pm-seg { white-space: nowrap; font-weight: 600; color: #0f172a; }
+  .pm-seg-tag { display: inline-block; font-size: 9.5px; color: #047857; background: #f0fdf4;
+    border: 1px solid #bbf7d0; border-radius: 3px; padding: 0 4px; margin-right: 4px; }
+  .pm-tag { font-size: 10.5px; color: #64748b; white-space: nowrap; }
+  .pm-profit { white-space: nowrap; font-weight: 600; color: #0f172a; font-variant-numeric: tabular-nums; }
+  .pm-alt { display: block; font-size: 9.5px; color: #94a3b8; font-weight: 400; }
+  .pm-yoy { white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .pm-na { color: #b45309; font-size: 10.5px; font-weight: 400; }
+  .pm-date { font-size: 10.5px; color: #94a3b8; white-space: nowrap; }
+  .pm-verdict { color: #475569; line-height: 1.5; }
+  .pm-verdict b { color: #0f172a; }
+  .pm-notes { margin-top: 6px; }
+  .pm-note { font-size: 10.5px; color: #92400e; background: #fffbeb; border-left: 2px solid #fbbf24;
+    border-radius: 3px; padding: 5px 8px; margin-bottom: 4px; line-height: 1.55; }
+  .pm-note b { color: #78350f; }
+  .pm-note-key { color: #475569; background: #f8fafc; border-left-color: #94a3b8; }
+  .pm-note-key b { color: #0f172a; }
+  .pm-proxy-all { margin-top: 8px; }
+  .pm-proxy-row { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; padding: 2px 0; }
+  .pm-proxy-name { font-size: 10.5px; color: #475569; font-weight: 600; min-width: 84px; }
+  .pm-proxy { margin-right: 10px; font-size: 10.5px; color: #64748b; background: #f8fafc; border: 1px solid #e2e8f0;
+    border-radius: 3px; padding: 1px 6px; }
+  .pm-proxy b { color: #0f172a; font-variant-numeric: tabular-nums; }
+  .pm-fees-wrap { margin-top: 8px; }
+  .pm-fees-lb { font-size: 10.5px; color: #475569; font-weight: 600; margin-right: 6px; }
+  .pm-fees { margin-top: 4px; }
+  .pm-fee { display: inline-block; font-size: 10.5px; color: #475569; background: #f8fafc;
+    border: 1px solid #e2e8f0; border-radius: 3px; padding: 0 5px; margin: 1px 3px 1px 0; }
+  .pm-fee-const { border-color: #fbbf24; background: #fffbeb; }
+  .pm-fee-const b { color: #b45309; }
+  .pm-detail { margin-top: 8px; }
+  .pm-detail > summary { cursor: pointer; font-size: 11.5px; color: #0369a1; font-weight: 600; padding: 4px 0; }
+  .pm-detail > summary:hover { text-decoration: underline; }
+  .pm-detail-body { margin-top: 5px; }
+  .pm-detail-row { margin-bottom: 7px; font-size: 11px; color: #475569; line-height: 1.6; }
+  .pm-detail-row b { color: #0f172a; }
+  .pm-formula { font-size: 10.5px; color: #334155; background: #f8fafc; border: 1px solid #e2e8f0;
+    border-radius: 3px; padding: 4px 7px; margin: 2px 0; font-variant-numeric: tabular-nums; }
+  .pm-fee-note { font-size: 10.5px; color: #b45309; margin-top: 2px; }
   .rc-l1 {
     display: flex; align-items: flex-start; gap: 8px; flex-wrap: wrap;
     padding: 8px 10px; background: #f8fafc; border: 1px solid #e2e8f0; border-left: 3px solid #0c4a6e;
@@ -1277,6 +1336,82 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
       <div class="ind-name">🪨 电解铝 AL</div>
       <div class="cso-hz"><span class="cso-hz-tag">短期</span><span class="cc-bias cc-bias-neutral">中性</span><b class="cso-score">-0.02</b><span class="pat-chip pat-neutral">震荡</span><span class="cso-gap" style="color:#64748b">缺口中性 -0.01</span></div><div class="cso-hz"><span class="cso-hz-tag">中期</span><span class="cc-bias cc-bias-neutral">中性</span><b class="cso-score">-0.12</b><span class="pat-chip pat-neutral">震荡</span><span class="cso-gap" style="color:#16a34a">缺口偏空 -0.35</span></div><div class="cso-hz"><span class="cso-hz-tag">长期</span><span class="cc-bias cc-bias-neutral">中性</span><b class="cso-score">+0.14</b><span class="pat-chip pat-neutral">震荡</span><span class="cso-gap" style="color:#dc2626">缺口偏多 +0.34</span></div>
     </div></div>
+    <div class="pm-wrap"><div class="pm-l1">
+        <span class="pm-l1-tag">💰 三段利润归属</span>
+        <span class="pm-l1-txt">
+          氧化铝利润占比由 1.7% → -1.5%，<b>利润向电解铝集中</b> —— 因为一端可自由进出（闲置率 20.6%）、一端被 4500 万吨政策锁死（闲置率 0.7%）—— <b>利润向难被替代的那一端集中</b>
+        </span>
+        <button class="pm-toggle" data-pm-toggle="1">展开各段利润 ▾</button>
+      </div><div class="pm-l2" id="pm-l2">
+    <div class="pm-l2-hd">⚖️ 各段吨利润与同比（全部现算自 Excel，元/吨口径才可比）</div>
+    <table class="pm-tbl">
+      <thead><tr><th>环节</th><th>属性</th><th>吨利润</th><th>同比变化</th><th>数据日期</th><th>判读</th></tr></thead>
+      <tbody><tr>
+      <td class="pm-seg"><span class="pm-seg-tag">一段</span> ⛏ 铝土矿</td>
+      <td class="pm-tag">资源约束</td>
+      <td class="pm-profit"><span class="pm-na">不可算</span></td>
+      <td class="pm-yoy"><span class="pm-na">—</span></td>
+      <td class="pm-date">—</td>
+      <td class="pm-verdict">供给端由海外锁定（依存度 79.5%），矿端是<b>成本传导的起点</b>而非利润表内环节</td>
+    </tr><tr>
+      <td class="pm-seg"><span class="pm-seg-tag">二段</span> 🧪 氧化铝</td>
+      <td class="pm-tag">可自由进出</td>
+      <td class="pm-profit">-111.00<span class="pm-alt">现金口径 59.00</span></td>
+      <td class="pm-yoy"><span style="color:#16a34a">-195</span></td>
+      <td class="pm-date">2026-10-16</td>
+      <td class="pm-verdict">售价已跌破完全成本 → <b>该段利润为负</b>（同比 -195 元/吨）</td>
+    </tr><tr>
+      <td class="pm-seg"><span class="pm-seg-tag">二段</span> ⚡ 电解铝</td>
+      <td class="pm-tag">供给被锁死</td>
+      <td class="pm-profit">7294.18</td>
+      <td class="pm-yoy"><span style="color:#dc2626">+2,334</span></td>
+      <td class="pm-date">2026-10-23</td>
+      <td class="pm-verdict"><b>利润全部落在这段</b>（7,294 元/吨，同比 +2,334）—— 因为供给被政策锁死、无法进入</td>
+    </tr><tr>
+      <td class="pm-seg"><span class="pm-seg-tag">三段</span> 🏭 加工端</td>
+      <td class="pm-tag">需求换引擎</td>
+      <td class="pm-profit"><span class="pm-na">不可算</span></td>
+      <td class="pm-yoy"><span class="pm-na">—</span></td>
+      <td class="pm-date">—</td>
+      <td class="pm-verdict">铝价同比 +2,630 元/吨而加工费未动 → <b>加工利润被上游挤压</b>（这是第三段的分配效应，不是加工端需求问题）</td>
+    </tr></tbody>
+    </table>
+    <div class="pm-fees-wrap"><div class="pm-fees"><span class="pm-fees-lb">🏭 加工端 加工费</span><span class="pm-fee pm-fee-const">铝板带 3,000 元/吨 <b>常数</b></span><span class="pm-fee pm-fee-const">铝箔 6,000 元/吨 <b>常数</b></span><span class="pm-fee pm-fee-const">铝型材 8,000 元/吨 <b>常数</b></span></div></div>
+    <div class="pm-notes"><div class="pm-note"><b>铝土矿</b>：Excel 无铝土矿成本列 → 吨利润不可算（如实留空，不以矿价冒充利润）</div><div class="pm-note"><b>加工端</b>：Excel 的加工费是<b>固定假设值</b>（一年未变）→ 不是市场实价，<b>不能当利润做同比</b>；此处只作「加工利润被挤压」的旁证</div></div>
+    <div class="pm-proxy-all">
+      <div class="pm-proxy-row"><span class="pm-proxy-name">⛏ 铝土矿</span><span class="pm-proxy" title="进口 ÷ (进口+国产)">进口依存度 <b>79.5</b> %</span><span class="pm-proxy" title="单一国别政策风险敞口">几内亚占进口 <b>75.4</b> %</span><span class="pm-proxy" title="同比 +0.25">几内亚 CIF <b>71.3</b> 美元/吨</span></div><div class="pm-proxy-row"><span class="pm-proxy-name">🧪 氧化铝</span><span class="pm-proxy" title="建成 12432 → 闲置率 20.6%（有退出弹性）">运行产能 <b>9,875</b> 万吨</span><span class="pm-proxy" title="无政策产能上限">开工率 <b>79.4</b> %</span></div><div class="pm-proxy-row"><span class="pm-proxy-name">⚡ 电解铝</span><span class="pm-proxy" title="建成 4579.2 → 闲置率 0.7%">运行产能 <b>4,549</b> 万吨</span><span class="pm-proxy" title="政策天花板 4500 万吨">占 4500 上限 <b>101.1</b> %</span></div><div class="pm-proxy-row"><span class="pm-proxy-name">🏭 加工端</span><span class="pm-proxy" title="同比 +2,630">A00 铝价 <b>23,670</b> 元/吨</span></div>
+    </div>
+    <details class="pm-detail">
+      <summary>🔬 每段的利润算式与可比性说明</summary>
+      <div class="pm-detail-body">
+        <div class="pm-detail-row">
+          <b>⛏ 铝土矿</b>
+          
+          <div class="pm-note">Excel 无铝土矿成本列 → 吨利润不可算（如实留空，不以矿价冒充利润）</div>
+          
+        </div><div class="pm-detail-row">
+          <b>🧪 氧化铝</b>
+          <div class="pm-formula">算式：SMM氧化铝价格指数 − 氧化铝_完全成本 · 数据日期 2026-10-16（同比基期 2025-10-16）</div>
+          
+          
+        </div><div class="pm-detail-row">
+          <b>⚡ 电解铝</b>
+          <div class="pm-formula">算式：中国电解铝成本模型：利润（现金成本 + 期间费用 + 折旧 全额扣除） · 数据日期 2026-10-23（同比基期 2025-10-23）</div>
+          
+          
+        </div><div class="pm-detail-row">
+          <b>🏭 加工端</b>
+          
+          <div class="pm-note">Excel 的加工费是<b>固定假设值</b>（一年未变）→ 不是市场实价，<b>不能当利润做同比</b>；此处只作「加工利润被挤压」的旁证</div>
+          <div class="pm-fee-note">加工费在 Excel 中为固定假设值（近一年未变），因此<b>只能读作「加工利润被上游挤压」的旁证</b>，不可作加工端利润的同比。</div>
+        </div>
+        <div class="pm-note pm-note-key">
+          <b>可比性铁律</b>：本表只放<b>元/吨</b>口径的利润。美元/吨口径的（铝锭/板带/箔出口利润，见「铝产业链主要数据汇总」）与之<b>不同量纲，不并入本表</b>。
+          L1 矿端 Excel 无成本列 → 吨利润不可算，如实留空，<b>不以矿价冒充利润</b>。
+        </div>
+      </div>
+    </details>
+  </div></div>
     <h3 class="section-title">🧩 结论论证 <span class="src">每档的结论句 + 关键信号 + 展望 · 数字口径见上方速览, 原始数据见「铝产业链主要数据汇总」</span></h3>
     <div class="cc-grid"><div class="cc-card">
     <div class="cc-head">⛏ 铝土矿 BX · 结论论证
@@ -12857,6 +12992,15 @@ document.querySelectorAll('[data-tabjump]').forEach(a => {
 // ★ 2026-10-27 决策推理链: 展开/收起「权重与理由」层 (L2 依据层)
 //   L1 结论层默认可见; L2 依据层 (权重表 + 权重理由 + 权重图) 点击后展开;
 //   L3 详情层 (推导算式 + 复算凭据) 在 L2 内用 <details> 单独折叠。
+// ★ 2026-10-27 三段利润归属: 展开/收起 L2 依据层
+document.querySelectorAll('.pm-toggle').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const wrap = btn.closest('.pm-wrap');
+    if (!wrap) return;
+    const open = wrap.classList.toggle('pm-open');
+    btn.textContent = open ? '收起各段利润 ▴' : '展开各段利润 ▾';
+  });
+});
 document.querySelectorAll('.rc-toggle').forEach(btn => {
   btn.addEventListener('click', () => {
     const wrap = btn.closest('.rc-wrap');
