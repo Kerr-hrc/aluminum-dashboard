@@ -186,6 +186,43 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
   /* ===== 2026-10-27 决策推理链 (思考流程图 + 权重图 + 权重理由) =====
      渐进式披露三层: .rc-l1 结论层 (首屏) / .rc-l2 依据层 (可折叠) / .rc-detail 详情层 */
   .rc-wrap { margin: 8px 0 10px; }
+  /* ===== 2026-10-28 供给弹性 x 需求信号 (L3) ===== */
+  .se-wrap { margin: 10px 0 16px; }
+  .se-l1 { display: flex; align-items: flex-start; gap: 9px; flex-wrap: wrap;
+           padding: 9px 11px; background: #f8fafc; border: 1px solid #e2e8f0;
+           border-left: 3px solid #0c4a6e; border-radius: 4px; margin-bottom: 9px; }
+  .se-l1-txt { flex: 1 1 420px; min-width: 0; font-size: 12px; line-height: 1.75; color: #334155; }
+  .se-l1-txt b { color: #0f172a; }
+  .se-badge { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+  .se-badge.se-hi { color: #047857; background: #ecfdf5; border: 1px solid #a7f3d0; }
+  .se-badge.se-mid { color: #b45309; background: #fffbeb; border: 1px solid #fde68a; }
+  .se-badge.se-lo { color: #64748b; background: #f1f5f9; border: 1px solid #e2e8f0; }
+  .se-grid { display: flex; gap: 14px; align-items: flex-start; flex-wrap: wrap; }
+  .se-col { flex: 1 1 400px; min-width: 0; }
+  .se-hd { font-size: 11.5px; font-weight: 600; color: #0c4a6e; margin-bottom: 6px; }
+  .se-cells { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 7px; }
+  .se-cell { background: #fff; border: 1px solid #e2e8f0; border-radius: 4px; padding: 5px 9px; min-width: 92px; }
+  .se-cell-l { font-size: 9.5px; color: #94a3b8; }
+  .se-cell-v { font-size: 14px; font-weight: 600; color: #0f172a; font-variant-numeric: tabular-nums; margin: 1px 0; }
+  .se-cell-n { font-size: 9.5px; color: #64748b; }
+  .se-tbl { width: 100%; border-collapse: collapse; font-size: 11.5px; }
+  .se-tbl th { font-size: 10px; color: #94a3b8; font-weight: 600; text-align: left; padding: 0 6px 4px; border-bottom: 1px solid #e2e8f0; white-space: nowrap; }
+  .se-tbl td { padding: 5px 6px; border-bottom: 1px dashed #eef2f7; vertical-align: middle; }
+  .se-tbl tbody tr:last-child td { border-bottom: none; }
+  .se-d-name { color: #0f172a; }
+  .se-d-val { font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; font-weight: 600; }
+  .se-d-sub { font-size: 9.5px; color: #94a3b8; white-space: nowrap; }
+  .se-d-dir { text-align: center; white-space: nowrap; font-weight: 600; }
+  .se-note { font-size: 10.5px; color: #64748b; line-height: 1.7; margin-top: 7px;
+             background: #fff; border: 1px solid #e2e8f0; border-radius: 4px; padding: 7px 9px; }
+  .se-note b { color: #0c4a6e; }
+  .se-mech { font-size: 10.5px; color: #475569; line-height: 1.7; margin-top: 7px;
+             background: #fffbeb; border: 1px solid #fde68a; border-radius: 4px; padding: 7px 9px; }
+  .se-mech b { color: #92400e; }
+  .se-mech ul { margin: 4px 0 0; padding-left: 18px; }
+  .se-mech li { margin-bottom: 3px; }
+  .se-ext { color: #b45309; font-size: 9.5px; }
+
   /* ===== 2026-10-27 三段利润归属 (产业链三段框架落地) ===== */
   .pm-wrap { margin: 10px 0 14px; }
   .pm-l1 { display: flex; align-items: flex-start; gap: 8px; flex-wrap: wrap;
@@ -6112,6 +6149,92 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
         8 月「合计−中国」= 226.4 万吨，而分地区求和仅 164 万吨，差额 <b>62.4 万吨</b> 即欧洲部分。
         引用「全球分地区产量」时<b>不可把分地区求和当作中国以外总量</b>。
       <br><b>待补</b>：海外分项目投产/复产进度表、欧洲分地区产量明细、分省<b>用电量</b>（现只有单价无电量，故无法算「量-价」分解）、动力煤<b>分省到厂价</b>（现只有秦皇岛港港价）。
+    </div>
+  </section><section class="se-wrap">
+    <h3 class="section-title">🔧 供给弹性 × 需求信号 <span class="src">回答「开工率 99% 为什么没涨」· 全部现算自 Excel · 铜的对照仅文字说明（外部数据不进数值层）</span></h3>
+
+    <div class="se-l1">
+      <span class="se-badge se-hi">已装填（几乎无泄压空间）</span>
+      <span class="se-l1-txt">
+        供给端<b>没有自动向上开关</b>（吨铝利润 7,294.2 元 = 现金成本的 51%）
+        → 价格涨跌都得<b>先由需求决定</b>；而当前需求端<b>需求在走弱</b>（2 偏多 / 4 偏空 / 1 中性）。
+        供给端已装填、需求端未点火 → <b>这是「弹药已装填、缺的是需求信号」的组合</b>。
+      </span>
+    </div>
+
+    <div class="se-grid">
+      <div class="se-col">
+        <div class="se-hd">① 供给端 · 有没有「自动向上开关」</div>
+        <div class="se-cells">
+          <div class="se-cell"><div class="se-cell-l">开工率</div><div class="se-cell-v">99.34%</div><div class="se-cell-n">2026-10-09</div></div>)},
+          <div class="se-cell"><div class="se-cell-l">产量/运行产能</div><div class="se-cell-v">98.89%</div><div class="se-cell-n">未超产</div></div>)},
+          <div class="se-cell"><div class="se-cell-l">闲置产能</div><div class="se-cell-v">30.1 万吨</div><div class="se-cell-n">占建成 0.66%</div></div>)},
+          <div class="se-cell"><div class="se-cell-l">建成/政策上限</div><div class="se-cell-v">+1.76%</div><div class="se-cell-n">4500 万吨口径</div></div>)},
+          <div class="se-cell"><div class="se-cell-l">利润/现金成本</div><div class="se-cell-v">51%</div><div class="se-cell-n">无向上开关</div></div>)},
+          <div class="se-cell"><div class="se-cell-l">库存近1年分位</div><div class="se-cell-v">1%</div><div class="se-cell-n">社库</div></div>)},
+        </div>
+        <div class="se-note">
+          <b>「超产」检验</b>：产量 374.9 万吨 ÷ 月均运行产能 379.1 万吨 = 98.89%
+          <b>未超产</b>
+           · 社库+SHFE 近 4 期<b style="color:#dc2626">去化19.6 万吨</b>
+          （超产必累积库存 → 库存反降，说明产量被需求吸收）
+           · <b>产能 ≠ 产量</b>：建成超政策上限的部分是<b>指标账</b>（买指标不投产），不是产出
+        </div>
+        <div class="se-mech">
+          <b>为什么铝不像铜那样涨</b>（机制对照）：
+          <ul>
+            <li><b>铜</b>：加工费已跌至负数 → 价跌即亏损减产 → <b>供给自动收缩</b>（自带向上开关）；且需求是钱与避险驱动、钝感 → <b>能无视需求而涨</b>。<span class="se-ext">（外部知识，不入数值层）</span></li>
+            <li><b>铝</b>：利润占现金成本 51% → 跌 20% 仍赚钱 → <b>不减产</b>（无向上开关）；价涨则下游接不住 + 再生铝替代 + 进口窗口开 → <b>自动回落</b>。
+          </ul>
+        </div>
+      </div>
+
+      <div class="se-col">
+        <div class="se-hd">② 需求端 · 缺的是不是需求信号</div>
+        <table class="se-tbl">
+          <thead><tr><th>需求信号</th><th>最新</th><th>口径</th><th>方向</th></tr></thead>
+          <tbody><tr>
+      <td class="se-d-name">房屋竣工（铝门窗需求先行量）</td>
+      <td class="se-d-val">-25.1%</td>
+      <td class="se-d-sub">累计同比 · 2026-09-30</td>
+      <td class="se-d-dir" style="color:#16a34a">收缩</td>
+    </tr><tr>
+      <td class="se-d-name">房屋新开工（中长期用铝）</td>
+      <td class="se-d-val">-24.9%</td>
+      <td class="se-d-sub">累计同比 · 2026-09-30</td>
+      <td class="se-d-dir" style="color:#16a34a">收缩</td>
+    </tr><tr>
+      <td class="se-d-name">地产开发投资</td>
+      <td class="se-d-val">-20.6%</td>
+      <td class="se-d-sub">累计同比 · 2026-09-30</td>
+      <td class="se-d-dir" style="color:#16a34a">收缩</td>
+    </tr><tr>
+      <td class="se-d-name">30 城商品房成交（高频）</td>
+      <td class="se-d-val">+8.3%</td>
+      <td class="se-d-sub">环比 · 2026-09-30</td>
+      <td class="se-d-dir" style="color:#dc2626">回暖</td>
+    </tr><tr>
+      <td class="se-d-name">汽车库存预警指数（>60 提示透支）</td>
+      <td class="se-d-val">62.30</td>
+      <td class="se-d-sub">近1年分位 · 2026-08-31</td>
+      <td class="se-d-dir" style="color:#16a34a">偏空</td>
+    </tr><tr>
+      <td class="se-d-name">新能源车销量（需求换引擎）</td>
+      <td class="se-d-val">164.30</td>
+      <td class="se-d-sub">近1年分位 · 2026-08-31</td>
+      <td class="se-d-dir" style="color:#94a3b8">中性</td>
+    </tr><tr>
+      <td class="se-d-name">电网投资（电网用铝）</td>
+      <td class="se-d-val">+0.7%</td>
+      <td class="se-d-sub">累计同比 · 2026-07-31</td>
+      <td class="se-d-dir" style="color:#dc2626">扩张</td>
+    </tr></tbody>
+        </table>
+        <div class="se-note">
+          <b>怎么用这张表</b>：供给端已装填（闲置 0.66%、库存近1年分位 1%、连续缺口 6 个月），
+          所以<b>需求端每一项转好，都是价格弹性被点燃的信号</b>；反过来，需求继续弱 → 供给刚性只会让价格<b>横盘</b>而非下跌。
+        </div>
+      </div>
     </div>
   </section>
     
