@@ -364,6 +364,28 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
   .ind-empty { color: #94a3b8; text-align: center; font-style: italic; }
 
   /* ===== 下游景气度读数 (需求③ · 2026-10-27) ===== */
+  /* ===== 2026-10-29 终端加速/减速排序 ===== */
+  .ad-wrap { margin: 10px 0 14px; }
+  .ad-summary { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 8px;
+    padding: 8px 10px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 4px; }
+  .ad-sum-item { font-size: 12px; color: #475569; white-space: nowrap; }
+  .ad-sum-item b { font-size: 13px; }
+  .ad-sum-tip { font-size: 10.5px; color: #64748b; line-height: 1.6; flex: 1 1 380px; min-width: 0; }
+  .ad-sum-tip b { color: #0c4a6e; }
+  .ad-verdict { font-size: 12px; color: #334155; background: #fffbeb; border-left: 3px solid #f59e0b;
+    border-radius: 3px; padding: 6px 10px; margin-bottom: 8px; line-height: 1.6; }
+  .ad-verdict b { color: #92400e; }
+  .ad-tbl { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .ad-tbl th { font-size: 10px; color: #94a3b8; font-weight: 600; text-align: left;
+    padding: 0 8px 5px; border-bottom: 1px solid #e2e8f0; white-space: nowrap; }
+  .ad-tbl td { padding: 5px 8px; border-bottom: 1px dashed #eef2f7; vertical-align: middle; }
+  .ad-tbl tbody tr:hover { background: #f8fafc; }
+  .ad-name { color: #0f172a; font-weight: 500; }
+  .ad-val { white-space: nowrap; font-variant-numeric: tabular-nums; color: #475569; }
+  .ad-val b { color: #0f172a; font-weight: 600; }
+  .ad-unit { font-size: 9.5px; color: #94a3b8; margin-left: 4px; }
+  .ad-diff, .ad-pct { white-space: nowrap; font-variant-numeric: tabular-nums; font-weight: 600; }
+  .ad-dir { white-space: nowrap; font-weight: 600; }
   .pg-wrap { margin: 10px 0 4px; }
   .pg-summary { display: flex; gap: 16px; flex-wrap: wrap; align-items: center;
                 margin: 6px 0 4px; font-size: 11.5px; color: #64748b; }
@@ -1077,7 +1099,7 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
 <body>
 <div class="header">
   <h1>🔩 铝产业全产业链数据看板 v0.1</h1>
-  <div class="sub">数据源: 铝产业链数据.xlsx (68 sheet) · 时间窗口: 近 5 年 (2021-10 → 2026-10-28) · 当前年高亮: 2026 红色加粗 · #N/A 数据已忽略</div>
+  <div class="sub">数据源: 铝产业链数据.xlsx (68 sheet) · 时间窗口: 近 5 年 (2021-10 → 2026-10-29) · 当前年高亮: 2026 红色加粗 · #N/A 数据已忽略</div>
 </div>
 <div class="kpi-bar"><div class="kpi-chain">
     <div class="kpi-chain-hdr" style="border-left:3px solid #a16207;background:rgba(3,105,161,.05)">
@@ -1368,13 +1390,13 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
     <h3 class="section-title">🧭 供需结论速览 <span class="src">短期 1 周 / 中期 1-3 月 / 长期 年度 · 全部由供给需求推导 · 每行 = 倾向 + 综合分 + 形态 + 缺口 · 仅 L1/L2/L3 输出结论</span></h3>
     <div class="cso-list"><div class="cso-row" style="border-left-color:#64748b">
       <div class="ind-name">⛏ 铝土矿 BX</div>
-      <div class="cso-hz"><span class="cso-hz-tag">短期</span><span class="cc-bias cc-bias-neutral">中性</span><b class="cso-score">-0.06</b><span class="pat-chip pat-neutral">震荡</span><span class="cso-gap" style="color:#64748b">缺口中性 -0.00</span></div><div class="cso-hz"><span class="cso-hz-tag">中期</span><span class="cc-bias cc-bias-neutral">中性</span><b class="cso-score">-0.06</b><span class="pat-chip pat-neutral">震荡</span><span class="cso-gap" style="color:#64748b">缺口中性 -0.00</span></div><div class="cso-hz"><span class="cso-hz-tag">长期</span><span class="cc-bias cc-bias-neutral">中性</span><b class="cso-score">+0.01</b><span class="pat-chip pat-neutral">震荡</span><span class="cso-gap" style="color:#dc2626">缺口偏多 +0.16</span></div>
+      <div class="cso-hz"><span class="cso-hz-tag">短期</span><span class="cc-bias cc-bias-neutral">中性</span><b class="cso-score">-0.06</b><span class="pat-chip pat-neutral">震荡</span><span class="cso-gap" style="color:#64748b">缺口中性 -0.00</span></div><div class="cso-hz"><span class="cso-hz-tag">中期</span><span class="cc-bias cc-bias-neutral">中性</span><b class="cso-score">-0.06</b><span class="pat-chip pat-neutral">震荡</span><span class="cso-gap" style="color:#64748b">缺口中性 -0.00</span></div><div class="cso-hz"><span class="cso-hz-tag">长期</span><span class="cc-bias cc-bias-neutral">中性</span><b class="cso-score">-0.01</b><span class="pat-chip pat-neutral">震荡</span><span class="cso-gap" style="color:#64748b">缺口中性 +0.10</span></div>
     </div><div class="cso-row" style="border-left-color:#16a34a">
       <div class="ind-name">🧪 氧化铝 AO</div>
-      <div class="cso-hz"><span class="cso-hz-tag">短期</span><span class="cc-bias cc-bias-bear">偏空</span><b class="cso-score">-0.27</b><span class="pat-chip pat-bear">下行</span><span class="cso-gap" style="color:#16a34a">缺口偏空 -0.47</span></div><div class="cso-hz"><span class="cso-hz-tag">中期</span><span class="cc-bias cc-bias-bear">偏空</span><b class="cso-score">-0.27</b><span class="pat-chip pat-bear">下行</span><span class="cso-gap" style="color:#16a34a">缺口偏空 -0.45</span></div><div class="cso-hz"><span class="cso-hz-tag">长期</span><span class="cc-bias cc-bias-bear">偏空</span><b class="cso-score">-0.23</b><span class="pat-chip pat-bear">下行</span><span class="cso-gap" style="color:#64748b">缺口中性 -0.08</span></div>
+      <div class="cso-hz"><span class="cso-hz-tag">短期</span><span class="cc-bias cc-bias-bear">偏空</span><b class="cso-score">-0.27</b><span class="pat-chip pat-bear">下行</span><span class="cso-gap" style="color:#16a34a">缺口偏空 -0.47</span></div><div class="cso-hz"><span class="cso-hz-tag">中期</span><span class="cc-bias cc-bias-bear">偏空</span><b class="cso-score">-0.27</b><span class="pat-chip pat-bear">下行</span><span class="cso-gap" style="color:#16a34a">缺口偏空 -0.45</span></div><div class="cso-hz"><span class="cso-hz-tag">长期</span><span class="cc-bias cc-bias-bear">偏空</span><b class="cso-score">-0.20</b><span class="pat-chip pat-bear">下行</span><span class="cso-gap" style="color:#64748b">缺口中性 -0.13</span></div>
     </div><div class="cso-row" style="border-left-color:#64748b">
       <div class="ind-name">🪨 电解铝 AL</div>
-      <div class="cso-hz"><span class="cso-hz-tag">短期</span><span class="cc-bias cc-bias-neutral">中性</span><b class="cso-score">-0.02</b><span class="pat-chip pat-neutral">震荡</span><span class="cso-gap" style="color:#64748b">缺口中性 -0.01</span></div><div class="cso-hz"><span class="cso-hz-tag">中期</span><span class="cc-bias cc-bias-neutral">中性</span><b class="cso-score">-0.12</b><span class="pat-chip pat-neutral">震荡</span><span class="cso-gap" style="color:#16a34a">缺口偏空 -0.35</span></div><div class="cso-hz"><span class="cso-hz-tag">长期</span><span class="cc-bias cc-bias-neutral">中性</span><b class="cso-score">+0.14</b><span class="pat-chip pat-neutral">震荡</span><span class="cso-gap" style="color:#dc2626">缺口偏多 +0.34</span></div>
+      <div class="cso-hz"><span class="cso-hz-tag">短期</span><span class="cc-bias cc-bias-neutral">中性</span><b class="cso-score">-0.02</b><span class="pat-chip pat-neutral">震荡</span><span class="cso-gap" style="color:#64748b">缺口中性 -0.01</span></div><div class="cso-hz"><span class="cso-hz-tag">中期</span><span class="cc-bias cc-bias-neutral">中性</span><b class="cso-score">-0.12</b><span class="pat-chip pat-neutral">震荡</span><span class="cso-gap" style="color:#16a34a">缺口偏空 -0.35</span></div><div class="cso-hz"><span class="cso-hz-tag">长期</span><span class="cc-bias cc-bias-neutral">中性</span><b class="cso-score">+0.07</b><span class="pat-chip pat-neutral">震荡</span><span class="cso-gap" style="color:#64748b">缺口中性 +0.08</span></div>
     </div></div>
     <div class="pm-wrap"><div class="pm-l1">
         <span class="pm-l1-tag">💰 三段利润归属</span>
@@ -1490,9 +1512,9 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
         
       </div>
       <div class="cc-lines">
-        <div class="cc-lines-k">结论</div><div class="cc-lines-v">需求端 氧化铝月产量 759.88万吨, 近1年 ↓ -0.49万吨 (-0.1%) (5年趋势拟合位 95%) <b class="cl-concl">支撑</b>; 供给端宽松 铝土矿进口 1833.23万吨, 近1年 ↑ +253.14万吨 (+16.0%) (5年趋势拟合位 90%) <b class="cl-concl">压制</b></div>
-        <div class="cc-lines-k">信号</div><div class="cc-lines-v"><span class="ks-item">供给·铝土矿进口<span style="color:#16a34a;font-weight:600"> · 偏空</span><span style="color:#94a3b8"> · 近5年分位 90%</span></span><span class="ks-item">库存·全国库存<span style="color:#16a34a;font-weight:600"> · 偏空</span><span style="color:#94a3b8"> · 近5年分位 83%</span></span></div>
-        <div class="cc-lines-k">展望</div><div class="cc-lines-v cc-lines-outlook">震荡: 主因 需求·氧化铝月产量 (支撑); 次要 供给·铝土矿进口 (压制)。双向证据（存量 vs 价格）: 库存 -0.55 与价格 +0.32 方向相反, 差 0.86 → 库存主导; 两类证据并存, 不是算错。</div>
+        <div class="cc-lines-k">结论</div><div class="cc-lines-v">需求端 氧化铝月产量 759.88万吨, 趋势 <b>↑</b>+0.34%/期 (5年趋势拟合位 95%) <b class="cl-concl">支撑</b>; 供给端宽松 铝土矿进口 1833.23万吨, 趋势 <b>↑</b>+1.30%/期 (5年趋势拟合位 90%) <b class="cl-concl">压制</b></div>
+        <div class="cc-lines-k">信号</div><div class="cc-lines-v"><span class="ks-item">供给·铝土矿进口<span style="color:#16a34a;font-weight:600"> · 偏空</span><span style="color:#94a3b8"> · 近5年分位 90%</span></span><span class="ks-item">需求·氧化铝月产量<span style="color:#dc2626;font-weight:600"> · 偏多</span><span style="color:#94a3b8"> · 近5年分位 95%</span></span></div>
+        <div class="cc-lines-k">展望</div><div class="cc-lines-v cc-lines-outlook">震荡: 最大拖累 需求·氧化铝月产量 (支撑); 次要 供给·铝土矿进口 (压制)。双向证据（存量 vs 价格）: 库存 -0.63 与价格 +0.35 方向相反, 差 0.98 → 库存主导; 两类证据并存, 不是算错。</div>
       </div>
     </div>
     </div>
@@ -1533,9 +1555,9 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
         
       </div>
       <div class="cc-lines">
-        <div class="cc-lines-k">结论</div><div class="cc-lines-v">需求端 电解铝月产量 374.90万吨, 近1年 ↑ +6.40万吨 (+1.7%) (5年趋势拟合位 100%) <b class="cl-concl">支撑</b>; 供给端宽松 氧化铝建成产能 12432.00万吨, 近1年 ↑ +970.00万吨 (+8.5%) (5年趋势拟合位 96%) <b class="cl-concl">压制</b>; 平衡表 过剩量 23.20 万吨</div>
-        <div class="cc-lines-k">信号</div><div class="cc-lines-v"><span class="ks-item">库存·全国库存<span style="color:#16a34a;font-weight:600"> · 偏空</span><span style="color:#94a3b8"> · 近5年分位 81%</span></span><span class="ks-item">价格·氧化铝主连<span style="color:#16a34a;font-weight:600"> · 偏空</span><span style="color:#94a3b8"> · 近5年分位 2%</span></span></div>
-        <div class="cc-lines-k">展望</div><div class="cc-lines-v cc-lines-outlook">下行: 最大拖累 需求·电解铝月产量 (支撑); 次要 库存·全国库存 (压制)。缺口与库存/价格同向印证。</div>
+        <div class="cc-lines-k">结论</div><div class="cc-lines-v">需求端 电解铝月产量 374.90万吨, 趋势 <b>↑</b>+0.30%/期 (5年趋势拟合位 100%) <b class="cl-concl">支撑</b>; 供给端宽松 氧化铝月产量 759.88万吨, 趋势 <b>↑</b>+0.34%/期 (5年趋势拟合位 95%) <b class="cl-concl">压制</b>; 平衡表 过剩量 23.20 万吨</div>
+        <div class="cc-lines-k">信号</div><div class="cc-lines-v"><span class="ks-item">需求·电解铝月产量<span style="color:#dc2626;font-weight:600"> · 偏多</span><span style="color:#94a3b8"> · 近5年分位 100%</span></span><span class="ks-item">供给·氧化铝月产量<span style="color:#16a34a;font-weight:600"> · 偏空</span><span style="color:#94a3b8"> · 近5年分位 95%</span></span></div>
+        <div class="cc-lines-k">展望</div><div class="cc-lines-v cc-lines-outlook">下行: 最大拖累 需求·电解铝月产量 (支撑); 次要 供给·氧化铝月产量 (压制)。缺口与库存/价格同向印证。</div>
       </div>
     </div>
     </div>
@@ -1569,7 +1591,7 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
     </div><div class="cc-sub">
       <div class="cc-sub-head">中期 <span class="dc-hz-sub">1-3 月</span>
         <span class="pat-chip pat-neutral">形态 · 震荡</span>
-        <span class="dc-freqnote">短/中两档<b>部分同源</b>：4 项两档取自同一对比点（电解铝月产量·月、净进口·月、铝棒出库、铝材出口·月），11 项已按 7 天 / 60 天窗口分开（运行产能·周、开工率·周、下游开工率·周、社会库存·周、SHFE 库存·周、总库存(非社库)·周、SHFE 仓单·周、A00 铝价(现货)·日、沪伦铝比·日、吨铝利润·日、完全成本·日）；水平位（结构分位）与比较窗口无关 → 带水平位的 4/4 项在两档 levelPart 完全相同。两档综合分 中 -0.12 / 短 -0.02 接近是加权结果，不是同一份输入</span>
+        <span class="dc-freqnote">短/中两档<b>部分同源</b>：4 项两档取自同一对比点（电解铝月产量·月、净进口·月、铝棒出库、铝材出口·月），11 项已按 7 天 / 60 天窗口分开（运行产能·周、开工率·周、下游开工率·周、社会库存·周、SHFE 库存·周、总库存(非社库)·周、SHFE 仓单·周、A00 铝价(现货)·日、沪伦铝比·日、吨铝利润·日、完全成本·日）；水平位（结构分位）与比较窗口无关 → 带水平位的 5/5 项在两档 levelPart 完全相同。两档综合分 中 -0.12 / 短 -0.02 接近是加权结果，不是同一份输入</span>
       </div>
       <div class="cc-lines">
         <div class="cc-lines-k">结论</div><div class="cc-lines-v">供给端收紧 净进口 3期均值 14.88万吨 (当月 16.37万吨), 较 2 个月前 ↓ -3.95万吨 <b class="cl-concl">支撑</b>; 平衡表 去库量 12.10 万吨</div>
@@ -1582,9 +1604,9 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
         
       </div>
       <div class="cc-lines">
-        <div class="cc-lines-k">结论</div><div class="cc-lines-v">需求端 铝材出口 55.87万吨, 近1年 ↑ +9.06万吨 (+19.4%) (近5年分位 88%) <b class="cl-concl">支撑</b>; 需求端走弱 下游开工率 60.50%, 近1年 ↓ -2.50% (-4.0%) (近5年分位 19%) <b class="cl-concl">压制</b>; 平衡表 去库量 12.10 万吨</div>
-        <div class="cc-lines-k">信号</div><div class="cc-lines-v"><span class="ks-item">需求·铝材出口<span style="color:#dc2626;font-weight:600"> · 偏多</span><span style="color:#94a3b8"> · 近5年分位 88%</span></span><span class="ks-item">价格·A00 铝价(现货)<span style="color:#dc2626;font-weight:600"> · 偏多</span><span style="color:#94a3b8"> · 近5年分位 82%</span></span></div>
-        <div class="cc-lines-k">展望</div><div class="cc-lines-v cc-lines-outlook">震荡: 主因 平衡表 (支撑); 次要 利润·吨铝利润 (压制)。各维度变化幅度有限, 方向不明确。</div>
+        <div class="cc-lines-k">结论</div><div class="cc-lines-v">需求端 铝材出口 55.87万吨, 趋势 <b>↑</b>+0.04%/期 (近5年分位 88%) <b class="cl-concl">支撑</b>; 供给端宽松 净进口 3期均值 14.88万吨 (当月 16.37万吨), 趋势 <b>↑</b>+2.07%/期 (5年趋势拟合位 95%) <b class="cl-concl">压制</b>; 平衡表 去库量 12.10 万吨</div>
+        <div class="cc-lines-k">信号</div><div class="cc-lines-v"><span class="ks-item">供给·净进口<span style="color:#16a34a;font-weight:600"> · 偏空</span><span style="color:#94a3b8"> · 近5年分位 95%</span></span><span class="ks-item">需求·铝材出口<span style="color:#dc2626;font-weight:600"> · 偏多</span><span style="color:#94a3b8"> · 近5年分位 88%</span></span></div>
+        <div class="cc-lines-k">展望</div><div class="cc-lines-v cc-lines-outlook">震荡: 主因 平衡表 (支撑); 次要 供给·净进口 (压制)。各维度变化幅度有限, 方向不明确。</div>
       </div>
     </div>
     </div>
@@ -1964,20 +1986,20 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
   <div class="rc-intro">本页所有倾向、仓位、触发状态都由下面这套规则算出；数字全部来自 <code>data.json</code>，没有手写结论。规则常量只存在于一份文件（<code>rules.js</code>），并以 <code>#rule-book</code> JSON 内嵌本页，供 <code>verify_rules.js</code> 深比较。</div>
   <div class="rc-grid">
   <div class="rc-sec"><h4>① 综合分与倾向标签</h4><table class="rc-tbl"><thead><tr><th>项</th><th>规则</th><th>当前</th></tr></thead><tbody><tr><td class="rc-k">综合分</td><td class="rc-v">final = 0.45×缺口分 + 0.35×(库存分+价格分)/2 + 0.20×利润分</td><td class="rc-now">L3 中期 -0.12</td></tr><tr><td class="rc-k">缺口分</td><td class="rc-v">0.5×(需求分 + 供给分) + 0.5×平衡表分</td><td class="rc-now">L3 中期 -0.35</td></tr><tr><td class="rc-k">倾向标签</td><td class="rc-v">> +0.15 偏多；&lt; −0.15 偏空；其间中性</td><td class="rc-now">L3 中期 中性</td></tr></tbody></table></div>
-  <div class="rc-sec"><h4>② 动量口径（同比与环比取较弱者）</h4><table class="rc-tbl"><thead><tr><th>项</th><th>规则</th><th>当前</th></tr></thead><tbody><tr><td class="rc-k">适用序列</td><td class="rc-v">L1 需求端「氧化铝月产量」；L3 需求端「铝材出口」</td><td class="rc-now"></td></tr><tr><td class="rc-k">规则</td><td class="rc-v">短/中期<b>动量档</b>: 分数 = min(环比动量分, 同比动量分) —— 两个口径都可算时取较弱者, 避免单一窗口被低基数或单边读数带偏</td><td class="rc-now"></td></tr><tr><td class="rc-k">L1 需求读数</td><td class="rc-v">min(上月日均环比 +4.09%, 同比 -0.06%)（产量近 4 期 759.9 → 754.4 → 746.0 → 730.6 万吨）→ 需求动量按<b>较弱者</b>给分（不再是扩张）</td><td class="rc-now">L1 中期需求分 -0.00</td></tr><tr><td class="rc-k">适用档位</td><td class="rc-v">只作用于短/中期动量档; 长期档（结构位 60% + 趋势 40%）<b>不参与配对</b> —— 否则一条同比动量会把结构位判断整段抹掉</td><td class="rc-now">L1 长期需求分 +0.54（结构位 95.0%）</td></tr></tbody></table></div>
+  <div class="rc-sec"><h4>② 动量口径（同比与环比取较弱者）</h4><table class="rc-tbl"><thead><tr><th>项</th><th>规则</th><th>当前</th></tr></thead><tbody><tr><td class="rc-k">适用序列</td><td class="rc-v">L1 需求端「氧化铝月产量」；L3 需求端「铝材出口」</td><td class="rc-now"></td></tr><tr><td class="rc-k">规则</td><td class="rc-v">短/中期<b>动量档</b>: 分数 = min(环比动量分, 同比动量分) —— 两个口径都可算时取较弱者, 避免单一窗口被低基数或单边读数带偏</td><td class="rc-now"></td></tr><tr><td class="rc-k">L1 需求读数</td><td class="rc-v">min(上月日均环比 +4.09%, 同比 -0.06%)（产量近 4 期 759.9 → 754.4 → 746.0 → 730.6 万吨）→ 需求动量按<b>较弱者</b>给分（不再是扩张）</td><td class="rc-now">L1 中期需求分 -0.00</td></tr><tr><td class="rc-k">适用档位</td><td class="rc-v">只作用于短/中期动量档; 长期档（5年结构位 60% + 5年趋势斜率 40%）<b>不参与配对</b> —— 否则一条同比动量会把结构位判断整段抹掉</td><td class="rc-now">L1 长期需求分 +0.68（结构位 95.0%）</td></tr></tbody></table></div>
   <div class="rc-sec"><h4>③ 异常度（z）与窗口</h4><table class="rc-tbl"><thead><tr><th>项</th><th>规则</th><th>当前</th></tr></thead><tbody><tr><td class="rc-k">分档系数</td><td class="rc-v">|z|≥1.5 → ×1.5；|z|&lt;0.5 → ×0.7；其余 ×1.0</td><td class="rc-now"></td></tr><tr><td class="rc-k">窗口·日频</td><td class="rc-v">短期 60 期(近3月) / 中期 120 期(近6月)</td><td class="rc-now"></td></tr><tr><td class="rc-k">窗口·周频</td><td class="rc-v">短期 26 期(近6月) / 中期 52 期(近1年)</td><td class="rc-now"></td></tr><tr><td class="rc-k">窗口·月频</td><td class="rc-v">短期 12 期(近1年) / 中期 24 期(近2年)</td><td class="rc-now"></td></tr><tr><td class="rc-k">两种口径</td><td class="rc-v">z_detr = 当前值相对窗口<b>趋势线</b>的残差 σ；z_roll = 当前值相对窗口<b>均值</b>的 σ</td><td class="rc-now">L2 净进口：detr −2.38σ 与近5年分位 30% 同时成立，不是矛盾</td></tr><tr><td class="rc-k">去趋势</td><td class="rc-v">窗口内最小二乘；R²&lt;0.30 不做去趋势 → 改用滚动 z_roll</td><td class="rc-now"></td></tr><tr><td class="rc-k">多序列环节</td><td class="rc-v">统一到一个口径后再加权平均（按子权重多数决；两口径不可混算）</td><td class="rc-now"></td></tr></tbody></table></div>
-  <div class="rc-sec"><h4>④ 结构位（长期档）</h4><table class="rc-tbl"><thead><tr><th>项</th><th>规则</th><th>当前</th></tr></thead><tbody><tr><td class="rc-k">窗口</td><td class="rc-v">固定近 5 年（不足 5 年用全样本并标明年限）</td><td class="rc-now"></td></tr><tr><td class="rc-k">显著性</td><td class="rc-v">R²≥0.30 且 |t|≥2 → 用拟合值分位；否则用实际 5 年分位</td><td class="rc-now"></td></tr><tr><td class="rc-k">权重</td><td class="rc-v">长期档 = 结构位×0.6 + 动量×0.4</td><td class="rc-now"></td></tr></tbody></table></div>
+  <div class="rc-sec"><h4>④ 结构位（长期档）</h4><table class="rc-tbl"><thead><tr><th>项</th><th>规则</th><th>当前</th></tr></thead><tbody><tr><td class="rc-k">窗口</td><td class="rc-v">固定近 5 年（不足 5 年用全样本并标明年限）</td><td class="rc-now"></td></tr><tr><td class="rc-k">显著性</td><td class="rc-v">R²≥0.30 且 |t|≥2 → 用拟合值分位；否则用实际 5 年分位</td><td class="rc-now"></td></tr><tr><td class="rc-k">权重</td><td class="rc-v">长期档 = 5年结构位×0.6 + 5年趋势斜率×0.4</td><td class="rc-now"></td></tr></tbody></table></div>
   <div class="rc-sec"><h4>⑤ 结构断点</h4><table class="rc-tbl"><thead><tr><th>项</th><th>规则</th><th>当前</th></tr></thead><tbody><tr><td class="rc-k">游程阈值</td><td class="rc-v">末端残差同号游程 > 日130 / 周26 / 月12 期</td><td class="rc-now"></td></tr><tr><td class="rc-k">处理</td><td class="rc-v">该序列路径权重置 0（只展示、不参与仓位），并触发覆盖率兜底</td><td class="rc-now"></td></tr></tbody></table></div>
-  <div class="rc-sec"><h4>⑥ 路径分（权重真正进入计算）</h4><table class="rc-tbl"><thead><tr><th>项</th><th>规则</th><th>当前</th></tr></thead><tbody><tr><td class="rc-k">有效权重</td><td class="rc-v">base × 异常系数 × 时效权重</td><td class="rc-now"></td></tr><tr><td class="rc-k">单项上限</td><td class="rc-v">min(2×base, 40)，超限截断后迭代归一到 100</td><td class="rc-now"></td></tr><tr><td class="rc-k">环节分</td><td class="rc-v">∈[−1, +1]，自带正负，不再另取方向符号</td><td class="rc-now"></td></tr><tr><td class="rc-k">路径分</td><td class="rc-v">Σ(环节分 × 有效权重) ÷ 100 ∈ [−1, +1]</td><td class="rc-now">L1 -0.14 / L2 -0.17 / L3 +0.16</td></tr><tr><td class="rc-k">中性 / 强</td><td class="rc-v">|path| &lt; 0.12 中性；≥ 0.28 强（Gate A 校准 p60/p90）</td><td class="rc-now"></td></tr><tr><td class="rc-k">覆盖率</td><td class="rc-v">cov = 参与项 base 合计 / 100；&lt;50% 样本不足(仓位≤30%)、50-70% 覆盖不足(≤60%)</td><td class="rc-now">L2 100% / L3 100%</td></tr><tr><td class="rc-k">环节基础权重</td><td class="rc-v">L1：国内产量 10/进口 25/库存 40/需求 25；L2：原料 15/成本 20/供给 20/需求 20/库存 15/进出口 10；L3：原料 10/成本 15/供给 20/需求 20/库存 20/利润 15</td><td class="rc-now"></td></tr></tbody></table></div>
+  <div class="rc-sec"><h4>⑥ 路径分（权重真正进入计算）</h4><table class="rc-tbl"><thead><tr><th>项</th><th>规则</th><th>当前</th></tr></thead><tbody><tr><td class="rc-k">有效权重</td><td class="rc-v">base × 异常系数 × 时效权重</td><td class="rc-now"></td></tr><tr><td class="rc-k">单项上限</td><td class="rc-v">min(2×base, 40)，超限截断后迭代归一到 100</td><td class="rc-now"></td></tr><tr><td class="rc-k">环节分</td><td class="rc-v">∈[−1, +1]，自带正负，不再另取方向符号</td><td class="rc-now"></td></tr><tr><td class="rc-k">路径分</td><td class="rc-v">Σ(环节分 × 有效权重) ÷ 100 ∈ [−1, +1]</td><td class="rc-now">L1 -0.14 / L2 -0.17 / L3 +0.17</td></tr><tr><td class="rc-k">中性 / 强</td><td class="rc-v">|path| &lt; 0.12 中性；≥ 0.28 强（Gate A 校准 p60/p90）</td><td class="rc-now"></td></tr><tr><td class="rc-k">覆盖率</td><td class="rc-v">cov = 参与项 base 合计 / 100；&lt;50% 样本不足(仓位≤30%)、50-70% 覆盖不足(≤60%)</td><td class="rc-now">L2 100% / L3 100%</td></tr><tr><td class="rc-k">环节基础权重</td><td class="rc-v">L1：国内产量 10/进口 25/库存 40/需求 25；L2：原料 15/成本 20/供给 20/需求 20/库存 15/进出口 10；L3：原料 10/成本 15/供给 20/需求 20/库存 20/利润 15</td><td class="rc-now"></td></tr></tbody></table></div>
   <div class="rc-sec"><h4>⑦ 时效（发布滞后 + 半衰期）</h4><table class="rc-tbl"><thead><tr><th>项</th><th>规则</th><th>当前</th></tr></thead><tbody><tr><td class="rc-k">半衰期</td><td class="rc-v">日 30 / 周 45 / 月 60 / 季 120 天</td><td class="rc-now"></td></tr><tr><td class="rc-k">发布滞后</td><td class="rc-v">日 1 / 周 7 / 月 35 / 季 45 天</td><td class="rc-now"></td></tr><tr><td class="rc-k">时效权重</td><td class="rc-v">freshW = max(0.25, 0.5^(有效年龄/半衰期))；&lt;0.6 不进路径分</td><td class="rc-now"></td></tr></tbody></table></div>
   <div class="rc-sec"><h4>⑧ 触发线（双线三态）</h4><table class="rc-tbl"><thead><tr><th>项</th><th>规则</th><th>当前</th></tr></thead><tbody><tr><td class="rc-k">观察线</td><td class="rc-v">上一期值 ± 2×MAD₂₀（滞后锚，不用当前值做锚）</td><td class="rc-now"></td></tr><tr><td class="rc-k">行动线</td><td class="rc-v">近 1 年高/低点，严格排除当前期；成本类 = 最新一期完全成本；规则常量线单独标注</td><td class="rc-now"></td></tr><tr><td class="rc-k">确认带</td><td class="rc-v">max(1×MAD₂₀, 0.3%×行动线)</td><td class="rc-now"></td></tr><tr><td class="rc-k">三态</td><td class="rc-v">未触及 / 缓冲带内（越线但在确认带内）/ 已触发（越过确认带）</td><td class="rc-now"></td></tr><tr><td class="rc-k">距离</td><td class="rc-v">统一写「还需下跌/上涨 x%」；>30% 标「远距离，仅尾部风险」</td><td class="rc-now"></td></tr><tr><td class="rc-k">两期确认</td><td class="rc-v">进口利润转正、LME 0-3 > +3 美元须连续 2 期</td><td class="rc-now"></td></tr><tr><td class="rc-k">空头失效线</td><td class="rc-v">LME 0-3 &gt; +3 美元（2 期）= <b>空头失效线</b>：只作提示（海外转紧 → <b>空头方向被证伪</b>；⚠ <b>不等于「顶部被抬走」</b> —— 0-3 与 M3 反向变动互相抵消，进口平价仍只比现价高 0.3%~0.5%，见「顶部对账」），<b>不联动多头仓位</b>；仅当基础动作本身是空头时把动作压回观望</td><td class="rc-now"></td></tr></tbody></table></div>
   <div class="rc-sec"><h4>⑨ 动作矩阵（多条取最严）</h4><table class="rc-tbl"><thead><tr><th>项</th><th>规则</th><th>当前</th></tr></thead><tbody><tr><td class="rc-k">方向</td><td class="rc-v">锚定中期档：偏多 → 偏多/逢低做多/观望；偏空 → 偏空/逢高沽空/观望；中性 → 观望</td><td class="rc-now"></td></tr><tr><td class="rc-k">触发覆盖</td><td class="rc-v">1 条 → 降一档且仓位≤30%；2 条 → 观望 0-30%；≥3 条 → 偏空 0-30%</td><td class="rc-now"></td></tr><tr><td class="rc-k">仓位上限</td><td class="rc-v">L3 空头 ≤20%；路径分歧 ≤30%；覆盖率不足 ≤60%、样本不足 ≤30%</td><td class="rc-now"></td></tr></tbody></table></div>
-  <div class="rc-sec"><h4>⑩ 硬约束</h4><table class="rc-tbl"><thead><tr><th>项</th><th>规则</th><th>当前</th></tr></thead><tbody><tr><td class="rc-k">产能天花板</td><td class="rc-v">4500 万吨/年；开工率 ≥98% 亦视为触顶</td><td class="rc-now">运行 4549.10（101.1%）、开工率 99.34% → 触顶生效</td></tr><tr><td class="rc-k">触顶后果</td><td class="rc-v">国内供给子项不得为负（净进口不 floor）；利润水平项 0.3/0.7（未触顶 0.65/0.35）；长期分上限 +0.15</td><td class="rc-now"></td></tr><tr><td class="rc-k">解封条件</td><td class="rc-v">社库近5年分位 ≤30% 且需求环节有效分 ≥ +0.15</td><td class="rc-now">社库近5年分位 24.4%、需求环节分 +0.02；当前长期综合分 +0.14 < 上限 +0.15 → <b>上限当前不生效（不构成压制）</b>，解封与否长期都是中性</td></tr><tr><td class="rc-k">缺口 vs 印证（双向证据）</td><td class="rc-v">缺口分 = 需求分 + 供给分（代理）+ 平衡表；印证因子 = (库存分 + 价格分) ÷ 2。两套口径不同（<b>供需流量</b> vs <b>存量与价格</b>）、时点不同（月频平衡 vs 周频库存 / 日频价格）→ 经常方向相反。<b>这不是「有一个数算错」</b>，而是<b>两类证据同时成立</b>（缺口看流量、印证看存量与价格）→ 页面统一写「<b>双向证据</b>」并标出主导项与差距幅度；方向相反时按置信度折价（仓位 ≤30%）</td><td class="rc-now">两数并列见速览表（缺口 / 印证因子），可直接复算</td></tr><tr><td class="rc-k">L2 成本距离禁空</td><td class="rc-v">距现金成本 &lt;5% → 禁止新开空、仓位 0；5-10% → 上限 15%</td><td class="rc-now"></td></tr><tr><td class="rc-k">L3 进口平价</td><td class="rc-v">距平价 &lt;3% → 禁止逢低做多；平价 = 同日价格 + |铝锭进口利润|</td><td class="rc-now"></td></tr><tr><td class="rc-k">高分位禁多</td><td class="rc-v">价格或利润近5年分位 ≥80% 且利润动量为负 → 禁止逢低做多</td><td class="rc-now"></td></tr><tr><td class="rc-k">路径分歧折价</td><td class="rc-v">路径分与综合分 |差|&gt;0.05 且符号相反 → 仓位 ≤30%（此处的「分歧」指路径分 vs 综合分, 与「双向证据」是两回事）</td><td class="rc-now"></td></tr></tbody></table></div>
+  <div class="rc-sec"><h4>⑩ 硬约束</h4><table class="rc-tbl"><thead><tr><th>项</th><th>规则</th><th>当前</th></tr></thead><tbody><tr><td class="rc-k">产能天花板</td><td class="rc-v">4500 万吨/年；开工率 ≥98% 亦视为触顶</td><td class="rc-now">运行 4549.10（101.1%）、开工率 99.34% → 触顶生效</td></tr><tr><td class="rc-k">触顶后果</td><td class="rc-v">国内供给子项不得为负（净进口不 floor）；利润水平项 0.3/0.7（未触顶 0.65/0.35）；长期分上限 +0.15</td><td class="rc-now"></td></tr><tr><td class="rc-k">解封条件</td><td class="rc-v">社库近5年分位 ≤30% 且需求环节有效分 ≥ +0.15</td><td class="rc-now">社库近5年分位 24.4%、需求环节分 +0.02；当前长期综合分 +0.07 < 上限 +0.15 → <b>上限当前不生效（不构成压制）</b>，解封与否长期都是中性</td></tr><tr><td class="rc-k">缺口 vs 印证（双向证据）</td><td class="rc-v">缺口分 = 需求分 + 供给分（代理）+ 平衡表；印证因子 = (库存分 + 价格分) ÷ 2。两套口径不同（<b>供需流量</b> vs <b>存量与价格</b>）、时点不同（月频平衡 vs 周频库存 / 日频价格）→ 经常方向相反。<b>这不是「有一个数算错」</b>，而是<b>两类证据同时成立</b>（缺口看流量、印证看存量与价格）→ 页面统一写「<b>双向证据</b>」并标出主导项与差距幅度；方向相反时按置信度折价（仓位 ≤30%）</td><td class="rc-now">两数并列见速览表（缺口 / 印证因子），可直接复算</td></tr><tr><td class="rc-k">L2 成本距离禁空</td><td class="rc-v">距现金成本 &lt;5% → 禁止新开空、仓位 0；5-10% → 上限 15%</td><td class="rc-now"></td></tr><tr><td class="rc-k">L3 进口平价</td><td class="rc-v">距平价 &lt;3% → 禁止逢低做多；平价 = 同日价格 + |铝锭进口利润|</td><td class="rc-now"></td></tr><tr><td class="rc-k">高分位禁多</td><td class="rc-v">价格或利润近5年分位 ≥80% 且利润动量为负 → 禁止逢低做多</td><td class="rc-now"></td></tr><tr><td class="rc-k">路径分歧折价</td><td class="rc-v">路径分与综合分 |差|&gt;0.05 且符号相反 → 仓位 ≤30%（此处的「分歧」指路径分 vs 综合分, 与「双向证据」是两回事）</td><td class="rc-now"></td></tr></tbody></table></div>
   <div class="rc-sec"><h4>⑪ 常量与平衡式</h4><table class="rc-tbl"><thead><tr><th>项</th><th>规则</th><th>当前</th></tr></thead><tbody><tr><td class="rc-k">单耗</td><td class="rc-v">1.925 吨氧化铝 / 吨电解铝</td><td class="rc-now"></td></tr><tr><td class="rc-k">产能上限</td><td class="rc-v">4500 万吨/年（政策常量）</td><td class="rc-now"></td></tr><tr><td class="rc-k">L2 平衡</td><td class="rc-v">过剩量 = 产量 + 净进口 − 实际消费量；实际消费 = L3 产量 × 1.925（仅冶金级）</td><td class="rc-now"></td></tr><tr><td class="rc-k">L1 平衡</td><td class="rc-v">供给 = 国产 + 进口（不同月，逐项标日期）；需求 = 氧化铝产量 × 加权单耗</td><td class="rc-now"></td></tr><tr><td class="rc-k">同日口径</td><td class="rc-v">同一句判断里的价格/利润/库存必须同日；跨日必须标日期，禁止把 LME 10-08 当 10-22</td><td class="rc-now"></td></tr></tbody></table></div>
   <div class="rc-sec"><h4>⑫ 禁用语</h4><div class="rc-note">电解铝不使用「成本支撑 / 跌不深 / 地板」，统一写「成本带不构成支撑，下方无供给刹车」；不写「概率 / 目标价 / 预计 / 或将 / 大概率 / price-in」；不使用「出口平价 / 无套利带宽 / 1:4 赔率」（铝锭出口利润是美元/吨，与国内元/吨不同量纲）。</div></div>
   </div>
 </details>
-    <script type="application/json" id="rule-book">{"version":"v2.1","rules":{"version":"v2.1","bias":{"bull":0.15,"bear":-0.15},"final":{"gap":0.45,"confirm":0.35,"profit":0.2},"z":{"strong":1.5,"weak":0.5},"anomalyFactor":{"strong":1.5,"normal":1,"weak":0.7},"trend":{"r2":0.3,"t":2,"windowYears":5},"breakRun":{"日":130,"周":26,"月":12},"path":{"neutral":0.12,"strong":0.28},"itemCap":{"factor":2,"abs":40},"coverage":{"low":0.5,"mid":0.7},"freshness":{"halfLife":{"日":30,"周":45,"月":60,"季":120},"pubLag":{"日":1,"周":7,"月":35,"季":45},"exclude":0.6,"floor":0.25,"staleMult":2},"windows":{"日":{"short":60,"mid":120,"trend":1825},"周":{"short":26,"mid":52,"trend":260},"月":{"short":12,"mid":24,"trend":60}},"windowLabel":{"日":{"short":"近3月","mid":"近6月"},"周":{"short":"近6月","mid":"近1年"},"月":{"short":"近1年","mid":"近2年"}},"horizons":{"short":7,"mid":60,"long":365},"trigger":{"obsMAD":20,"obsMult":2,"confirmMad":1,"confirmPct":0.003,"periods":2,"lmeBack":3,"farDistance":0.3},"capacity":{"ceiling":4500,"utilHigh":98,"longCap":0.15,"unlockStockPct5y":30,"unlockDemandScore":0.15,"profitLevelW":0.3,"profitMomW":0.7,"profitLevelWNormal":0.65,"profitMomWNormal":0.35},"costGuard":{"hard":0.05,"soft":0.1,"softPos":15},"parity":{"banLongWithin":0.03},"atr":{"stopMult":1.5,"entryOffset":0.5,"minBandATR":0.5},"highPctile":80,"divergence":0.05,"position":{"l3ShortCap":20,"divergenceCap":30,"triggerCap":30},"consts":{"aluminaPerAl":1.925,"alCapacityCap":4500},"stockLevelBlend":0.5,"magnitudeGate":{"scoreAt":0.8,"minRatio":0.02,"flowLinks":{"L1 铝土矿":["国内产量","进口","需求"],"L2 氧化铝":["原料","供给","需求","进出口"],"L3 电解铝":["原料","供给","需求"]},"ref":{"L1 铝土矿":{"sheet":"L1铝土矿产量-月","col":"SMM中国铝土矿分省份月度产量：全国总计"},"L2 氧化铝":{"sheet":"L2氧化铝产量中国-月","col":"SMM中国氧化铝月度产量：总量"},"L3 电解铝":{"sheet":"L3电解铝产量中国-月","col":"SMM中国电解铝月度产量：总量"}},"mag":{"L1 铝土矿":{"国内产量":{"sheet":"L1铝土矿产量-月","col":"SMM中国铝土矿分省份月度产量：全国总计"},"进口":{"sheet":"L1铝土矿进口-月","col":"中国铝土矿月度进口量"},"需求":{"sheet":"L2氧化铝产量中国-月","col":"SMM中国氧化铝月度产量：总量"}},"L2 氧化铝":{"原料":{"sheet":"L1铝土矿进口-月","col":"中国铝土矿月度进口量"},"供给":{"sheet":"L2氧化铝产量中国-月","col":"SMM中国氧化铝月度产量：总量"},"需求":{"sheet":"L3电解铝产量中国-月","col":"SMM中国电解铝月度产量：总量"},"进出口":{"sheet":"L2氧化铝进出口-月","col":"氧化铝月度净进口量"}},"L3 电解铝":{"原料":{"sheet":"L1铝土矿进口-月","col":"中国铝土矿月度进口量"},"供给":{"sheet":"L3电解铝产量中国-月","col":"SMM中国电解铝月度产量：总量"},"需求":{"sheet":"L5铝合金进出口-月","col":"铝材出口总量"}}}},"pathWeights":{"L1 铝土矿":{"国内产量":10,"进口":25,"库存":40,"需求":25},"L2 氧化铝":{"原料":15,"成本":20,"供给":20,"需求":20,"库存":15,"进出口":10},"L3 电解铝":{"原料":10,"成本":15,"供给":20,"需求":20,"库存":20,"利润":15}},"pathWeightRationale":{"L1 铝土矿":{"国内产量":{"why":"国产矿体量小、且受几内亚政策风险主导","basis":"进口依存度 79.5%（进口 1833 万吨 vs 国产 472 万吨）→ 供给侧必须「进口重、国产轻」"},"进口":{"why":"供给的决定变量","basis":"进口占供给 79.5%，其变动直接决定国内矿端松紧"},"库存":{"why":"当前最硬的偏空证据","basis":"全国库存近 1 年 / 近 5 年分位均 100%（满库）→ 权重提到 40"},"需求":{"why":"需求支撑在衰减","basis":"氧化铝产量仍高位，但开工率连降 2 期、同比 -6.55pp、距现金成本仅 +2.16%"}},"L2 氧化铝":{"原料":{"why":"原料端已非主要矛盾","basis":"铝土矿供给宽松（进口 +18.6%），传导到氧化铝端已被稀释"},"成本":{"why":"成本是边际定价锚","basis":"现金成本 2597 元/吨，现价 2576 已跌破 → 成本带决定「能不能追空」"},"供给":{"why":"含开工率 8 点（原独立环节）","basis":"开工率 = 运行 ÷ 建成，下滑 73% 来自分母效应（新产能投放）→ 8 点并入供给"},"需求":{"why":"电解铝产量是直接需求","basis":"电解铝月产量 374.90 万吨（同比 +1.7%），传导系数 1.925 t/t"},"库存":{"why":"回到与 D1 基准表一致的最小调整","basis":"2026-10-24 用户指示「权重稍后再议」→ 不额外加码"},"进出口":{"why":"量级问题不由权重解决","basis":"基础权重不再为量级问题让路，量级问题由 magnitudeGate 解决"}},"L3 电解铝":{"原料":{"why":"原料端影响已被氧化铝价格充分定价","basis":"氧化铝占成本 31.3%，其价格已在成本模型中直接体现"},"成本":{"why":"成本带决定下行保护","basis":"电力占 33.2%、氧化铝 31.3%、阳极 19.0% → 成本是主要矛盾"},"供给":{"why":"供给端已触政策天花板","basis":"运行产能 4549 万吨 ≥ 4500 万吨上限（101.1%）→ 高利润不再带来供给"},"需求":{"why":"需求是唯一还能改善的变量","basis":"社会库存近 1 年分位 2%（极低）→ 需求分是长期档解封的关键条件"},"库存":{"why":"库存是当前最强信号","basis":"社库 58.3 万吨、近 1 年分位 2%、近 5 年分位 24%"},"利润":{"why":"利润是反向验证项","basis":"吨铝利润 7294 元、近 5 年分位 88% → 高利润 = 减产风险 = 偏空"}}}},"pathWeights":{"L1 铝土矿":{"国内产量":10,"进口":25,"库存":40,"需求":25},"L2 氧化铝":{"原料":15,"成本":20,"供给":20,"需求":20,"库存":15,"进出口":10},"L3 电解铝":{"原料":10,"成本":15,"供给":20,"需求":20,"库存":20,"利润":15}},"pathSpec":{"L1 铝土矿":{"国内产量":[{"sheet":"L1铝土矿产量-月","col":"SMM中国铝土矿分省份月度产量：全国总计","unit":"万吨","w":100,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false}],"进口":[{"sheet":"L1铝土矿进口-月","col":"中国铝土矿月度进口量","unit":"万吨","w":100,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false}],"库存":[{"sheet":"L1铝土矿库存-月","col":"中国铝土矿分省份月度库存：总计","unit":"万吨","w":100,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false}],"需求":[{"sheet":"L2氧化铝产量中国-月","col":"SMM中国氧化铝月度产量：总量","unit":"万吨","w":100,"bearHigh":false,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":true}]},"L2 氧化铝":{"原料":[{"sheet":"L1铝土矿进口-月","col":"中国铝土矿月度进口量","unit":"万吨","w":100,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false}],"成本":[{"sheet":"L2氧化铝成本-日","col":"氧化铝_完全成本","unit":"元/吨","w":100,"bearHigh":false,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false}],"供给":[{"sheet":"L2氧化铝产量中国-月","col":"SMM中国氧化铝月度产量：总量","unit":"万吨","w":55,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false},{"sheet":"L2氧化铝开工率中国-周","col":"运行产能","unit":"万吨","w":25,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false},{"sheet":"L2氧化铝开工率中国-周","col":"建成产能","unit":"万吨","w":20,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false},{"sheet":"L2氧化铝开工率中国-周","col":"开工率","unit":"%","w":0,"bearHigh":false,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false}],"需求":[{"sheet":"L3电解铝产量中国-月","col":"SMM中国电解铝月度产量：总量","unit":"万吨","w":100,"bearHigh":false,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false}],"库存":[{"sheet":"L2氧化铝库存-周","col":"氧化铝：库存：中国（周）","unit":"万吨","w":100,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false}],"进出口":[{"sheet":"L2氧化铝进出口-月","col":"氧化铝月度净进口量","unit":"万吨","w":100,"bearHigh":true,"kind":"flow","smooth3":true,"floorWhenBinding":false,"pairMom":false}]},"L3 电解铝":{"原料":[{"sheet":"L1铝土矿进口-月","col":"中国铝土矿月度进口量","unit":"万吨","w":100,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false}],"成本":[{"sheet":"L2氧化铝价格-日","col":"SMM氧化铝价格指数","unit":"元/吨","w":100,"bearHigh":false,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false}],"供给":[{"sheet":"L3电解铝产量中国-月","col":"SMM中国电解铝月度产量：总量","unit":"万吨","w":35,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":true,"pairMom":false},{"sheet":"L3电解铝产能中国-周","col":"运行产能","unit":"万吨","w":25,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":true,"pairMom":false},{"sheet":"L3电解铝产能中国-周","col":"开工率","unit":"%","w":15,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":true,"pairMom":false},{"sheet":"L3电解铝平衡-月","col":"中国电解铝月度平衡：净进口量","unit":"万吨","w":25,"bearHigh":true,"kind":"flow","smooth3":true,"floorWhenBinding":false,"pairMom":false}],"需求":[{"sheet":"L3铝棒消费","col":"中国主要消费地铝棒周度出库量：合计(万吨)","unit":"万吨","w":45,"bearHigh":false,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false},{"sheet":"L5铝合金开工率-周","col":"铝行业平均开工率(%)","unit":"%","w":30,"bearHigh":false,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false},{"sheet":"L5铝合金进出口-月","col":"铝材出口总量","unit":"万吨","w":25,"bearHigh":false,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":true}],"库存":[{"sheet":"L3 电解铝社会库存-周","col":"中国电解铝分地区社会库存：合计","unit":"万吨","w":70,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false},{"sheet":"L3SHFE库存-周","col":"上海期货交易所分省份铝锭库存：总库存","unit":"万吨","w":30,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false}],"利润":[{"sheet":"L3电解铝成本利润-日","col":"中国电解铝成本模型：利润","unit":"元/吨","w":100,"bearHigh":false,"kind":"margin","smooth3":false,"floorWhenBinding":false,"pairMom":false}]}}}</script>
+    <script type="application/json" id="rule-book">{"version":"v2.1","rules":{"version":"v2.1","bias":{"bull":0.15,"bear":-0.15},"final":{"gap":0.45,"confirm":0.35,"profit":0.2},"z":{"strong":1.5,"weak":0.5},"anomalyFactor":{"strong":1.5,"normal":1,"weak":0.7},"trend":{"r2":0.3,"t":2,"windowYears":5},"breakRun":{"日":130,"周":26,"月":12},"path":{"neutral":0.15,"strong":0.28},"itemCap":{"factor":2,"abs":40},"coverage":{"low":0.5,"mid":0.7},"freshness":{"halfLife":{"日":30,"周":45,"月":60,"季":120},"pubLag":{"日":1,"周":7,"月":35,"季":45},"exclude":0.6,"floor":0.25,"staleMult":2},"windows":{"日":{"short":60,"mid":120,"trend":1825},"周":{"short":26,"mid":52,"trend":260},"月":{"short":12,"mid":24,"trend":60}},"windowLabel":{"日":{"short":"近3月","mid":"近6月"},"周":{"short":"近6月","mid":"近1年"},"月":{"short":"近1年","mid":"近2年"}},"horizons":{"short":7,"mid":60,"long":365},"trigger":{"obsMAD":20,"obsMult":2,"confirmMad":1,"confirmPct":0.003,"periods":2,"lmeBack":3,"farDistance":0.3},"capacity":{"ceiling":4500,"utilHigh":98,"longCap":0.15,"unlockStockPct5y":30,"unlockDemandScore":0.15,"profitLevelW":0.3,"profitMomW":0.7,"profitLevelWNormal":0.65,"profitMomWNormal":0.35},"costGuard":{"hard":0.05,"soft":0.1,"softPos":15},"parity":{"banLongWithin":0.03},"atr":{"stopMult":1.5,"entryOffset":0.5,"minBandATR":0.5},"highPctile":80,"divergence":0.05,"position":{"l3ShortCap":20,"divergenceCap":30,"triggerCap":30},"consts":{"aluminaPerAl":1.925,"alCapacityCap":4500},"stockLevelBlend":0.5,"magnitudeGate":{"scoreAt":0.8,"minRatio":0.02,"flowLinks":{"L1 铝土矿":["国内产量","进口","需求"],"L2 氧化铝":["原料","供给","需求","进出口"],"L3 电解铝":["原料","供给","需求"]},"ref":{"L1 铝土矿":{"sheet":"L1铝土矿产量-月","col":"SMM中国铝土矿分省份月度产量：全国总计"},"L2 氧化铝":{"sheet":"L2氧化铝产量中国-月","col":"SMM中国氧化铝月度产量：总量"},"L3 电解铝":{"sheet":"L3电解铝产量中国-月","col":"SMM中国电解铝月度产量：总量"}},"mag":{"L1 铝土矿":{"国内产量":{"sheet":"L1铝土矿产量-月","col":"SMM中国铝土矿分省份月度产量：全国总计"},"进口":{"sheet":"L1铝土矿进口-月","col":"中国铝土矿月度进口量"},"需求":{"sheet":"L2氧化铝产量中国-月","col":"SMM中国氧化铝月度产量：总量"}},"L2 氧化铝":{"原料":{"sheet":"L1铝土矿进口-月","col":"中国铝土矿月度进口量"},"供给":{"sheet":"L2氧化铝产量中国-月","col":"SMM中国氧化铝月度产量：总量"},"需求":{"sheet":"L3电解铝产量中国-月","col":"SMM中国电解铝月度产量：总量"},"进出口":{"sheet":"L2氧化铝进出口-月","col":"氧化铝月度净进口量"}},"L3 电解铝":{"原料":{"sheet":"L1铝土矿进口-月","col":"中国铝土矿月度进口量"},"供给":{"sheet":"L3电解铝产量中国-月","col":"SMM中国电解铝月度产量：总量"},"需求":{"sheet":"L5铝合金进出口-月","col":"铝材出口总量"}}}},"pathWeights":{"L1 铝土矿":{"国内产量":10,"进口":25,"库存":40,"需求":25},"L2 氧化铝":{"原料":15,"成本":20,"供给":20,"需求":20,"库存":15,"进出口":10},"L3 电解铝":{"原料":10,"成本":15,"供给":20,"需求":20,"库存":20,"利润":15}},"pathWeightRationale":{"L1 铝土矿":{"国内产量":{"why":"国产矿体量小、且受几内亚政策风险主导","basis":"进口依存度 79.5%（进口 1833 万吨 vs 国产 472 万吨）→ 供给侧必须「进口重、国产轻」"},"进口":{"why":"供给的决定变量","basis":"进口占供给 79.5%，其变动直接决定国内矿端松紧"},"库存":{"why":"当前最硬的偏空证据","basis":"全国库存近 1 年 / 近 5 年分位均 100%（满库）→ 权重提到 40"},"需求":{"why":"需求支撑在衰减","basis":"氧化铝产量仍高位，但开工率连降 2 期、同比 -6.55pp、距现金成本仅 +2.16%"}},"L2 氧化铝":{"原料":{"why":"原料端已非主要矛盾","basis":"铝土矿供给宽松（进口 +18.6%），传导到氧化铝端已被稀释"},"成本":{"why":"成本是边际定价锚","basis":"现金成本 2597 元/吨，现价 2576 已跌破 → 成本带决定「能不能追空」"},"供给":{"why":"含开工率 8 点（原独立环节）","basis":"开工率 = 运行 ÷ 建成，下滑 73% 来自分母效应（新产能投放）→ 8 点并入供给"},"需求":{"why":"电解铝产量是直接需求","basis":"电解铝月产量 374.90 万吨（同比 +1.7%），传导系数 1.925 t/t"},"库存":{"why":"回到与 D1 基准表一致的最小调整","basis":"2026-10-24 用户指示「权重稍后再议」→ 不额外加码"},"进出口":{"why":"量级问题不由权重解决","basis":"基础权重不再为量级问题让路，量级问题由 magnitudeGate 解决"}},"L3 电解铝":{"原料":{"why":"原料端影响已被氧化铝价格充分定价","basis":"氧化铝占成本 31.3%，其价格已在成本模型中直接体现"},"成本":{"why":"成本带决定下行保护","basis":"电力占 33.2%、氧化铝 31.3%、阳极 19.0% → 成本是主要矛盾"},"供给":{"why":"供给端已触政策天花板","basis":"运行产能 4549 万吨 ≥ 4500 万吨上限（101.1%）→ 高利润不再带来供给"},"需求":{"why":"需求是唯一还能改善的变量","basis":"社会库存近 1 年分位 2%（极低）→ 需求分是长期档解封的关键条件"},"库存":{"why":"库存是当前最强信号","basis":"社库 58.3 万吨、近 1 年分位 2%、近 5 年分位 24%"},"利润":{"why":"利润是反向验证项","basis":"吨铝利润 7294 元、近 5 年分位 88% → 高利润 = 减产风险 = 偏空"}}}},"pathWeights":{"L1 铝土矿":{"国内产量":10,"进口":25,"库存":40,"需求":25},"L2 氧化铝":{"原料":15,"成本":20,"供给":20,"需求":20,"库存":15,"进出口":10},"L3 电解铝":{"原料":10,"成本":15,"供给":20,"需求":20,"库存":20,"利润":15}},"pathSpec":{"L1 铝土矿":{"国内产量":[{"sheet":"L1铝土矿产量-月","col":"SMM中国铝土矿分省份月度产量：全国总计","unit":"万吨","w":100,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false}],"进口":[{"sheet":"L1铝土矿进口-月","col":"中国铝土矿月度进口量","unit":"万吨","w":100,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false}],"库存":[{"sheet":"L1铝土矿库存-月","col":"中国铝土矿分省份月度库存：总计","unit":"万吨","w":100,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false}],"需求":[{"sheet":"L2氧化铝产量中国-月","col":"SMM中国氧化铝月度产量：总量","unit":"万吨","w":100,"bearHigh":false,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":true}]},"L2 氧化铝":{"原料":[{"sheet":"L1铝土矿进口-月","col":"中国铝土矿月度进口量","unit":"万吨","w":100,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false}],"成本":[{"sheet":"L2氧化铝成本-日","col":"氧化铝_完全成本","unit":"元/吨","w":100,"bearHigh":false,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false}],"供给":[{"sheet":"L2氧化铝产量中国-月","col":"SMM中国氧化铝月度产量：总量","unit":"万吨","w":55,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false},{"sheet":"L2氧化铝开工率中国-周","col":"运行产能","unit":"万吨","w":25,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false},{"sheet":"L2氧化铝开工率中国-周","col":"建成产能","unit":"万吨","w":20,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false},{"sheet":"L2氧化铝开工率中国-周","col":"开工率","unit":"%","w":0,"bearHigh":false,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false}],"需求":[{"sheet":"L3电解铝产量中国-月","col":"SMM中国电解铝月度产量：总量","unit":"万吨","w":100,"bearHigh":false,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false}],"库存":[{"sheet":"L2氧化铝库存-周","col":"氧化铝：库存：中国（周）","unit":"万吨","w":100,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false}],"进出口":[{"sheet":"L2氧化铝进出口-月","col":"氧化铝月度净进口量","unit":"万吨","w":100,"bearHigh":true,"kind":"flow","smooth3":true,"floorWhenBinding":false,"pairMom":false}]},"L3 电解铝":{"原料":[{"sheet":"L1铝土矿进口-月","col":"中国铝土矿月度进口量","unit":"万吨","w":100,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false}],"成本":[{"sheet":"L2氧化铝价格-日","col":"SMM氧化铝价格指数","unit":"元/吨","w":100,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false}],"供给":[{"sheet":"L3电解铝产量中国-月","col":"SMM中国电解铝月度产量：总量","unit":"万吨","w":35,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":true,"pairMom":false},{"sheet":"L3电解铝产能中国-周","col":"运行产能","unit":"万吨","w":25,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":true,"pairMom":false},{"sheet":"L3电解铝产能中国-周","col":"开工率","unit":"%","w":15,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":true,"pairMom":false},{"sheet":"L3电解铝平衡-月","col":"中国电解铝月度平衡：净进口量","unit":"万吨","w":25,"bearHigh":true,"kind":"flow","smooth3":true,"floorWhenBinding":false,"pairMom":false}],"需求":[{"sheet":"L3铝棒消费","col":"中国主要消费地铝棒周度出库量：合计(万吨)","unit":"万吨","w":45,"bearHigh":false,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false},{"sheet":"L5铝合金开工率-周","col":"铝行业平均开工率(%)","unit":"%","w":30,"bearHigh":false,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false},{"sheet":"L5铝合金进出口-月","col":"铝材出口总量","unit":"万吨","w":25,"bearHigh":false,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":true}],"库存":[{"sheet":"L3 电解铝社会库存-周","col":"中国电解铝分地区社会库存：合计","unit":"万吨","w":70,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false},{"sheet":"L3SHFE库存-周","col":"上海期货交易所分省份铝锭库存：总库存","unit":"万吨","w":30,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false}],"利润":[{"sheet":"L3电解铝成本利润-日","col":"中国电解铝成本模型：利润","unit":"元/吨","w":100,"bearHigh":false,"kind":"margin","smooth3":false,"floorWhenBinding":false,"pairMom":false}]}}}</script>
     <details class="an-caliber">
   <summary>📘 口径说明 (全页唯一 · 点开)</summary>
   <div class="an-caliber-body">
@@ -1985,7 +2007,7 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
     <p><b>6 维与综合分</b>：供给 / 需求 / 库存 / 价格 / 利润五项为输入, 供需缺口为派生行 (缺口 = 供给分 + 需求分)。中期综合分 = 0.45 × 缺口 + 0.35 × 印证 + 0.20 × 利润, 其中印证 = (库存分 + 价格分) / 2；> +0.15 偏多, &lt; −0.15 偏空, 其余中性。6 维表底的算式即这条定义, 数字随数据现算。</p>
     <p><b>分位窗口</b>：全页分位一律带窗口 —— 「5 年」= Excel 全样本 (起点 2021-10, 约 5 年), 「1 年」= 最近 365 天。库存、价格等同一指标在 1 年与 5 年窗口下的位置可能相反, 引用时必须写明是哪一个。</p>
     <p><b>序列口径</b>：一律使用清洗后的序列 (社会库存按月剔除月末快照; 铝棒出库等量能类信号遇法定长假剔除该周读数, 表内标「剔除 X 日」)。计分列 ◈ = 该指标参与中期打分, 与 6 维表同源；— = 仅作背景参考, 不参与打分。</p>
-    <p><b>动量口径（同比与环比取较弱者）</b>：L1 需求端「氧化铝月产量」与 L3 需求端「铝材出口」在<b>短/中期档</b>按 min(环比动量分, 同比动量分) 给分 —— 避免单一窗口被低基数或单边读数带偏；长期档（结构位 60% + 趋势 40%）<b>不参与配对</b>。信号清单里带「取弱」徽标的行即按此口径计分, 鼠标悬停可看到取弱的两个数。</p>
+    <p><b>动量口径（同比与环比取较弱者）</b>：L1 需求端「氧化铝月产量」与 L3 需求端「铝材出口」在<b>短/中期档</b>按 min(环比动量分, 同比动量分) 给分 —— 避免单一窗口被低基数或单边读数带偏；长期档（5年结构位 60% + 5年趋势斜率 40%）<b>不参与配对</b>。信号清单里带「取弱」徽标的行即按此口径计分, 鼠标悬停可看到取弱的两个数。</p>
     <p><b>双向证据（不是算错）</b>：缺口（供需<b>流量</b>口径）与印证因子（库存 + 价格，<b>存量</b>口径）方向相反时, 页面写「<b>双向证据</b>」并标出主导项与差距幅度 —— 这是两类证据同时成立, 不是某个数算错；路径分与综合分方向相反另称「<b>分歧</b>」, 按仓位封顶 30% 处理。</p>
     <p><b>多空权重</b>：由中期 6 维分数线性换算, 多头 = (维度分 + 1) / 2 × 100, 综合多空由综合分按同一公式换算 —— 与综合分同源, 不再是一套独立启发式。</p>
     <p><b>其余规则</b>：异常度与结构位窗口、路径权重、触发双线三态、产能与单耗常量, 见概览页「📘 规则卡」, 均可逐条复算。</p>
@@ -2093,7 +2115,7 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
       </details>
     </section>
     <div class="invest-section" id="invest-panel">
-    <h2 class="invest-title">💡 投资决策面板 (概览) <span class="invest-date">2026-10-28</span></h2>
+    <h2 class="invest-title">💡 投资决策面板 (概览) <span class="invest-date">2026-10-29</span></h2>
     <div class="invest-grid invest-grid-3">
       
     <div class="invest-card strategy" data-path="-0.138" data-cov="1.00">
@@ -2101,7 +2123,7 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
         <span class="bias-tag" style="background:#64748b">中性</span>
         <span class="st-head-note">中期 1-3 月 · 综合分 -0.06</span>
       </h3>
-      <div class="st-path-line">路径分 <b style="color:#16a34a">-0.138</b> <span class="st-path-scope">(环节合计偏空, 不含平衡表)</span> · 覆盖率 100% (正常) · 参与 4/4 环节</div>
+      <div class="st-path-line">路径分 <b style="color:#16a34a">-0.138</b> <span class="st-path-scope">(环节合计中性, 不含平衡表)</span> · 覆盖率 100% (正常) · 参与 4/4 环节</div>
       <div class="rc-wrap" data-rc="L1 铝土矿"><div class="rc-l1">
     <span class="rc-l1-tag">🧠 决策推理链</span>
     <span class="rc-l1-txt">
@@ -2233,7 +2255,7 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
       <td class="pt-st"><span class="path-status path-status-neutral">中性</span> <span class="pt-wv" title="环节分 -0.001 → 倾向 中性 (阈值 ±0.15) · 贡献 = 环节分 × 有效权重 ÷ 100 = -0.000">环节分 -0.001 · 贡献 -0.000</span></td>
     </tr></tbody>
       </table>
-      <div class="st-scope">本卡 = <b>行动路径</b>：路径分只锚定<b>中期档</b>（异常度取中期窗口 z），中性线 ±0.12、强信号线 ±0.28；<b>综合分 → 标签，路径分 → 仓位与盯盘优先级</b>。三档结论与推理逻辑见本品种「🎯 决策卡片」。</div>
+      <div class="st-scope">本卡 = <b>行动路径</b>：路径分只锚定<b>中期档</b>（异常度取中期窗口 z），中性线 ±0.15、强信号线 ±0.28；<b>综合分 → 标签，路径分 → 仓位与盯盘优先级</b>。三档结论与推理逻辑见本品种「🎯 决策卡片」。</div>
       <details class="st-legend">
         <summary>📖 怎么看这张表？（点击展开）</summary>
         <div class="st-legend-body">
@@ -2432,7 +2454,7 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
       <td class="pt-st"><span class="path-status path-status-bull">偏多</span> <span class="pt-wv" title="环节分 +0.402 → 倾向 偏多 (阈值 ±0.15) · 贡献 = 环节分 × 有效权重 ÷ 100 = +0.042">环节分 +0.402 · 贡献 +0.042</span></td>
     </tr></tbody>
       </table>
-      <div class="st-scope">本卡 = <b>行动路径</b>：路径分只锚定<b>中期档</b>（异常度取中期窗口 z），中性线 ±0.12、强信号线 ±0.28；<b>综合分 → 标签，路径分 → 仓位与盯盘优先级</b>。三档结论与推理逻辑见本品种「🎯 决策卡片」。</div>
+      <div class="st-scope">本卡 = <b>行动路径</b>：路径分只锚定<b>中期档</b>（异常度取中期窗口 z），中性线 ±0.15、强信号线 ±0.28；<b>综合分 → 标签，路径分 → 仓位与盯盘优先级</b>。三档结论与推理逻辑见本品种「🎯 决策卡片」。</div>
       <details class="st-legend">
         <summary>📖 怎么看这张表？（点击展开）</summary>
         <div class="st-legend-body">
@@ -2446,16 +2468,16 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
         </div>
       </details>
     </div>
-    <div class="invest-card strategy" data-path="0.161" data-cov="1.00">
+    <div class="invest-card strategy" data-path="0.168" data-cov="1.00">
       <h3>⚡ 电解铝策略
         <span class="bias-tag" style="background:#64748b">中性</span>
         <span class="st-head-note">中期 1-3 月 · 综合分 -0.12</span>
       </h3>
-      <div class="st-path-line">路径分 <b style="color:#dc2626">+0.161</b> <span class="st-path-scope">(环节合计偏多, 不含平衡表)</span> · 覆盖率 100% (正常) · 参与 6/6 环节</div>
+      <div class="st-path-line">路径分 <b style="color:#dc2626">+0.168</b> <span class="st-path-scope">(环节合计偏多, 不含平衡表)</span> · 覆盖率 100% (正常) · 参与 6/6 环节</div>
       <div class="rc-wrap" data-rc="L3 电解铝"><div class="rc-l1">
     <span class="rc-l1-tag">🧠 决策推理链</span>
     <span class="rc-l1-txt">
-      路径分 <b style="color:#dc2626">+0.161（偏多）</b>
+      路径分 <b style="color:#dc2626">+0.168（偏多）</b>
       = <b>6</b> 个环节加权求和；主导因素是 <b style="color:#dc2626">库存</b>
       （贡献 +0.125，占全部贡献量 51%）
     </span>
@@ -2473,7 +2495,7 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
         <text x="184.92000000000002" y="39" font-size="10" fill="#64748b" font-variant-numeric="tabular-nums">22%</text>
       </g><g>
         <text x="0" y="61" font-size="10.5" fill="#475569">成本</text>
-        <rect x="74" y="52" width="77.76" height="8" rx="2" fill="#16a34a" opacity="0.85"/>
+        <rect x="74" y="52" width="77.76" height="8" rx="2" fill="#dc2626" opacity="0.85"/>
         <text x="155.76" y="61" font-size="10" fill="#64748b" font-variant-numeric="tabular-nums">16%</text>
       </g><g>
         <text x="0" y="83" font-size="10.5" fill="#475569">需求</text>
@@ -2503,13 +2525,13 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
       <td class="rc-whycell"><div class="rc-why"><b>原料端影响已被氧化铝价格充分定价</b><span>氧化铝占成本 31.3%，其价格已在成本模型中直接体现</span></div></td>
     </tr><tr>
       <td class="rc-name"><span class="rc-num">2</span>成本</td>
-      <td class="rc-score" style="color:#16a34a">-0.020</td>
+      <td class="rc-score" style="color:#dc2626">+0.020</td>
       <td class="rc-w">15</td>
       <td class="rc-f" title="异常系数（离散档位）: |z|≥1.5 → 1.5, |z|<0.5 → 0.7, 其余 1.0">×1.0</td>
       <td class="rc-w rc-w-eff">16%</td>
-      <td class="rc-contrib" style="color:#16a34a">
-        <span>-0.003</span>
-        <span class="rc-bar"><i style="width:1.3%;background:#16a34a"></i></span>
+      <td class="rc-contrib" style="color:#dc2626">
+        <span>+0.003</span>
+        <span class="rc-bar"><i style="width:1.3%;background:#dc2626"></i></span>
       </td>
       <td class="rc-whycell"><div class="rc-why"><b>成本带决定下行保护</b><span>电力占 33.2%、氧化铝 31.3%、阳极 19.0% → 成本是主要矛盾</span></div></td>
     </tr><tr>
@@ -2560,7 +2582,7 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
       <tfoot><tr>
         <td class="rc-name">合计</td><td>—</td><td>—</td><td>—</td>
         <td class="rc-w rc-w-eff">100%</td>
-        <td class="rc-contrib" style="color:#dc2626">+0.161</td>
+        <td class="rc-contrib" style="color:#dc2626">+0.168</td>
         <td class="rc-whycell rc-sum">= 路径分</td>
       </tr></tfoot>
     </table>
@@ -2570,7 +2592,7 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
         <thead><tr><th>环节</th><th>打分依据</th><th>权重理由</th></tr></thead>
         <tbody><tr><td class="rc-name">原料</td><td class="rc-basis"><div><span class="rc-sig">环比</span>-0.5%</div><div><span class="rc-sig">趋势</span>趋势位 90%（R²0.74）</div><div><span class="rc-sig">分位</span>近5年 87%</div><div><span class="rc-sig">最新</span>1833.23万吨</div></td><td class="rc-whycell"><div class="rc-why"><b>原料端影响已被氧化铝价格充分定价</b><span>氧化铝占成本 31.3%，其价格已在成本模型中直接体现</span></div></td></tr><tr><td class="rc-name">成本</td><td class="rc-basis"><div><span class="rc-sig">环比</span>-1.0%</div><div><span class="rc-sig">趋势</span>趋势位 3%（R²0.00）</div><div><span class="rc-sig">分位</span>近5年 3%</div><div><span class="rc-sig">最新</span>2653.00元/吨</div></td><td class="rc-whycell"><div class="rc-why"><b>成本带决定下行保护</b><span>电力占 33.2%、氧化铝 31.3%、阳极 19.0% → 成本是主要矛盾</span></div></td></tr><tr><td class="rc-name">供给</td><td class="rc-basis"><div><span class="rc-sig">环比</span>-0.0%</div><div><span class="rc-sig">趋势</span>趋势位 100%（R²0.91）</div><div><span class="rc-sig">分位</span>近5年 97%</div><div><span class="rc-sig">最新</span>374.90万吨</div></td><td class="rc-whycell"><div class="rc-why"><b>供给端已触政策天花板</b><span>运行产能 4549 万吨 ≥ 4500 万吨上限（101.1%）→ 高利润不再带来供给</span></div></td></tr><tr><td class="rc-name">需求</td><td class="rc-basis"><div><span class="rc-sig">环比</span>—</div><div><span class="rc-sig">趋势</span>—</div><div><span class="rc-sig">分位</span>—</div><div><span class="rc-sig">最新</span>—</div></td><td class="rc-whycell"><div class="rc-why"><b>需求是唯一还能改善的变量</b><span>社会库存近 1 年分位 2%（极低）→ 需求分是长期档解封的关键条件</span></div></td></tr><tr><td class="rc-name">库存</td><td class="rc-basis"><div><span class="rc-sig">环比</span>-33.4%</div><div><span class="rc-sig">趋势</span>趋势位 24%（R²0.00）</div><div><span class="rc-sig">分位</span>近5年 24%</div><div><span class="rc-sig">最新</span>58.30万吨</div></td><td class="rc-whycell"><div class="rc-why"><b>库存是当前最强信号</b><span>社库 58.3 万吨、近 1 年分位 2%、近 5 年分位 24%</span></div></td></tr><tr><td class="rc-name">利润</td><td class="rc-basis"><div><span class="rc-sig">环比</span>-5.1%</div><div><span class="rc-sig">趋势</span>趋势位 84%（R²0.48）</div><div><span class="rc-sig">分位</span>近5年 88%</div><div><span class="rc-sig">最新</span>7294.18元/吨</div></td><td class="rc-whycell"><div class="rc-why"><b>利润是反向验证项</b><span>吨铝利润 7294 元、近 5 年分位 88% → 高利润 = 减产风险 = 偏空</span></div></td></tr></tbody>
       </table>
-      <div class="rc-formula"><b>加权算式</b><br>原料 0.011 × 8% ÷ 100 = +0.001<br>成本 -0.020 × 16% ÷ 100 = -0.003<br>供给 0.250 × 29% ÷ 100 = +0.074<br>需求 0.016 × 14% ÷ 100 = +0.002<br>库存 0.558 × 22% ÷ 100 = +0.125<br>利润 -0.341 × 11% ÷ 100 = -0.037<br>= <b>+0.161</b>（路径分）</div>
+      <div class="rc-formula"><b>加权算式</b><br>原料 0.011 × 8% ÷ 100 = +0.001<br>成本 0.020 × 16% ÷ 100 = +0.003<br>供给 0.250 × 29% ÷ 100 = +0.074<br>需求 0.016 × 14% ÷ 100 = +0.002<br>库存 0.558 × 22% ÷ 100 = +0.125<br>利润 -0.341 × 11% ÷ 100 = -0.037<br>= <b>+0.168</b>（路径分）</div>
     </details>
   </div></div>
       <table class="path-tbl">
@@ -2584,7 +2606,7 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
         <span class="pt-w-bar"><i style="width:16%;background:#94a3b8"></i></span>
       </td>
       <td class="pt-st"><span class="path-status path-status-neutral">中性</span> <span class="pt-wv" title="环节分 +0.011 → 倾向 中性 (阈值 ±0.15) · 贡献 = 环节分 × 有效权重 ÷ 100 = +0.001">环节分 +0.011 · 贡献 +0.001</span></td>
-    </tr><tr data-seq="L2氧化铝价格-日||SMM氧化铝价格指数" data-proof='{"name":"成本","score":-0.020149253731343283,"base":15,"eff":15.656712546558174,"contribution":-0.003154710736993065,"anomFactor":1,"z":-1.3088168494361379,"zType":"roll","zLabel":"近6月 (滚动)","zAlt":-0.858933964575624,"zMixed":false,"links":[{"seq":"L2氧化铝价格-日||SMM氧化铝价格指数","score":-0.020149253731343283,"w":100,"z":-1.3088168494361379,"zType":"roll","zWindow":120,"zLabel":"近6月 (滚动)","zDetr":-0.8589339645756241,"zRoll":-1.3088168494361379,"pct5y":2.644628099173554,"pct1y":13.168724279835391,"fitPct":68.59504132231406,"structPct":2.644628099173554,"r2":0.000002226968286223041,"t":-0.05186698064949478,"freshW":0.9330329915368074,"breakpoint":false,"cur":2653,"rawCur":2653,"smooth3":false,"perDay":false}]}'>
+    </tr><tr data-seq="L2氧化铝价格-日||SMM氧化铝价格指数" data-proof='{"name":"成本","score":0.020149253731343283,"base":15,"eff":15.656712546558174,"contribution":0.003154710736993065,"anomFactor":1,"z":-1.3088168494361379,"zType":"roll","zLabel":"近6月 (滚动)","zAlt":-0.858933964575624,"zMixed":false,"links":[{"seq":"L2氧化铝价格-日||SMM氧化铝价格指数","score":0.020149253731343283,"w":100,"z":-1.3088168494361379,"zType":"roll","zWindow":120,"zLabel":"近6月 (滚动)","zDetr":-0.8589339645756241,"zRoll":-1.3088168494361379,"pct5y":2.644628099173554,"pct1y":13.168724279835391,"fitPct":68.59504132231406,"structPct":2.644628099173554,"r2":0.000002226968286223041,"t":-0.05186698064949478,"freshW":0.9330329915368074,"breakpoint":false,"cur":2653,"rawCur":2653,"smooth3":false,"perDay":false}]}'>
       <td class="pt-name"><span class="path-num">2</span>成本</td>
       <td class="pt-data">氧化铝指数 2653.00元/吨(10-23)</td>
       <td class="pt-abn">-1.31σ<span class="pt-ztype" title="z 口径：近6月 (滚动)。「滚动」= 当前值相对该窗口**均值**的 σ。另一口径（去趋势）同环节加权值 = -0.86σ。去趋势 z 与原始分位可以指向不同方向，两者同时成立，不是矛盾。">滚动</span><span class="pt-factor" title="异常系数 (离散档位): |z|≥1.5 → 1.5, |z|<0.5 → 0.7, 其余 1.0">×1.0</span><span class="pt-pct">1年 13% · 5年 3%</span></td>
@@ -2592,7 +2614,7 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
         <span class="pt-w-num">16%<span class="pt-wv">基础 15</span></span>
         <span class="pt-w-bar"><i style="width:32%;background:#94a3b8"></i></span>
       </td>
-      <td class="pt-st"><span class="path-status path-status-neutral">中性</span> <span class="pt-wv" title="环节分 -0.020 → 倾向 中性 (阈值 ±0.15) · 贡献 = 环节分 × 有效权重 ÷ 100 = -0.003">环节分 -0.020 · 贡献 -0.003</span></td>
+      <td class="pt-st"><span class="path-status path-status-neutral">中性</span> <span class="pt-wv" title="环节分 +0.020 → 倾向 中性 (阈值 ±0.15) · 贡献 = 环节分 × 有效权重 ÷ 100 = +0.003">环节分 +0.020 · 贡献 +0.003</span></td>
     </tr><tr data-seq="L3电解铝产量中国-月||SMM中国电解铝月度产量：总量;L3电解铝产能中国-周||运行产能;L3电解铝产能中国-周||开工率;L3电解铝平衡-月||中国电解铝月度平衡：净进口量" data-proof='{"name":"供给","score":0.2502021735751667,"base":20,"eff":29.585589994902207,"contribution":0.07402378923228238,"anomFactor":1.5,"z":-1.5072224652765567,"zType":"detr","zLabel":"近2年 (去趋势)","zAlt":0.6575457372870785,"zMixed":true,"links":[{"seq":"L3电解铝产量中国-月||SMM中国电解铝月度产量：总量","score":0.000017208742040941156,"w":35,"z":-0.7253017556254368,"zType":"detr","zWindow":24,"zLabel":"近2年 (去趋势)","zDetr":-0.7253017556254368,"zRoll":1.4583209294134765,"pct5y":96.66666666666667,"pct1y":84.61538461538461,"fitPct":100,"structPct":100,"r2":0.9099593925778668,"t":24.210613506950825,"freshW":1,"breakpoint":true,"cur":374.9,"rawCur":374.9,"smooth3":false,"perDay":true},{"seq":"L3电解铝产能中国-周||运行产能","score":0,"w":25,"z":-2.139760506443486,"zType":"detr","zWindow":52,"zLabel":"近1年 (去趋势)","zDetr":-2.139760506443486,"zRoll":1.1241534070006958,"pct5y":100,"pct1y":100,"fitPct":100,"structPct":100,"r2":0.9334736890741412,"t":60.632428841022445,"freshW":0.8441407967796914,"breakpoint":false,"cur":4549.1,"rawCur":4549.1,"smooth3":false,"perDay":false},{"seq":"L3电解铝产能中国-周||开工率","score":0.0013076701030161671,"w":15,"z":-1.994574264763028,"zType":"detr","zWindow":52,"zLabel":"近1年 (去趋势)","zDetr":-1.994574264763028,"zRoll":0.8319040214485169,"pct5y":93.18181818181817,"pct1y":65.38461538461539,"fitPct":100,"structPct":100,"r2":0.8851442595532996,"t":44.934645653007465,"freshW":0.8441407967796914,"breakpoint":false,"cur":99.34267994409505,"rawCur":99.34267994409505,"smooth3":false,"perDay":false},{"seq":"L3电解铝平衡-月||中国电解铝月度平衡：净进口量","score":1,"w":25,"z":-1.0347621719003586,"zType":"roll","zWindow":24,"zLabel":"近2年 (滚动)","zDetr":-1.6769623379293124,"zRoll":-1.0347621719003586,"pct5y":54.23728813559322,"pct1y":15.384615384615385,"fitPct":94.91525423728814,"structPct":94.91525423728814,"r2":0.5229819412298173,"t":7.90520913568547,"freshW":0.7755723809168673,"breakpoint":false,"cur":14.88,"rawCur":16.37,"smooth3":true,"perDay":false}]}'>
       <td class="pt-name"><span class="path-num">3</span>供给</td>
       <td class="pt-data">电解铝月产量 <span class="pt-smooth" title="打分用日均值口径 (v ÷ 当月天数), 已剔除 31 天月 vs 30 天月的日历效应; 本格显示值仍为原始月度量纲">日均口径</span> 374.90万吨(09-30) · 运行产能 4549.10万吨(10-09) · 开工率 99.34%(10-09)</td>
@@ -2631,7 +2653,7 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
       <td class="pt-st"><span class="path-status path-status-bear">偏空</span> <span class="pt-wv" title="环节分 -0.341 → 倾向 偏空 (阈值 ±0.15) · 贡献 = 环节分 × 有效权重 ÷ 100 = -0.037">环节分 -0.341 · 贡献 -0.037</span></td>
     </tr></tbody>
       </table>
-      <div class="st-scope">本卡 = <b>行动路径</b>：路径分只锚定<b>中期档</b>（异常度取中期窗口 z），中性线 ±0.12、强信号线 ±0.28；<b>综合分 → 标签，路径分 → 仓位与盯盘优先级</b>。三档结论与推理逻辑见本品种「🎯 决策卡片」。</div>
+      <div class="st-scope">本卡 = <b>行动路径</b>：路径分只锚定<b>中期档</b>（异常度取中期窗口 z），中性线 ±0.15、强信号线 ±0.28；<b>综合分 → 标签，路径分 → 仓位与盯盘优先级</b>。三档结论与推理逻辑见本品种「🎯 决策卡片」。</div>
       <details class="st-legend">
         <summary>📖 怎么看这张表？（点击展开）</summary>
         <div class="st-legend-body">
@@ -2689,11 +2711,11 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
       <span class="dc-hz">长期 <span class="dc-hz-sub">年度</span></span>
       <span class="cc-bias cc-bias-neutral">中性</span>
       <span class="pat-chip pat-neutral">形态 · 震荡</span>
-      <span style="font-size:10.5px;color:#94a3b8">综合分 +0.01</span>
-      <span style="font-size:10.5px;color:#94a3b8">缺口 偏多 +0.16</span>
-      <span style="font-size:10.5px;color:#16a34a;font-weight:600">双向证据（印证因子 -0.12）</span>
+      <span style="font-size:10.5px;color:#94a3b8">综合分 -0.01</span>
+      <span style="font-size:10.5px;color:#94a3b8">缺口 中性 +0.10</span>
+      <span style="font-size:10.5px;color:#16a34a;font-weight:600">双向证据（印证因子 -0.14）</span>
     </div></div>
-        <div class="stg-card stg-wait"><div class="stg-head">🔍 监测结论<span class="src">只监测 · 不出交易动作（无对应期货合约）</span></div><div class="stg-trigger stg-trigger-ok">风险触发线均未触及</div><div class="stg-main"><span class="stg-action">监测</span><span class="stg-pos">不建立仓位<span class="stg-pos-note">（铝土矿无期货合约）</span></span><span class="stg-band">无成本带（资源品）</span><span class="stg-chain">勾稽 0/1</span></div><div class="stg-checks"><span class="stg-chip stg-na">— 利润传导</span><span class="stg-chip stg-bad">✗ 需求确认</span><span class="stg-chip stg-na">— 内外窗口</span></div><div class="stg-body"><div><b>锚定</b>：锚定中期档（综合分 -0.06 → 中性）；长期 中性。</div><div><b>路径</b>：路径分 -0.138（偏空），覆盖率 100%（正常）。</div><div><b>成本带</b>：几内亚 CIF 71.25美元/吨（2026-10-23）；该品种无成本带口径。</div><div><b>库存</b>：港口库存 3438万吨（2026-09-30），近1年分位 69%（中性），近5年分位 91%。</div><div><b>失效线</b>：观望区间：近1年低点 60.5美元/吨（现价 71.25，还需下跌 15.1% 才触及该线） / 近1年高点 72美元/吨（现价 71.25，还需上涨 1.05% 才触及该线）。</div></div><div class="stg-foot">L1 为监测层：铝土矿无期货合约、价格由几内亚政策风险主导（近1年分位 82.9%、近5年分位 69.3%），本卡只给方向与观察线，不给仓位与买卖指令。勾稽明细见「二、传导确认」，触发线见「四、后续跟踪重点」。数据截至 2026-10-23（价格）/ 2026-09-30（库存）。</div></div>
+        <div class="stg-card stg-wait"><div class="stg-head">🔍 监测结论<span class="src">只监测 · 不出交易动作（无对应期货合约）</span></div><div class="stg-trigger stg-trigger-ok">风险触发线均未触及</div><div class="stg-main"><span class="stg-action">监测</span><span class="stg-pos">不建立仓位<span class="stg-pos-note">（铝土矿无期货合约）</span></span><span class="stg-band">无成本带（资源品）</span><span class="stg-chain">勾稽 0/1</span></div><div class="stg-checks"><span class="stg-chip stg-na">— 利润传导</span><span class="stg-chip stg-bad">✗ 需求确认</span><span class="stg-chip stg-na">— 内外窗口</span></div><div class="stg-body"><div><b>锚定</b>：锚定中期档（综合分 -0.06 → 中性）；长期 中性。</div><div><b>路径</b>：路径分 -0.138（中性），覆盖率 100%（正常）。</div><div><b>成本带</b>：几内亚 CIF 71.25美元/吨（2026-10-23）；该品种无成本带口径。</div><div><b>库存</b>：港口库存 3438万吨（2026-09-30），近1年分位 69%（中性），近5年分位 91%。</div><div><b>失效线</b>：观望区间：近1年低点 60.5美元/吨（现价 71.25，还需下跌 15.1% 才触及该线） / 近1年高点 72美元/吨（现价 71.25，还需上涨 1.05% 才触及该线）。</div></div><div class="stg-foot">L1 为监测层：铝土矿无期货合约、价格由几内亚政策风险主导（近1年分位 82.9%、近5年分位 69.3%），本卡只给方向与观察线，不给仓位与买卖指令。勾稽明细见「二、传导确认」，触发线见「四、后续跟踪重点」。数据截至 2026-10-23（价格）/ 2026-09-30（库存）。</div></div>
         <div class="core-logic">
     <div class="cl-title">🧭 核心逻辑（盘面持平 · 基本面偏松）</div>
     <div class="cl-para"><div class="cl-ph">一、盘面 vs 基本面（10-15→10-22）</div><div class="cl-pd"><b class="cl-star">★盘面★</b>：山西高品矿价 <b>595元/吨</b>（持平） · 近5年分位 43%；几内亚 CIF <b>71.25美元/吨</b>（持平） · 近5年分位 70% <span class="cl-muted">（该品种无期货，取现货指数）</span>。<br/><b class="cl-star">★基本面★</b>（口径：<b>一律以上期基准</b>（上一期观测，月频＝上一月）为准）：港口库存 <b>3514→3438万吨</b>（-76万吨，-2.2%） · 近4年分位 91% <span class="cl-rule"><b class="cl-concl">去库</b></span>；铝土矿进口 <b>1545.08→1833.23万吨</b>（+288.14万吨，+18.6%） · 近5年分位 87% <span class="cl-muted" title="本行按日均值口径参与打分 (v ÷ 当月天数); 上方为总量环比">· 日均 +22.60%</span> <span class="cl-rule"><b class="cl-concl">增量</b></span>；氧化铝月产量 <b>754.38→759.88万吨</b>（+5.5万吨，+0.7%） · 近5年分位 93% <span class="cl-muted" title="本行按日均值口径参与打分 (v ÷ 当月天数); 上方为总量环比">· 日均 +4.09%</span> <span class="cl-rule"><b class="cl-concl">走强</b></span>。<br/><b class="cl-star">→ 盘面持平</b>（基本面 港口库存 <b class="cl-concl">偏多</b> / 铝土矿进口 <b class="cl-concl">偏空</b> / 氧化铝月产量 <b class="cl-concl">偏多</b>）</div></div><div class="cl-para"><div class="cl-ph">二、传导确认（上游 → 本层 → 下游）</div><div class="cl-pd"><b class="cl-star">★上游★</b>：<span class="cl-muted">铝土矿是产业链源头, 无上游原料环节</span>。<br/><b class="cl-star">★本层★</b>：<b>国内月产量 472.44万吨</b>（2026-09-30，环比 -2.8% · <span class="cl-muted" title="本行按日均值口径参与打分 (v ÷ 当月天数); 上方为总量环比">日均 +0.45%</span>）；<b>铝土矿进口 1833.23万吨</b>（2026-09-30，环比 +18.6% · <span class="cl-muted" title="本行按日均值口径参与打分 (v ÷ 当月天数); 上方为总量环比">日均 +22.60%</span>）。<br/><b class="cl-star">★下游★</b>：<b>氧化铝月产量 759.88万吨</b>（环比 +5.5万吨，+0.7%；↑ 连升 3期 (+1.2%/月)）→ <b class="cl-concl">下游需求走强, 对本环节构成支撑</b>；<b>氧化铝开工率 79.4%</b>（环比 -1.7%，-2.1%；↓ 连降 2期 (-0.3%/周)）→ <b class="cl-concl">下游需求走弱, 对本环节形成拖累</b>。<br/><b class="cl-star">★勾稽三问★</b>：① 利润传导 —（产业链源头，无上游成本口径）；② 需求确认 ✗（氧化铝月产量 +5.3%（2026-09-30） → 需求环节加权分 -0.00（门槛 > 0））；③ 内外窗口 —（Excel 无该品种净进口/出口利润口径）。→ <b class="cl-concl">通过 0/1</b>。</div></div><div class="cl-para"><div class="cl-ph">三、关键变量（中期档 |打分| 前 3 · 分数见「③ 信号清单」）</div><div class="cl-pd">① <b>库存·全国库存</b> 6193.3万吨（2026-09-30，环比 +1.3%） → <b class="cl-concl">压制</b><br/>② <b>供给·国内月产量</b> 472.44万吨（2026-09-30，环比 -2.8% · <span class="cl-muted" title="本行按日均值口径参与打分 (v ÷ 当月天数); 括号内为日均环比, 上方为总量环比">日均 +0.45%</span>） → <b class="cl-concl">中性</b><br/>③ <b>利润·完全成本</b> 2767元/吨（2026-10-16，环比 +0.1%） → <b class="cl-concl">中性</b></div></div><div class="cl-para"><div class="cl-ph">四、后续跟踪重点（触发即需修正上述判断）</div><div class="cl-pd"><div class="cl-trig" data-trigger='{"label":"进口到港再度中断","sheet":"L1铝土矿进口-月","col":"中国铝土矿月度进口量","curSheet":null,"curCol":null,"dir":"below","fixedLine":null,"cur":1833.2293,"curDate":"2026-09-30","actionLine":1371.7265,"actionDate":"2025-10-31","confirmBand":246.13078000000004,"state":"未触及","confirmed":false,"obsThreshold":31.85984920953186,"obsDeltaPct":18.649136577911214,"distancePct":25.174308527580262,"risk":true,"invalidShort":false,"perDay":false}'>① <b>进口到港再度中断</b>（供应）<br/>
@@ -2739,61 +2761,61 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
       </td><td class="dc-dimcell" style="">
         <div class="dc-mini"><div class="dc-mini-fill" style="width:0%;background:#94a3b8"></div></div>
         <span style="color:#94a3b8;font-weight:600;font-size:11px">+0.00</span>
-      </td><td class="dc-dimcell" style="background:rgba(22,163,74,0.09);">
-        <div class="dc-mini"><div class="dc-mini-fill" style="width:38%;background:#16a34a"></div></div>
-        <span style="color:#16a34a;font-weight:600;font-size:11px">-0.38</span>
+      </td><td class="dc-dimcell" style="background:rgba(22,163,74,0.14);">
+        <div class="dc-mini"><div class="dc-mini-fill" style="width:57%;background:#16a34a"></div></div>
+        <span style="color:#16a34a;font-weight:600;font-size:11px">-0.57</span>
       </td></tr><tr class=""><td class="dc-dim">需求</td><td class="dc-dimcell" style="">
         <div class="dc-mini"><div class="dc-mini-fill" style="width:0%;background:#94a3b8"></div></div>
         <span style="color:#94a3b8;font-weight:600;font-size:11px">-0.00</span>
       </td><td class="dc-dimcell" style="">
         <div class="dc-mini"><div class="dc-mini-fill" style="width:0%;background:#94a3b8"></div></div>
         <span style="color:#94a3b8;font-weight:600;font-size:11px">-0.00</span>
-      </td><td class="dc-dimcell" style="background:rgba(220,38,38,0.13);">
-        <div class="dc-mini"><div class="dc-mini-fill" style="width:54%;background:#dc2626"></div></div>
-        <span style="color:#dc2626;font-weight:600;font-size:11px">+0.54</span>
+      </td><td class="dc-dimcell" style="background:rgba(220,38,38,0.16);">
+        <div class="dc-mini"><div class="dc-mini-fill" style="width:68%;background:#dc2626"></div></div>
+        <span style="color:#dc2626;font-weight:600;font-size:11px">+0.68</span>
       </td></tr><tr class=""><td class="dc-dim">库存</td><td class="dc-dimcell" style="background:rgba(22,163,74,0.09);">
         <div class="dc-mini"><div class="dc-mini-fill" style="width:36%;background:#16a34a"></div></div>
         <span style="color:#16a34a;font-weight:600;font-size:11px">-0.36</span>
       </td><td class="dc-dimcell" style="background:rgba(22,163,74,0.09);">
         <div class="dc-mini"><div class="dc-mini-fill" style="width:36%;background:#16a34a"></div></div>
         <span style="color:#16a34a;font-weight:600;font-size:11px">-0.36</span>
-      </td><td class="dc-dimcell" style="background:rgba(22,163,74,0.13);">
-        <div class="dc-mini"><div class="dc-mini-fill" style="width:55%;background:#16a34a"></div></div>
-        <span style="color:#16a34a;font-weight:600;font-size:11px">-0.55</span>
+      </td><td class="dc-dimcell" style="background:rgba(22,163,74,0.15);">
+        <div class="dc-mini"><div class="dc-mini-fill" style="width:63%;background:#16a34a"></div></div>
+        <span style="color:#16a34a;font-weight:600;font-size:11px">-0.63</span>
       </td></tr><tr class=""><td class="dc-dim">价格</td><td class="dc-dimcell" style="">
         <div class="dc-mini"><div class="dc-mini-fill" style="width:0%;background:#94a3b8"></div></div>
         <span style="color:#94a3b8;font-weight:600;font-size:11px">+0.00</span>
       </td><td class="dc-dimcell" style="">
         <div class="dc-mini"><div class="dc-mini-fill" style="width:1%;background:#94a3b8"></div></div>
         <span style="color:#94a3b8;font-weight:600;font-size:11px">+0.01</span>
-      </td><td class="dc-dimcell" style="background:rgba(220,38,38,0.08);">
-        <div class="dc-mini"><div class="dc-mini-fill" style="width:32%;background:#dc2626"></div></div>
-        <span style="color:#dc2626;font-weight:600;font-size:11px">+0.32</span>
+      </td><td class="dc-dimcell" style="background:rgba(220,38,38,0.09);">
+        <div class="dc-mini"><div class="dc-mini-fill" style="width:35%;background:#dc2626"></div></div>
+        <span style="color:#dc2626;font-weight:600;font-size:11px">+0.35</span>
       </td></tr><tr class=""><td class="dc-dim">利润</td><td class="dc-dimcell" style="">
         <div class="dc-mini"><div class="dc-mini-fill" style="width:0%;background:#94a3b8"></div></div>
         <span style="color:#94a3b8;font-weight:600;font-size:11px">-0.00</span>
       </td><td class="dc-dimcell" style="">
         <div class="dc-mini"><div class="dc-mini-fill" style="width:1%;background:#94a3b8"></div></div>
         <span style="color:#94a3b8;font-weight:600;font-size:11px">+0.01</span>
-      </td><td class="dc-dimcell" style="background:rgba(22,163,74,0.02);">
-        <div class="dc-mini"><div class="dc-mini-fill" style="width:8%;background:#16a34a"></div></div>
-        <span style="color:#16a34a;font-weight:600;font-size:11px">-0.08</span>
+      </td><td class="dc-dimcell" style="background:rgba(22,163,74,0.01);">
+        <div class="dc-mini"><div class="dc-mini-fill" style="width:6%;background:#16a34a"></div></div>
+        <span style="color:#16a34a;font-weight:600;font-size:11px">-0.06</span>
       </td></tr><tr class="dc-dimrow-gap"><td class="dc-dim">供需缺口<span class="dc-dim-sub">派生 = 供给 + 需求</span></td><td class="dc-dimcell dc-dimcell-gap" style="">
         <div class="dc-mini"><div class="dc-mini-fill" style="width:0%;background:#94a3b8"></div></div>
         <span style="color:#94a3b8;font-weight:600;font-size:11px">-0.00</span>
       </td><td class="dc-dimcell dc-dimcell-gap" style="">
         <div class="dc-mini"><div class="dc-mini-fill" style="width:0%;background:#94a3b8"></div></div>
         <span style="color:#94a3b8;font-weight:600;font-size:11px">-0.00</span>
-      </td><td class="dc-dimcell dc-dimcell-gap" style="background:rgba(220,38,38,0.04);">
-        <div class="dc-mini"><div class="dc-mini-fill" style="width:16%;background:#dc2626"></div></div>
-        <span style="color:#dc2626;font-weight:600;font-size:11px">+0.16</span>
+      </td><td class="dc-dimcell dc-dimcell-gap" style="background:rgba(220,38,38,0.02);">
+        <div class="dc-mini"><div class="dc-mini-fill" style="width:10%;background:#dc2626"></div></div>
+        <span style="color:#dc2626;font-weight:600;font-size:11px">+0.10</span>
       </td></tr><tr class="dc-formula"><td colspan="4">
     <span class="dc-fx-label">综合分 (中期)</span>
     <span class="dc-fx">0.45 × <b style="color:#16a34a">-0.00</b><span class="dc-fx-dim">缺口</span></span>
     <span class="dc-fx-op">+</span>
     <span class="dc-fx">0.35 × <b style="color:#16a34a">-0.17</b><span class="dc-fx-dim">印证 = (库存 -0.36 + 价格 +0.01) / 2</span></span>
     <span class="dc-fx-op">+</span>
-    <span class="dc-fx">0.20 × <b style="color:#dc2626">+0.01</b><span class="dc-fx-dim">利润</span></span>
+    <span class="dc-fx">0.20 × <b style="color:#dc2626">+0.01</b><span class="dc-fx-dim">成本</span></span>
     <span class="dc-fx-op">=</span>
     <b class="dc-fx-final" style="color:#16a34a">-0.06</b>
     <span class="cc-bias cc-bias-neutral">中性</span>
@@ -2820,7 +2842,7 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
         <span class="cc-bias cc-bias-neutral">中性</span>
         <span style="font-size:10px;color:#94a3b8">代理缺口 100% (Excel 无显式平衡表)</span>
       </div>
-      <ul class="dc-narr-list"><li>供给端偏紧 (国内月产量 472.44万吨, 近1年 ↓ -15.77万吨 (-3.2%), 5年趋势拟合位 <b>8%</b>); 供给端偏松 (铝土矿进口 1833.23万吨, 近1年 ↑ +253.14万吨 (+16.0%), 5年趋势拟合位 <b>90%</b>)</li><li>需求端偏紧 (氧化铝月产量 759.88万吨, 近1年 ↓ -0.49万吨 (-0.1%), 5年趋势拟合位 <b>95%</b>)</li><li>Excel 无显式平衡表, 供需缺口为代理口径 (需求分 + 供给分)</li><li>库存端偏松 (全国库存 6193.30万吨, 近1年 ↑ +966.76万吨 (+18.5%), 5年趋势拟合位 <b>83%</b>); 价格端偏紧 (山西高品矿价 595.00元/吨, 近1年 ↓ -60.00元/吨 (-9.2%), 5年趋势拟合位 <b>89%</b> 等 2 项同向)</li></ul>
+      <ul class="dc-narr-list"><li>供给端偏紧 (国内月产量 472.44万吨, 5年趋势拟合位 <b>8%</b>, 趋势 <b>↓</b>-0.37%/期); 供给端偏松 (铝土矿进口 1833.23万吨, 5年趋势拟合位 <b>90%</b>, 趋势 <b>↑</b>+1.30%/期)</li><li>需求端偏紧 (氧化铝月产量 759.88万吨, 5年趋势拟合位 <b>95%</b>, 趋势 <b>↑</b>+0.34%/期)</li><li>Excel 无显式平衡表, 供需缺口为代理口径 (需求分 + 供给分)</li><li>库存端偏松 (全国库存 6193.30万吨, 5年趋势拟合位 <b>83%</b>, 趋势 <b>↑</b>+0.56%/期); 价格端偏紧 (山西高品矿价 595.00元/吨, 5年趋势拟合位 <b>89%</b>, 趋势 <b>↑</b>+0.01%/期 等 2 项同向)</li></ul>
     </div></div>
         <div class="dc-chainlink">
     <div class="dc-chainlink-head">🔗 上下游传导 <span class="src">上游成本/原料 → 本环节 → 下游需求 · 全部取自 Excel 跨环节列</span></div>
@@ -4084,9 +4106,9 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
       <span class="dc-hz">长期 <span class="dc-hz-sub">年度</span></span>
       <span class="cc-bias cc-bias-bear">偏空</span>
       <span class="pat-chip pat-bear">形态 · 下行</span>
-      <span style="font-size:10.5px;color:#94a3b8">综合分 -0.23</span>
-      <span style="font-size:10.5px;color:#94a3b8">缺口 中性 -0.08</span>
-      <span style="font-size:10.5px;color:#dc2626;font-weight:600">印证（印证因子 -0.52）</span>
+      <span style="font-size:10.5px;color:#94a3b8">综合分 -0.20</span>
+      <span style="font-size:10.5px;color:#94a3b8">缺口 中性 -0.13</span>
+      <span style="font-size:10.5px;color:#dc2626;font-weight:600">印证（印证因子 -0.37）</span>
     </div></div>
         <div class="stg-card stg-wait"><div class="stg-head">🎯 策略建议<span class="src">锚定中期档 × 路径分 × 触发覆盖 · 规则化生成</span></div><div class="stg-trigger stg-trigger-ok">风险触发线无「已触发」项，但有 1 条<b>已越过行动线、仍在确认带内</b>：过剩兑现、开始累库</div><div class="stg-trigger stg-trigger-lme">🔺 空头失效线已触发：期货跌破现金成本（追空赔率差）：期货已跌破现金成本、盘面贴近成本线 → 追空赔率差（不新开空）；失效的是**执行**不是**方向**（空头方向仍成立）（已跌破/越过 32.00元/吨（1.23%））</div><div class="stg-main"><span class="stg-action">观望</span><span class="stg-pos">建议仓位 0%<span class="stg-pos-note">（占该品种策略资金）</span></span><span class="stg-band">现金成本下方 · 低于现金成本 1.2%</span><span class="stg-chain">勾稽 0/3</span></div><div class="stg-checks"><span class="stg-chip stg-bad">✗ 利润传导</span><span class="stg-chip stg-bad">✗ 需求确认</span><span class="stg-chip stg-bad">✗ 内外窗口</span></div><div class="stg-viewnote">观点：<b>偏空</b> （过剩量 23.2 万吨，过剩加剧） ——期货已跌破现金成本而现货未破，<b>追空赔率差</b></div><div class="stg-body"><div><b>锚定</b>：锚定中期档（综合分 -0.27 → 偏空）；基础动作 偏空 → 最终 观望；长期 偏空（与中期同向）。</div><div><b>路径</b>：路径分 -0.169（偏空），覆盖率 100%（正常）。</div><div><b>成本带</b>：氧化铝主连 2565元/吨（2026-10-27） vs 现金成本 2597 / 完全成本 2767 元/吨（2026-10-16） → 低于现金成本 1.2%。</div><div class="stg-costmeaning"><b>成本带意义</b>：成本带只回答「能不能追空」，不决定方向：期货口径 <b>已跌破现金成本 1.2%</b>；SMM 指数口径 +2.2%（2026-10-23，现货未破现金成本） → <b>追空赔率已差</b>（期货破成本 + 现货未破）→ <b>不追空</b>；但<b>「跌破即减产」不成立</b>（开工率近 5 年分位 13%，低分位 ≠ 减产）——运行 9875 / 建成 12432 万吨/年，闲置 20.6%，运行/年化需求 111.5% → 过剩量 23.2 万吨（2026-09-30），上期 13.5 万吨，<b>过剩加剧</b>；方向由供需推导：偏空。</div><div><b>成本距离</b>：期货主连 2565（2026-10-27）vs 现金成本 2597（2026-10-16） → 已跌破 1.2% → 禁止新开空，仓位上限 0；开工率 81.57→81.16→79.43%（10-02→10-09→10-16，-2.14pp） 拆解：分子效应（真实减产）-0.57pp（运行产能 -70 万吨）、分母效应（新产能投产）-1.56pp（建成产能 +240 万吨） → <b>73% 的降幅来自新产能投产，不是减产</b>（产能净增 170 万吨）→ 减产刹车未出现、过剩加剧（SMM 现货口径 +2.2%（2026-10-23）<b>现货未破现金成本</b>）。</div><div><b>库存</b>：全国库存 710.2万吨（2026-10-23），近1年分位 100%（高位），近5年分位 100%。</div><div><b>基差</b>：现货 2653.00 − 氧化铝主连 2576.00（2026-10-23，同日）= <b>+77.00 元/吨</b>；5 个交易日前 +25.00（2026-10-16）→ 走强 52.00。基差为正 = 现货强于盘面；<b>不计入环节分</b>（无独立打分项）, 但已写进「成本带意义」与「观点」——期货超跌、现货未破现金成本 → 追空赔率差。</div><div><b>空头失效线</b>：期货跌破现金成本（追空赔率差）：期货已跌破现金成本、盘面贴近成本线 → 追空赔率差（不新开空）；失效的是**执行**不是**方向**（空头方向仍成立）（已跌破/越过 32.00元/吨（1.23%））；按既定口径该线只作提示，<b>不联动多头仓位</b>（动作与仓位仍由中期档、路径分、风险触发覆盖决定）。</div><div><b>失效线</b>：观望区间：上沿完全成本 2767 元/吨（现价 2565，还需上涨 7.9% 才触及上沿） / 下沿现金成本 2597 元/吨（现价 2565，已低于下沿 1.25%） → <b>现价已跌破下沿现金成本</b>：空头前提失效，转观望（不是「未触及」）。</div></div><div class="stg-foot">动作 = 中期档方向（综合分）∩ 路径分 ∩ 触发覆盖，多条约束取最严格；不给预测，触发失效线即退出。勾稽明细见「二、传导确认」，触发线见「四、后续跟踪重点」。数据截至 2026-10-27（价格）/ 2026-10-23（库存）。</div></div>
         <div class="core-logic">
@@ -4142,61 +4164,61 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
       </td><td class="dc-dimcell" style="background:rgba(22,163,74,0.12);">
         <div class="dc-mini"><div class="dc-mini-fill" style="width:50%;background:#16a34a"></div></div>
         <span style="color:#16a34a;font-weight:600;font-size:11px">-0.50</span>
-      </td><td class="dc-dimcell" style="background:rgba(22,163,74,0.14);">
-        <div class="dc-mini"><div class="dc-mini-fill" style="width:56%;background:#16a34a"></div></div>
-        <span style="color:#16a34a;font-weight:600;font-size:11px">-0.56</span>
+      </td><td class="dc-dimcell" style="background:rgba(22,163,74,0.16);">
+        <div class="dc-mini"><div class="dc-mini-fill" style="width:65%;background:#16a34a"></div></div>
+        <span style="color:#16a34a;font-weight:600;font-size:11px">-0.65</span>
       </td></tr><tr class=""><td class="dc-dim">需求</td><td class="dc-dimcell" style="">
         <div class="dc-mini"><div class="dc-mini-fill" style="width:0%;background:#94a3b8"></div></div>
         <span style="color:#94a3b8;font-weight:600;font-size:11px">-0.00</span>
       </td><td class="dc-dimcell" style="">
         <div class="dc-mini"><div class="dc-mini-fill" style="width:0%;background:#94a3b8"></div></div>
         <span style="color:#94a3b8;font-weight:600;font-size:11px">-0.00</span>
-      </td><td class="dc-dimcell" style="background:rgba(220,38,38,0.15);">
-        <div class="dc-mini"><div class="dc-mini-fill" style="width:61%;background:#dc2626"></div></div>
-        <span style="color:#dc2626;font-weight:600;font-size:11px">+0.61</span>
+      </td><td class="dc-dimcell" style="background:rgba(220,38,38,0.17);">
+        <div class="dc-mini"><div class="dc-mini-fill" style="width:72%;background:#dc2626"></div></div>
+        <span style="color:#dc2626;font-weight:600;font-size:11px">+0.72</span>
       </td></tr><tr class=""><td class="dc-dim">库存</td><td class="dc-dimcell" style="background:rgba(22,163,74,0.08);">
         <div class="dc-mini"><div class="dc-mini-fill" style="width:32%;background:#16a34a"></div></div>
         <span style="color:#16a34a;font-weight:600;font-size:11px">-0.32</span>
       </td><td class="dc-dimcell" style="background:rgba(22,163,74,0.09);">
         <div class="dc-mini"><div class="dc-mini-fill" style="width:39%;background:#16a34a"></div></div>
         <span style="color:#16a34a;font-weight:600;font-size:11px">-0.39</span>
-      </td><td class="dc-dimcell" style="background:rgba(22,163,74,0.19);">
-        <div class="dc-mini"><div class="dc-mini-fill" style="width:78%;background:#16a34a"></div></div>
-        <span style="color:#16a34a;font-weight:600;font-size:11px">-0.78</span>
+      </td><td class="dc-dimcell" style="background:rgba(22,163,74,0.11);">
+        <div class="dc-mini"><div class="dc-mini-fill" style="width:47%;background:#16a34a"></div></div>
+        <span style="color:#16a34a;font-weight:600;font-size:11px">-0.47</span>
       </td></tr><tr class=""><td class="dc-dim">价格</td><td class="dc-dimcell" style="">
         <div class="dc-mini"><div class="dc-mini-fill" style="width:2%;background:#94a3b8"></div></div>
         <span style="color:#94a3b8;font-weight:600;font-size:11px">+0.02</span>
       </td><td class="dc-dimcell" style="">
         <div class="dc-mini"><div class="dc-mini-fill" style="width:3%;background:#94a3b8"></div></div>
         <span style="color:#94a3b8;font-weight:600;font-size:11px">+0.03</span>
-      </td><td class="dc-dimcell" style="background:rgba(22,163,74,0.06);">
-        <div class="dc-mini"><div class="dc-mini-fill" style="width:26%;background:#16a34a"></div></div>
-        <span style="color:#16a34a;font-weight:600;font-size:11px">-0.26</span>
+      </td><td class="dc-dimcell" style="background:rgba(22,163,74,0.07);">
+        <div class="dc-mini"><div class="dc-mini-fill" style="width:27%;background:#16a34a"></div></div>
+        <span style="color:#16a34a;font-weight:600;font-size:11px">-0.27</span>
       </td></tr><tr class=""><td class="dc-dim">利润</td><td class="dc-dimcell" style="">
         <div class="dc-mini"><div class="dc-mini-fill" style="width:0%;background:#94a3b8"></div></div>
         <span style="color:#94a3b8;font-weight:600;font-size:11px">-0.00</span>
       </td><td class="dc-dimcell" style="">
         <div class="dc-mini"><div class="dc-mini-fill" style="width:1%;background:#94a3b8"></div></div>
         <span style="color:#94a3b8;font-weight:600;font-size:11px">+0.01</span>
-      </td><td class="dc-dimcell" style="background:rgba(22,163,74,0.02);">
-        <div class="dc-mini"><div class="dc-mini-fill" style="width:8%;background:#16a34a"></div></div>
-        <span style="color:#16a34a;font-weight:600;font-size:11px">-0.08</span>
+      </td><td class="dc-dimcell" style="background:rgba(22,163,74,0.01);">
+        <div class="dc-mini"><div class="dc-mini-fill" style="width:6%;background:#16a34a"></div></div>
+        <span style="color:#16a34a;font-weight:600;font-size:11px">-0.06</span>
       </td></tr><tr class="dc-dimrow-gap"><td class="dc-dim">供需缺口<span class="dc-dim-sub">派生 = 供给 + 需求</span></td><td class="dc-dimcell dc-dimcell-gap" style="background:rgba(22,163,74,0.11);">
         <div class="dc-mini"><div class="dc-mini-fill" style="width:47%;background:#16a34a"></div></div>
         <span style="color:#16a34a;font-weight:600;font-size:11px">-0.47</span>
       </td><td class="dc-dimcell dc-dimcell-gap" style="background:rgba(22,163,74,0.11);">
         <div class="dc-mini"><div class="dc-mini-fill" style="width:45%;background:#16a34a"></div></div>
         <span style="color:#16a34a;font-weight:600;font-size:11px">-0.45</span>
-      </td><td class="dc-dimcell dc-dimcell-gap" style="background:rgba(22,163,74,0.02);">
-        <div class="dc-mini"><div class="dc-mini-fill" style="width:8%;background:#16a34a"></div></div>
-        <span style="color:#16a34a;font-weight:600;font-size:11px">-0.08</span>
+      </td><td class="dc-dimcell dc-dimcell-gap" style="background:rgba(22,163,74,0.03);">
+        <div class="dc-mini"><div class="dc-mini-fill" style="width:13%;background:#16a34a"></div></div>
+        <span style="color:#16a34a;font-weight:600;font-size:11px">-0.13</span>
       </td></tr><tr class="dc-formula"><td colspan="4">
     <span class="dc-fx-label">综合分 (中期)</span>
     <span class="dc-fx">0.45 × <b style="color:#16a34a">-0.45</b><span class="dc-fx-dim">缺口</span></span>
     <span class="dc-fx-op">+</span>
     <span class="dc-fx">0.35 × <b style="color:#16a34a">-0.18</b><span class="dc-fx-dim">印证 = (库存 -0.39 + 价格 +0.03) / 2</span></span>
     <span class="dc-fx-op">+</span>
-    <span class="dc-fx">0.20 × <b style="color:#dc2626">+0.01</b><span class="dc-fx-dim">利润</span></span>
+    <span class="dc-fx">0.20 × <b style="color:#dc2626">+0.01</b><span class="dc-fx-dim">成本</span></span>
     <span class="dc-fx-op">=</span>
     <b class="dc-fx-final" style="color:#16a34a">-0.27</b>
     <span class="cc-bias cc-bias-bear">偏空</span>
@@ -4223,7 +4245,7 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
         <span class="cc-bias cc-bias-bear">偏空</span>
         <span style="font-size:10px;color:#94a3b8">代理缺口 50% + 平衡表 50%</span>
       </div>
-      <ul class="dc-narr-list"><li>供给端偏松 (氧化铝建成产能 12432.00万吨, 近1年 ↑ +970.00万吨 (+8.5%), 5年趋势拟合位 <b>96%</b> 等 3 项同向)</li><li>需求端偏紧 (电解铝月产量 374.90万吨, 近1年 ↑ +6.40万吨 (+1.7%), 5年趋势拟合位 <b>100%</b>)</li><li>显式平衡表 (L2氧化铝平衡-月, 2026-09-30): 产量 759.90万吨 / 净进口 -15.00万吨 / 表观消费 744.90万吨 / 实际消费 721.70万吨, 过剩量 23.20万吨 (过剩/累库), 近5年分位 78%</li><li>库存端偏松 (全国库存 710.20万吨, 近1年 ↑ +246.30万吨 (+53.1%), 5年趋势拟合位 <b>81%</b>); 价格端偏紧 (西澳 FOB 391.00美元/吨, 近1年 ↑ +73.00美元/吨 (+23.0%), 近5年分位 <b>77%</b>); 价格端偏松 (氧化铝主连 2565.00元/吨, 近1年 ↓ -264.00元/吨 (-9.3%), 近5年分位 <b>2%</b> 等 2 项同向)</li></ul>
+      <ul class="dc-narr-list"><li>供给端偏松 (氧化铝月产量 759.88万吨, 5年趋势拟合位 <b>95%</b>, 趋势 <b>↑</b>+0.34%/期 等 3 项同向)</li><li>需求端偏紧 (电解铝月产量 374.90万吨, 5年趋势拟合位 <b>100%</b>, 趋势 <b>↑</b>+0.30%/期)</li><li>显式平衡表 (L2氧化铝平衡-月, 2026-09-30): 产量 759.90万吨 / 净进口 -15.00万吨 / 表观消费 744.90万吨 / 实际消费 721.70万吨, 过剩量 23.20万吨 (过剩/累库), 近5年分位 78%</li><li>库存端偏松 (全国库存 710.20万吨, 5年趋势拟合位 <b>81%</b>, 趋势 <b>↑</b>+0.24%/期); 价格端偏紧 (西澳 FOB 391.00美元/吨, 近5年分位 <b>77%</b>, 趋势 <b>↑</b>+0.00%/期); 价格端偏松 (氧化铝主连 2565.00元/吨, 近5年分位 <b>2%</b>, 趋势 <b>↓</b>-0.03%/期 等 2 项同向)</li></ul>
     </div></div>
         <div class="dc-chainlink">
     <div class="dc-chainlink-head">🔗 上下游传导 <span class="src">上游成本/原料 → 本环节 → 下游需求 · 全部取自 Excel 跨环节列</span></div>
@@ -5560,11 +5582,11 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
       <span class="dc-hz">长期 <span class="dc-hz-sub">年度</span></span>
       <span class="cc-bias cc-bias-neutral">中性</span>
       <span class="pat-chip pat-neutral">形态 · 震荡</span>
-      <span style="font-size:10.5px;color:#94a3b8">综合分 +0.14</span>
-      <span style="font-size:10.5px;color:#94a3b8">缺口 偏多 +0.34</span>
-      <span style="font-size:10.5px;color:#dc2626;font-weight:600">印证（印证因子 +0.14）</span>
+      <span style="font-size:10.5px;color:#94a3b8">综合分 +0.07</span>
+      <span style="font-size:10.5px;color:#94a3b8">缺口 中性 +0.08</span>
+      <span style="font-size:10.5px;color:#dc2626;font-weight:600">印证（印证因子 +0.16）</span>
     </div></div>
-        <div class="stg-card stg-wait"><div class="stg-head">🎯 策略建议<span class="src">锚定中期档 × 路径分 × 触发覆盖 · 规则化生成</span></div><div class="stg-trigger stg-trigger-ok">风险触发线无「已触发」项，但有 1 条<b>已越过行动线、仍在确认带内</b>：供给刚性减弱；⚠ 1 条触发线本轮不可评估（Excel 缺表：终端需求证伪）</div><div class="stg-trigger stg-trigger-lme">🔺 空头失效线已触发：LME 0-3 > +3 美元（2 期）：海外转紧（空头方向被证伪）（连续 2 期确认：2026-10-23 27.51美元/吨、2026-10-22 22.98美元/吨）</div><div class="stg-main"><span class="stg-action">观望</span><span class="stg-pos">建议仓位 0-30%<span class="stg-pos-note">（占该品种策略资金）</span></span><span class="stg-band">完全成本上方 · 高于完全成本 +43.2%</span><span class="stg-chain">勾稽 1/3</span></div><div class="stg-checks"><span class="stg-chip stg-bad">✗ 利润传导</span><span class="stg-chip stg-ok">✓ 需求确认</span><span class="stg-chip stg-bad">✗ 内外窗口</span></div><div class="stg-body"><div><b>锚定</b>：锚定中期档（综合分 -0.12 → 中性）；长期 中性。</div><div><b>路径</b>：路径分 +0.161（偏多），覆盖率 100%（正常）。</div><div><b>成本带</b>：沪铝主连 23450元/吨（2026-10-27） vs 现金成本 14175.83 / 完全成本 16375.83 元/吨（2026-10-23） → 高于完全成本 +43.2%；吨铝利润 7294.18 元/吨（2026-10-23）。</div><div class="stg-costmeaning"><b>成本带意义</b>：<b>成本带不构成支撑，下方无供给刹车</b>：现价高于完全成本 +43.2%、高于现金成本 +65.4%（A00 现货 +44.5% / +67.0%），开工率 99.34%、闲置产能仅 30 万吨（0.7%）→ <b>无有效供给刹车</b>，即便跌回成本区间也可能不减产；成本带只回答「能不能追空」，不提供下行保护。</div><div><b>产能</b>：运行产能 4549.10 万吨（2026-10-09）/ 开工率 99.34%（2026-10-09） ≥ 政策上限 4500 万吨（101.1%，口径含置换/待退产能，需人工核实）→ 国内供给无弹性：高利润不再带来供给，下跌时也没有供给刹车；长期分上限 +0.15（未解封：社库近5年分位 24.4% ≤30%（已满足），需求环节分 +0.02 <+0.15（未满足） → 两条需同时满足）；当前长期综合分 +0.14 低于上限 +0.15 → <b>上限当前不生效（不构成压制）</b>，解封与否长期都是中性。</div><div><b>库存</b>：社会库存 58.3万吨（2026-10-22），近1年分位 2%（低位），近5年分位 24%。</div><div class="stg-extremes"><b>两极</b>：<b>两极并列</b>：<b>① 库存极低</b>：社会库存 58.3万吨（2026-10-22）近1年分位 2% → 该行打分 <b>+0.59</b>（利多方向）；<b>② 高位极值</b>：吨铝利润 近5年分位 88% → 该行打分 <b>-0.34</b>（压制方向）；价格端 A00 铝价(现货) 近5年分位 89%（高位极端）→ 价格分 -0.01（近中性）（价格分只按动量计、未并入水平位 → 高分位不进入分数）。<b>综合分 -0.12 = 0.45×缺口(-0.35) + 0.35×印证(+0.30) + 0.2×利润(-0.34)</b> —— 两极同时在场、加权后落在中性（可复算）。</div><div><b>基差</b>：现货 23670.00 − 沪铝主连 23350.00（2026-10-23，同日）= <b>+320.00 元/吨</b>；5 个交易日前 +190.00（2026-10-16）→ 走强 130.00。基差为正 = 现货强于盘面；<b>不计入环节分</b>（无独立打分项）, 仅作盘面参考。</div><div><b>进口平价</b>：进口平价（期货口径）23528 元/吨（2026-10-27，利润沿用 2026-10-22，跨日），距 +0.33%。</div><div><b>空头失效线</b>：LME 0-3 > +3 美元（2 期）：海外转紧（空头方向被证伪）（连续 2 期确认：2026-10-23 27.51美元/吨、2026-10-22 22.98美元/吨）；按既定口径该线只作提示，<b>不联动多头仓位</b>（动作与仓位仍由中期档、路径分、风险触发覆盖决定）。</div><div class="stg-topreconcile">⚠ <b>顶部对账</b>：LME 0-3 由 <b>-0.5</b> 美元/吨（2026-10-13）升到 <b>22.98</b> 美元/吨（2026-10-22，进口利润读数日） = +177 元/吨 进口成本（汇率 6.66×(1+13%) ≈ 7.53 元/吨 每美元）；但同期 M3 由 3034.5 降到 3006（-28.5 美元 ≈ -214 元/吨）→ <b>两者方向相反、相互抵消</b>，进口成本只从 23942 变到 23788（-154 元） → <b>进口平价（顶）几乎没被抬走</b>：现值 23528 元/吨，距现价 23450 仅 +0.33%；再把 0-3 换成最新的 27.51（2026-10-23）也只抬到 23562 元/吨（+0.48%）。<b>本线的正确含义是「海外转紧、空头方向被证伪」，不是「上方空间被打开」</b>。</div><div><b>入场带</b>：空头入场（<b>触发式</b>）：传统窄带 23516–23528 元/吨 宽 <b>12 元</b>、窄于 0.5×ATR（66 元）→ <b>带宽不可执行</b>，弃用窄带，改单点触发：① <b>启动 23516</b> 元/吨（= 现价 + 0.5×ATR）：价格上破该位才开空；② <b>离场 23528</b> 元/吨（= 进口平价 = 硬顶）：上破即硬顶失守、进口窗口打开 → 空头失效，立即平仓，不必等止损；⚠ 启动位与离场位只差 <b>12 元</b>（0.05%）→ <b>该触发式几乎没有可执行空间</b>，实际含义是「当前价位（23450）不适合开空」；须等 MA20 跌到进口平价之下、带宽恢复后按同一规则重算；止损 23713 元/吨（max(入场+1.5×ATR, 进口平价+0.3×ATR)）。</div><div><b>约束</b>：路径分与综合分方向相反 → 分歧折价，仓位封顶 30%。</div><div><b>失效线</b>：观望区间：上沿完全成本 16375.83 元/吨（现价 23450，已高于上沿 30.2%） / 下沿现金成本 14175.83 元/吨（现价 23450，还需下跌 39.5% 才触及下沿）。</div></div><div class="stg-foot">动作 = 中期档方向（综合分）∩ 路径分 ∩ 触发覆盖，多条约束取最严格；不给预测，触发失效线即退出。勾稽明细见「二、传导确认」，触发线见「四、后续跟踪重点」。数据截至 2026-10-27（价格）/ 2026-10-22（库存）。</div></div>
+        <div class="stg-card stg-wait"><div class="stg-head">🎯 策略建议<span class="src">锚定中期档 × 路径分 × 触发覆盖 · 规则化生成</span></div><div class="stg-trigger stg-trigger-ok">风险触发线无「已触发」项，但有 1 条<b>已越过行动线、仍在确认带内</b>：供给刚性减弱；⚠ 1 条触发线本轮不可评估（Excel 缺表：终端需求证伪）</div><div class="stg-trigger stg-trigger-lme">🔺 空头失效线已触发：LME 0-3 > +3 美元（2 期）：海外转紧（空头方向被证伪）（连续 2 期确认：2026-10-23 27.51美元/吨、2026-10-22 22.98美元/吨）</div><div class="stg-main"><span class="stg-action">观望</span><span class="stg-pos">建议仓位 0-30%<span class="stg-pos-note">（占该品种策略资金）</span></span><span class="stg-band">完全成本上方 · 高于完全成本 +43.2%</span><span class="stg-chain">勾稽 1/3</span></div><div class="stg-checks"><span class="stg-chip stg-bad">✗ 利润传导</span><span class="stg-chip stg-ok">✓ 需求确认</span><span class="stg-chip stg-bad">✗ 内外窗口</span></div><div class="stg-body"><div><b>锚定</b>：锚定中期档（综合分 -0.12 → 中性）；长期 中性。</div><div><b>路径</b>：路径分 +0.168（偏多），覆盖率 100%（正常）。</div><div><b>成本带</b>：沪铝主连 23450元/吨（2026-10-27） vs 现金成本 14175.83 / 完全成本 16375.83 元/吨（2026-10-23） → 高于完全成本 +43.2%；吨铝利润 7294.18 元/吨（2026-10-23）。</div><div class="stg-costmeaning"><b>成本带意义</b>：<b>成本带不构成支撑，下方无供给刹车</b>：现价高于完全成本 +43.2%、高于现金成本 +65.4%（A00 现货 +44.5% / +67.0%），开工率 99.34%、闲置产能仅 30 万吨（0.7%）→ <b>无有效供给刹车</b>，即便跌回成本区间也可能不减产；成本带只回答「能不能追空」，不提供下行保护。</div><div><b>产能</b>：运行产能 4549.10 万吨（2026-10-09）/ 开工率 99.34%（2026-10-09） ≥ 政策上限 4500 万吨（101.1%，口径含置换/待退产能，需人工核实）→ 国内供给无弹性：高利润不再带来供给，下跌时也没有供给刹车；长期分上限 +0.15（未解封：社库近5年分位 24.4% ≤30%（已满足），需求环节分 +0.02 <+0.15（未满足） → 两条需同时满足）；当前长期综合分 +0.07 低于上限 +0.15 → <b>上限当前不生效（不构成压制）</b>，解封与否长期都是中性。</div><div><b>库存</b>：社会库存 58.3万吨（2026-10-22），近1年分位 2%（低位），近5年分位 24%。</div><div class="stg-extremes"><b>两极</b>：<b>两极并列</b>：<b>① 库存极低</b>：社会库存 58.3万吨（2026-10-22）近1年分位 2% → 该行打分 <b>+0.59</b>（利多方向）；<b>② 高位极值</b>：吨铝利润 近5年分位 88% → 该行打分 <b>-0.34</b>（压制方向）；价格端 A00 铝价(现货) 近5年分位 89%（高位极端）→ 价格分 -0.01（近中性）（价格分只按动量计、未并入水平位 → 高分位不进入分数）。<b>综合分 -0.12 = 0.45×缺口(-0.35) + 0.35×印证(+0.30) + 0.2×利润(-0.34)</b> —— 两极同时在场、加权后落在中性（可复算）。</div><div><b>基差</b>：现货 23670.00 − 沪铝主连 23350.00（2026-10-23，同日）= <b>+320.00 元/吨</b>；5 个交易日前 +190.00（2026-10-16）→ 走强 130.00。基差为正 = 现货强于盘面；<b>不计入环节分</b>（无独立打分项）, 仅作盘面参考。</div><div><b>进口平价</b>：进口平价（期货口径）23528 元/吨（2026-10-27，利润沿用 2026-10-22，跨日），距 +0.33%。</div><div><b>空头失效线</b>：LME 0-3 > +3 美元（2 期）：海外转紧（空头方向被证伪）（连续 2 期确认：2026-10-23 27.51美元/吨、2026-10-22 22.98美元/吨）；按既定口径该线只作提示，<b>不联动多头仓位</b>（动作与仓位仍由中期档、路径分、风险触发覆盖决定）。</div><div class="stg-topreconcile">⚠ <b>顶部对账</b>：LME 0-3 由 <b>-0.5</b> 美元/吨（2026-10-13）升到 <b>22.98</b> 美元/吨（2026-10-22，进口利润读数日） = +177 元/吨 进口成本（汇率 6.66×(1+13%) ≈ 7.53 元/吨 每美元）；但同期 M3 由 3034.5 降到 3006（-28.5 美元 ≈ -214 元/吨）→ <b>两者方向相反、相互抵消</b>，进口成本只从 23942 变到 23788（-154 元） → <b>进口平价（顶）几乎没被抬走</b>：现值 23528 元/吨，距现价 23450 仅 +0.33%；再把 0-3 换成最新的 27.51（2026-10-23）也只抬到 23562 元/吨（+0.48%）。<b>本线的正确含义是「海外转紧、空头方向被证伪」，不是「上方空间被打开」</b>。</div><div><b>入场带</b>：空头入场（<b>触发式</b>）：传统窄带 23516–23528 元/吨 宽 <b>12 元</b>、窄于 0.5×ATR（66 元）→ <b>带宽不可执行</b>，弃用窄带，改单点触发：① <b>启动 23516</b> 元/吨（= 现价 + 0.5×ATR）：价格上破该位才开空；② <b>离场 23528</b> 元/吨（= 进口平价 = 硬顶）：上破即硬顶失守、进口窗口打开 → 空头失效，立即平仓，不必等止损；⚠ 启动位与离场位只差 <b>12 元</b>（0.05%）→ <b>该触发式几乎没有可执行空间</b>，实际含义是「当前价位（23450）不适合开空」；须等 MA20 跌到进口平价之下、带宽恢复后按同一规则重算；止损 23713 元/吨（max(入场+1.5×ATR, 进口平价+0.3×ATR)）。</div><div><b>约束</b>：路径分与综合分方向相反 → 分歧折价，仓位封顶 30%。</div><div><b>失效线</b>：观望区间：上沿完全成本 16375.83 元/吨（现价 23450，已高于上沿 30.2%） / 下沿现金成本 14175.83 元/吨（现价 23450，还需下跌 39.5% 才触及下沿）。</div></div><div class="stg-foot">动作 = 中期档方向（综合分）∩ 路径分 ∩ 触发覆盖，多条约束取最严格；不给预测，触发失效线即退出。勾稽明细见「二、传导确认」，触发线见「四、后续跟踪重点」。数据截至 2026-10-27（价格）/ 2026-10-22（库存）。</div></div>
         <div class="core-logic">
     <div class="cl-title">🧭 核心逻辑（盘面上行 · 基本面偏紧）</div>
     <div class="cl-para"><div class="cl-ph">一、盘面 vs 基本面（10-20→10-27）</div><div class="cl-pd"><b class="cl-star">★盘面★</b>：沪铝主连 <b>23310→23450元/吨</b>（+140元/吨，+0.6%） · 近5年分位 87%；LME 3M 铝 <b>3027→3038美元/吨</b>（+11美元/吨，+0.4%） · 近5年分位 79%。<br/><b class="cl-star">★基本面★</b>（口径：<b>一律以上期基准</b>（上一期观测，月频＝上一月）为准）：A00 铝价(现货) <b>23710→23670元/吨</b>（-40元/吨，-0.2%） · 近5年分位 89% <span class="cl-rule"><b class="cl-concl">现货下跌</b></span>；社会库存 <b>60.7→58.3万吨</b>（-2.4万吨，-4.0%） · 近5年分位 24% <span class="cl-rule"><b class="cl-concl">去库</b></span>；吨铝利润 <b>7334.18→7294.18元/吨</b>（-40元/吨，-0.5%） · 近5年分位 88% <span class="cl-rule"><b class="cl-concl">利润收缩</b></span>；完全成本 <b>16375.83元/吨</b>（持平） · 近5年分位 28%。<br/><b class="cl-star">→ 盘面与基本面分化</b>（盘面 ↑ 偏多，基本面 A00 铝价(现货) <b class="cl-concl">偏空</b> / 社会库存 <b class="cl-concl">偏多</b> / 吨铝利润 <b class="cl-concl">偏空</b>）</div></div><div class="cl-para"><div class="cl-ph">二、传导确认（上游 → 本层 → 下游）</div><div class="cl-pd"><b class="cl-star">★上游★</b>：<b>氧化铝 SMM 指数 2653元/吨</b>（环比 -1元/吨，-0.0%；↓ 连降 (-0.1%/日)）→ <b class="cl-concl">成本端下移, 本环节利润改善</b>；<b>氧化铝完全成本 2767元/吨</b>（环比 +1.5元/吨，+0.1%；震荡 (10期)）→ <b class="cl-concl">成本端上移, 本环节利润受压</b>。<br/><b class="cl-star">★本层★</b>：<b>运行产能 4549.1万吨</b>（2026-10-09，环比 +0.0%）；<b>开工率 99.3%</b>（2026-10-09，环比 -0.1%）；<b>去库量 12.10 万吨</b>（2026-08-31）；<b>供给刚性</b>：产能触顶（运行 4549.10 / 政策上限 4500 万吨 = 101.1%），增量只能来自置换；高利润不再带来供给。<br/><b class="cl-star">★下游★</b>：<b>铝板带出口量 31.03万吨</b>（环比 -0.16万吨，-0.5%；↓ 连降 3期 (-1.3%/月)）→ <b class="cl-concl">下游需求走弱, 对本环节形成拖累</b>；<b>铝箔出口量 12.82万吨</b>（环比 +0.82万吨，+6.8%；↑ 连升 2期 (+1.4%/月)）→ <b class="cl-concl">下游需求走强, 对本环节构成支撑</b>。<br/><b class="cl-star">★勾稽三问★</b>：① 利润传导 ✗（沪铝主连 近30天 -3.1%（2026-10-27） vs 上游成本（氧化铝指数）-0.7%（2026-10-23） → 利润压缩 2.4pct（门槛 > 0））；② 需求确认 ✓（铝棒出库 Excel 缺表（不参与打分）、下游开工率 +0.5%（2026-10-02）、铝材出口 +1.0%（2026-09-30） → 需求环节加权分 +0.02（门槛 > 0））；③ 内外窗口 ✗（铝锭进口利润 -78.07元/吨（2026-10-22） → 进口利润为负，进口窗口关闭（出口利润不计入勾稽：量纲不同））。→ <b class="cl-concl">通过 1/3</b>。</div></div><div class="cl-para"><div class="cl-ph">三、关键变量（中期档 |打分| 前 3 · 分数见「③ 信号清单」）</div><div class="cl-pd">① <b>供给·净进口</b> 3期均值 14.88万吨（当月 16.37，2026-08-31） → <b class="cl-concl">支撑</b><br/>② <b>库存·SHFE 库存</b> 21.29万吨（2026-10-23，环比 -10.2%） → <b class="cl-concl">支撑</b><br/>③ <b>价格·沪伦铝比</b> 7.6（2026-10-22，环比 +1.3%） → <b class="cl-concl">支撑</b></div></div><div class="cl-para"><div class="cl-ph">四、后续跟踪重点（触发即需修正上述判断）</div><div class="cl-pd"><div class="cl-trig" data-trigger='{"label":"供给刚性减弱","sheet":"L3电解铝产能中国-周","col":"运行产能","curSheet":null,"curCol":null,"dir":"above","fixedLine":null,"cur":4549.1,"curDate":"2026-10-09","actionLine":4548.1,"actionDate":"2026-10-02","confirmBand":13.644300000000001,"state":"缓冲带内","confirmed":false,"obsThreshold":0.04727248741232602,"obsDeltaPct":0.0219872034475935,"distancePct":0,"risk":true,"invalidShort":false,"perDay":false}'>① <b>供给刚性减弱</b>（供应）<br/>
@@ -5624,54 +5646,54 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
       </td><td class="dc-dimcell" style="background:rgba(220,38,38,0.06);">
         <div class="dc-mini"><div class="dc-mini-fill" style="width:25%;background:#dc2626"></div></div>
         <span style="color:#dc2626;font-weight:600;font-size:11px">+0.25</span>
-      </td><td class="dc-dimcell" style="">
-        <div class="dc-mini"><div class="dc-mini-fill" style="width:3%;background:#94a3b8"></div></div>
-        <span style="color:#94a3b8;font-weight:600;font-size:11px">-0.03</span>
+      </td><td class="dc-dimcell" style="background:rgba(22,163,74,0.06);">
+        <div class="dc-mini"><div class="dc-mini-fill" style="width:23%;background:#16a34a"></div></div>
+        <span style="color:#16a34a;font-weight:600;font-size:11px">-0.23</span>
       </td></tr><tr class=""><td class="dc-dim">需求<span class="dc-dim-sub" style="color:#b45309" title="Excel 缺表：铝棒出库">覆盖 2/3 · Excel 缺表</span></td><td class="dc-dimcell" style="">
         <div class="dc-mini"><div class="dc-mini-fill" style="width:2%;background:#94a3b8"></div></div>
         <span style="color:#94a3b8;font-weight:600;font-size:11px">-0.02</span>
       </td><td class="dc-dimcell" style="">
         <div class="dc-mini"><div class="dc-mini-fill" style="width:2%;background:#94a3b8"></div></div>
         <span style="color:#94a3b8;font-weight:600;font-size:11px">+0.02</span>
-      </td><td class="dc-dimcell" style="background:rgba(220,38,38,0.01);">
-        <div class="dc-mini"><div class="dc-mini-fill" style="width:6%;background:#dc2626"></div></div>
-        <span style="color:#dc2626;font-weight:600;font-size:11px">+0.06</span>
+      </td><td class="dc-dimcell" style="">
+        <div class="dc-mini"><div class="dc-mini-fill" style="width:1%;background:#94a3b8"></div></div>
+        <span style="color:#94a3b8;font-weight:600;font-size:11px">+0.01</span>
       </td></tr><tr class=""><td class="dc-dim">库存</td><td class="dc-dimcell" style="background:rgba(220,38,38,0.07);">
         <div class="dc-mini"><div class="dc-mini-fill" style="width:27%;background:#dc2626"></div></div>
         <span style="color:#dc2626;font-weight:600;font-size:11px">+0.27</span>
       </td><td class="dc-dimcell" style="background:rgba(220,38,38,0.13);">
         <div class="dc-mini"><div class="dc-mini-fill" style="width:56%;background:#dc2626"></div></div>
         <span style="color:#dc2626;font-weight:600;font-size:11px">+0.56</span>
-      </td><td class="dc-dimcell" style="background:rgba(220,38,38,0.03);">
-        <div class="dc-mini"><div class="dc-mini-fill" style="width:14%;background:#dc2626"></div></div>
-        <span style="color:#dc2626;font-weight:600;font-size:11px">+0.14</span>
+      </td><td class="dc-dimcell" style="background:rgba(220,38,38,0.05);">
+        <div class="dc-mini"><div class="dc-mini-fill" style="width:22%;background:#dc2626"></div></div>
+        <span style="color:#dc2626;font-weight:600;font-size:11px">+0.22</span>
       </td></tr><tr class=""><td class="dc-dim">价格</td><td class="dc-dimcell" style="">
         <div class="dc-mini"><div class="dc-mini-fill" style="width:1%;background:#94a3b8"></div></div>
         <span style="color:#94a3b8;font-weight:600;font-size:11px">+0.01</span>
       </td><td class="dc-dimcell" style="">
         <div class="dc-mini"><div class="dc-mini-fill" style="width:3%;background:#94a3b8"></div></div>
         <span style="color:#94a3b8;font-weight:600;font-size:11px">+0.03</span>
-      </td><td class="dc-dimcell" style="background:rgba(220,38,38,0.03);">
-        <div class="dc-mini"><div class="dc-mini-fill" style="width:15%;background:#dc2626"></div></div>
-        <span style="color:#dc2626;font-weight:600;font-size:11px">+0.15</span>
+      </td><td class="dc-dimcell" style="background:rgba(220,38,38,0.02);">
+        <div class="dc-mini"><div class="dc-mini-fill" style="width:9%;background:#dc2626"></div></div>
+        <span style="color:#dc2626;font-weight:600;font-size:11px">+0.09</span>
       </td></tr><tr class=""><td class="dc-dim">利润</td><td class="dc-dimcell" style="background:rgba(22,163,74,0.08);">
         <div class="dc-mini"><div class="dc-mini-fill" style="width:34%;background:#16a34a"></div></div>
         <span style="color:#16a34a;font-weight:600;font-size:11px">-0.34</span>
       </td><td class="dc-dimcell" style="background:rgba(22,163,74,0.08);">
         <div class="dc-mini"><div class="dc-mini-fill" style="width:34%;background:#16a34a"></div></div>
         <span style="color:#16a34a;font-weight:600;font-size:11px">-0.34</span>
-      </td><td class="dc-dimcell" style="background:rgba(22,163,74,0.08);">
-        <div class="dc-mini"><div class="dc-mini-fill" style="width:34%;background:#16a34a"></div></div>
-        <span style="color:#16a34a;font-weight:600;font-size:11px">-0.34</span>
+      </td><td class="dc-dimcell" style="background:rgba(22,163,74,0.02);">
+        <div class="dc-mini"><div class="dc-mini-fill" style="width:10%;background:#16a34a"></div></div>
+        <span style="color:#16a34a;font-weight:600;font-size:11px">-0.10</span>
       </td></tr><tr class="dc-dimrow-gap"><td class="dc-dim">供需缺口<span class="dc-dim-sub">派生 = 供给 + 需求</span></td><td class="dc-dimcell dc-dimcell-gap" style="">
         <div class="dc-mini"><div class="dc-mini-fill" style="width:1%;background:#94a3b8"></div></div>
         <span style="color:#94a3b8;font-weight:600;font-size:11px">-0.01</span>
       </td><td class="dc-dimcell dc-dimcell-gap" style="background:rgba(22,163,74,0.08);">
         <div class="dc-mini"><div class="dc-mini-fill" style="width:35%;background:#16a34a"></div></div>
         <span style="color:#16a34a;font-weight:600;font-size:11px">-0.35</span>
-      </td><td class="dc-dimcell dc-dimcell-gap" style="background:rgba(220,38,38,0.08);">
-        <div class="dc-mini"><div class="dc-mini-fill" style="width:34%;background:#dc2626"></div></div>
-        <span style="color:#dc2626;font-weight:600;font-size:11px">+0.34</span>
+      </td><td class="dc-dimcell dc-dimcell-gap" style="background:rgba(220,38,38,0.02);">
+        <div class="dc-mini"><div class="dc-mini-fill" style="width:8%;background:#dc2626"></div></div>
+        <span style="color:#dc2626;font-weight:600;font-size:11px">+0.08</span>
       </td></tr><tr class="dc-formula"><td colspan="4">
     <span class="dc-fx-label">综合分 (中期)</span>
     <span class="dc-fx">0.45 × <b style="color:#16a34a">-0.35</b><span class="dc-fx-dim">缺口</span></span>
@@ -5705,7 +5727,7 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
         <span class="cc-bias cc-bias-neutral">中性</span>
         <span style="font-size:10px;color:#94a3b8">代理缺口 50% + 平衡表 50%</span>
       </div>
-      <ul class="dc-narr-list"><li>供给端偏松 (净进口 14.88万吨, 近1年 ↓ -2.80万吨, 5年趋势拟合位 <b>95%</b>)</li><li>需求端偏紧 (铝材出口 55.87万吨, 近1年 ↑ +9.06万吨 (+19.4%), 近5年分位 <b>88%</b>); 需求端偏松 (下游开工率 60.50%, 近1年 ↓ -2.50% (-4.0%), 近5年分位 <b>19%</b>)</li><li>显式平衡表 (L3电解铝平衡-月, 2026-08-31): 产量 387.37万吨 / 净进口 16.37万吨 / 表观消费 403.74万吨 / 实际消费 415.84万吨, 去库量 12.10万吨 (去库/紧平衡), 近5年分位 81%</li><li>库存端偏紧 (社会库存 58.30万吨, 近1年 ↓ -4.20万吨 (-6.7%), 近5年分位 <b>24%</b>); 库存端偏松 (SHFE 库存 21.29万吨, 近1年 ↑ +9.08万吨 (+74.4%), 近5年分位 <b>49%</b>); 价格端偏紧 (A00 铝价(现货) 23670.00元/吨, 近1年 ↑ +2630.00元/吨 (+12.5%), 5年趋势拟合位 <b>82%</b>); 价格端偏松 (沪伦铝比 7.60, 近1年 ↑ +0.10 (+1.3%), 近5年分位 <b>33%</b>)</li></ul>
+      <ul class="dc-narr-list"><li>供给端偏松 (净进口 14.88万吨, 5年趋势拟合位 <b>95%</b>, 趋势 <b>↑</b>+2.07%/期)</li><li>需求端偏紧 (铝材出口 55.87万吨, 近5年分位 <b>88%</b>, 趋势 <b>↑</b>+0.04%/期); 需求端偏松 (下游开工率 60.50%, 近5年分位 <b>19%</b>, 趋势 <b>↓</b>-0.03%/期)</li><li>显式平衡表 (L3电解铝平衡-月, 2026-08-31): 产量 387.37万吨 / 净进口 16.37万吨 / 表观消费 403.74万吨 / 实际消费 415.84万吨, 去库量 12.10万吨 (去库/紧平衡), 近5年分位 81%</li><li>库存端偏紧 (社会库存 58.30万吨, 近5年分位 <b>24%</b>, 趋势 <b>↑</b>+0.02%/期); 价格端偏紧 (A00 铝价(现货) 23670.00元/吨, 5年趋势拟合位 <b>82%</b>, 趋势 <b>↑</b>+0.02%/期); 价格端偏松 (沪伦铝比 7.60, 近5年分位 <b>33%</b>, 趋势 <b>↑</b>+0.00%/期)</li></ul>
     </div></div>
         <div class="dc-chainlink">
     <div class="dc-chainlink-head">🔗 上下游传导 <span class="src">上游成本/原料 → 本环节 → 下游需求 · 全部取自 Excel 跨环节列</span></div>
@@ -10019,6 +10041,7 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
       </table>
     </div>
   </section>
+    <section class="ad-wrap"><h3 class="section-title">🔀 终端加速 / 减速排序 <span class="src">2025 → 2026 年度需求变化 · 中国口径 · 全部现算自 L6终端需求</span></h3><div class="ad-summary"><span class="ad-sum-item"><b style="color:#dc2626">🚀 加速 10</b> 项</span><span class="ad-sum-item"><b style="color:#16a34a">⚠️ 减速 2</b> 项</span><span class="ad-sum-item"><b style="color:#94a3b8">→ 持平 0</b> 项</span><span class="ad-sum-tip"><b>怎么读</b>：本表回答「<b>哪个终端在加速、哪个在减速</b>」—— 需求结构换引擎的证据在此。变化量 = 2026 年需求 − 2025 年需求；<b>2026 年含预测值</b>。⚠️ 终端是<b>年度</b>数据，颗粒度粗 → <b>只看方向与排序，不看绝对量</b>；铝价方向仍以各品种决策卡为准（本表不构成多空结论）。</span></div><div class="ad-verdict"><b>加速最快</b>：交通行业需求（+11.5%）　<b>减速最快</b>：建筑行业需求（-4.5%）</div><div class="ind-table-wrap"><table class="ind-table ad-tbl"><thead><tr><th>终端 / 行业</th><th>需求 (2025 → 2026)</th><th>变化</th><th>变化率</th><th>方向</th></tr></thead><tbody><tr><td class="ad-name">交通行业需求</td><td class="ad-val">1100.1 → <b>1227.1</b><span class="ad-unit">万吨</span></td><td class="ad-diff" style="color:#dc2626">+127.0</td><td class="ad-pct" style="color:#dc2626">+11.5%</td><td class="ad-dir" style="color:#dc2626">🚀 加速</td></tr><tr><td class="ad-name">中国电解铝需求</td><td class="ad-val">4634.7 → <b>4723.1</b><span class="ad-unit">万吨</span></td><td class="ad-diff" style="color:#dc2626">+88.4</td><td class="ad-pct" style="color:#dc2626">+1.9%</td><td class="ad-dir" style="color:#dc2626">🚀 加速</td></tr><tr><td class="ad-name">国内总需求</td><td class="ad-val">4634.7 → <b>4723.1</b><span class="ad-unit">万吨</span></td><td class="ad-diff" style="color:#dc2626">+88.4</td><td class="ad-pct" style="color:#dc2626">+1.9%</td><td class="ad-dir" style="color:#dc2626">🚀 加速</td></tr><tr><td class="ad-name">其中：新能源车需求</td><td class="ad-val">362.8 → <b>436.1</b><span class="ad-unit">万吨</span></td><td class="ad-diff" style="color:#dc2626">+73.4</td><td class="ad-pct" style="color:#dc2626">+20.2%</td><td class="ad-dir" style="color:#dc2626">🚀 加速</td></tr><tr><td class="ad-name">其他业需求</td><td class="ad-val">268.4 → <b>293.5</b><span class="ad-unit">万吨</span></td><td class="ad-diff" style="color:#dc2626">+25.0</td><td class="ad-pct" style="color:#dc2626">+9.3%</td><td class="ad-dir" style="color:#dc2626">🚀 加速</td></tr><tr><td class="ad-name">包装行业需求</td><td class="ad-val">435.9 → <b>457.7</b><span class="ad-unit">万吨</span></td><td class="ad-diff" style="color:#dc2626">+21.8</td><td class="ad-pct" style="color:#dc2626">+5.0%</td><td class="ad-dir" style="color:#dc2626">🚀 加速</td></tr><tr><td class="ad-name">耐用品行业需求</td><td class="ad-val">339.8 → <b>356.8</b><span class="ad-unit">万吨</span></td><td class="ad-diff" style="color:#dc2626">+17.0</td><td class="ad-pct" style="color:#dc2626">+5.0%</td><td class="ad-dir" style="color:#dc2626">🚀 加速</td></tr><tr><td class="ad-name">电力行业需求</td><td class="ad-val">1134.6 → <b>1151.4</b><span class="ad-unit">万吨</span></td><td class="ad-diff" style="color:#dc2626">+16.8</td><td class="ad-pct" style="color:#dc2626">+1.5%</td><td class="ad-dir" style="color:#dc2626">🚀 加速</td></tr><tr><td class="ad-name">机械制造行业需求</td><td class="ad-val">289.6 → <b>298.3</b><span class="ad-unit">万吨</span></td><td class="ad-diff" style="color:#dc2626">+8.7</td><td class="ad-pct" style="color:#dc2626">+3.0%</td><td class="ad-dir" style="color:#dc2626">🚀 加速</td></tr><tr><td class="ad-name">其中：风电需求</td><td class="ad-val">18.0 → <b>20.7</b><span class="ad-unit">万吨</span></td><td class="ad-diff" style="color:#dc2626">+2.7</td><td class="ad-pct" style="color:#dc2626">+15.0%</td><td class="ad-dir" style="color:#dc2626">🚀 加速</td></tr><tr><td class="ad-name">建筑行业需求</td><td class="ad-val">912.1 → <b>870.8</b><span class="ad-unit">万吨</span></td><td class="ad-diff" style="color:#16a34a">-41.2</td><td class="ad-pct" style="color:#16a34a">-4.5%</td><td class="ad-dir" style="color:#16a34a">⚠️ 减速</td></tr><tr><td class="ad-name">其中：光伏需求</td><td class="ad-val">447.5 → <b>394.7</b><span class="ad-unit">万吨</span></td><td class="ad-diff" style="color:#16a34a">-52.8</td><td class="ad-pct" style="color:#16a34a">-11.8%</td><td class="ad-dir" style="color:#16a34a">⚠️ 减速</td></tr></tbody></table></div></section>
     <section>
       <h3 class="section-title">📐 年度供需平衡表 <span class="src">数据源：数据框架 (年度预测矩阵)</span></h3>
       <div class="l6-wrap">
@@ -13032,7 +13055,7 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
     <li><a href="data-framework/产业链示意图.html" target="_blank">🏭 产业链示意图（数据充分度与可信度）</a></li>
   </ul>
 </aside>
-<footer>铝产业看板 v0.1 · 数据更新: 2026-10-28T00:58:38.766Z · <a href="data-framework/产业链示意图.html" target="_blank" style="color:#0369a1">产业链示意图</a> · 点击左下 📑 打开目录</footer>
+<footer>铝产业看板 v0.1 · 数据更新: 2026-10-29T06:37:35.305Z · <a href="data-framework/产业链示意图.html" target="_blank" style="color:#0369a1">产业链示意图</a> · 点击左下 📑 打开目录</footer>
 <script>
 document.querySelectorAll('.tab').forEach(btn => {
   btn.addEventListener('click', () => {
