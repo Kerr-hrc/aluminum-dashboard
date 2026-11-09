@@ -689,6 +689,31 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
   .al-turtle-dn .al-turtle-state { color: #16a34a; }
   .al-turtle-body div { margin: 2px 0; line-height: 1.6; }
   .al-turtle-foot { margin-top: 6px; padding-top: 5px; border-top: 1px dashed #cbd5e1; font-size: 10px; color: #64748b; line-height: 1.6; }
+  /* 🧭 状态层：速览条 + 核心矛盾 + 事件面（学黑色看板观点页的 prod-lead / contradiction / 事件面） */
+  .al-lead { display: flex; flex-wrap: wrap; gap: 6px 18px; align-items: baseline; background: #f1f5f9; border: 1px solid #cbd5e1; border-left: 3px solid #64748b; border-radius: 6px; padding: 7px 11px; margin: 0 0 8px; }
+  .al-lead-i { display: inline-flex; align-items: baseline; gap: 5px; }
+  .al-lead-k { font-size: 10px; color: #64748b; }
+  .al-lead-v { font-size: 12px; font-weight: 700; color: #0f172a; }
+  .al-lead-dir { font-size: 13px; font-weight: 800; padding: 1px 9px; border-radius: 9px; background: rgba(0,0,0,.06); }
+  .al-lead-n { font-size: 10px; color: #94a3b8; }
+  .al-contra { display: flex; gap: 8px; align-items: baseline; font-size: 11.5px; line-height: 1.6; color: #334155; background: #fffbeb; border: 1px solid #fde68a; border-left: 3px solid #f59e0b; border-radius: 6px; padding: 6px 11px; margin: 0 0 10px; }
+  .ac-lbl { font-weight: 700; color: #92400e; white-space: nowrap; }
+  .al-eventface { margin: 0 0 12px; border: 1px solid #cbd5e1; border-radius: 8px; background: #fff; }
+  .al-eventface > summary { cursor: pointer; padding: 7px 12px; font-size: 12px; font-weight: 700; color: #0f172a; background: #f8fafc; border-radius: 8px; }
+  .al-eventface-body { padding: 8px 12px; }
+  .ef-list { list-style: none; margin: 0; padding: 0; }
+  .ef-list li { border-left: 3px solid #cbd5e1; padding: 4px 0 4px 9px; margin-bottom: 7px; }
+  .ef-bull { border-left-color: #dc2626; }
+  .ef-bear { border-left-color: #16a34a; }
+  .ef-neu { border-left-color: #94a3b8; }
+  .ef-expired { opacity: .55; }
+  .ef-lv { display: inline-block; font-size: 10px; color: #64748b; border: 1px solid #cbd5e1; border-radius: 3px; padding: 0 5px; margin-right: 6px; }
+  .ef-title { font-size: 12px; }
+  .ef-meta { font-size: 10.5px; color: #64748b; margin-left: 8px; }
+  .ef-detail { font-size: 11px; color: #334155; line-height: 1.6; margin-top: 2px; }
+  .ef-src { font-size: 10px; color: #94a3b8; margin-top: 1px; }
+  .ef-empty { font-size: 11px; color: #94a3b8; }
+  .al-eventface-foot { margin-top: 7px; padding-top: 6px; border-top: 1px dashed #cbd5e1; font-size: 10px; color: #64748b; line-height: 1.6; }
   .stg-head { font-size: 13px; font-weight: 700; color: #0f172a; background: #f8fafc; padding: 6px 12px; border-bottom: 1px solid #e2e8f0; }
   .stg-head .src { font-size: 10px; color: #94a3b8; font-weight: 400; margin-left: 8px; }
   .stg-main { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 7px 12px 4px; }
@@ -1111,7 +1136,7 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
 <body>
 <div class="header">
   <h1>🔩 铝产业全产业链数据看板 v0.1</h1>
-  <div class="sub">数据源: 铝产业链数据.xlsx (68 sheet) · 时间窗口: 近 5 年 (2021-10 → 2026-11-02) · 当前年高亮: 2026 红色加粗 · #N/A 数据已忽略</div>
+  <div class="sub">数据源: 铝产业链数据.xlsx (68 sheet) · 时间窗口: 近 5 年 (2021-10 → 2026-11-09) · 当前年高亮: 2026 红色加粗 · #N/A 数据已忽略</div>
 </div>
 <div class="kpi-bar"><div class="kpi-chain">
     <div class="kpi-chain-hdr" style="border-left:3px solid #a16207;background:rgba(3,105,161,.05)">
@@ -2011,7 +2036,7 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
   <div class="rc-sec"><h4>⑫ 禁用语</h4><div class="rc-note">电解铝不使用「成本支撑 / 跌不深 / 地板」，统一写「成本带不构成支撑，下方无供给刹车」；不写「概率 / 目标价 / 预计 / 或将 / 大概率 / price-in」；不使用「出口平价 / 无套利带宽 / 1:4 赔率」（铝锭出口利润是美元/吨，与国内元/吨不同量纲）。</div></div>
   </div>
 </details>
-    <script type="application/json" id="rule-book">{"version":"v2.1","rules":{"version":"v2.1","bias":{"bull":0.15,"bear":-0.15},"final":{"gap":0.45,"confirm":0.35,"profit":0.2},"z":{"strong":1.5,"weak":0.5},"anomalyFactor":{"strong":1.5,"normal":1,"weak":0.7},"trend":{"r2":0.3,"t":2,"windowYears":5},"breakRun":{"日":130,"周":26,"月":12},"path":{"neutral":0.15,"strong":0.28},"itemCap":{"factor":2,"abs":40},"coverage":{"low":0.5,"mid":0.7},"freshness":{"halfLife":{"日":30,"周":45,"月":60,"季":120},"pubLag":{"日":1,"周":7,"月":35,"季":45},"exclude":0.6,"floor":0.25,"staleMult":2},"windows":{"日":{"short":60,"mid":120,"trend":1825},"周":{"short":26,"mid":52,"trend":260},"月":{"short":12,"mid":24,"trend":60}},"windowLabel":{"日":{"short":"近3月","mid":"近6月"},"周":{"short":"近6月","mid":"近1年"},"月":{"short":"近1年","mid":"近2年"}},"horizons":{"short":7,"mid":60,"long":365},"trigger":{"obsMAD":20,"obsMult":2,"confirmMad":1,"confirmPct":0.003,"periods":2,"lmeBack":3,"farDistance":0.3},"capacity":{"ceiling":4500,"utilHigh":98,"longCap":0.15,"unlockStockPct5y":30,"unlockDemandScore":0.15,"profitLevelW":0.3,"profitMomW":0.7,"profitLevelWNormal":0.65,"profitMomWNormal":0.35},"costGuard":{"hard":0.05,"soft":0.1,"softPos":15},"parity":{"banLongWithin":0.03},"atr":{"stopMult":1.5,"entryOffset":0.5,"minBandATR":0.5},"highPctile":80,"divergence":0.05,"position":{"l3ShortCap":20,"divergenceCap":30,"triggerCap":30},"consts":{"aluminaPerAl":1.925,"alCapacityCap":4500},"stockLevelBlend":0.5,"magnitudeGate":{"scoreAt":0.8,"minRatio":0.02,"flowLinks":{"L1 铝土矿":["国内产量","进口","需求"],"L2 氧化铝":["原料","供给","需求","进出口"],"L3 电解铝":["原料","供给","需求"]},"ref":{"L1 铝土矿":{"sheet":"L1铝土矿产量-月","col":"SMM中国铝土矿分省份月度产量：全国总计"},"L2 氧化铝":{"sheet":"L2氧化铝产量中国-月","col":"SMM中国氧化铝月度产量：总量"},"L3 电解铝":{"sheet":"L3电解铝产量中国-月","col":"SMM中国电解铝月度产量：总量"}},"mag":{"L1 铝土矿":{"国内产量":{"sheet":"L1铝土矿产量-月","col":"SMM中国铝土矿分省份月度产量：全国总计"},"进口":{"sheet":"L1铝土矿进口-月","col":"中国铝土矿月度进口量"},"需求":{"sheet":"L2氧化铝产量中国-月","col":"SMM中国氧化铝月度产量：总量"}},"L2 氧化铝":{"原料":{"sheet":"L1铝土矿进口-月","col":"中国铝土矿月度进口量"},"供给":{"sheet":"L2氧化铝产量中国-月","col":"SMM中国氧化铝月度产量：总量"},"需求":{"sheet":"L3电解铝产量中国-月","col":"SMM中国电解铝月度产量：总量"},"进出口":{"sheet":"L2氧化铝进出口-月","col":"氧化铝月度净进口量"}},"L3 电解铝":{"原料":{"sheet":"L1铝土矿进口-月","col":"中国铝土矿月度进口量"},"供给":{"sheet":"L3电解铝产量中国-月","col":"SMM中国电解铝月度产量：总量"},"需求":{"sheet":"L5铝合金进出口-月","col":"铝材出口总量"}}}},"pathWeights":{"L1 铝土矿":{"国内产量":10,"进口":25,"库存":40,"需求":25},"L2 氧化铝":{"原料":15,"成本":20,"供给":20,"需求":20,"库存":15,"进出口":10},"L3 电解铝":{"原料":10,"成本":15,"供给":20,"需求":20,"库存":20,"利润":15}},"pathWeightRationale":{"L1 铝土矿":{"国内产量":{"why":"国产矿体量小、且受几内亚政策风险主导","basis":"进口依存度 79.5%（进口 1833 万吨 vs 国产 472 万吨）→ 供给侧必须「进口重、国产轻」"},"进口":{"why":"供给的决定变量","basis":"进口占供给 79.5%，其变动直接决定国内矿端松紧"},"库存":{"why":"当前最硬的偏空证据","basis":"全国库存近 1 年 / 近 5 年分位均 100%（满库）→ 权重提到 40"},"需求":{"why":"需求支撑在衰减","basis":"氧化铝产量仍高位，但开工率连降 2 期、同比 -6.55pp、距现金成本仅 +2.16%"}},"L2 氧化铝":{"原料":{"why":"原料端已非主要矛盾","basis":"铝土矿供给宽松（进口 +18.6%），传导到氧化铝端已被稀释"},"成本":{"why":"成本是边际定价锚","basis":"现金成本 2597 元/吨，现价 2576 已跌破 → 成本带决定「能不能追空」"},"供给":{"why":"含开工率 8 点（原独立环节）","basis":"开工率 = 运行 ÷ 建成，下滑 73% 来自分母效应（新产能投放）→ 8 点并入供给"},"需求":{"why":"电解铝产量是直接需求","basis":"电解铝月产量 374.90 万吨（同比 +1.7%），传导系数 1.925 t/t"},"库存":{"why":"回到与 D1 基准表一致的最小调整","basis":"2026-10-24 用户指示「权重稍后再议」→ 不额外加码"},"进出口":{"why":"量级问题不由权重解决","basis":"基础权重不再为量级问题让路，量级问题由 magnitudeGate 解决"}},"L3 电解铝":{"原料":{"why":"原料端影响已被氧化铝价格充分定价","basis":"氧化铝占成本 31.3%，其价格已在成本模型中直接体现"},"成本":{"why":"成本带决定下行保护","basis":"电力占 33.2%、氧化铝 31.3%、阳极 19.0% → 成本是主要矛盾"},"供给":{"why":"供给端已触政策天花板","basis":"运行产能 4549 万吨 ≥ 4500 万吨上限（101.1%）→ 高利润不再带来供给"},"需求":{"why":"需求是唯一还能改善的变量","basis":"社会库存近 1 年分位 2%（极低）→ 需求分是长期档解封的关键条件"},"库存":{"why":"库存是当前最强信号","basis":"社库 58.3 万吨、近 1 年分位 2%、近 5 年分位 24%"},"利润":{"why":"利润是反向验证项","basis":"吨铝利润 7294 元、近 5 年分位 88% → 高利润 = 减产风险 = 偏空"}}},"turtle":{"entryPeriod":20,"exitPeriod":10,"slowPeriod":55,"atrPeriod":20,"stopAtrMult":2,"riskPct":0.01,"contractTon":5,"confirmDays":2,"nearUpper":0.8,"nearLower":0.2,"minHistory":60}},"pathWeights":{"L1 铝土矿":{"国内产量":10,"进口":25,"库存":40,"需求":25},"L2 氧化铝":{"原料":15,"成本":20,"供给":20,"需求":20,"库存":15,"进出口":10},"L3 电解铝":{"原料":10,"成本":15,"供给":20,"需求":20,"库存":20,"利润":15}},"pathSpec":{"L1 铝土矿":{"国内产量":[{"sheet":"L1铝土矿产量-月","col":"SMM中国铝土矿分省份月度产量：全国总计","unit":"万吨","w":100,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false}],"进口":[{"sheet":"L1铝土矿进口-月","col":"中国铝土矿月度进口量","unit":"万吨","w":100,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false}],"库存":[{"sheet":"L1铝土矿库存-月","col":"中国铝土矿分省份月度库存：总计","unit":"万吨","w":100,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false}],"需求":[{"sheet":"L2氧化铝产量中国-月","col":"SMM中国氧化铝月度产量：总量","unit":"万吨","w":100,"bearHigh":false,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":true}]},"L2 氧化铝":{"原料":[{"sheet":"L1铝土矿进口-月","col":"中国铝土矿月度进口量","unit":"万吨","w":100,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false}],"成本":[{"sheet":"L2氧化铝成本-日","col":"氧化铝_完全成本","unit":"元/吨","w":100,"bearHigh":false,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false}],"供给":[{"sheet":"L2氧化铝产量中国-月","col":"SMM中国氧化铝月度产量：总量","unit":"万吨","w":55,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false},{"sheet":"L2氧化铝开工率中国-周","col":"运行产能","unit":"万吨","w":25,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false},{"sheet":"L2氧化铝开工率中国-周","col":"建成产能","unit":"万吨","w":20,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false},{"sheet":"L2氧化铝开工率中国-周","col":"开工率","unit":"%","w":0,"bearHigh":false,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false}],"需求":[{"sheet":"L3电解铝产量中国-月","col":"SMM中国电解铝月度产量：总量","unit":"万吨","w":100,"bearHigh":false,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false}],"库存":[{"sheet":"L2氧化铝库存-周","col":"氧化铝：库存：中国（周）","unit":"万吨","w":100,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false}],"进出口":[{"sheet":"L2氧化铝进出口-月","col":"氧化铝月度净进口量","unit":"万吨","w":100,"bearHigh":true,"kind":"flow","smooth3":true,"floorWhenBinding":false,"pairMom":false}]},"L3 电解铝":{"原料":[{"sheet":"L1铝土矿进口-月","col":"中国铝土矿月度进口量","unit":"万吨","w":100,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false}],"成本":[{"sheet":"L2氧化铝价格-日","col":"SMM氧化铝价格指数","unit":"元/吨","w":100,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false}],"供给":[{"sheet":"L3电解铝产量中国-月","col":"SMM中国电解铝月度产量：总量","unit":"万吨","w":35,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":true,"pairMom":false},{"sheet":"L3电解铝产能中国-周","col":"运行产能","unit":"万吨","w":25,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":true,"pairMom":false},{"sheet":"L3电解铝产能中国-周","col":"开工率","unit":"%","w":15,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":true,"pairMom":false},{"sheet":"L3电解铝平衡-月","col":"中国电解铝月度平衡：净进口量","unit":"万吨","w":25,"bearHigh":true,"kind":"flow","smooth3":true,"floorWhenBinding":false,"pairMom":false}],"需求":[{"sheet":"L3铝棒消费","col":"中国主要消费地铝棒周度出库量：合计(万吨)","unit":"万吨","w":45,"bearHigh":false,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false},{"sheet":"L5铝合金开工率-周","col":"铝行业平均开工率(%)","unit":"%","w":30,"bearHigh":false,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false},{"sheet":"L5铝合金进出口-月","col":"铝材出口总量","unit":"万吨","w":25,"bearHigh":false,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":true}],"库存":[{"sheet":"L3 电解铝社会库存-周","col":"中国电解铝分地区社会库存：合计","unit":"万吨","w":70,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false},{"sheet":"L3SHFE库存-周","col":"上海期货交易所分省份铝锭库存：总库存","unit":"万吨","w":30,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false}],"利润":[{"sheet":"L3电解铝成本利润-日","col":"中国电解铝成本模型：利润","unit":"元/吨","w":100,"bearHigh":false,"kind":"margin","smooth3":false,"floorWhenBinding":false,"pairMom":false}]}}}</script>
+    <script type="application/json" id="rule-book">{"version":"v2.1","rules":{"version":"v2.1","bias":{"bull":0.15,"bear":-0.15},"final":{"gap":0.45,"confirm":0.35,"profit":0.2},"z":{"strong":1.5,"weak":0.5},"anomalyFactor":{"strong":1.5,"normal":1,"weak":0.7},"trend":{"r2":0.3,"t":2,"windowYears":5},"breakRun":{"日":130,"周":26,"月":12},"path":{"neutral":0.15,"strong":0.28},"itemCap":{"factor":2,"abs":40},"coverage":{"low":0.5,"mid":0.7},"freshness":{"halfLife":{"日":30,"周":45,"月":60,"季":120},"pubLag":{"日":1,"周":7,"月":35,"季":45},"exclude":0.6,"floor":0.25,"staleMult":2},"windows":{"日":{"short":60,"mid":120,"trend":1825},"周":{"short":26,"mid":52,"trend":260},"月":{"short":12,"mid":24,"trend":60}},"windowLabel":{"日":{"short":"近3月","mid":"近6月"},"周":{"short":"近6月","mid":"近1年"},"月":{"short":"近1年","mid":"近2年"}},"horizons":{"short":7,"mid":60,"long":365},"trigger":{"obsMAD":20,"obsMult":2,"confirmMad":1,"confirmPct":0.003,"periods":2,"lmeBack":3,"farDistance":0.3},"capacity":{"ceiling":4500,"utilHigh":98,"longCap":0.15,"unlockStockPct5y":30,"unlockDemandScore":0.15,"profitLevelW":0.3,"profitMomW":0.7,"profitLevelWNormal":0.65,"profitMomWNormal":0.35},"costGuard":{"hard":0.05,"soft":0.1,"softPos":15},"parity":{"banLongWithin":0.03},"atr":{"stopMult":1.5,"entryOffset":0.5,"minBandATR":0.5},"highPctile":80,"divergence":0.05,"position":{"l3ShortCap":20,"divergenceCap":30,"triggerCap":30},"consts":{"aluminaPerAl":1.925,"alCapacityCap":4500},"stockLevelBlend":0.5,"magnitudeGate":{"scoreAt":0.8,"minRatio":0.02,"flowLinks":{"L1 铝土矿":["国内产量","进口","需求"],"L2 氧化铝":["原料","供给","需求","进出口"],"L3 电解铝":["原料","供给","需求"]},"ref":{"L1 铝土矿":{"sheet":"L1铝土矿产量-月","col":"SMM中国铝土矿分省份月度产量：全国总计"},"L2 氧化铝":{"sheet":"L2氧化铝产量中国-月","col":"SMM中国氧化铝月度产量：总量"},"L3 电解铝":{"sheet":"L3电解铝产量中国-月","col":"SMM中国电解铝月度产量：总量"}},"mag":{"L1 铝土矿":{"国内产量":{"sheet":"L1铝土矿产量-月","col":"SMM中国铝土矿分省份月度产量：全国总计"},"进口":{"sheet":"L1铝土矿进口-月","col":"中国铝土矿月度进口量"},"需求":{"sheet":"L2氧化铝产量中国-月","col":"SMM中国氧化铝月度产量：总量"}},"L2 氧化铝":{"原料":{"sheet":"L1铝土矿进口-月","col":"中国铝土矿月度进口量"},"供给":{"sheet":"L2氧化铝产量中国-月","col":"SMM中国氧化铝月度产量：总量"},"需求":{"sheet":"L3电解铝产量中国-月","col":"SMM中国电解铝月度产量：总量"},"进出口":{"sheet":"L2氧化铝进出口-月","col":"氧化铝月度净进口量"}},"L3 电解铝":{"原料":{"sheet":"L1铝土矿进口-月","col":"中国铝土矿月度进口量"},"供给":{"sheet":"L3电解铝产量中国-月","col":"SMM中国电解铝月度产量：总量"},"需求":{"sheet":"L5铝合金进出口-月","col":"铝材出口总量"}}}},"pathWeights":{"L1 铝土矿":{"国内产量":10,"进口":25,"库存":40,"需求":25},"L2 氧化铝":{"原料":15,"成本":20,"供给":20,"需求":20,"库存":15,"进出口":10},"L3 电解铝":{"原料":10,"成本":15,"供给":20,"需求":20,"库存":20,"利润":15}},"pathWeightRationale":{"L1 铝土矿":{"国内产量":{"why":"国产矿体量小、且受几内亚政策风险主导","basis":"进口依存度 79.5%（进口 1833 万吨 vs 国产 472 万吨）→ 供给侧必须「进口重、国产轻」"},"进口":{"why":"供给的决定变量","basis":"进口占供给 79.5%，其变动直接决定国内矿端松紧"},"库存":{"why":"当前最硬的偏空证据","basis":"全国库存近 1 年 / 近 5 年分位均 100%（满库）→ 权重提到 40"},"需求":{"why":"需求支撑在衰减","basis":"氧化铝产量仍高位，但开工率连降 2 期、同比 -6.55pp、距现金成本仅 +2.16%"}},"L2 氧化铝":{"原料":{"why":"原料端已非主要矛盾","basis":"铝土矿供给宽松（进口 +18.6%），传导到氧化铝端已被稀释"},"成本":{"why":"成本是边际定价锚","basis":"现金成本 2597 元/吨，现价 2576 已跌破 → 成本带决定「能不能追空」"},"供给":{"why":"含开工率 8 点（原独立环节）","basis":"开工率 = 运行 ÷ 建成，下滑 73% 来自分母效应（新产能投放）→ 8 点并入供给"},"需求":{"why":"电解铝产量是直接需求","basis":"电解铝月产量 374.90 万吨（同比 +1.7%），传导系数 1.925 t/t"},"库存":{"why":"回到与 D1 基准表一致的最小调整","basis":"2026-10-24 用户指示「权重稍后再议」→ 不额外加码"},"进出口":{"why":"量级问题不由权重解决","basis":"基础权重不再为量级问题让路，量级问题由 magnitudeGate 解决"}},"L3 电解铝":{"原料":{"why":"原料端影响已被氧化铝价格充分定价","basis":"氧化铝占成本 31.3%，其价格已在成本模型中直接体现"},"成本":{"why":"成本带决定下行保护","basis":"电力占 33.2%、氧化铝 31.3%、阳极 19.0% → 成本是主要矛盾"},"供给":{"why":"供给端已触政策天花板","basis":"运行产能 4549 万吨 ≥ 4500 万吨上限（101.1%）→ 高利润不再带来供给"},"需求":{"why":"需求是唯一还能改善的变量","basis":"社会库存近 1 年分位 2%（极低）→ 需求分是长期档解封的关键条件"},"库存":{"why":"库存是当前最强信号","basis":"社库 58.3 万吨、近 1 年分位 2%、近 5 年分位 24%"},"利润":{"why":"利润是反向验证项","basis":"吨铝利润 7294 元、近 5 年分位 88% → 高利润 = 减产风险 = 偏空"}}},"turtle":{"entryPeriod":20,"exitPeriod":10,"slowPeriod":55,"atrPeriod":20,"stopAtrMult":2,"riskPct":0.01,"contractTon":5,"confirmDays":2,"nearUpper":0.8,"nearLower":0.2,"minHistory":60},"events":{"validDays":45,"maxWeight":20,"maxTotal":40,"showExpired":true,"levels":{"high":"高","mid":"中","low":"低"},"effects":{"bull":"利多","bear":"利空","neutral":"中性"}}},"pathWeights":{"L1 铝土矿":{"国内产量":10,"进口":25,"库存":40,"需求":25},"L2 氧化铝":{"原料":15,"成本":20,"供给":20,"需求":20,"库存":15,"进出口":10},"L3 电解铝":{"原料":10,"成本":15,"供给":20,"需求":20,"库存":20,"利润":15}},"pathSpec":{"L1 铝土矿":{"国内产量":[{"sheet":"L1铝土矿产量-月","col":"SMM中国铝土矿分省份月度产量：全国总计","unit":"万吨","w":100,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false}],"进口":[{"sheet":"L1铝土矿进口-月","col":"中国铝土矿月度进口量","unit":"万吨","w":100,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false}],"库存":[{"sheet":"L1铝土矿库存-月","col":"中国铝土矿分省份月度库存：总计","unit":"万吨","w":100,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false}],"需求":[{"sheet":"L2氧化铝产量中国-月","col":"SMM中国氧化铝月度产量：总量","unit":"万吨","w":100,"bearHigh":false,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":true}]},"L2 氧化铝":{"原料":[{"sheet":"L1铝土矿进口-月","col":"中国铝土矿月度进口量","unit":"万吨","w":100,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false}],"成本":[{"sheet":"L2氧化铝成本-日","col":"氧化铝_完全成本","unit":"元/吨","w":100,"bearHigh":false,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false}],"供给":[{"sheet":"L2氧化铝产量中国-月","col":"SMM中国氧化铝月度产量：总量","unit":"万吨","w":55,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false},{"sheet":"L2氧化铝开工率中国-周","col":"运行产能","unit":"万吨","w":25,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false},{"sheet":"L2氧化铝开工率中国-周","col":"建成产能","unit":"万吨","w":20,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false},{"sheet":"L2氧化铝开工率中国-周","col":"开工率","unit":"%","w":0,"bearHigh":false,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false}],"需求":[{"sheet":"L3电解铝产量中国-月","col":"SMM中国电解铝月度产量：总量","unit":"万吨","w":100,"bearHigh":false,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false}],"库存":[{"sheet":"L2氧化铝库存-周","col":"氧化铝：库存：中国（周）","unit":"万吨","w":100,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false}],"进出口":[{"sheet":"L2氧化铝进出口-月","col":"氧化铝月度净进口量","unit":"万吨","w":100,"bearHigh":true,"kind":"flow","smooth3":true,"floorWhenBinding":false,"pairMom":false}]},"L3 电解铝":{"原料":[{"sheet":"L1铝土矿进口-月","col":"中国铝土矿月度进口量","unit":"万吨","w":100,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false}],"成本":[{"sheet":"L2氧化铝价格-日","col":"SMM氧化铝价格指数","unit":"元/吨","w":100,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false}],"供给":[{"sheet":"L3电解铝产量中国-月","col":"SMM中国电解铝月度产量：总量","unit":"万吨","w":35,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":true,"pairMom":false},{"sheet":"L3电解铝产能中国-周","col":"运行产能","unit":"万吨","w":25,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":true,"pairMom":false},{"sheet":"L3电解铝产能中国-周","col":"开工率","unit":"%","w":15,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":true,"pairMom":false},{"sheet":"L3电解铝平衡-月","col":"中国电解铝月度平衡：净进口量","unit":"万吨","w":25,"bearHigh":true,"kind":"flow","smooth3":true,"floorWhenBinding":false,"pairMom":false}],"需求":[{"sheet":"L3铝棒消费","col":"中国主要消费地铝棒周度出库量：合计(万吨)","unit":"万吨","w":45,"bearHigh":false,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false},{"sheet":"L5铝合金开工率-周","col":"铝行业平均开工率(%)","unit":"%","w":30,"bearHigh":false,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false},{"sheet":"L5铝合金进出口-月","col":"铝材出口总量","unit":"万吨","w":25,"bearHigh":false,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":true}],"库存":[{"sheet":"L3 电解铝社会库存-周","col":"中国电解铝分地区社会库存：合计","unit":"万吨","w":70,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false},{"sheet":"L3SHFE库存-周","col":"上海期货交易所分省份铝锭库存：总库存","unit":"万吨","w":30,"bearHigh":true,"kind":"flow","smooth3":false,"floorWhenBinding":false,"pairMom":false}],"利润":[{"sheet":"L3电解铝成本利润-日","col":"中国电解铝成本模型：利润","unit":"元/吨","w":100,"bearHigh":false,"kind":"margin","smooth3":false,"floorWhenBinding":false,"pairMom":false}]}}}</script>
     <details class="an-caliber">
   <summary>📘 口径说明 (全页唯一 · 点开)</summary>
   <div class="an-caliber-body">
@@ -2127,7 +2152,7 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
       </details>
     </section>
     <div class="invest-section" id="invest-panel">
-    <h2 class="invest-title">💡 投资决策面板 (概览) <span class="invest-date">2026-11-02</span></h2>
+    <h2 class="invest-title">💡 投资决策面板 (概览) <span class="invest-date">2026-11-09</span></h2>
     <div class="invest-grid invest-grid-3">
       
     <div class="invest-card strategy" data-path="-0.138" data-cov="1.00">
@@ -2685,6 +2710,7 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
     
     
     
+    
 
     
     
@@ -2702,6 +2728,8 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
       <span class="cc-tag">① 核心逻辑 · 当期观点 (推理过程见本页下方「🧠 推理逻辑」)</span>
     </div>
     <div class="dc-body">
+      <div class="al-lead"><span class="al-lead-i"><span class="al-lead-k">数据截至</span><span class="al-lead-v">2026-10-23（价格）/ 2026-09-30（库存）</span><span class="al-lead-n">周度重跑即刷新</span></span><span class="al-lead-i"><span class="al-lead-k">综合方向</span><span class="al-lead-v al-lead-dir" style="color:#94a3b8">中性</span><span class="al-lead-n">中期档 · 短/中/长见下方三档</span></span><span class="al-lead-i"><span class="al-lead-k">多空</span><span class="al-lead-v">47 : 53</span><span class="al-lead-n">6 维同源换算（正分=偏多）</span></span><span class="al-lead-i"><span class="al-lead-k">缺口 / 印证 / 利润</span><span class="al-lead-v">-0.00 / -0.17 / +0.01</span><span class="al-lead-n">综合分 = 0.45×缺口 + 0.35×印证 + 0.20×利润</span></span><span class="al-lead-i"><span class="al-lead-k">路径分</span><span class="al-lead-v">-0.138（中性）</span><span class="al-lead-n">覆盖率 100%</span></span><span class="al-lead-i"><span class="al-lead-k">触发</span><span class="al-lead-v">均未触及</span><span class="al-lead-n">风险触发线</span></span><span class="al-lead-i"><span class="al-lead-k">事件面</span><span class="al-lead-v" style="color:#94a3b8">0</span><span class="al-lead-n">0 项有效</span></span></div>
+      <div class="al-contra"><span class="ac-lbl">核心矛盾</span>综合分 -0.06，缺口与印证同向，当前无方向冲突。</div>
       <div class="dc-stage">
         <div class="dc-stage-title">① 核心逻辑 <span class="src">盘面 vs 基本面 → 传导确认 → 关键变量 → 后续跟踪重点 · 全部取自 Excel</span></div>
         
@@ -2751,6 +2779,7 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
 
     </div>
   </div></section>
+    <details class="al-eventface"><summary>📌 事件 / 政策（Excel 之外的事实）· 有效 0 项 · 事件面 <b style="color:#94a3b8">0</b></summary><div class="al-eventface-body"><div class="ef-empty">本轮无登记的有效事件 / 政策。</div><div class="al-eventface-foot">⚠ 事件面是<b>独立提醒层</b>：不计入综合分 / 路径分 / 多空权重与动作矩阵，只提示「除了数据之外还有这些事在发生」。有效期 45 天（按事件发生日算），单事件权重上限 20、事件面总分上限 40。每条须可追溯到来源与知识库原文。</div></div></details>
     
   <section>
     <h3 class="section-title">🧠 推理逻辑 · 6 维打分 / 输入信号 / 多空博弈 <span class="src">② 推理逻辑 (色阶=强度, 表底=算式) → 供需推测 → 上下游传导 → 多空博弈; ③ 信号清单 (一个指标一行) · 默认折叠, 点开复算</span></h3>
@@ -2762,6 +2791,8 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
       <span class="cc-tag">② 推理逻辑 → ③ 信号清单 (结论见本环节 Tab)</span>
     </div>
     <div class="dc-body">
+      
+      
       
 
       <div class="dc-stage">
@@ -4098,6 +4129,8 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
       <span class="cc-tag">① 核心逻辑 · 当期观点 (推理过程见本页下方「🧠 推理逻辑」)</span>
     </div>
     <div class="dc-body">
+      <div class="al-lead"><span class="al-lead-i"><span class="al-lead-k">数据截至</span><span class="al-lead-v">2026-10-27（价格）/ 2026-10-23（库存）</span><span class="al-lead-n">周度重跑即刷新</span></span><span class="al-lead-i"><span class="al-lead-k">综合方向</span><span class="al-lead-v al-lead-dir" style="color:#16a34a">偏空</span><span class="al-lead-n">中期档 · 短/中/长见下方三档</span></span><span class="al-lead-i"><span class="al-lead-k">多空</span><span class="al-lead-v">37 : 63</span><span class="al-lead-n">6 维同源换算（正分=偏多）</span></span><span class="al-lead-i"><span class="al-lead-k">缺口 / 印证 / 利润</span><span class="al-lead-v">-0.45 / -0.18 / +0.01</span><span class="al-lead-n">综合分 = 0.45×缺口 + 0.35×印证 + 0.20×利润</span></span><span class="al-lead-i"><span class="al-lead-k">路径分</span><span class="al-lead-v">-0.169（偏空）</span><span class="al-lead-n">覆盖率 100%</span></span><span class="al-lead-i"><span class="al-lead-k">触发</span><span class="al-lead-v">1 条缓冲带内</span><span class="al-lead-n">风险触发线</span></span><span class="al-lead-i"><span class="al-lead-k">事件面</span><span class="al-lead-v" style="color:#94a3b8">0</span><span class="al-lead-n">0 项有效</span></span></div>
+      <div class="al-contra"><span class="ac-lbl">核心矛盾</span>综合分 -0.27，缺口与印证同向，当前无方向冲突。</div>
       <div class="dc-stage">
         <div class="dc-stage-title">① 核心逻辑 <span class="src">盘面 vs 基本面 → 传导确认 → 关键变量 → 后续跟踪重点 · 全部取自 Excel</span></div>
         
@@ -4155,6 +4188,7 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
 
     </div>
   </div></section>
+    <details class="al-eventface"><summary>📌 事件 / 政策（Excel 之外的事实）· 有效 0 项 · 事件面 <b style="color:#94a3b8">0</b></summary><div class="al-eventface-body"><div class="ef-empty">本轮无登记的有效事件 / 政策。</div><div class="al-eventface-foot">⚠ 事件面是<b>独立提醒层</b>：不计入综合分 / 路径分 / 多空权重与动作矩阵，只提示「除了数据之外还有这些事在发生」。有效期 45 天（按事件发生日算），单事件权重上限 20、事件面总分上限 40。每条须可追溯到来源与知识库原文。</div></div></details>
     
   <section>
     <h3 class="section-title">🧠 推理逻辑 · 6 维打分 / 输入信号 / 多空博弈 <span class="src">② 推理逻辑 (色阶=强度, 表底=算式) → 供需推测 → 上下游传导 → 多空博弈; ③ 信号清单 (一个指标一行) · 默认折叠, 点开复算</span></h3>
@@ -4166,6 +4200,8 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
       <span class="cc-tag">② 推理逻辑 → ③ 信号清单 (结论见本环节 Tab)</span>
     </div>
     <div class="dc-body">
+      
+      
       
 
       <div class="dc-stage">
@@ -5569,6 +5605,8 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
       <span class="cc-tag">① 核心逻辑 · 当期观点 (推理过程见本页下方「🧠 推理逻辑」)</span>
     </div>
     <div class="dc-body">
+      <div class="al-lead"><span class="al-lead-i"><span class="al-lead-k">数据截至</span><span class="al-lead-v">2026-10-27（价格）/ 2026-10-22（库存）</span><span class="al-lead-n">周度重跑即刷新</span></span><span class="al-lead-i"><span class="al-lead-k">综合方向</span><span class="al-lead-v al-lead-dir" style="color:#94a3b8">中性</span><span class="al-lead-n">中期档 · 短/中/长见下方三档</span></span><span class="al-lead-i"><span class="al-lead-k">多空</span><span class="al-lead-v">44 : 56</span><span class="al-lead-n">6 维同源换算（正分=偏多）</span></span><span class="al-lead-i"><span class="al-lead-k">缺口 / 印证 / 利润</span><span class="al-lead-v">-0.35 / +0.30 / -0.34</span><span class="al-lead-n">综合分 = 0.45×缺口 + 0.35×印证 + 0.20×利润</span></span><span class="al-lead-i"><span class="al-lead-k">路径分</span><span class="al-lead-v">+0.168（偏多）</span><span class="al-lead-n">覆盖率 100%</span></span><span class="al-lead-i"><span class="al-lead-k">触发</span><span class="al-lead-v">1 条缓冲带内</span><span class="al-lead-n">风险触发线</span></span><span class="al-lead-i"><span class="al-lead-k">事件面</span><span class="al-lead-v" style="color:#94a3b8">0</span><span class="al-lead-n">0 项有效</span></span></div>
+      <div class="al-contra"><span class="ac-lbl">核心矛盾</span>缺口（-0.35）与印证（+0.30）为双向证据，不是算错；综合分 -0.12 与路径分 +0.168 方向分歧，仓位已取最严约束。</div>
       <div class="dc-stage">
         <div class="dc-stage-title">① 核心逻辑 <span class="src">盘面 vs 基本面 → 传导确认 → 关键变量 → 后续跟踪重点 · 全部取自 Excel</span></div>
         <div class="cc-l8hint">
@@ -5638,6 +5676,7 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
 
     </div>
   </div></section>
+    <details class="al-eventface"><summary>📌 事件 / 政策（Excel 之外的事实）· 有效 0 项 · 事件面 <b style="color:#94a3b8">0</b></summary><div class="al-eventface-body"><div class="ef-empty">本轮无登记的有效事件 / 政策。</div><div class="al-eventface-foot">⚠ 事件面是<b>独立提醒层</b>：不计入综合分 / 路径分 / 多空权重与动作矩阵，只提示「除了数据之外还有这些事在发生」。有效期 45 天（按事件发生日算），单事件权重上限 20、事件面总分上限 40。每条须可追溯到来源与知识库原文。</div></div></details>
     
   <section>
     <h3 class="section-title">🧠 推理逻辑 · 6 维打分 / 输入信号 / 多空博弈 <span class="src">② 推理逻辑 (色阶=强度, 表底=算式) → 供需推测 → 上下游传导 → 多空博弈; ③ 信号清单 (一个指标一行) · 默认折叠, 点开复算</span></h3>
@@ -5649,6 +5688,8 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
       <span class="cc-tag">② 推理逻辑 → ③ 信号清单 (结论见本环节 Tab)</span>
     </div>
     <div class="dc-body">
+      
+      
       
 
       <div class="dc-stage">
@@ -8972,6 +9013,7 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
     
     
     
+    
     <section><h3 class="section-title">🧩 本层定位 · 辅助判断 <span class="src">不单独提出多空结论</span></h3>
       <div class="aux-note">
         <div class="aux-note-head">再生铝是原铝的<b>替代供给</b> —— 本层数据用于判断 <b>L3 电解铝</b> 的供需</div>
@@ -9269,6 +9311,7 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
     </div>
   </section>
   </div><div class="tab-content " id="tab-5">
+    
     
     
     
@@ -9921,6 +9964,7 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
     </div>
   </section>
   </div><div class="tab-content " id="tab-6">
+    
     
     
     
@@ -11646,6 +11690,7 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
     
     
     
+    
 
     
     <section>
@@ -11960,6 +12005,7 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
     </div>
   </section>
   </div><div class="tab-content " id="tab-8">
+    
     
     
     
@@ -13070,7 +13116,7 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
     <li><a href="data-framework/产业链示意图.html" target="_blank">🏭 产业链示意图（数据充分度与可信度）</a></li>
   </ul>
 </aside>
-<footer>铝产业看板 v0.1 · 数据更新: 2026-11-02T06:30:29.167Z · <a href="data-framework/产业链示意图.html" target="_blank" style="color:#0369a1">产业链示意图</a> · 点击左下 📑 打开目录</footer>
+<footer>铝产业看板 v0.1 · 数据更新: 2026-11-09T06:58:59.135Z · <a href="data-framework/产业链示意图.html" target="_blank" style="color:#0369a1">产业链示意图</a> · 点击左下 📑 打开目录</footer>
 <script>
 document.querySelectorAll('.tab').forEach(btn => {
   btn.addEventListener('click', () => {
